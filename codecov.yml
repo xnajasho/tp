@@ -5,5 +5,5 @@ comment:        # this is a top-level key
   require_base: no        # [yes :: must have a base report to post]
   require_head: yes       # [yes :: must have a head report to post]
 codecov:
-  token: 726b2c5f-f1c6-4cc8-b42d-2cb0c7d8150a
+  token: a1e6fee6-036b-405c-ab70-55fc0643807b
 
