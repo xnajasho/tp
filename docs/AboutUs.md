@@ -5,55 +5,56 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
+You can reach us at the email `sajal@nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Damith C. Rajapakse
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/damithc.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/damithc)]
+[[portfolio](team/damithc.md)]
 
 * Role: Project Advisor
 
-### Jane Doe
+### Pawandeep Singh Sekhon
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/pss-coder.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/pss-coder)]
+[[portfolio](team/pss-coder.md)]
 
 * Role: Team Lead
-* Responsibilities: UI
+* Responsibilities: In charge of Deliverables and Deadlines, and UI
 
-### Johnny Doe
+### Chin Ze-Xi, Sean
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/xnajasho.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: Data
-
-### Jean Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/xnajasho)] 
+[[portfolio](team/xnajasho.md)]
 
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: In charge of Scheduling and tracking, and Model
 
-### James Doe
+### Ronald Tan Sing Wei
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ronaldtansingwei.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/ronaldtansingwei)]
+[[portfolio](team/ronaldtansingwei.md)]
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: In charge of Documentation, Testing, and Strategy
+
+### Sajal Vaishnav
+
+<img src="images/sajalvaishnav.png" width="200px">
+
+[[github](http://github.com/sajalvaishnav)]
+[[portfolio](team/sajalvaishnav.md)]
+
+* Role: Developer
+* Responsibilities: In charge of Integration, Code Quality, and Storage
