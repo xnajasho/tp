@@ -10,12 +10,8 @@ public class ProfileDisplay extends UiPart<Region> {
 
     private static final String FXML = "ProfileDisplay.fxml";
 
-    @FXML
-    private TextArea resultDisplay;
-
     public ProfileDisplay() {
         super(FXML);
     }
 
-    
 }

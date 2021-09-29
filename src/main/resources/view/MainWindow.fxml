@@ -28,6 +28,7 @@
       </stylesheets>
 
       <VBox alignment="CENTER" minHeight="600.0" minWidth="450.0">
+
       <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
         <Menu mnemonicParsing="false" text="File">
           <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
