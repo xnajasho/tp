@@ -13,5 +13,4 @@ public class ProfileDisplay extends UiPart<Region> {
     public ProfileDisplay() {
         super(FXML);
     }
-
 }
