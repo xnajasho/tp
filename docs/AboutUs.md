@@ -9,16 +9,6 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 ## Project team
 
-### Damith C. Rajapakse
-
-<img src="images/damithc.png" width="200px">
-
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/damithc)]
-[[portfolio](team/damithc.md)]
-
-* Role: Project Advisor
-
 ### Pawandeep Singh Sekhon
 
 <img src="images/pss-coder.png" width="200px">
