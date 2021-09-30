@@ -13,8 +13,9 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 <img src="images/pss-coder.png" width="200px">
 
-[[github](http://github.com/pss-coder)]
-[[portfolio](team/pss-coder.md)]
+[github](http://github.com/pss-coder)
+
+[portfolio](team/pss-coder.md)
 
 * Role: Team Lead
 * Responsibilities: In charge of Deliverables and Deadlines, and UI
@@ -23,8 +24,9 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 <img src="images/xnajasho.png" width="200px">
 
-[[github](http://github.com/xnajasho)] 
-[[portfolio](team/xnajasho.md)]
+[github](http://github.com/xnajasho)
+
+[portfolio](team/xnajasho.md)
 
 * Role: Developer
 * Responsibilities: In charge of Scheduling and tracking, and Model
@@ -33,8 +35,9 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 <img src="images/ronaldtansingwei.png" width="200px">
 
-[[github](http://github.com/ronaldtansingwei)]
-[[portfolio](team/ronaldtansingwei.md)]
+[github](http://github.com/ronaldtansingwei)
+
+[portfolio](team/ronaldtansingwei.md)
 
 * Role: Developer
 * Responsibilities: In charge of Documentation, Testing, and Strategy
@@ -43,8 +46,9 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 <img src="images/sajalvaishnav.png" width="200px">
 
-[[github](http://github.com/sajalvaishnav)]
-[[portfolio](team/sajalvaishnav.md)]
+[github](http://github.com/sajalvaishnav)
+
+[portfolio](team/sajalvaishnav.md)
 
 * Role: Developer
 * Responsibilities: In charge of Integration, Code Quality, and Storage
