@@ -1,3 +1,10 @@
+---
+layout: page
+title: User Guide
+---
+* Table of Contents
+  {:toc}
+
 ### CS2103-F10-3 User Guide for v1.2
 #### Friend Book
 Product name: Friend Book

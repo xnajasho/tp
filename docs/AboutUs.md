@@ -3,9 +3,7 @@ layout: page
 title: About Us
 ---
 
-We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
-
-You can reach us at the email `sajal@nus.edu.sg`
+We are the team behind Friend Book.
 
 ## Project team
 
@@ -13,9 +11,9 @@ You can reach us at the email `sajal@nus.edu.sg`
 
 <img src="images/pss-coder.png" width="200px">
 
-Pawan's [github](http://github.com/pss-coder)
+Pawandeep's [github](http://github.com/pss-coder)
 
-Pawan's project [portfolio](team/pss-coder.md)
+Pawandeep's project [portfolio](team/pss-coder.md)
 
 * Role: Team Lead
 * Responsibilities: In charge of Deliverables and Deadlines, and UI
