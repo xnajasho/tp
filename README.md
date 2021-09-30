@@ -1,5 +1,4 @@
 [![Java CI](https://github.com/AY2122S1-CS2103-F10-3/tp/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/AY2122S1-CS2103-F10-3/tp/actions/workflows/gradle.yml)
-
 [![codecov](https://codecov.io/gh/AY2122S1-CS2103-F10-3/tp/branch/master/graph/badge.svg?token=FYK9IG36EO)](https://codecov.io/gh/AY2122S1-CS2103-F10-3/tp)
 
 This is a draft prototype of what to expect from FriendsBook.
