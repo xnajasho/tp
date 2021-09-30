@@ -5,16 +5,41 @@ title: Developer Guide
 * Table of Contents
 {:toc}
 
+--------------------------------------------------------------------------------------------------------------------
 
-Acknowledgements
-This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
-Setting Up - Coming soon
-Design - Coming soon
-Implementation - Coming soon
-Documentation, logging, testing, configuration, dev-ops - Coming soon
-Appendix: Requirements
-Project Scope
-Target user profile:
+# STILL IN PROGRESS -> STAY TUNED
+
+## **Acknowledgements**
+
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Setting up, getting started**
+
+Refer to the guide [_Setting up and getting started_](SettingUp.md).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Design** - COMING SOON
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Implementation** - COMING SOON
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Documentation, logging, testing, configuration, dev-ops** - Coming soon
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix: Requirements**
+
+### Product scope
+
+**Target user profile**:
+
 ·       has a significant number of friends to keep track of
 ·       wishes to categorise friends accordingly
 ·       needs to keep track of friends’ birthdays
@@ -22,9 +47,15 @@ Target user profile:
 ·       can type fast
 prefers typing to mouse interactions
 is reasonably comfortable using CLI apps
-Value proposition: manage contacts faster than a typical mouse/GUI driven app
-Priorities: High (must have) - * * *, Medium (nice to have) - * *, Low (unlikely to have) - *
-User stories
+
+
+**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+
+
+### User stories
+
+Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+
 Priority
 As a..
 I want to..
@@ -91,7 +122,13 @@ Be reminded of my friends’ birthdays
 Keep track of my friends’ birthdays
 
 
-Use cases
+
+*{More to be added}*
+
+### Use cases
+
+(For all use cases below, the **System** is the `FriendBook` and the **Actor** is the `user`, unless specified otherwise)
+
 (For all use cases below, the System is the FriendBook and the Actor is the user, unless specified otherwise)
 Contacts Feature
 Use case: Add a friend
@@ -146,12 +183,24 @@ Use case: Sorting friends by birthday
 Tagging Feature
 Use case: Tag friend
 
-Non-Functional Requirements
-1.     Should work on any mainstream OS as long as it has Java 11 or above installed.
+
+*{More to be added}*
+
+### Non-Functional Requirements
+
+Should work on any mainstream OS as long as it has Java 11 or above installed.
 2.     Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.     A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.     Should be able to work on its own without connection to the Internet
-Glossary
-·       Mainstream OS: Windows, Linux, Unix, OS-X
-·       Private contact detail: A contact detail that is not meant to be shared with others
-Appendix: Instruction for manual testing - Coming soon
+
+
+*{More to be added}*
+
+### Glossary
+
+* **Mainstream OS**: Windows, Linux, Unix, OS-X
+* **Private contact detail**: A contact detail that is not meant to be shared with others
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix: Instructions for manual testing** - COMING SOON
