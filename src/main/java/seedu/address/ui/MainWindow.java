@@ -50,6 +50,12 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    // ================= Newly added for friend book ================
+
+    @FXML
+    private StackPane profilePlaceHolder;
+    private ProfileDisplay profileDisplay;
+
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -116,11 +122,16 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
-        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
+//        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
+//        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        // Newly added
+        profileDisplay = new ProfileDisplay();
+        profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
+
     }
 
     /**
