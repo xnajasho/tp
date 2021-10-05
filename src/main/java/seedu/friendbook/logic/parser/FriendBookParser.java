@@ -21,7 +21,7 @@ import seedu.friendbook.logic.parser.exceptions.ParseException;
 /**
  * Parses user input.
  */
-public class AddressBookParser {
+public class FriendBookParser {
 
     /**
      * Used for initial separation of command word and args.

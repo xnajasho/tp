@@ -35,44 +35,44 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' friend book file path.
      */
-    Path getAddressBookFilePath();
+    Path getFriendBookFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' friend book file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setFriendBookFilePath(Path friendBookFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces friend book data with the data in {@code friendBook}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setFriendBook(ReadOnlyFriendBook friendBook);
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    /** Returns the FriendBook */
+    ReadOnlyFriendBook getFriendBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the friend book.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the friend book.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the friend book.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the friend book.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the friend book.
      */
     void setPerson(Person target, Person editedPerson);
 

@@ -10,10 +10,10 @@ import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.logic.commands.Command;
 import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
-import seedu.friendbook.logic.parser.AddressBookParser;
+import seedu.friendbook.logic.parser.FriendBookParser;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.Model;
-import seedu.friendbook.model.ReadOnlyAddressBook;
+import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.storage.Storage;
 
@@ -26,7 +26,7 @@ public class LogicManager implements Logic {
 
     private final Model model;
     private final Storage storage;
-    private final AddressBookParser addressBookParser;
+    private final FriendBookParser friendBookParser;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -34,7 +34,7 @@ public class LogicManager implements Logic {
     public LogicManager(Model model, Storage storage) {
         this.model = model;
         this.storage = storage;
-        addressBookParser = new AddressBookParser();
+        friendBookParser = new FriendBookParser();
     }
 
     @Override
@@ -42,11 +42,11 @@ public class LogicManager implements Logic {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
-        Command command = addressBookParser.parseCommand(commandText);
+        Command command = friendBookParser.parseCommand(commandText);
         commandResult = command.execute(model);
 
         try {
-            storage.saveAddressBook(model.getAddressBook());
+            storage.saveFriendBook(model.getFriendBook());
         } catch (IOException ioe) {
             throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
         }
@@ -55,8 +55,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return model.getAddressBook();
+    public ReadOnlyFriendBook getFriendBook() {
+        return model.getFriendBook();
     }
 
     @Override
@@ -65,8 +65,8 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return model.getAddressBookFilePath();
+    public Path getFriendBookFilePath() {
+        return model.getFriendBookFilePath();
     }
 
     @Override

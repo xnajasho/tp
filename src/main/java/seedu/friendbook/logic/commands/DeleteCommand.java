@@ -11,7 +11,7 @@ import seedu.friendbook.model.Model;
 import seedu.friendbook.model.person.Person;
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes a person identified using it's displayed index from the friend book.
  */
 public class DeleteCommand extends Command {
 

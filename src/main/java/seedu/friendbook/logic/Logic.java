@@ -7,7 +7,7 @@ import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
-import seedu.friendbook.model.ReadOnlyAddressBook;
+import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -24,19 +24,19 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the AddressBook.
+     * Returns the FriendBook.
      *
-     * @see seedu.address.model.Model#getAddressBook()
+     * @see seedu.friendbook.model.Model#getFriendBook()
      */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyFriendBook getFriendBook();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' friend book file path.
      */
-    Path getAddressBookFilePath();
+    Path getFriendBookFilePath();
 
     /**
      * Returns the user prefs' GUI settings.
