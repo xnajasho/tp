@@ -98,6 +98,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getBirthday().equals(getBirthday())
                 && otherPerson.getTags().equals(getTags());
     }
 
@@ -116,7 +117,9 @@ public class Person {
                 .append("; Email: ")
                 .append(getEmail())
                 .append("; Address: ")
-                .append(getAddress());
+                .append(getAddress())
+                .append("; Birthday: ")
+                .append(getBirthday());
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
