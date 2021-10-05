@@ -14,6 +14,11 @@ public class Birthday {
 
     public final String value;
 
+    /**
+     * Constructs a {@code Birthday}.
+     *
+     * @param birthday A valid birthday in 'YYYY-MM-DD' format.
+     */
     public Birthday(String birthday) {
         requireNonNull(birthday);
         checkArgument(isValidBirthday(birthday), MESSAGE_CONSTRAINTS);
