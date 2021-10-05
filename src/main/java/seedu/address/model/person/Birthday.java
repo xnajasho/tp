@@ -14,7 +14,7 @@ public class Birthday {
 
     public final String value;
 
-    Birthday(String birthday) {
+    public Birthday(String birthday) {
         requireNonNull(birthday);
         checkArgument(isValidBirthday(birthday), MESSAGE_CONSTRAINTS);
         value = birthday;
