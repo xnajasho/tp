@@ -24,10 +24,10 @@ import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ModelManager;
-import seedu.friendbook.model.ReadOnlyAddressBook;
+import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.UserPrefs;
 import seedu.friendbook.model.person.Person;
-import seedu.friendbook.storage.JsonAddressBookStorage;
+import seedu.friendbook.storage.JsonFriendBookStorage;
 import seedu.friendbook.storage.JsonUserPrefsStorage;
 import seedu.friendbook.storage.StorageManager;
 import seedu.friendbook.testutil.PersonBuilder;
@@ -43,10 +43,10 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonAddressBookStorage addressBookStorage =
-                new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonFriendBookStorage friendBookStorage =
+                new JsonFriendBookStorage(temporaryFolder.resolve("friendBook.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(friendBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -70,12 +70,12 @@ public class LogicManagerTest {
 
     @Test
     public void execute_storageThrowsIoException_throwsCommandException() {
-        // Setup LogicManager with JsonAddressBookIoExceptionThrowingStub
-        JsonAddressBookStorage addressBookStorage =
-                new JsonAddressBookIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionAddressBook.json"));
+        // Setup LogicManager with JsonFriendBookIoExceptionThrowingStub
+        JsonFriendBookStorage friendBookStorage =
+                new JsonFriendBookIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionFriendBook.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(friendBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
 
         // Execute add command
@@ -129,7 +129,7 @@ public class LogicManagerTest {
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
             String expectedMessage) {
-        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getFriendBook(), new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
@@ -149,13 +149,13 @@ public class LogicManagerTest {
     /**
      * A stub class to throw an {@code IOException} when the save method is called.
      */
-    private static class JsonAddressBookIoExceptionThrowingStub extends JsonAddressBookStorage {
-        private JsonAddressBookIoExceptionThrowingStub(Path filePath) {
+    private static class JsonFriendBookIoExceptionThrowingStub extends JsonFriendBookStorage {
+        private JsonFriendBookIoExceptionThrowingStub(Path filePath) {
             super(filePath);
         }
 
         @Override
-        public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+        public void saveFriendBook(ReadOnlyFriendBook friendBook, Path filePath) throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

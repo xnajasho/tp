@@ -2,7 +2,7 @@ package seedu.friendbook.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static seedu.friendbook.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
 
 import java.nio.file.Path;
 
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import seedu.friendbook.commons.core.GuiSettings;
-import seedu.friendbook.model.AddressBook;
-import seedu.friendbook.model.ReadOnlyAddressBook;
+import seedu.friendbook.model.FriendBook;
+import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.UserPrefs;
 
 public class StorageManagerTest {
@@ -24,9 +24,9 @@ public class StorageManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonAddressBookStorage addressBookStorage = new JsonAddressBookStorage(getTempFilePath("ab"));
+        JsonFriendBookStorage friendBookStorage = new JsonFriendBookStorage(getTempFilePath("ab"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
-        storageManager = new StorageManager(addressBookStorage, userPrefsStorage);
+        storageManager = new StorageManager(friendBookStorage, userPrefsStorage);
     }
 
     private Path getTempFilePath(String fileName) {
@@ -48,21 +48,21 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void addressBookReadSave() throws Exception {
+    public void friendBookReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
-         * {@link JsonAddressBookStorage} class.
-         * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
+         * {@link JsonFriendBookStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link JsonFriendBookStorageTest} class.
          */
-        AddressBook original = getTypicalAddressBook();
-        storageManager.saveAddressBook(original);
-        ReadOnlyAddressBook retrieved = storageManager.readAddressBook().get();
-        assertEquals(original, new AddressBook(retrieved));
+        FriendBook original = getTypicalFriendBook();
+        storageManager.saveFriendBook(original);
+        ReadOnlyFriendBook retrieved = storageManager.readFriendBook().get();
+        assertEquals(original, new FriendBook(retrieved));
     }
 
     @Test
-    public void getAddressBookFilePath() {
-        assertNotNull(storageManager.getAddressBookFilePath());
+    public void getFriendBookFilePath() {
+        assertNotNull(storageManager.getFriendBookFilePath());
     }
 
 }

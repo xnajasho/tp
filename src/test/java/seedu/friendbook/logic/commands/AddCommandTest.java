@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
-import seedu.friendbook.model.AddressBook;
+import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.Model;
-import seedu.friendbook.model.ReadOnlyAddressBook;
+import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.testutil.PersonBuilder;
@@ -99,12 +99,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public Path getAddressBookFilePath() {
+        public Path getFriendBookFilePath() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setAddressBookFilePath(Path addressBookFilePath) {
+        public void setFriendBookFilePath(Path friendBookFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -114,12 +114,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setAddressBook(ReadOnlyAddressBook newData) {
+        public void setFriendBook(ReadOnlyFriendBook newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
+        public ReadOnlyFriendBook getFriendBook() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -186,8 +186,8 @@ public class AddCommandTest {
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
-            return new AddressBook();
+        public ReadOnlyFriendBook getFriendBook() {
+            return new FriendBook();
         }
     }
 
