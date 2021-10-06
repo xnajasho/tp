@@ -26,7 +26,22 @@ public class Birthday {
     }
 
     /**
-     * Returns true if the input birthday follows the 'yyyy-MM-dd' format
+     * Checks if the specified birthday has passed
+     * @param birthday A valid birthday in 'YYYY-MM-DD' format
+     * @return false if birthday has yet to occur
+     */
+    public static boolean hasBirthdayPassed(LocalDate birthday) {
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.getYear() > birthday.getYear()
+                || currentDate.getYear() == birthday.getYear()
+                    && currentDate.getMonthValue() > birthday.getMonthValue()
+                || currentDate.getYear() == birthday.getYear()
+                    && currentDate.getMonthValue() == birthday.getMonthValue()
+                    && currentDate.getDayOfMonth() >= birthday.getDayOfMonth();
+    }
+
+    /**
+     * Returns true if the input birthday follows the 'yyyy-MM-dd' format and if it has occurred
      */
     public static boolean isValidBirthday(String test) {
         boolean isValid;
@@ -35,7 +50,7 @@ public class Birthday {
 
         try {
             LocalDate date = formatter.parse(test, LocalDate::from);
-            isValid = true;
+            isValid = hasBirthdayPassed(date);
         } catch (DateTimeParseException e) {
             isValid = false;
         }
