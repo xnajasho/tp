@@ -35,7 +35,7 @@ public interface FriendBookStorage {
      * @param friendBook cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveFriendBook(ReadOnlyFriendBook friendsBook) throws IOException;
+    void saveFriendBook(ReadOnlyFriendBook friendBook) throws IOException;
 
     /**
      * @see #saveFriendBook(ReadOnlyFriendBook)
