@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -15,96 +15,88 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="650.0" minWidth="600.0" onCloseRequest="#handleExit" title="Address App" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
-    <Image url="@/images/address_book_32.png" />
+    <Image url="@/images/friend_book_32.png" />
   </icons>
   <scene>
     <Scene>
-      <stylesheets>
-        <URL value="@Fonts.css" />
-        <URL value="@DarkTheme.css" />
-        <URL value="@Extensions.css" />
-      </stylesheets>
+<!--      <stylesheets>-->
+<!--        <URL value="@Fonts.css" />-->
+<!--        <URL value="@DarkTheme.css" />-->
+<!--        <URL value="@Extensions.css" />-->
+<!--      </stylesheets>-->
 
-      <VBox alignment="CENTER" minHeight="600.0" minWidth="450.0">
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="450.0">
 
-      <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
-        <Menu mnemonicParsing="false" text="File">
-          <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
-        </Menu>
+        <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
+            </Menu>
       </MenuBar>
 
-          <!--  Main Body       -->
-        <GridPane fx:id="mainContainer" alignment="CENTER" prefWidth="450.0" VBox.vgrow="ALWAYS">
+                <!--  Main Body       -->
+        <GridPane fx:id="mainContainer" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
 
-          <columnConstraints>
+                <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           </columnConstraints>
           <rowConstraints>
             <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="514.0" minHeight="0.0" prefHeight="450.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="62.0" minHeight="0.0" prefHeight="61.0" vgrow="SOMETIMES" />
-                  <RowConstraints />
+            <RowConstraints maxHeight="514.0" minHeight="0.0" prefHeight="439.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="72.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="42.0" minHeight="5.0" prefHeight="33.0" />
           </rowConstraints>
 
-          <children>
-            <!--      Profile       -->
-            <HBox fx:id="profileDisplay" alignment="CENTER" GridPane.rowIndex="0">
-              <StackPane fx:id="profilePlaceHolder" alignment="CENTER" >
-              </StackPane>
+                    <!--       profileContainer         -->
+            <HBox fx:id="profileContainer" fillHeight="false" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+                        <StackPane fx:id="profilePlaceHolder" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             </HBox>
 
 
-            <HBox alignment="CENTER" spacing="30.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
-              <children>
+                  <HBox alignment="CENTER" spacing="30.0" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                      <!--       container for person list         -->
+                <VBox fx:id="friendContainer" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
+                           <Label text="My Friend List" />
 
-                <!--       container for person list         -->
-                <VBox fx:id="personList" prefWidth="477.0" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
-                  <HBox.margin>
-                    <Insets bottom="10.0" left="10.0" />
-                  </HBox.margin>
+                        <!--        placeholder to display person list          -->
+                  <StackPane fx:id="friendListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" />
+                           </padding>
+                      </VBox>
 
-                  <!--        placeholder to display person list          -->
-                  <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
-
-                </VBox>
-
-                <!--      container for birthday list          -->
-                <VBox fx:id="birthdayList" HBox.hgrow="ALWAYS">
-                  <HBox.margin>
-                    <Insets right="10.0" />
-                  </HBox.margin>
+                      <!--      container for birthday list          -->
+                <VBox fx:id="birthdayContainer" HBox.hgrow="ALWAYS">
+                           <Label text="Upcoming Friends Birthday" />
                   <!--        placeholder to display birthday list          -->
-                  <StackPane fx:id="resultDisplayPlaceholder" maxHeight="400.0" minHeight="50.0" prefHeight="200.0" prefWidth="450.0" styleClass="pane-with-border">
-                    <HBox.margin>
-                      <Insets left="10.0" />
-                    </HBox.margin>
+<!--                    fx:id="resultDisplayPlaceholder"-->
+                  <StackPane fx:id="birthdayListPanelPlaceholder" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                   </StackPane>
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" />
+                           </padding>
 
-                </VBox>
-              </children>
+                      </VBox>
             </HBox>
 
+<!--                    Command box container-->
+                  <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin></StackPane>
 
-            <StackPane fx:id="commandBoxPlaceholder" alignment="CENTER" styleClass="pane-with-border" GridPane.rowIndex="2">
-              <padding>
-                <Insets bottom="5" left="10" right="10" top="5" />
-              </padding>
-            </StackPane>
-
-
-              <!--     REMOVED  -> WE MAY NOT NEED THIS       -->
-<!--            <StackPane fx:id="statusbarPlaceholder" prefHeight="0.0" prefWidth="340.0" GridPane.rowIndex="3" />-->
-
-
-          </children>
+<!--                    Result Display container-->
+                    <StackPane fx:id="resultDisplayPlaceholder" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                        <GridPane.margin>
+                            <Insets bottom="10.0" left="5.0" right="5.0" />
+                        </GridPane.margin></StackPane>
         </GridPane>
 
-      </VBox>
+            </VBox>
     </Scene>
   </scene>
 </fx:root>
