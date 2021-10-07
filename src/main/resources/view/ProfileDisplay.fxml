@@ -14,7 +14,7 @@
          <children>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/address_book_32.png" />
+                  <Image url="@../images/friend_book_32.png" />
                </image>
             </ImageView>
             <Label text="Hello Friend Book" />
