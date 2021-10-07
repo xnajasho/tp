@@ -10,6 +10,7 @@ import seedu.friendbook.commons.core.index.Index;
 import seedu.friendbook.commons.util.StringUtil;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
@@ -94,6 +95,21 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String birthday} into a {@code Birthday}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code birthday} is invalid.
+     */
+    public static Birthday parseBirthday(String bday) throws ParseException {
+        requireNonNull(bday);
+        String trimmedBday = bday.trim();
+        if (!Birthday.isValidBirthday(trimmedBday)) {
+            throw new ParseException(Birthday.MESSAGE_CONSTRAINTS);
+        }
+        return new Birthday(trimmedBday);
     }
 
     /**
