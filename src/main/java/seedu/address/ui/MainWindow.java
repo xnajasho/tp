@@ -31,7 +31,7 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private FriendListPanel personListPanel;
+    private FriendListPanel friendListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -42,7 +42,7 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private StackPane friendListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -55,6 +55,10 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane profilePlaceHolder;
     private ProfileDisplay profileDisplay;
+
+    @FXML
+    private StackPane birthdayListPanelPlaceholder;
+    private BirthdayListPanel birthdayListPanel;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -116,11 +120,12 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new FriendListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        friendListPanel = new FriendListPanel(logic.getFilteredPersonList());
+        friendListPanelPlaceholder.getChildren().add(friendListPanel.getRoot());
 
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+        //TODO: SHIFT RESULT DISPLAY TO FOOTER OF UI
+        //resultDisplay = new ResultDisplay();
+        //resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         //StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         //statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
@@ -131,6 +136,11 @@ public class MainWindow extends UiPart<Stage> {
         // Newly added
         profileDisplay = new ProfileDisplay();
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
+
+        // for Birthday view
+        // TODO: UPDATE INPUT FOR BIRTHDAYLISTPANEL
+        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonList());
+        birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
     }
 
@@ -175,7 +185,7 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     public FriendListPanel getPersonListPanel() {
-        return personListPanel;
+        return friendListPanel;
     }
 
     /**

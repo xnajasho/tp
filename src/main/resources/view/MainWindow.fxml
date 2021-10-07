@@ -52,8 +52,8 @@
           </rowConstraints>
 
                 <children>
-            <!--      Profile       -->
-            <HBox fx:id="profilePlace" fillHeight="false" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+                    <!--       profileContainer         -->
+            <HBox fx:id="profileContainer" fillHeight="false" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
                      <children>
                         <StackPane fx:id="profilePlaceHolder" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                      </children></HBox>
@@ -63,25 +63,27 @@
               <children>
 
                       <!--       container for person list         -->
-                <VBox fx:id="personList" prefWidth="477.0" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
+                <VBox fx:id="friendContainer" prefWidth="477.0" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
                   <HBox.margin>
                     <Insets bottom="10.0" left="10.0" />
                   </HBox.margin>
                            <Label text="My Friend List" />
 
                         <!--        placeholder to display person list          -->
-                  <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                  <StackPane fx:id="friendListPanelPlaceholder" VBox.vgrow="ALWAYS" />
 
                       </VBox>
 
                       <!--      container for birthday list          -->
-                <VBox fx:id="birthdayList" HBox.hgrow="ALWAYS">
+                <VBox fx:id="birthdayContainer" HBox.hgrow="ALWAYS">
                   <HBox.margin>
                     <Insets right="10.0" />
                   </HBox.margin>
                            <Label text="Upcoming Friends Birthday" />
+
                   <!--        placeholder to display birthday list          -->
-                  <StackPane fx:id="resultDisplayPlaceholder" maxHeight="1.7976931348623157E308" minHeight="50.0" prefHeight="200.0" prefWidth="450.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+<!--                    fx:id="resultDisplayPlaceholder"-->
+                  <StackPane fx:id="birthdayListPanelPlaceholder" maxHeight="1.7976931348623157E308" minHeight="50.0" prefHeight="200.0" prefWidth="450.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                     <HBox.margin>
                       <Insets left="10.0" />
                     </HBox.margin>
