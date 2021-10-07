@@ -136,6 +136,4 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
-    // Test for invalid birthday and null birthday
-
 }
