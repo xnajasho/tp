@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -49,6 +50,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private MenuBar menuBar;
 
     // ================= Newly added for friend book ================
 
@@ -124,8 +128,8 @@ public class MainWindow extends UiPart<Stage> {
         friendListPanelPlaceholder.getChildren().add(friendListPanel.getRoot());
 
         //TODO: SHIFT RESULT DISPLAY TO FOOTER OF UI
-        //resultDisplay = new ResultDisplay();
-        //resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+        resultDisplay = new ResultDisplay();
+        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         //StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         //statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());

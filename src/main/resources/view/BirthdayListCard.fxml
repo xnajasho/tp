@@ -2,35 +2,53 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
-    <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
-      <padding>
-        <Insets top="5" right="5" bottom="5" left="15" />
-      </padding>
-      <HBox spacing="5" alignment="CENTER_LEFT">
-        <Label fx:id="id" styleClass="cell_big_label">
-          <minWidth>
-            <!-- Ensures that the label text is never truncated -->
-            <Region fx:constant="USE_PREF_SIZE" />
-          </minWidth>
-        </Label>
-        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
-      </HBox>
-      <FlowPane fx:id="tags" />
-      <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
-      <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
-    </VBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="150.0">
+               <ImageView fx:id="friendImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/address_book_32.png" />
+                  <HBox.margin>
+                     <Insets right="25.0" />
+                  </HBox.margin>
+               </ImageView>
+               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <Label fx:id="name" text="Name" />
+                     <Label fx:id="dob" text="DOB" />
+<!--                     <Label text="CHECKBOX TODO" />-->
+               </VBox>
+               <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                     <StackPane prefHeight="100.0" prefWidth="20.0">
+                           <Circle fill="#15c99c" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Label fx:id="daysToBirthday" text="5" textAlignment="CENTER" textOverrun="CLIP" />
+                     </StackPane>
+                     <Label text="Days left" textAlignment="CENTER">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                        <padding>
+                           <Insets bottom="10.0" />
+                        </padding>
+                     </Label>
+               </VBox>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+         </HBox>
   </GridPane>
 </HBox>

@@ -9,15 +9,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane prefHeight="32.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<StackPane prefHeight="32.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/16">
       <HBox alignment="CENTER_LEFT">
-         <children>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                         <Image url="@../images/address_book_32.png" />
-                     </image>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
                   </ImageView>
                   <Label alignment="TOP_CENTER" text="Hello Friend Book" textAlignment="CENTER" textFill="#dd6d6d">
                <HBox.margin>
@@ -27,12 +25,10 @@
                   <Font size="18.0" />
                </font>
             </Label>
-         </children>
       </HBox>
             <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="132.0" text="Add Friend" StackPane.alignment="CENTER_RIGHT">
          <StackPane.margin>
             <Insets right="15.0" />
          </StackPane.margin>
       </Button>
-   </children>
 </StackPane>
