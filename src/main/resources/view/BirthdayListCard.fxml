@@ -22,7 +22,7 @@
       </rowConstraints>
          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="150.0">
                <ImageView fx:id="friendImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../images/address_book_32.png" />
+                     <Image url="@../images/friend_book_32.png" />
                   <HBox.margin>
                      <Insets right="25.0" />
                   </HBox.margin>

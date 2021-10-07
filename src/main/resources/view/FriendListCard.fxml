@@ -22,7 +22,7 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
-                  <Image url="@../images/address_book_32.png" />
+                  <Image url="@../images/friend_book_32.png" />
             </ImageView>
           <VBox minHeight="105">
             <padding>

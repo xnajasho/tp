@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="32.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/16">
+<StackPane prefHeight="32.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
       <HBox alignment="CENTER_LEFT">
                   <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../images/address_book_32.png" />
+                        <Image url="@../images/friend_book_32.png" />
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
