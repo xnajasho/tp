@@ -117,7 +117,7 @@ class JsonAdaptedPerson {
         final Birthday modelBirthday = new Birthday(birthday);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday);
     }
 
 }

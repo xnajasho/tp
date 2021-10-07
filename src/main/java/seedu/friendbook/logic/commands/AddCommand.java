@@ -1,4 +1,4 @@
-package seedu.address.logic.commands;
+package seedu.friendbook.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;

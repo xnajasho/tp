@@ -3,7 +3,6 @@ package seedu.friendbook.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
-
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -105,7 +104,7 @@ public class EditCommand extends Command {
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedBirthday);
     }
 
     @Override

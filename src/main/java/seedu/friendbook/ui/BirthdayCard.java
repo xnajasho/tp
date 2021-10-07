@@ -36,8 +36,8 @@ public class BirthdayCard extends UiPart<Region> {
 
         //TODO: to update friendpicture
 
-        //TODO:to pass dob and daysToBirthDay values here
-        dob.setText("PLACE DOB HERE");
+        dob.setText(person.getBirthday().getActualDate());
+        // TODO: add daysToBirthDay values here
         daysToBirthday.setText("0");
     }
 
