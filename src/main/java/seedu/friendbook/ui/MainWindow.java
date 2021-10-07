@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -31,7 +32,7 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private PersonListPanel personListPanel;
+    private FriendListPanel friendListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -42,7 +43,7 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private StackPane friendListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -50,11 +51,18 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    @FXML
+    private MenuBar menuBar;
+
     // ================= Newly added for friend book ================
 
     @FXML
     private StackPane profilePlaceHolder;
     private ProfileDisplay profileDisplay;
+
+    @FXML
+    private StackPane birthdayListPanelPlaceholder;
+    private BirthdayListPanel birthdayListPanel;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -116,9 +124,10 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        friendListPanel = new FriendListPanel(logic.getFilteredPersonList());
+        friendListPanelPlaceholder.getChildren().add(friendListPanel.getRoot());
 
+        //TODO: SHIFT RESULT DISPLAY TO FOOTER OF UI
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
@@ -131,6 +140,11 @@ public class MainWindow extends UiPart<Stage> {
         // Newly added
         profileDisplay = new ProfileDisplay();
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
+
+        // for Birthday view
+        // TODO: UPDATE INPUT FOR BIRTHDAYLISTPANEL
+        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonList());
+        birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
     }
 
@@ -174,8 +188,8 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
+    public FriendListPanel getPersonListPanel() {
+        return friendListPanel;
     }
 
     /**

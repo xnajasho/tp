@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+  <GridPane HBox.hgrow="ALWAYS">
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
+    </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="150.0">
+               <ImageView fx:id="friendImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@../images/friend_book_32.png" />
+                  <HBox.margin>
+                     <Insets right="25.0" />
+                  </HBox.margin>
+               </ImageView>
+               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <Label fx:id="name" text="Name" />
+                     <Label fx:id="dob" text="DOB" />
+<!--                     <Label text="CHECKBOX TODO" />-->
+               </VBox>
+               <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0">
+                     <StackPane prefHeight="100.0" prefWidth="20.0">
+                           <Circle fill="#15c99c" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Label fx:id="daysToBirthday" text="5" textAlignment="CENTER" textOverrun="CLIP" />
+                     </StackPane>
+                     <Label text="Days left" textAlignment="CENTER">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                        <padding>
+                           <Insets bottom="10.0" />
+                        </padding>
+                     </Label>
+               </VBox>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+         </HBox>
+  </GridPane>
+</HBox>
