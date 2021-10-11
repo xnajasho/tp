@@ -6,15 +6,7 @@ import static seedu.friendbook.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.friendbook.logic.commands.AddCommand;
-import seedu.friendbook.logic.commands.ClearCommand;
-import seedu.friendbook.logic.commands.Command;
-import seedu.friendbook.logic.commands.DeleteCommand;
-import seedu.friendbook.logic.commands.EditCommand;
-import seedu.friendbook.logic.commands.ExitCommand;
-import seedu.friendbook.logic.commands.FindCommand;
-import seedu.friendbook.logic.commands.HelpCommand;
-import seedu.friendbook.logic.commands.ListCommand;
+import seedu.friendbook.logic.commands.*;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 
 
@@ -59,6 +51,9 @@ public class FriendBookParser {
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
+
+        case FindTagCommand.COMMAND_WORD:
+            return new FindTagCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
