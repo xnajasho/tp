@@ -12,7 +12,6 @@ import javafx.collections.transformation.FilteredList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
-import seedu.friendbook.model.tag.Tag;
 
 /**
  * Represents the in-memory model of the friend book data.

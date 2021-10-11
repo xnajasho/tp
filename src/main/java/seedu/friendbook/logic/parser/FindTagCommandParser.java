@@ -1,13 +1,13 @@
 package seedu.friendbook.logic.parser;
 
+import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
+import java.util.Arrays;
+
 import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.FindTagCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.TagContainsKeywordsPredicate;
-
-import java.util.Arrays;
-
-import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 public class FindTagCommandParser implements Parser<FindTagCommand> {
     /**

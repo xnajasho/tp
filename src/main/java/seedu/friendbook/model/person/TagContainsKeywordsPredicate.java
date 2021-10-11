@@ -1,11 +1,11 @@
 package seedu.friendbook.model.person;
 
-import seedu.friendbook.commons.util.StringUtil;
-import seedu.friendbook.model.tag.Tag;
-
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
+
+import seedu.friendbook.commons.util.StringUtil;
+import seedu.friendbook.model.tag.Tag;
 
 public class TagContainsKeywordsPredicate implements Predicate<Person> {
     private final List<String> keywords;

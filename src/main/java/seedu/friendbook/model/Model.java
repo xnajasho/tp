@@ -6,7 +6,6 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.model.person.Person;
-import seedu.friendbook.model.tag.Tag;
 
 /**
  * The API of the Model component.
