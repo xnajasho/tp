@@ -94,6 +94,12 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void getFilteredPersonListSortedByBirthday_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class,
+                () -> modelManager.getFilteredPersonListSortedByBirthday().remove(0));
+    }
+
+    @Test
     public void equals() {
         FriendBook friendBook = new FriendBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
         FriendBook differentFriendBook = new FriendBook();

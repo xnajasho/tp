@@ -127,7 +127,6 @@ public class ModelManager implements Model {
 
     @Override
     public ObservableList<Person> getFilteredPersonListSortedByBirthday() {
-        //System.out.println("Sorted size = " + this.friendBook.getSortedPersonListByBirthday().size());
         return filteredPersonsCopy;
     }
 
