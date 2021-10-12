@@ -4,6 +4,10 @@ package seedu.friendbook.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.util.AppUtil.checkArgument;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Optional;
+
 /**
  * Represents a Person's telegram handle in the friend book.
  * Guarantees: immutable; is valid as declared in {@link #isValidTeleHandle(String)} #TODO add method
@@ -11,13 +15,13 @@ import static seedu.friendbook.commons.util.AppUtil.checkArgument;
 //TODO write tests for this class
 public class TeleHandle {
     //TODO add actual tele username constraints
-    public static final String MESSAGE_CONSTRAINTS = "TeleHandle can take any value, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "TeleHandle can use a-z, 0-9 and underscores, and it "
+            + "should have at least 5 characters";
 
     /*
-     * The first character of the TeleHandle must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * At least 5 characters long; and has only alphabets, digits and underscores.
      */
-    public static final String VALIDATION_REGEX = "[^\\s].*";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9_]{5,}$";
 
     public final String value;
 
@@ -33,10 +37,11 @@ public class TeleHandle {
     }
 
     /**
-     * Returns true if a given string is a valid TeleHandle.
+     * Returns true if a given string is a valid TeleHandle, or contains default value.
      */
     public static boolean isValidTeleHandle(String test) {
-        return test.matches(VALIDATION_REGEX);
+        boolean isValid = test.matches(VALIDATION_REGEX) || test == "#DEFAULT#";
+        return isValid;
     }
 
     @Override
@@ -61,6 +66,18 @@ public class TeleHandle {
      */
     public boolean isSet() {
         return !(value == "#DEFAULT#");
+    }
+
+    /**
+     * Converts telegram handle to a t.me/ link
+     */
+    public Optional<URL> getTeleHandleUrl() {
+        try {
+            URL teleUrl = new URL("https://t.me/" + this.value);
+            return Optional.of(teleUrl);
+        } catch (MalformedURLException e) {
+            return Optional.empty();
+        }
     }
 
 }
