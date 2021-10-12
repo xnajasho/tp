@@ -96,8 +96,8 @@ public class LogicManagerTest {
 
     @Test
     public void getFilteredPersonListSortedByBirthday_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class,
-                () -> logic.getFilteredPersonListSortedByBirthday().remove(0));
+        assertThrows(UnsupportedOperationException.class, () ->
+                logic.getFilteredPersonListSortedByBirthday().remove(0));
     }
 
     /**

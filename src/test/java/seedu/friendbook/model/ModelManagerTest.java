@@ -95,8 +95,8 @@ public class ModelManagerTest {
 
     @Test
     public void getFilteredPersonListSortedByBirthday_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class,
-                () -> modelManager.getFilteredPersonListSortedByBirthday().remove(0));
+        assertThrows(UnsupportedOperationException.class, () ->
+                modelManager.getFilteredPersonListSortedByBirthday().remove(0));
     }
 
     @Test
