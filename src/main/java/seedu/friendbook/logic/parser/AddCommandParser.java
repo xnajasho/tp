@@ -7,6 +7,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -19,6 +20,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -35,7 +37,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY, PREFIX_TAG);
+                        PREFIX_BIRTHDAY, PREFIX_TAG, PREFIX_TELEHANDLE);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BIRTHDAY)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -48,8 +50,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Birthday birthday = ParserUtil.parseBirthday(argMultimap.getValue(PREFIX_BIRTHDAY).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        //Using orElse because tele handle is optional
+        TeleHandle teleHandle = ParserUtil.parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE)
+                .orElse("#DEFAULT#"));
 
-        Person person = new Person(name, phone, email, address, tagList, birthday);
+        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle);
 
         return new AddCommand(person);
     }

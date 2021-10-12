@@ -21,6 +21,7 @@ public class Person {
     private final Email email;
 
     // Data fields
+    private final TeleHandle teleHandle;
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Birthday birthday;
@@ -28,14 +29,16 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday) {
-        requireAllNonNull(name, phone, email, address, tags, bday);
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
+                  TeleHandle teleHandle) {
+        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
         this.birthday = bday;
+        this.teleHandle = teleHandle;
     }
 
     public Name getName() {
@@ -56,6 +59,10 @@ public class Person {
 
     public Birthday getBirthday() {
         return birthday;
+    }
+
+    public TeleHandle getTeleHandle() {
+        return teleHandle;
     }
 
     /**
@@ -99,6 +106,7 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getBirthday().equals(getBirthday())
+                && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getTags().equals(getTags());
     }
 
@@ -120,6 +128,9 @@ public class Person {
                 .append(getAddress())
                 .append("; Birthday: ")
                 .append(getBirthday());
+
+
+        if (getTeleHandle().isSet()) { builder.append("; Tele Handle: ").append(getTeleHandle()); }
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
