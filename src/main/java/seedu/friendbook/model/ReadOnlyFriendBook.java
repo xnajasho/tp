@@ -14,4 +14,10 @@ public interface ReadOnlyFriendBook {
      */
     ObservableList<Person> getPersonList();
 
+    /**
+     * Returns an unmodifiable view of the persons list ordered by the person with the closest birthday.
+     * This list will not contain any duplicate persons.
+     */
+    ObservableList<Person> getSortedPersonListByBirthday();
+
 }

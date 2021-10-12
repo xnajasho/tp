@@ -142,8 +142,7 @@ public class MainWindow extends UiPart<Stage> {
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
 
         // for Birthday view
-        // TODO: UPDATE INPUT FOR BIRTHDAYLISTPANEL
-        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonList());
+        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonListSortedByBirthday());
         birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
     }

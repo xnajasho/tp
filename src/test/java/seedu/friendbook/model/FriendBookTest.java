@@ -12,6 +12,7 @@ import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -88,14 +89,23 @@ public class FriendBookTest {
      */
     private static class FriendBookStub implements ReadOnlyFriendBook {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
+        private final ObservableList<Person> personsCopy = FXCollections.observableArrayList();
+        private final Comparator<Person> comparator = Comparator.comparingInt(Person::getDaysToRemainingBirthday);
 
         FriendBookStub(Collection<Person> persons) {
             this.persons.setAll(persons);
+            this.personsCopy.setAll(persons);
+            this.personsCopy.sort(comparator);
         }
 
         @Override
         public ObservableList<Person> getPersonList() {
             return persons;
+        }
+
+        @Override
+        public ObservableList<Person> getSortedPersonListByBirthday() {
+            return personsCopy;
         }
     }
 
