@@ -4,8 +4,10 @@ import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.util.AppUtil.checkArgument;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 
 public class Birthday {
 
@@ -63,6 +65,25 @@ public class Birthday {
     public String getActualDate() {
         LocalDate date = LocalDate.parse(value);
         return date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
+    }
+
+    /**
+     * Calculates the remaining days until specified birthday
+     * If birthday falls on today's date, it considers the remaining days til next year's
+     */
+    public long calculateRemainingDaysToBirthday() {
+        LocalDate today = LocalDate.now();
+        LocalDate birthday = LocalDate.parse(value);
+        LocalDate nextBday = birthday.withYear(today.getYear());
+
+        //If your birthday has occurred this year already, add 1 to the year.
+        if (nextBday.isBefore(today) || nextBday.equals(today)) {
+            nextBday = nextBday.plusYears(1);
+        }
+
+        Period p = Period.between(today, nextBday);
+        return ChronoUnit.DAYS.between(today, nextBday);
+
     }
 
     @Override
