@@ -18,6 +18,6 @@ public class ProfileDisplay extends UiPart<Region> {
 
     //TODO: create test case for method
     public Button getAddButton() {
-        return this.addButton;
+        return this.addFriendButton;
     }
 }

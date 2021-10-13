@@ -116,4 +116,5 @@ Non-Functional Requirements
 ##### Glossary
 · Mainstream OS: Windows, Linux, Unix, OS-X
 · Private contact detail: A contact detail that is not meant to be shared with others
+
 ##### Appendix: Instruction for manual testing - Coming soon
