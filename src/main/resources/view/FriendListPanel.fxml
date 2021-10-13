@@ -7,6 +7,6 @@
 <VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <ListView fx:id="personListView" VBox.vgrow="ALWAYS">
       <VBox.margin>
-         <Insets bottom="10.0" />
+         <Insets />
       </VBox.margin></ListView>
 </VBox>
