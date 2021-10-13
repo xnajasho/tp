@@ -9,6 +9,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 import seedu.friendbook.model.util.SampleDataUtil;
 
@@ -22,6 +23,8 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BIRTHDAY = "1994-09-12";
+    public static final String DEFAULT_TELEHANDLE = "#DEFAULT#";
+
 
     private Name name;
     private Phone phone;
@@ -29,6 +32,7 @@ public class PersonBuilder {
     private Address address;
     private Set<Tag> tags;
     private Birthday birthday;
+    private TeleHandle teleHandle;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -39,6 +43,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
+        teleHandle = new TeleHandle(DEFAULT_TELEHANDLE);
         tags = new HashSet<>();
     }
 
@@ -51,6 +56,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
+        teleHandle = personToCopy.getTeleHandle();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -102,8 +108,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code TeleHandle} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withTeleHandle(String teleHandle) {
+        this.teleHandle = new TeleHandle(teleHandle);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags, birthday);
+        return new Person(name, phone, email, address, tags, birthday, teleHandle);
     }
 
 }

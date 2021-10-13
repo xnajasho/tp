@@ -7,6 +7,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 import static seedu.friendbook.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -26,6 +27,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -45,6 +47,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_BIRTHDAY + "BIRTHDAY] "
+            + "[" + PREFIX_TELEHANDLE + "TELE_HANDLE] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -103,8 +106,10 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         Birthday updatedBirthday = editPersonDescriptor.getBirthday().orElse(personToEdit.getBirthday());
+        TeleHandle updatedTeleHandle = editPersonDescriptor.getTeleHandle().orElse(personToEdit.getTeleHandle());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedBirthday);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
+                updatedBirthday, updatedTeleHandle);
     }
 
     @Override
@@ -136,6 +141,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Birthday birthday;
+        private TeleHandle teleHandle;
 
         public EditPersonDescriptor() {}
 
@@ -149,6 +155,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setBirthday(toCopy.birthday);
+            setTeleHandle(toCopy.teleHandle);
             setTags(toCopy.tags);
         }
 
@@ -156,7 +163,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, birthday);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, birthday, teleHandle);
         }
 
         public void setName(Name name) {
@@ -199,6 +206,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(birthday);
         }
 
+        public void setTeleHandle(TeleHandle teleHandle) {
+            this.teleHandle = teleHandle;
+        }
+
+        public Optional<TeleHandle> getTeleHandle() {
+            return Optional.ofNullable(teleHandle);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -236,6 +251,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getBirthday().equals(e.getBirthday())
+                    && getTeleHandle().equals(e.getTeleHandle())
                     && getTags().equals(e.getTags());
         }
     }

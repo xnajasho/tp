@@ -1,18 +1,13 @@
 package seedu.friendbook.testutil;
 
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
-
 import java.util.Set;
 
 import seedu.friendbook.logic.commands.AddCommand;
 import seedu.friendbook.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.tag.Tag;
+
+import static seedu.friendbook.logic.parser.CliSyntax.*;
 
 
 /**
@@ -37,6 +32,9 @@ public class PersonUtil {
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
+        if (person.getTeleHandle().isSet()) {
+            sb.append(PREFIX_TELEHANDLE + person.getTeleHandle().value + " ");
+        }
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -51,8 +49,12 @@ public class PersonUtil {
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
-        descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
-        descriptor.getBirthday().ifPresent(birthday -> sb.append(PREFIX_BIRTHDAY).append(birthday.value).append(" "));
+        descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value)
+                .append(" "));
+        descriptor.getBirthday().ifPresent(birthday -> sb.append(PREFIX_BIRTHDAY)
+                .append(birthday.value).append(" "));
+        descriptor.getTeleHandle().ifPresent(teleHandle -> sb.append(PREFIX_TELEHANDLE)
+                .append(teleHandle.value).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {
