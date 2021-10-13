@@ -51,7 +51,6 @@
                 <!--       Centre section             -->
                <center>
                   <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="30.0"  BorderPane.alignment="CENTER">
-
                         <!--       Friend container         -->
                       <VBox fx:id="friendContainer" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                           <Label text="My Friends" textAlignment="CENTER">
@@ -61,7 +60,6 @@
                           </Label>
                         <StackPane fx:id="friendListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                       </VBox>
-      
                             <!--      Birthday Container          -->
                       <VBox fx:id="birthdayContainer" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                           <Label text="Friends' Upcoming Birthday" textAlignment="CENTER">
@@ -105,7 +103,6 @@
                     </BorderPane.margin>
                     </VBox>
                 </bottom>
-
           </BorderPane>
       </VBox>
     </Scene>

@@ -24,7 +24,7 @@ Target user profile:
 Value proposition: manage contacts faster than a typical mouse/GUI driven app
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
-#### User stories 
+#### User stories
 Priority | As a.. | I want to.. | So that I can..
 ----------|--------|-------------|-----------
 **|User|View all my friends|Glance the friends I have
@@ -91,7 +91,7 @@ Extensions
 3a. The given index is invalid
 -  3a1. FriendBook shows an error message
  Use case resumes at step 2
- 
+
  3b. The information to be updated is invalid
 -  3b1. FriendBook shows an error message
 Use case resumes at step 2
@@ -117,6 +117,3 @@ Non-Functional Requirements
 · Mainstream OS: Windows, Linux, Unix, OS-X
 · Private contact detail: A contact detail that is not meant to be shared with others
 ##### Appendix: Instruction for manual testing - Coming soon
- 
- 
-
