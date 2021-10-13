@@ -49,6 +49,7 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
+    //TODO: create test case for method
     public void setAddPlaceholderText(String placeholderText) {
         commandTextField.setText(placeholderText);
     }

@@ -222,6 +222,7 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    //TODO: create test case for method
     /**
      * Executes the add button and updates command text field.
      *

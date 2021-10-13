@@ -16,6 +16,7 @@ public class ProfileDisplay extends UiPart<Region> {
         super(FXML);
     }
 
+    //TODO: create test case for method
     public Button getAddButton() {
         return this.addButton;
     }
