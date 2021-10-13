@@ -40,7 +40,7 @@ public class TeleHandle {
      * Returns true if a given string is a valid TeleHandle, or contains default value.
      */
     public static boolean isValidTeleHandle(String test) {
-        boolean isValid = test.matches(VALIDATION_REGEX) || test == "#DEFAULT#";
+        boolean isValid = test.matches(VALIDATION_REGEX) || (test.equals("#DEFAULT#"));
         return isValid;
     }
 
