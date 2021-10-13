@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.logic.Logic;
+import seedu.friendbook.logic.commands.AddCommand;
 import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
@@ -35,6 +36,7 @@ public class MainWindow extends UiPart<Stage> {
     private FriendListPanel friendListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private CommandBox commandBox;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -136,16 +138,16 @@ public class MainWindow extends UiPart<Stage> {
         //StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getFriendBookFilePath());
         //statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
-        CommandBox commandBox = new CommandBox(this::executeCommand);
+        commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
 
         // Newly added
         profileDisplay = new ProfileDisplay();
+        profileDisplay.getAddButton().setOnAction(event -> handleAddButton());
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
 
         // for Birthday view
-        // TODO: UPDATE INPUT FOR BIRTHDAYLISTPANEL
-        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonList());
+        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonListSortedByBirthday());
         birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
     }
@@ -219,5 +221,14 @@ public class MainWindow extends UiPart<Stage> {
             resultDisplay.setFeedbackToUser(e.getMessage());
             throw e;
         }
+    }
+
+    //TODO: create test case for method
+    /**
+     * Executes the add button and updates command text field.
+     *
+     */
+    public void handleAddButton() {
+        commandBox.setAddPlaceholderText(AddCommand.MESSAGE_PLACEHOLDER);
     }
 }

@@ -79,9 +79,14 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the filtered person list which is sorted by days to birthday */
+    ObservableList<Person> getFilteredPersonListSortedByBirthday();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * The given predicate is a person
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
 }

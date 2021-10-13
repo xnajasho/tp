@@ -3,6 +3,7 @@ package seedu.friendbook.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class UniquePersonList implements Iterable<Person> {
     private final ObservableList<Person> internalList = FXCollections.observableArrayList();
     private final ObservableList<Person> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
+    private final ObservableList<Person> birthdayListCopy = FXCollections.observableArrayList();
+
+    private final Comparator<Person> comparator = Comparator.comparingInt(Person::getDaysToRemainingBirthday);
 
     /**
      * Returns true if the list contains an equivalent person as the given argument.
@@ -46,6 +50,8 @@ public class UniquePersonList implements Iterable<Person> {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
+        birthdayListCopy.add(toAdd);
+        birthdayListCopy.sort(comparator);
     }
 
     /**
@@ -57,7 +63,9 @@ public class UniquePersonList implements Iterable<Person> {
         requireAllNonNull(target, editedPerson);
 
         int index = internalList.indexOf(target);
-        if (index == -1) {
+        int sortedIndex = birthdayListCopy.indexOf(target);
+
+        if (index == -1 || sortedIndex == -1) {
             throw new PersonNotFoundException();
         }
 
@@ -66,6 +74,8 @@ public class UniquePersonList implements Iterable<Person> {
         }
 
         internalList.set(index, editedPerson);
+        birthdayListCopy.set(sortedIndex, editedPerson);
+        birthdayListCopy.sort(comparator);
     }
 
     /**
@@ -77,11 +87,15 @@ public class UniquePersonList implements Iterable<Person> {
         if (!internalList.remove(toRemove)) {
             throw new PersonNotFoundException();
         }
+        birthdayListCopy.remove(toRemove);
+        birthdayListCopy.sort(comparator);
     }
 
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
+        birthdayListCopy.setAll(replacement.birthdayListCopy);
+        birthdayListCopy.sort(comparator);
     }
 
     /**
@@ -95,6 +109,8 @@ public class UniquePersonList implements Iterable<Person> {
         }
 
         internalList.setAll(persons);
+        birthdayListCopy.setAll(persons);
+        birthdayListCopy.sort(comparator);
     }
 
     /**
@@ -102,6 +118,13 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public ObservableList<Person> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
+    }
+
+    /**
+     * Returns the backing list as an unmodifiable {@code ObservableList} sorted by nearest birthday.
+     */
+    public ObservableList<Person> asUnmodifiableObservableListSortedByBirthday() {
+        return FXCollections.unmodifiableObservableList(birthdayListCopy);
     }
 
     @Override

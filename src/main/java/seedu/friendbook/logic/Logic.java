@@ -33,6 +33,9 @@ public interface Logic {
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the filtered list of persons sorted by days to birthday */
+    ObservableList<Person> getFilteredPersonListSortedByBirthday();
+
     /**
      * Returns the user prefs' friend book file path.
      */

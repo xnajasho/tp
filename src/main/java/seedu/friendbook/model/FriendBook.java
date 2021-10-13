@@ -107,6 +107,11 @@ public class FriendBook implements ReadOnlyFriendBook {
     }
 
     @Override
+    public ObservableList<Person> getSortedPersonListByBirthday() {
+        return persons.asUnmodifiableObservableListSortedByBirthday();
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof FriendBook // instanceof handles nulls
