@@ -14,7 +14,6 @@ import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
-import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -138,20 +137,5 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
-    }
-    //TODO add tests for this method
-    /**
-     * Parses a {@code String teleHandle} into a {@code TeleHandle}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code teleHandle} is invalid.
-     */
-    public static TeleHandle parseTeleHandle(String teleHandle) throws ParseException {
-        requireNonNull(teleHandle);
-        String trimmedTeleHandle = teleHandle.trim();
-        if (!TeleHandle.isValidTeleHandle(trimmedTeleHandle)) {
-            throw new ParseException(TeleHandle.MESSAGE_CONSTRAINTS);
-        }
-        return new TeleHandle(trimmedTeleHandle);
     }
 }
