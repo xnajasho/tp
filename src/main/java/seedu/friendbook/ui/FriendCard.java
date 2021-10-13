@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.text.TextAlignment;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -51,11 +52,16 @@ public class FriendCard extends UiPart<Region> {
         //id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
+        //address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName + "\t")));
+                .forEach(tag -> {
+                    Label label = new Label(tag.tagName + "\t");
+                    label.getStyleClass().add("cell_tag_label");
+                    label.setTextAlignment(TextAlignment.CENTER);
+                    tags.getChildren().add(label);
+                });
     }
 
     @Override

@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
@@ -21,23 +19,36 @@
          <RowConstraints />
       </rowConstraints>
          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="150.0">
-               <ImageView fx:id="friendImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../images/friend_book_32.png" />
-                  <HBox.margin>
-                     <Insets right="25.0" />
-                  </HBox.margin>
-               </ImageView>
-               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
-                     <Label fx:id="name" text="Name" />
-                     <Label fx:id="dob" text="DOB" />
+<!--               <ImageView fx:id="friendImage" fitHeight="80.0" fitWidth="80.0" preserveRatio="true">-->
+<!--                     <Image url="@../images/avatar.png" />-->
+<!--                   <HBox.margin>-->
+<!--                       <Insets left="10.0" />-->
+<!--                   </HBox.margin>-->
+<!--               </ImageView>-->
+
+
+               <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="105.0" HBox.hgrow="ALWAYS">
+                   <Label fx:id="name" maxWidth="1.7976931348623157E308" styleClass="cell_big_label"/>
+<!--                     <Label fx:id="name" maxWidth="1.7976931348623157E308" styleClass="cell_big_label" text="Name" />-->
+                     <Label fx:id="dob" maxWidth="1.7976931348623157E308" styleClass="cell_small_label" text="DOB" />
 <!--                     <Label text="CHECKBOX TODO" />-->
+                   <padding>
+                       <Insets bottom="5" left="15" right="5" top="5" />
+                   </padding>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
                </VBox>
-               <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0">
-                     <StackPane prefHeight="100.0" prefWidth="20.0">
-                           <Circle fill="#15c99c" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                           <Label fx:id="daysToBirthday" text="5" textAlignment="CENTER" textOverrun="CLIP" />
+
+               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                           <Circle fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Label fx:id="daysToBirthday" styleClass="cell_small_label" text="5" textAlignment="CENTER" textOverrun="CLIP" />
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
                      </StackPane>
-                     <Label text="Days left" textAlignment="CENTER">
+                     <Label styleClass="cell_small_label" text="Days left" textAlignment="CENTER">
                         <VBox.margin>
                            <Insets />
                         </VBox.margin>
