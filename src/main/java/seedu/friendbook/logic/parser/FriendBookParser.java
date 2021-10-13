@@ -13,6 +13,7 @@ import seedu.friendbook.logic.commands.DeleteCommand;
 import seedu.friendbook.logic.commands.EditCommand;
 import seedu.friendbook.logic.commands.ExitCommand;
 import seedu.friendbook.logic.commands.FindCommand;
+import seedu.friendbook.logic.commands.FindTagCommand;
 import seedu.friendbook.logic.commands.HelpCommand;
 import seedu.friendbook.logic.commands.ListCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
@@ -59,6 +60,9 @@ public class FriendBookParser {
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
+
+        case FindTagCommand.COMMAND_WORD:
+            return new FindTagCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
