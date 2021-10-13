@@ -22,6 +22,7 @@ public class ModelManager implements Model {
     private final FriendBook friendBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Person> filteredPersonsCopy;
 
     /**
      * Initializes a ModelManager with the given friendBook and userPrefs.
@@ -35,6 +36,7 @@ public class ModelManager implements Model {
         this.friendBook = new FriendBook(friendBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.friendBook.getPersonList());
+        filteredPersonsCopy = new FilteredList<>(this.friendBook.getSortedPersonListByBirthday());
     }
 
     public ModelManager() {
@@ -121,6 +123,11 @@ public class ModelManager implements Model {
     @Override
     public ObservableList<Person> getFilteredPersonList() {
         return filteredPersons;
+    }
+
+    @Override
+    public ObservableList<Person> getFilteredPersonListSortedByBirthday() {
+        return filteredPersonsCopy;
     }
 
     @Override
