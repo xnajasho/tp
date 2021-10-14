@@ -9,6 +9,8 @@ import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.friendbook.testutil.Assert.assertThrows;
+import static seedu.friendbook.testutil.PersonBuilder.DEFAULT_DESCRIPTION;
+import static seedu.friendbook.testutil.PersonBuilder.DEFAULT_TELEHANDLE;
 import static seedu.friendbook.testutil.TypicalPersons.AMY;
 
 import java.io.IOException;
@@ -82,7 +84,8 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + ADDRESS_DESC_AMY + BIRTHDAY_DESC_AMY;
-        Person expectedPerson = new PersonBuilder(AMY).withTags().withTeleHandle("#DEFAULT#").build();
+        Person expectedPerson = new PersonBuilder(AMY).withTags().withDescription(DEFAULT_DESCRIPTION)
+                .withTeleHandle(DEFAULT_TELEHANDLE).build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addPerson(expectedPerson);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;

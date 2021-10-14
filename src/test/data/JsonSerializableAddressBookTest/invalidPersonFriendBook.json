@@ -5,6 +5,7 @@
     "email": "invalid@email!3e",
     "address": "4th street",
     "birthday": "1992-05-10",
-    "teleHandle" : "#DEFAULT#"
+    "teleHandle" : "#DEFAULT#",
+    "description" : "good friend"
   } ]
 }

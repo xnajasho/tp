@@ -13,4 +13,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_BIRTHDAY = new Prefix("b/");
     public static final Prefix PREFIX_TELEHANDLE = new Prefix("tele/");
+    public static final Prefix PREFIX_DESCRIPTION = new Prefix("desc/");
 }

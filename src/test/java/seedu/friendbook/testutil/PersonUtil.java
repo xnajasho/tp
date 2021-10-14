@@ -2,6 +2,7 @@ package seedu.friendbook.testutil;
 
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -40,6 +41,9 @@ public class PersonUtil {
         if (person.getTeleHandle().isSet()) {
             sb.append(PREFIX_TELEHANDLE + person.getTeleHandle().value + " ");
         }
+        if (person.getDescription().isSet()) {
+            sb.append(PREFIX_DESCRIPTION + person.getDescription().value + " ");
+        }
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -60,6 +64,8 @@ public class PersonUtil {
                 .append(birthday.value).append(" "));
         descriptor.getTeleHandle().ifPresent(teleHandle -> sb.append(PREFIX_TELEHANDLE)
                 .append(teleHandle.value).append(" "));
+        descriptor.getDescription().ifPresent(description -> sb.append(PREFIX_DESCRIPTION)
+                .append(description.value).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {

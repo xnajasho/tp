@@ -3,6 +3,7 @@ package seedu.friendbook.logic.parser;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -16,6 +17,7 @@ import seedu.friendbook.logic.commands.AddCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
@@ -37,7 +39,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY, PREFIX_TAG, PREFIX_TELEHANDLE);
+                        PREFIX_BIRTHDAY, PREFIX_TAG, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BIRTHDAY)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -53,8 +55,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         //Using orElse because tele handle is optional
         TeleHandle teleHandle = ParserUtil.parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE)
                 .orElse("#DEFAULT#"));
+        Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION)
+                .orElse("#DEFAULT#"));
 
-        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle);
+        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle, description);
 
         return new AddCommand(person);
     }
