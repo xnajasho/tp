@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import seedu.friendbook.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
@@ -41,6 +42,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setBirthday(person.getBirthday());
         descriptor.setTags(person.getTags());
         descriptor.setTeleHandle(person.getTeleHandle());
+        descriptor.setDescription(person.getDescription());
     }
 
     /**
@@ -80,6 +82,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
         descriptor.setAddress(new Address(address));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Description} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withDescription(String description) {
+        descriptor.setDescription(new Description(description));
         return this;
     }
 

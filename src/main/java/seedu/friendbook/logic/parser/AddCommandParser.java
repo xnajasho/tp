@@ -3,12 +3,12 @@ package seedu.friendbook.logic.parser;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -17,12 +17,12 @@ import seedu.friendbook.logic.commands.AddCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
-import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -56,7 +56,7 @@ public class AddCommandParser implements Parser<AddCommand> {
         TeleHandle teleHandle = ParserUtil.parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE)
                 .orElse("#DEFAULT#"));
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION)
-                .orElse(" "));
+                .orElse("#DEFAULT#"));
 
         Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle, description);
 

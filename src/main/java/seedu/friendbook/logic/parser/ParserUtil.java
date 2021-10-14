@@ -11,11 +11,11 @@ import seedu.friendbook.commons.util.StringUtil;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
-import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.tag.Tag;
 
 

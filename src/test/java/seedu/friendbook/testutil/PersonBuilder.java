@@ -5,6 +5,7 @@ import java.util.Set;
 
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
@@ -24,7 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BIRTHDAY = "1994-09-12";
     public static final String DEFAULT_TELEHANDLE = "#DEFAULT#";
-
+    public static final String DEFAULT_DESCRIPTION = "#DEFAULT#";
 
     private Name name;
     private Phone phone;
@@ -33,6 +34,7 @@ public class PersonBuilder {
     private Set<Tag> tags;
     private Birthday birthday;
     private TeleHandle teleHandle;
+    private Description description;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -44,6 +46,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         birthday = new Birthday(DEFAULT_BIRTHDAY);
         teleHandle = new TeleHandle(DEFAULT_TELEHANDLE);
+        description = new Description(DEFAULT_DESCRIPTION);
         tags = new HashSet<>();
     }
 
@@ -57,6 +60,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
         teleHandle = personToCopy.getTeleHandle();
+        description = personToCopy.getDescription();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -116,8 +120,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Description} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDescription(String description) {
+        this.description = new Description(description);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags, birthday, teleHandle);
+        return new Person(name, phone, email, address, tags, birthday, teleHandle, description);
     }
 
 }
