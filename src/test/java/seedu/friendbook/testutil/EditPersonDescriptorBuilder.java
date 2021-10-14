@@ -11,6 +11,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
 /**
@@ -39,6 +40,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setAddress(person.getAddress());
         descriptor.setBirthday(person.getBirthday());
         descriptor.setTags(person.getTags());
+        descriptor.setTeleHandle(person.getTeleHandle());
     }
 
     /**
@@ -46,6 +48,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withName(String name) {
         descriptor.setName(new Name(name));
+        return this;
+    }
+
+    /**
+     * Sets the {@code TeleHandle} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withTeleHandle(String teleHandle) {
+        descriptor.setTeleHandle(new TeleHandle(teleHandle));
         return this;
     }
 

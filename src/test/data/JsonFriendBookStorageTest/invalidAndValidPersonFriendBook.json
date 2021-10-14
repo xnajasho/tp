@@ -4,12 +4,14 @@
     "phone": "9482424",
     "email": "hans@example.com",
     "address": "4th street",
-    "birthday": "1993-04-04"
+    "birthday": "1993-04-04",
+    "teleHandle" : "#DEFAULT#"
   }, {
     "name": "Person With Invalid Phone Field",
     "phone": "948asdf2424",
     "email": "hans@example.com",
     "address": "4th street",
-    "birthday": "1997-04-10"
+    "birthday": "1997-04-10",
+    "teleHandle" : "#DEFAULT#"
   } ]
 }
