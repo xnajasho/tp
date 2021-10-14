@@ -22,6 +22,8 @@ public class BirthdayCard extends UiPart<Region> {
     @FXML
     private Label dob;
     @FXML
+    private Label age;
+    @FXML
     private Label daysToBirthday;
 
 

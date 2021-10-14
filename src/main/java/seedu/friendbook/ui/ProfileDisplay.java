@@ -10,7 +10,7 @@ public class ProfileDisplay extends UiPart<Region> {
     private static final String FXML = "ProfileDisplay.fxml";
 
     @FXML
-    private Button addButton;
+    private Button addFriendButton;
 
     public ProfileDisplay() {
         super(FXML);
@@ -18,8 +18,6 @@ public class ProfileDisplay extends UiPart<Region> {
 
     //TODO: create test case for method
     public Button getAddButton() {
-        return this.addButton;
+        return this.addFriendButton;
     }
-
-
 }
