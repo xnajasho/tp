@@ -1,5 +1,6 @@
 package seedu.friendbook.model.person;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
@@ -21,6 +22,13 @@ public class PersonTest {
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
         Person person = new PersonBuilder().build();
         assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
+    }
+
+    //TODO: update team again that check will fail once birthday passes (but coverage needs test)
+    @Test
+    public void checkAge() {
+        assertEquals(26, ALICE.getAge());
+        assertEquals(26, BOB.getAge());
     }
 
     @Test
