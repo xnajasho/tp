@@ -55,7 +55,10 @@ public class FriendListPanel extends UiPart<Region> {
 
 
                             pane.getChildren().addAll(new Label(item.getName().fullName),
-                                    new Label(item.getEmail().value));
+                                    new Label(item.getEmail().value),
+                                    new Label(item.getAddress().value),
+                                    new Label(item.getPhone().value),
+                                    new Label(item.getBirthday().value));
 
                             Scene scene = new Scene(pane);
 

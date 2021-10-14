@@ -49,7 +49,7 @@ public class FriendCard extends UiPart<Region> {
     public FriendCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
-        //id.setText(displayedIndex + ". ");
+        id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         //address.setText(person.getAddress().value);

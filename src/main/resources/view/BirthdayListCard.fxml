@@ -31,8 +31,9 @@
                <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="105.0" HBox.hgrow="ALWAYS">
                    <Label fx:id="name" maxWidth="1.7976931348623157E308" styleClass="cell_big_label" />
 <!--                     <Label fx:id="name" maxWidth="1.7976931348623157E308" styleClass="cell_big_label" text="Name" />-->
-                     <Label fx:id="dob" maxWidth="1.7976931348623157E308" styleClass="cell_small_label" text="DOB" />
-            <CheckBox maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remind me in 1 day" />
+                   <Label fx:id="dob" maxWidth="1.7976931348623157E308" styleClass="cell_small_label" text="DOB" />
+                   <Label fx:id="age" maxWidth="1.7976931348623157E308" styleClass="cell_small_label" text="AGE" />
+                   <CheckBox maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Remind me in 1 day" />
 <!--                     <Label text="CHECKBOX TODO" />-->
                    <padding>
                        <Insets bottom="5" left="15" right="5" top="5" />
