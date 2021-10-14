@@ -34,10 +34,9 @@ public class BirthdayCard extends UiPart<Region> {
         super(FXML);
         this.person = person;
 
-        name.setText(person.getName().fullName);
-
         //TODO: to update friendpicture
-
+        name.setText(person.getName().fullName);
+        age.setText(String.valueOf(person.getAge()));
         dob.setText(person.getBirthday().getActualDate());
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
     }
