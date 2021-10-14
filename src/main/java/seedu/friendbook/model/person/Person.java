@@ -83,6 +83,10 @@ public class Person {
         return (int) birthday.calculateRemainingDaysToBirthday();
     }
 
+    public int getAge() {
+        return birthday.calculateAge();
+    }
+
     /**
      * Returns true if both persons have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.

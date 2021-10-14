@@ -1,5 +1,6 @@
 package seedu.friendbook.model.person;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.testutil.Assert.assertThrows;
@@ -40,6 +41,16 @@ public class BirthdayTest {
         assertTrue(Birthday.isValidBirthday("1994-04-15"));
         assertTrue(Birthday.isValidBirthday("2021-03-25"));
         assertTrue(Birthday.isValidBirthday("2021-10-05"));
+    }
+
+    //TODO: update group that check will fail once the birthday passes (should we test this)
+    @Test
+    public void calculateAgeTest() {
+        Birthday birthdayPassed = new Birthday("1994-05-20");
+        Birthday birthdayUpcoming = new Birthday("1995-12-28");
+
+        assertEquals(27, birthdayPassed.calculateAge());
+        assertEquals(25, birthdayUpcoming.calculateAge());
     }
 
     //TODO: test for remaining days till birthday

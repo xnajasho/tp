@@ -81,9 +81,16 @@ public class Birthday {
             nextBday = nextBday.plusYears(1);
         }
 
-        Period p = Period.between(today, nextBday);
         return ChronoUnit.DAYS.between(today, nextBday);
+    }
 
+    /**
+     * Calculates the age based on the birthday date
+     */
+    public int calculateAge() {
+        LocalDate today = LocalDate.now();
+        LocalDate bday = LocalDate.parse(value);
+        return Period.between(bday, today).getYears();
     }
 
     @Override
