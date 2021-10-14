@@ -21,6 +21,7 @@ public class Person {
     private final Email email;
 
     // Data fields
+    private final Description description;
     private final TeleHandle teleHandle;
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
@@ -30,8 +31,8 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
-                  TeleHandle teleHandle) {
-        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle);
+                  TeleHandle teleHandle, Description description) {
+        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -39,6 +40,7 @@ public class Person {
         this.tags.addAll(tags);
         this.birthday = bday;
         this.teleHandle = teleHandle;
+        this.description = description;
     }
 
     public Name getName() {
@@ -63,6 +65,10 @@ public class Person {
 
     public TeleHandle getTeleHandle() {
         return teleHandle;
+    }
+
+    public Description getDescription() {
+        return description;
     }
 
     /**
@@ -107,6 +113,7 @@ public class Person {
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getBirthday().equals(getBirthday())
                 && otherPerson.getTeleHandle().equals(getTeleHandle())
+                && otherPerson.getDescription().equals(getDescription())
                 && otherPerson.getTags().equals(getTags());
     }
 
@@ -131,7 +138,9 @@ public class Person {
         if (getTeleHandle().isSet()) {
             builder.append("; Tele Handle: ").append(getTeleHandle());
         }
-
+        if (getDescription().isSet()) {
+            builder.append("; Description: ").append(getDescription());
+        }
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");

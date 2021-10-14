@@ -3,6 +3,7 @@ package seedu.friendbook.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -37,6 +38,7 @@ public class AddCommand extends Command {
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_BIRTHDAY + "1994-05-15 "
             + PREFIX_TELEHANDLE + "JohnDoe123 "
+            + PREFIX_DESCRIPTION + "nice guy"
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
     public static final String MESSAGE_PLACEHOLDER = COMMAND_WORD + " "
@@ -46,6 +48,7 @@ public class AddCommand extends Command {
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
             + PREFIX_TELEHANDLE + "TELEHANDLE "
+            + PREFIX_DESCRIPTION + "DESCRIPTION "
             + "[" + PREFIX_TAG + "TAG]...\n";
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the friend book";

@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.friendbook.commons.exceptions.IllegalValueException;
 import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
     private final String address;
     private final String birthday;
     private final String teleHandle;
+    private final String description;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -42,13 +44,14 @@ class JsonAdaptedPerson {
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
             @JsonProperty("birthday") String birthday,
-            @JsonProperty("teleHandle") String teleHandle) {
+            @JsonProperty("teleHandle") String teleHandle, @JsonProperty("description") String description) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.birthday = birthday;
         this.teleHandle = teleHandle;
+        this.description = description;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -64,6 +67,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         birthday = source.getBirthday().value;
         teleHandle = source.getTeleHandle().value;
+        description = source.getDescription().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -132,10 +136,18 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(TeleHandle.MESSAGE_CONSTRAINTS);
         }
         final TeleHandle modelTeleHandle = new TeleHandle(teleHandle);
+        if (description == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
+        }
+        if (!Description.isValidDescription(description)) {
+            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
+        }
+        final Description modelDescription = new Description(description);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday,
-                modelTeleHandle);
+                modelTeleHandle, modelDescription);
     }
 
 }
