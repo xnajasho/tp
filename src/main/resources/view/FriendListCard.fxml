@@ -11,19 +11,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.layout.Region?>
+
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
       <HBox alignment="CENTER_LEFT">
-            <ImageView fitHeight="80.0" fitWidth="80.0" preserveRatio="true">
+            <ImageView fx:id="picture" fitHeight="80.0" fitWidth="80.0" preserveRatio="true">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
-                  <Image url="@../images/avatar.png" />
             <viewport>
                <Rectangle2D />
             </viewport>

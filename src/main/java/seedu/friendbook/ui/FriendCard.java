@@ -1,13 +1,20 @@
 package seedu.friendbook.ui;
 
 import java.util.Comparator;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
+import seedu.friendbook.MainApp;
+import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -16,7 +23,7 @@ import seedu.friendbook.model.person.Person;
 public class FriendCard extends UiPart<Region> {
 
     private static final String FXML = "FriendListCard.fxml";
-
+    private final Logger logger = LogsCenter.getLogger(FriendCard.class);
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
@@ -24,7 +31,6 @@ public class FriendCard extends UiPart<Region> {
      *
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
-
     public final Person person;
 
     @FXML
@@ -41,7 +47,11 @@ public class FriendCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
+    private ImageView picture;
+    @FXML
     private FlowPane tags;
+
+    private Image defaultPic = new Image(MainApp.class.getResourceAsStream("/images/fail.png"));
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -52,6 +62,7 @@ public class FriendCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
+        detectPicturePresent();
         //address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
@@ -62,6 +73,20 @@ public class FriendCard extends UiPart<Region> {
                     label.setTextAlignment(TextAlignment.CENTER);
                     tags.getChildren().add(label);
                 });
+    }
+
+    private void detectPicturePresent() {
+        try {
+            picture.setImage(person.getPicture().getImage());
+        } catch (NullPointerException e) {
+            // pop alert
+            //Alert alert = new Alert(Alert.AlertType.ERROR);
+            //alert.setContentText("Picture not found. Setting to default pic");
+            //alert.setHeight(600);
+            //alert.show();
+            // TODO: IF PICTURE NOT FOUND -> PLACE A FAIL IMAGE
+            picture.setImage(defaultPic);
+        }
     }
 
     @Override

@@ -1,14 +1,7 @@
 package seedu.friendbook.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
+import static seedu.friendbook.logic.parser.CliSyntax.*;
 import static seedu.friendbook.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 import java.util.Collections;
@@ -22,14 +15,7 @@ import seedu.friendbook.commons.core.index.Index;
 import seedu.friendbook.commons.util.CollectionUtil;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.Model;
-import seedu.friendbook.model.person.Address;
-import seedu.friendbook.model.person.Birthday;
-import seedu.friendbook.model.person.Description;
-import seedu.friendbook.model.person.Email;
-import seedu.friendbook.model.person.Name;
-import seedu.friendbook.model.person.Person;
-import seedu.friendbook.model.person.Phone;
-import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.person.*;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -49,6 +35,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_BIRTHDAY + "BIRTHDAY] "
+            + "[" + PREFIX_PICTURE + "PICTURE] "
             + "[" + PREFIX_TELEHANDLE + "TELE_HANDLE] "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_TAG + "TAG]...\n"
@@ -113,9 +100,10 @@ public class EditCommand extends Command {
                 .orElse(personToEdit.getTeleHandle());
         Description updatedDescription = editPersonDescriptor.getDescription()
                 .orElse(personToEdit.getDescription());
+        Picture updatedPicture = editPersonDescriptor.getPicture().orElse(personToEdit.getPicture());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
-                updatedBirthday, updatedTeleHandle, updatedDescription);
+                updatedBirthday, updatedTeleHandle, updatedDescription, updatedPicture);
     }
 
     @Override
@@ -147,6 +135,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Birthday birthday;
+        private Picture picture;
         private TeleHandle teleHandle;
         private Description description;
 
@@ -162,6 +151,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setBirthday(toCopy.birthday);
+            setPicture(toCopy.picture);
             setTeleHandle(toCopy.teleHandle);
             setDescription(toCopy.description);
             setTags(toCopy.tags);
@@ -231,6 +221,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(description);
         }
 
+        public void setPicture(Picture picture) {
+            this.picture = picture;
+        }
+
+        public Optional<Picture> getPicture() {
+            return Optional.ofNullable(picture);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -268,6 +266,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getBirthday().equals(e.getBirthday())
+                    && getPicture().equals(e.getPicture())
                     && getTeleHandle().equals(e.getTeleHandle())
                     && getDescription().equals(e.getDescription())
                     && getTags().equals(e.getTags());

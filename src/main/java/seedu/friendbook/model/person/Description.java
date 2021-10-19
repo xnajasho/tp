@@ -31,10 +31,10 @@ public class Description {
     }
 
     /**
-     * Returns true if a given string is a valid email.
+     * Returns true if a given string is a valid description or is empty.
      */
     public static boolean isValidDescription(String test) {
-        boolean isValid = test.matches(VALIDATION_REGEX) || (test.equals("#DEFAULT#"));
+        boolean isValid = test.matches(VALIDATION_REGEX) || test.trim().equals("");;
         return isValid;
     }
 
@@ -56,9 +56,9 @@ public class Description {
     }
 
     /**
-     * Returns true if the user has provided a description, false if there's a default value
+     * Returns true if description is empty.
      */
-    public boolean isSet() {
-        return !(value == " ");
+    public boolean isEmpty() {
+        return value.isEmpty();
     }
 }

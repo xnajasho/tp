@@ -21,7 +21,7 @@ public class TeleHandle {
     /*
      * At least 5 characters long; and has only alphabets, digits and underscores.
      */
-    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9_]{5,}$";
+    public static final String VALIDATION_REGEX = "^[(a-zA-Z0-9_]{5,}$";
 
     public final String value;
 
@@ -37,10 +37,10 @@ public class TeleHandle {
     }
 
     /**
-     * Returns true if a given string is a valid TeleHandle, or contains default value.
+     * Returns true if a given string is a valid TeleHandle, or is empty
      */
     public static boolean isValidTeleHandle(String test) {
-        boolean isValid = test.matches(VALIDATION_REGEX) || (test.equals("#DEFAULT#"));
+        boolean isValid = test.matches(VALIDATION_REGEX) || test.trim().equals("");
         return isValid;
     }
 
@@ -62,10 +62,10 @@ public class TeleHandle {
     }
 
     /**
-     * Returns true if the user has provided a tele handle, false if there's a default value
+     * Returns true if the tele handle is empty.
      */
-    public boolean isSet() {
-        return !(value == "#DEFAULT#");
+    public boolean isEmpty() {
+        return value.isEmpty();
     }
 
     /**

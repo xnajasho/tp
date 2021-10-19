@@ -2,14 +2,7 @@ package seedu.friendbook.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
+import static seedu.friendbook.logic.parser.CliSyntax.*;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -37,7 +30,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY, PREFIX_TAG, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION);
+                        PREFIX_BIRTHDAY, PREFIX_PICTURE, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION, PREFIX_TAG);
 
         Index index;
 
@@ -63,6 +56,10 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_BIRTHDAY).isPresent()) {
             editPersonDescriptor.setBirthday(ParserUtil.parseBirthday(argMultimap.getValue(PREFIX_BIRTHDAY).get()));
         }
+        if (argMultimap.getValue(PREFIX_PICTURE).isPresent()) {
+            editPersonDescriptor.setPicture(ParserUtil.parsePicture(argMultimap.getValue(PREFIX_PICTURE).get()));
+        }
+
         if (argMultimap.getValue(PREFIX_TELEHANDLE).isPresent()) {
             editPersonDescriptor.setTeleHandle(ParserUtil
                     .parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE).get()));
