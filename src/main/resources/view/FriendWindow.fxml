@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.stage.Stage?>
+
+<fx:root alwaysOnTop="true" height="550.0" minHeight="550.0" minWidth="450.0" resizable="true" title="View Friend" type="javafx.stage.Stage" width="450.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+    <icons>
+        <Image url="@/images/help_icon.png" />
+    </icons>
+    <scene>
+        <Scene>
+            <stylesheets>
+                <URL value="@Fonts.css" />
+                <URL value="@HelpWindow.css" />
+            </stylesheets>
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+            <children>
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <ImageView fx:id="picture" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../images/avatar.png" />
+                        </image></ImageView>
+                     <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Label fx:id="name" text="name" />
+                           <Label text="phone" />
+                           <Label text="dob" />
+                           <Label text="address" />
+                           <Label text="teleHandle" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+        </Scene>
+    </scene>
+</fx:root>
