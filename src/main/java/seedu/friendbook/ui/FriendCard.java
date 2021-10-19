@@ -1,11 +1,9 @@
 package seedu.friendbook.ui;
 
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,7 +21,6 @@ import seedu.friendbook.model.person.Person;
 public class FriendCard extends UiPart<Region> {
 
     private static final String FXML = "FriendListCard.fxml";
-    private final Logger logger = LogsCenter.getLogger(FriendCard.class);
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
      * As a consequence, UI elements' variable names cannot be set to such keywords
@@ -32,6 +29,7 @@ public class FriendCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
     public final Person person;
+    private final Logger logger = LogsCenter.getLogger(FriendCard.class);
 
     @FXML
     private HBox cardPane;
@@ -51,6 +49,7 @@ public class FriendCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
+    //TODO: improve implementation, currently safely assumes fail.png is in the file
     private Image defaultPic = new Image(MainApp.class.getResourceAsStream("/images/fail.png"));
 
     /**

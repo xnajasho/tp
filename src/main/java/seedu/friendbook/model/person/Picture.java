@@ -1,13 +1,10 @@
 package seedu.friendbook.model.person;
 
-import javafx.scene.image.Image;
-import seedu.friendbook.MainApp;
-import seedu.friendbook.ui.FriendCard;
-
-import java.util.Objects;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.util.AppUtil.checkArgument;
+
+import javafx.scene.image.Image;
+import seedu.friendbook.MainApp;
 
 /**
  * Represents a Person's picture file name in the friend book.

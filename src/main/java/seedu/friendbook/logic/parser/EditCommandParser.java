@@ -2,7 +2,15 @@ package seedu.friendbook.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.friendbook.logic.parser.CliSyntax.*;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -59,7 +67,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_PICTURE).isPresent()) {
             editPersonDescriptor.setPicture(ParserUtil.parsePicture(argMultimap.getValue(PREFIX_PICTURE).get()));
         }
-
         if (argMultimap.getValue(PREFIX_TELEHANDLE).isPresent()) {
             editPersonDescriptor.setTeleHandle(ParserUtil
                     .parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE).get()));

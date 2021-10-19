@@ -6,7 +6,15 @@ import java.util.stream.Collectors;
 
 import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.ReadOnlyFriendBook;
-import seedu.friendbook.model.person.*;
+import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Birthday;
+import seedu.friendbook.model.person.Description;
+import seedu.friendbook.model.person.Email;
+import seedu.friendbook.model.person.Name;
+import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.Picture;
+import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
 /**

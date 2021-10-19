@@ -1,5 +1,7 @@
 package seedu.friendbook.ui;
 
+import java.util.logging.Logger;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -7,8 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
-
-import java.util.logging.Logger;
 
 public class BirthdayCard extends UiPart<Region> {
 
