@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
+import seedu.friendbook.model.person.Person;
+
 /**
  * Represents the result of a command execution.
  */
@@ -17,6 +19,9 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** Command result to view a specific person. */
+    private final Person personToView;
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
@@ -24,6 +29,17 @@ public class CommandResult {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.personToView = null;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields to view a person's info.
+     */
+    public CommandResult(String feedbackToUser, Person personToView, boolean showHelp, boolean exit) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = showHelp;
+        this.exit = exit;
+        this.personToView = personToView;
     }
 
     /**
@@ -40,6 +56,10 @@ public class CommandResult {
 
     public boolean isShowHelp() {
         return showHelp;
+    }
+
+    public boolean isViewPerson() {
+        return personToView != null;
     }
 
     public boolean isExit() {
