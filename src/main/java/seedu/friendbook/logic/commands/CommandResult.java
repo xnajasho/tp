@@ -3,6 +3,7 @@ package seedu.friendbook.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import seedu.friendbook.model.person.Person;
 
@@ -20,7 +21,7 @@ public class CommandResult {
     private final boolean exit;
 
     /** Command result to view a specific person. */
-    private final Person personToView;
+    private final Optional<Person> personToView;
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
@@ -29,7 +30,7 @@ public class CommandResult {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
-        this.personToView = null;
+        this.personToView = Optional.ofNullable(null);
     }
 
     /**
@@ -39,7 +40,7 @@ public class CommandResult {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
-        this.personToView = personToView;
+        this.personToView = Optional.of(personToView);
     }
 
     /**
@@ -55,7 +56,7 @@ public class CommandResult {
     }
 
     public Person getPersonToView() {
-        return personToView;
+        return personToView.get();
     }
 
     public boolean isShowHelp() {
@@ -63,7 +64,7 @@ public class CommandResult {
     }
 
     public boolean isViewPerson() {
-        return personToView != null;
+        return personToView.isPresent();
     }
 
     public boolean isExit() {
