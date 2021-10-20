@@ -28,7 +28,6 @@
                      <Font size="24.0" />
                   </font>
                </Label>
-      
             <HBox alignment="BOTTOM_CENTER" prefHeight="559.0" prefWidth="1271.0">
               <children>
                 <Label fx:id="helpMessage" text="Label" textFill="#64113f">
