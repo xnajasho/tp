@@ -54,6 +54,10 @@ public class CommandResult {
         return feedbackToUser;
     }
 
+    public Person getPersonToView() {
+        return personToView;
+    }
+
     public boolean isShowHelp() {
         return showHelp;
     }
