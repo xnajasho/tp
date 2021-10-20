@@ -56,7 +56,7 @@ public class CommandResult {
     }
 
     public Person getPersonToView() {
-        return personToView.get();
+        return personToView.orElse(null);
     }
 
     public boolean isShowHelp() {
