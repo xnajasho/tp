@@ -21,7 +21,7 @@
         <URL value="@Fonts.css" />
         <URL value="@HelpWindow.css" />
       </stylesheets>
-         <AnchorPane style="-fx-background-color: #84e6f8;">
+         <AnchorPane prefHeight="560.0" prefWidth="1271.0" style="-fx-background-color: #84e6f8;">
             <children>
                <Label layoutX="3.0" layoutY="507.0" prefHeight="53.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;">
                   <font>
@@ -49,7 +49,7 @@
                 <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
               </padding>
             </HBox>
-               <Label layoutX="3.0" layoutY="4.0" prefHeight="53.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="Commands">
+               <Label alignment="TOP_LEFT" layoutX="3.0" layoutY="4.0" prefHeight="432.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="Commands">
                   <font>
                      <Font size="36.0" />
                   </font>
@@ -59,7 +59,7 @@
                      <Font size="24.0" />
                   </font>
                </Label>
-               <Label layoutX="3.0" layoutY="94.0" prefHeight="29.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="          Adding adds a person to the address book. Format: add [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
+               <Label layoutX="37.0" layoutY="94.0" prefHeight="29.0" prefWidth="1227.0" style="-fx-background-color: #facfd9;" text="Adding adds a person to the address book. Format: add [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
                <Label layoutX="3.0" layoutY="119.0" prefHeight="53.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="Listing all contacts : list">
                   <font>
                      <Font size="24.0" />
@@ -70,15 +70,15 @@
                      <Font size="24.0" />
                   </font>
                </Label>
-               <Label layoutX="4.0" layoutY="161.0" prefHeight="29.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="          Shows a list of all contacts in the Friend book. Format: list" />
-               <Label layoutX="3.0" layoutY="222.0" prefHeight="29.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="          Edits an existing contact in the address book. Format: edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
+               <Label layoutX="36.0" layoutY="161.0" prefHeight="29.0" prefWidth="1231.0" style="-fx-background-color: #facfd9;" text="Shows a list of all contacts in the Friend book. Format: list" />
+               <Label layoutX="36.0" layoutY="222.0" prefHeight="29.0" prefWidth="1227.0" style="-fx-background-color: #facfd9;" text="Edits an existing contact in the address book. Format: edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
                <Label layoutX="3.0" layoutY="244.0" prefHeight="53.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="Searching by keyword: find">
                   <font>
                      <Font size="24.0" />
                   </font>
                </Label>
-               <Label layoutX="3.0" layoutY="285.0" prefHeight="29.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="          Finds contacts whose names, email, address, tags or telegram username contain any of the given keywords. Format: find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
-               <Label layoutX="3.0" layoutY="308.0" prefHeight="29.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="                    find command searches for names with the given input, findTag searches for tags with the given input, findAddress searches for addresses with the given input, and so on" />
+               <Label layoutX="36.0" layoutY="285.0" prefHeight="29.0" prefWidth="1229.0" style="-fx-background-color: #facfd9;" text="Finds contacts whose names, email, address, tags or telegram username contain any of the given keywords. Format: find [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [tele/TELE_USERNAME] [b/BIRTHDAY(dd/mm)]..." />
+               <Label layoutX="69.0" layoutY="308.0" prefHeight="29.0" prefWidth="1198.0" style="-fx-background-color: #facfd9;" text="find command searches for names with the given input, findTag searches for tags with the given input, findAddress searches for addresses with the given input, and so on" />
                <Label layoutX="3.0" layoutY="330.0" prefHeight="53.0" prefWidth="1263.0" style="-fx-background-color: #facfd9;" text="Deleting a contact : delete">
                   <font>
                      <Font size="24.0" />
