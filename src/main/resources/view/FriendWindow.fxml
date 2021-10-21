@@ -30,10 +30,12 @@
                      <VBox prefHeight="200.0" prefWidth="100.0">
                         <children>
                            <Label fx:id="name" text="name" />
-                           <Label text="phone" />
-                           <Label text="dob" />
-                           <Label text="address" />
-                           <Label text="teleHandle" />
+                           <Label fx:id="birthday" text="birthday" />
+                           <Label fx:id="phone" text="phone" />
+                           <Label fx:id="address" text="address" />
+                           <Label fx:id="email" text="email" />
+                            <Label fx:id="teleHandle" text="teleHandle" />
+                            <Label fx:id="description" text="description" />
                         </children>
                      </VBox>
                   </children>

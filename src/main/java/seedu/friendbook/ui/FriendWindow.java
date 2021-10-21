@@ -12,12 +12,24 @@ import seedu.friendbook.model.person.Person;
 
 public class FriendWindow extends UiPart<Stage> {
 
-
     private static final Logger logger = LogsCenter.getLogger(FriendWindow.class);
     private static final String FXML = "FriendWindow.fxml";
 
     @FXML
     private Label name;
+    @FXML
+    private Label phone;
+    @FXML
+    private Label address;
+    @FXML
+    private Label email;
+    @FXML
+    private Label birthday;
+    @FXML
+    private Label teleHandle;
+    @FXML
+    private Label description;
+
 
     /**
      * Creates a new FriendWindow.
@@ -38,11 +50,17 @@ public class FriendWindow extends UiPart<Stage> {
         //TODO: add the remaining, make sure to set id in the UI and link to code
         //ignore pictures first
         //how layout looks can ignore also.
-        name.setText(person.getName().fullName);
+        name.setText(String.format("Name: %s", person.getName().fullName));
+        birthday.setText(String.format("DOB: %s", person.getBirthday().getActualDate()));
+        phone.setText(String.format("Phone: %s", person.getPhone().value));
+        address.setText(String.format("Address: %s", person.getAddress().value));
+        email.setText(String.format("Email: %s", person.getEmail().value));
+        teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
+        description.setText(String.format("Description: %s", person.getDescription().value));
     }
 
     /**
-     * Shows the help window.
+     * Shows the friend window.
      * @throws IllegalStateException
      * <ul>
      *     <li>

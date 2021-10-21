@@ -165,6 +165,19 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Opens the FriendWindow.
+     */
+    @FXML
+    public void handleViewPerson(CommandResult command) {
+        FriendWindow friendWindow = new FriendWindow(command.getPersonToView());
+        if (!friendWindow.isShowing()) {
+            friendWindow.show();
+        } else {
+            friendWindow.focus();
+        }
+    }
+
+    /**
      * Opens the help window or focuses on it if it's already opened.
      */
     @FXML
@@ -213,6 +226,11 @@ public class MainWindow extends UiPart<Stage> {
 
             if (commandResult.isExit()) {
                 handleExit();
+            }
+
+            //TODO update this portion
+            if (commandResult.isViewPerson()) {
+                handleViewPerson(commandResult);
             }
 
             return commandResult;
