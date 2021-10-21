@@ -22,6 +22,7 @@ import seedu.friendbook.logic.commands.ExitCommand;
 import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.HelpCommand;
 import seedu.friendbook.logic.commands.ListCommand;
+import seedu.friendbook.logic.commands.ViewCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.NameContainsKeywordsPredicate;
 import seedu.friendbook.model.person.Person;
@@ -51,6 +52,13 @@ public class FriendBookParserTest {
         DeleteCommand command = (DeleteCommand) parser.parseCommand(
                 DeleteCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
         assertEquals(new DeleteCommand(INDEX_FIRST_PERSON), command);
+    }
+
+    @Test
+    public void parseCommand_view() throws Exception {
+        ViewCommand command = (ViewCommand) parser.parseCommand(
+                ViewCommand.COMMAND_WORD + " " + INDEX_FIRST_PERSON.getOneBased());
+        assertEquals(new ViewCommand(INDEX_FIRST_PERSON), command);
     }
 
     @Test

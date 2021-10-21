@@ -1,10 +1,13 @@
 package seedu.friendbook.ui;
 
+import java.util.logging.Logger;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 
 public class BirthdayCard extends UiPart<Region> {
@@ -12,6 +15,7 @@ public class BirthdayCard extends UiPart<Region> {
     private static final String FXML = "BirthdayListCard.fxml";
 
     public final Person person;
+    private final Logger logger = LogsCenter.getLogger(BirthdayCard.class);
 
     @FXML
     private HBox cardPane;
@@ -36,7 +40,7 @@ public class BirthdayCard extends UiPart<Region> {
 
         //TODO: to update friendpicture
         name.setText(person.getName().fullName);
-        age.setText(String.valueOf(person.getAge()));
+        age.setText("Currently " + String.valueOf(person.getAge()) + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
     }
@@ -49,12 +53,16 @@ public class BirthdayCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof FriendCard)) {
+        if (!(other instanceof FriendListCard)) {
             return false;
         }
 
         // state check
-        FriendCard card = (FriendCard) other;
+        FriendListCard card = (FriendListCard) other;
         return person.equals(card.person);
+    }
+
+    public void setReminder() {
+        //RemindersTask tasks = new RemindersTask();
     }
 }

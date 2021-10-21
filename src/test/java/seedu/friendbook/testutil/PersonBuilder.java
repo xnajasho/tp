@@ -10,6 +10,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 import seedu.friendbook.model.util.SampleDataUtil;
@@ -24,8 +25,9 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BIRTHDAY = "1994-09-12";
-    public static final String DEFAULT_TELEHANDLE = "#DEFAULT#";
-    public static final String DEFAULT_DESCRIPTION = "#DEFAULT#";
+    public static final String DEFAULT_TELEHANDLE = "";
+    public static final String DEFAULT_DESCRIPTION = "";
+    public static final String DEFAULT_PICTURE = "";
 
     private Name name;
     private Phone phone;
@@ -35,6 +37,7 @@ public class PersonBuilder {
     private Birthday birthday;
     private TeleHandle teleHandle;
     private Description description;
+    private Picture picture;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -47,6 +50,7 @@ public class PersonBuilder {
         birthday = new Birthday(DEFAULT_BIRTHDAY);
         teleHandle = new TeleHandle(DEFAULT_TELEHANDLE);
         description = new Description(DEFAULT_DESCRIPTION);
+        picture = new Picture(DEFAULT_PICTURE);
         tags = new HashSet<>();
     }
 
@@ -59,6 +63,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         birthday = personToCopy.getBirthday();
+        picture = personToCopy.getPicture();
         teleHandle = personToCopy.getTeleHandle();
         description = personToCopy.getDescription();
         tags = new HashSet<>(personToCopy.getTags());
@@ -128,8 +133,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Picture} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withPicture(String picture) {
+        this.picture = new Picture(picture);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags, birthday, teleHandle, description);
+        return new Person(name, phone, email, address, tags, birthday, teleHandle, description, picture);
     }
 
 }
