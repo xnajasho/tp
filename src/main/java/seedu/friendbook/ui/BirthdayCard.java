@@ -37,7 +37,7 @@ public class BirthdayCard extends UiPart<Region> {
 
         //TODO: to update friendpicture
         name.setText(person.getName().fullName);
-        age.setText(String.valueOf(person.getAge()));
+        age.setText("Currently " + String.valueOf(person.getAge()) + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
     }
