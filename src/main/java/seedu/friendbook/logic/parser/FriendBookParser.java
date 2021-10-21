@@ -16,6 +16,7 @@ import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.FindTagCommand;
 import seedu.friendbook.logic.commands.HelpCommand;
 import seedu.friendbook.logic.commands.ListCommand;
+import seedu.friendbook.logic.commands.ViewCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 
 
@@ -72,6 +73,9 @@ public class FriendBookParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case ViewCommand.COMMAND_WORD:
+            return new ViewCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
