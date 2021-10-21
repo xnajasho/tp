@@ -1,6 +1,7 @@
 package seedu.friendbook.ui;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -56,5 +57,9 @@ public class BirthdayCard extends UiPart<Region> {
         // state check
         FriendCard card = (FriendCard) other;
         return person.equals(card.person);
+    }
+
+    public void setReminder() {
+        //RemindersTask tasks = new RemindersTask();
     }
 }
