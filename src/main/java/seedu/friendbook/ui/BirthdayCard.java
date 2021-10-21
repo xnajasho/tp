@@ -3,7 +3,6 @@ package seedu.friendbook.ui;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -54,12 +53,12 @@ public class BirthdayCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof FriendCard)) {
+        if (!(other instanceof FriendListCard)) {
             return false;
         }
 
         // state check
-        FriendCard card = (FriendCard) other;
+        FriendListCard card = (FriendListCard) other;
         return person.equals(card.person);
     }
 
