@@ -97,6 +97,16 @@ Extensions
 Use case resumes at step 2
 
 ###### Use case: View all friends
+MSS
+1. User opens friendbook.
+2. FriendBook displays list of user friends.
+
+Extensions
+1a. User requests to list friends.
+Use case resumes at step 2 
+2a. The list is empty
+ Use case ends
+
 ###### Use case: Add different social media platforms to friend
 ###### Use case: Filter friends by tag
 ##### Birthday Feature
