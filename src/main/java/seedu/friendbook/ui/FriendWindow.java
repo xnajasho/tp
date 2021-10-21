@@ -1,14 +1,24 @@
 package seedu.friendbook.ui;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.logging.Logger;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
+
+
 
 public class FriendWindow extends UiPart<Stage> {
 
@@ -25,6 +35,8 @@ public class FriendWindow extends UiPart<Stage> {
     private Label email;
     @FXML
     private Label birthday;
+    @FXML
+    private Hyperlink teleLink;
     @FXML
     private Label teleHandle;
     @FXML
@@ -55,8 +67,17 @@ public class FriendWindow extends UiPart<Stage> {
         phone.setText(String.format("Phone: %s", person.getPhone().value));
         address.setText(String.format("Address: %s", person.getAddress().value));
         email.setText(String.format("Email: %s", person.getEmail().value));
+        teleLink.setText(String.format("https://t.me/%s", person.getTeleHandle().value));
         teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
         description.setText(String.format("Description: %s", person.getDescription().value));
+
+        teleLink.setOnAction(event -> {
+            try {
+                Desktop.getDesktop().browse(new URL(teleLink.getText()).toURI());
+            } catch (URISyntaxException | IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     /**

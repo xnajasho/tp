@@ -203,6 +203,28 @@
     -fx-text-fill: #95baec;
 }
 
+.friend-card {
+    -fx-background-color: #95baec;
+}
+
+.friend-card .label {
+    -fx-font-size: 12pt;
+    -fx-text-fill: white;
+    -fx-font-family: "Open Sans Regular";
+}
+
+.help-title {
+    -fx-background-color: #95baec;
+    -fx-font-size: 20pt;
+    -fx-font-family: "Open Sans Extra Bold";
+    -fx-text-fill: whitesmoke;
+    -fx-opacity: 1;
+}
+
+.help-commands{}
+
+.help-instructions{}
+
 /* End of Stylesheet */
 
 /*.list-cell:filled:selected #cardPane {*/
