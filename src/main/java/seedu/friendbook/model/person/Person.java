@@ -26,12 +26,13 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Birthday birthday;
+    private final Picture picture;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
-                  TeleHandle teleHandle, Description description) {
+                  TeleHandle teleHandle, Description description, Picture picture) {
         requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description);
         this.name = name;
         this.phone = phone;
@@ -41,6 +42,7 @@ public class Person {
         this.birthday = bday;
         this.teleHandle = teleHandle;
         this.description = description;
+        this.picture = picture;
     }
 
     public Name getName() {
@@ -69,6 +71,10 @@ public class Person {
 
     public Description getDescription() {
         return description;
+    }
+
+    public Picture getPicture() {
+        return picture;
     }
 
     /**
@@ -114,7 +120,8 @@ public class Person {
                 && otherPerson.getBirthday().equals(getBirthday())
                 && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getDescription().equals(getDescription())
-                && otherPerson.getTags().equals(getTags());
+                && otherPerson.getTags().equals(getTags())
+                && otherPerson.getPicture().equals(getPicture());
     }
 
     @Override
@@ -135,10 +142,13 @@ public class Person {
                 .append(getAddress())
                 .append("; Birthday: ")
                 .append(getBirthday());
-        if (getTeleHandle().isSet()) {
+        if (!getPicture().isEmpty()) {
+            builder.append("; Picture: ").append(getPicture());
+        }
+        if (!getTeleHandle().isEmpty()) {
             builder.append("; Tele Handle: ").append(getTeleHandle());
         }
-        if (getDescription().isSet()) {
+        if (!getDescription().isEmpty()) {
             builder.append("; Description: ").append(getDescription());
         }
         Set<Tag> tags = getTags();

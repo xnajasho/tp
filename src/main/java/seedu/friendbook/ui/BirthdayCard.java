@@ -1,11 +1,14 @@
 package seedu.friendbook.ui;
 
+import java.util.logging.Logger;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 
 public class BirthdayCard extends UiPart<Region> {
@@ -13,6 +16,7 @@ public class BirthdayCard extends UiPart<Region> {
     private static final String FXML = "BirthdayListCard.fxml";
 
     public final Person person;
+    private final Logger logger = LogsCenter.getLogger(BirthdayCard.class);
 
     @FXML
     private HBox cardPane;

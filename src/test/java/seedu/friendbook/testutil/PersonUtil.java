@@ -6,6 +6,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
@@ -38,10 +39,13 @@ public class PersonUtil {
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
-        if (person.getTeleHandle().isSet()) {
+        if (!person.getPicture().isEmpty()) {
+            sb.append(PREFIX_PICTURE + person.getPicture().value + " ");
+        }
+        if (!person.getTeleHandle().isEmpty()) {
             sb.append(PREFIX_TELEHANDLE + person.getTeleHandle().value + " ");
         }
-        if (person.getDescription().isSet()) {
+        if (!person.getDescription().isEmpty()) {
             sb.append(PREFIX_DESCRIPTION + person.getDescription().value + " ");
         }
         person.getTags().stream().forEach(
@@ -62,6 +66,7 @@ public class PersonUtil {
                 .append(" "));
         descriptor.getBirthday().ifPresent(birthday -> sb.append(PREFIX_BIRTHDAY)
                 .append(birthday.value).append(" "));
+        descriptor.getPicture().ifPresent(picture -> sb.append(PREFIX_PICTURE));
         descriptor.getTeleHandle().ifPresent(teleHandle -> sb.append(PREFIX_TELEHANDLE)
                 .append(teleHandle.value).append(" "));
         descriptor.getDescription().ifPresent(description -> sb.append(PREFIX_DESCRIPTION)

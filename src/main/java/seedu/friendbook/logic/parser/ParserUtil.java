@@ -15,6 +15,7 @@ import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
@@ -167,5 +168,20 @@ public class ParserUtil {
             throw new ParseException(Description.MESSAGE_CONSTRAINTS);
         }
         return new Description(trimmedDescription);
+    }
+
+    /**
+     * Parses a {@code String picture} into a {@code Picture}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code picture} is invalid.
+     */
+    public static Picture parsePicture(String picture) throws ParseException {
+        requireNonNull(picture);
+        String trimmedPicture = picture.trim();
+        if (!Picture.isValidPicture(trimmedPicture)) {
+            throw new ParseException(Picture.MESSAGE_CONSTRAINTS);
+        }
+        return new Picture(trimmedPicture);
     }
 }

@@ -170,6 +170,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         logger.info("Starting FriendBook " + MainApp.VERSION);
         ui.start(primaryStage);
+
     }
 
     @Override
