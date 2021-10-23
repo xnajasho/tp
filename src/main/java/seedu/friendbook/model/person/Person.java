@@ -7,10 +7,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the friend book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -27,13 +28,14 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
     private final Birthday birthday;
     private final Picture picture;
+    private final Reminder reminder;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
-                  TeleHandle teleHandle, Description description, Picture picture) {
-        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description);
+                  TeleHandle teleHandle, Description description, Picture picture, Reminder reminder) {
+        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description, reminder);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -43,6 +45,7 @@ public class Person {
         this.teleHandle = teleHandle;
         this.description = description;
         this.picture = picture;
+        this.reminder = reminder;
     }
 
     public Name getName() {
@@ -75,6 +78,10 @@ public class Person {
 
     public Picture getPicture() {
         return picture;
+    }
+
+    public Reminder getReminder() {
+        return reminder;
     }
 
     /**
@@ -121,7 +128,8 @@ public class Person {
                 && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getDescription().equals(getDescription())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getPicture().equals(getPicture());
+                && otherPerson.getPicture().equals(getPicture())
+                && otherPerson.getReminder().equals(getReminder());
     }
 
     @Override
@@ -156,6 +164,7 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+        builder.append("; Reminder: ");
         return builder.toString();
     }
 
