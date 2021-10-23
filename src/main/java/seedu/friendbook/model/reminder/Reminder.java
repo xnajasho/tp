@@ -23,6 +23,10 @@ public class Reminder {
         return stringValue;
     }
 
+    public void setReminder(Boolean booleanValue) {
+        this.stringValue = booleanValue == true ? "on" : "off";
+    }
+
     public Boolean getBooleanValue() {
         return stringValue.equals("on");
     }

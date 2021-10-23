@@ -48,6 +48,23 @@ public class Person {
         this.reminder = reminder;
     }
 
+    private Person(Person person) {
+        this.name = person.name;
+        this.phone = person.phone;
+        this.email = person.email;
+        this.address = person.address;
+        this.tags.addAll(person.tags);
+        this.birthday = person.birthday;
+        this.teleHandle = person.teleHandle;
+        this.description = person.description;
+        this.picture = person.picture;
+        this.reminder = person.reminder;
+    }
+
+    public static Person newInstance(Person person) {
+        return new Person(person);
+    }
+
     public Name getName() {
         return name;
     }

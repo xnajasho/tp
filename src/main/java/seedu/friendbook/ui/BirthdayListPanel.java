@@ -17,14 +17,17 @@ public class BirthdayListPanel extends UiPart<Region> {
     private static final String FXML = "BirthdayListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(FriendListPanel.class);
 
+    private final BirthdayCard.SetRemindExecutor setRemindExecutor;
+
     @javafx.fxml.FXML
     private ListView<Person> birthdayListView;
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
-    public BirthdayListPanel(ObservableList<Person> personList) {
+    public BirthdayListPanel(ObservableList<Person> personList, BirthdayCard.SetRemindExecutor setRemindExecutor) {
         super(FXML);
+        this.setRemindExecutor = setRemindExecutor;
         birthdayListView.setItems(personList);
         birthdayListView.setCellFactory(listView -> new BirthdayListPanel.BirthdayListViewCell());
     }
@@ -41,7 +44,7 @@ public class BirthdayListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new BirthdayCard(person, getIndex() + 1).getRoot());
+                setGraphic(new BirthdayCard(person, getIndex() + 1, setRemindExecutor).getRoot());
             }
         }
     }

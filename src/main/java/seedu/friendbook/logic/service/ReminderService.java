@@ -21,7 +21,7 @@ import seedu.friendbook.model.person.Person;
 public class ReminderService extends ScheduledService<String> {
 
     private static final Duration periodDuration = Duration.hours(1);
-    private static final Duration delayDuration = Duration.minutes(5);
+    private static final Duration delayDuration = Duration.seconds(10);
 
     private final Logger logger = LogsCenter.getLogger(ReminderService.class);
 
@@ -40,7 +40,9 @@ public class ReminderService extends ScheduledService<String> {
         personList.addListener(new ListChangeListener<Person>() {
             @Override
             public void onChanged(Change<? extends Person> c) {
+                // restart reminder service for any new addition to list
                 if (c.next() && c.wasAdded()) {
+                    logger.info("reminder service restarting");
                     ReminderService.this.restart();
                 }
             }
@@ -57,6 +59,7 @@ public class ReminderService extends ScheduledService<String> {
             @Override
             public void handle(WorkerStateEvent event) {
                 String value = event.getSource().getValue().toString();
+                logger.info("reminder service success with value: " + value);
                 if (value == null) {
                     return;
                 }

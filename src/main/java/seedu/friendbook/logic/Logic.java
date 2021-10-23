@@ -24,6 +24,14 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
+     * Executes the update reminder and updates model.
+     * @param person original person data.
+     * @param newPerson new person data to update to
+     * @throws CommandException If an error occurs during update execution.
+     */
+    void executeUpdateReminder(Person person, Person newPerson) throws CommandException;
+
+    /**
      * Returns the FriendBook.
      *
      * @see seedu.friendbook.model.Model#getFriendBook()
