@@ -9,6 +9,52 @@ import seedu.friendbook.model.Model;
 public abstract class Command {
 
     /**
+     * Represents enum of all Commands FriendBook presents
+     */
+    public enum CommandList {
+        ADD, EDIT, CLEAR, DELETE, EXIT, FIND, FIND_TAG, HELP, LIST, VIEW;
+
+        public String getCommandMessageUsage() {
+            String usage;
+            switch (this) {
+            case ADD:
+                usage = AddCommand.MESSAGE_USAGE;
+                break;
+            case EDIT:
+                usage = EditCommand.MESSAGE_USAGE;
+                break;
+            case CLEAR:
+                usage = ClearCommand.MESSAGE_USAGE;
+                break;
+            case DELETE:
+                usage = DeleteCommand.MESSAGE_USAGE;
+                break;
+            case EXIT:
+                usage = ExitCommand.MESSAGE_USAGE;
+                break;
+            case FIND:
+                usage = FindCommand.MESSAGE_USAGE;
+                break;
+            case FIND_TAG:
+                usage = FindTagCommand.MESSAGE_USAGE;
+                break;
+            case HELP:
+                usage = HelpCommand.MESSAGE_USAGE;
+                break;
+            case LIST:
+                usage = ListCommand.MESSAGE_USAGE;
+                break;
+            case VIEW:
+                usage = ViewCommand.MESSAGE_USAGE;
+                break;
+            default:
+                usage = null;
+            }
+            return usage;
+        }
+    }
+
+    /**
      * Executes the command and returns the result message.
      *
      * @param model {@code Model} which the command should operate on.

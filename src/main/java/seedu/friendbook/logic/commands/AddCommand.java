@@ -55,6 +55,7 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
+            + "BELOW ARE OPTIONAL FIELDS TO HAVE: "
             + PREFIX_AVATAR + "AVATAR"
             + PREFIX_TELEHANDLE + "TELEHANDLE "
             + PREFIX_DESCRIPTION + "DESCRIPTION "

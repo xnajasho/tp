@@ -11,6 +11,7 @@ import seedu.friendbook.model.Model;
 public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Clears friend and birthday list entirely.";
     public static final String MESSAGE_SUCCESS = "Friend book has been cleared!";
 
 
