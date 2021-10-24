@@ -17,6 +17,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -183,5 +184,20 @@ public class ParserUtil {
             throw new ParseException(Avatar.MESSAGE_CONSTRAINTS);
         }
         return new Avatar(trimmedPicture);
+    }
+
+    /**
+     * Parses a {@code String reminder} into a {@code Reminder}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code reminder} is invalid.
+     */
+    public static Reminder parseReminder(String reminder) throws ParseException {
+        requireNonNull(reminder);
+        String trimmedReminder = reminder.trim();
+        if (!Reminder.isValidReminder(trimmedReminder)) {
+            throw new ParseException(Reminder.MESSAGE_CONSTRAINTS);
+        }
+        return new Reminder(trimmedReminder);
     }
 }

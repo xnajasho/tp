@@ -7,10 +7,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Person in the friend book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
@@ -27,13 +28,14 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
     private final Birthday birthday;
     private final Avatar avatar;
+    private final Reminder reminder;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
-                  TeleHandle teleHandle, Description description, Avatar avatar) {
-        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description, avatar);
+                  TeleHandle teleHandle, Description description, Avatar avatar, Reminder reminder) {
+        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description, avatar, reminder);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -43,6 +45,24 @@ public class Person {
         this.teleHandle = teleHandle;
         this.description = description;
         this.avatar = avatar;
+        this.reminder = reminder;
+    }
+
+    private Person(Person person) {
+        this.name = person.name;
+        this.phone = person.phone;
+        this.email = person.email;
+        this.address = person.address;
+        this.tags.addAll(person.tags);
+        this.birthday = person.birthday;
+        this.teleHandle = person.teleHandle;
+        this.description = person.description;
+        this.avatar = person.avatar;
+        this.reminder = person.reminder;
+    }
+
+    public static Person newInstance(Person person) {
+        return new Person(person);
     }
 
     public Name getName() {
@@ -75,6 +95,10 @@ public class Person {
 
     public Avatar getAvatar() {
         return avatar;
+    }
+
+    public Reminder getReminder() {
+        return reminder;
     }
 
     /**
@@ -121,7 +145,8 @@ public class Person {
                 && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getDescription().equals(getDescription())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getAvatar().equals(getAvatar());
+                && otherPerson.getAvatar().equals(getAvatar())
+                && otherPerson.getReminder().equals(getReminder());
     }
 
     @Override
@@ -156,6 +181,7 @@ public class Person {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
+        builder.append("; Reminder: ");
         return builder.toString();
     }
 

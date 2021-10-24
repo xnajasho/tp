@@ -8,6 +8,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 import static seedu.friendbook.model.Model.PREDICATE_SHOW_ALL_PERSONS;
@@ -32,6 +33,7 @@ import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -54,6 +56,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_AVATAR + "AVATAR] "
             + "[" + PREFIX_TELEHANDLE + "TELE_HANDLE] "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+            + "[" + PREFIX_REMINDER + "REMINDER] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -117,9 +120,9 @@ public class EditCommand extends Command {
         Description updatedDescription = editPersonDescriptor.getDescription()
                 .orElse(personToEdit.getDescription());
         Avatar updatedAvatar = editPersonDescriptor.getAvatar().orElse(personToEdit.getAvatar());
-
+        Reminder updatedReminder = editPersonDescriptor.getReminder().orElse(personToEdit.getReminder());
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
-                updatedBirthday, updatedTeleHandle, updatedDescription, updatedAvatar);
+                updatedBirthday, updatedTeleHandle, updatedDescription, updatedAvatar, updatedReminder);
     }
 
     @Override
@@ -154,6 +157,7 @@ public class EditCommand extends Command {
         private Avatar avatar;
         private TeleHandle teleHandle;
         private Description description;
+        private Reminder reminder;
 
         public EditPersonDescriptor() {}
 
@@ -171,6 +175,7 @@ public class EditCommand extends Command {
             setTeleHandle(toCopy.teleHandle);
             setDescription(toCopy.description);
             setTags(toCopy.tags);
+            setReminder(toCopy.reminder);
         }
 
         /**
@@ -178,7 +183,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, birthday, teleHandle,
-                    description, avatar);
+                    description, avatar, reminder);
         }
 
         public void setName(Name name) {
@@ -245,6 +250,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(avatar);
         }
 
+        public void setReminder(Reminder reminder) {
+            this.reminder = reminder;
+        }
+
+        public Optional<Reminder> getReminder() {
+            return Optional.ofNullable(reminder);
+        }
+
         /**
          * Sets {@code tags} to this object's {@code tags}.
          * A defensive copy of {@code tags} is used internally.
@@ -285,6 +298,7 @@ public class EditCommand extends Command {
                     && getAvatar().equals(e.getAvatar())
                     && getTeleHandle().equals(e.getTeleHandle())
                     && getDescription().equals(e.getDescription())
+                    && getReminder().equals(e.getReminder())
                     && getTags().equals(e.getTags());
         }
     }

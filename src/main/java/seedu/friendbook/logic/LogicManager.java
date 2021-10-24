@@ -12,6 +12,7 @@ import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.FriendBookParser;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
+import seedu.friendbook.logic.service.ReminderService;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.person.Person;
@@ -27,6 +28,7 @@ public class LogicManager implements Logic {
     private final Model model;
     private final Storage storage;
     private final FriendBookParser friendBookParser;
+    private ReminderService reminderService;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -35,6 +37,9 @@ public class LogicManager implements Logic {
         this.model = model;
         this.storage = storage;
         friendBookParser = new FriendBookParser();
+
+        this.reminderService = new ReminderService(model.getFilteredPersonList());
+        reminderService.beginReminderService();
     }
 
     @Override
@@ -52,6 +57,17 @@ public class LogicManager implements Logic {
         }
 
         return commandResult;
+    }
+
+    @Override
+    public void executeUpdateReminder(Person person, Person newPerson) throws CommandException {
+        logger.info("Updating Person reminder through checkbox");
+        model.setPerson(person, newPerson);
+        try {
+            storage.saveFriendBook(model.getFriendBook());
+        } catch (IOException ioe) {
+            throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
+        }
     }
 
     @Override
