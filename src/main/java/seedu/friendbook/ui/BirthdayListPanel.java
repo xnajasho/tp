@@ -7,6 +7,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.friendbook.commons.core.LogsCenter;
+import seedu.friendbook.logic.service.ReminderService;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -17,7 +18,7 @@ public class BirthdayListPanel extends UiPart<Region> {
     private static final String FXML = "BirthdayListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(FriendListPanel.class);
 
-    private final BirthdayCard.SetRemindExecutor setRemindExecutor;
+    private final ReminderService.SetRemindExecutor setRemindExecutor;
 
     @javafx.fxml.FXML
     private ListView<Person> birthdayListView;
@@ -25,7 +26,7 @@ public class BirthdayListPanel extends UiPart<Region> {
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
-    public BirthdayListPanel(ObservableList<Person> personList, BirthdayCard.SetRemindExecutor setRemindExecutor) {
+    public BirthdayListPanel(ObservableList<Person> personList, ReminderService.SetRemindExecutor setRemindExecutor) {
         super(FXML);
         this.setRemindExecutor = setRemindExecutor;
         birthdayListView.setItems(personList);
