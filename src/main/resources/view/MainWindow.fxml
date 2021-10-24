@@ -24,7 +24,7 @@
         <URL value="@Fonts.css" />
 <!--        <URL value="@FriendBookStyle.css" />-->
         <URL value="@FriendBookTheme.css" />
-<!--        <URL value="@Extensions.css" />-->
+        <URL value="@Extensions.css" />
       </stylesheets>
 
             <!--    Window Container        -->
