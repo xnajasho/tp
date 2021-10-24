@@ -17,5 +17,9 @@ public class UserPrefsTest {
         UserPrefs userPrefs = new UserPrefs();
         assertThrows(NullPointerException.class, () -> userPrefs.setFriendBookFilePath(null));
     }
-
+    @Test
+    public void setUsername_nullUsername_throwsNullPointerException() {
+        UserPrefs userPrefs = new UserPrefs();
+        assertThrows(NullPointerException.class, () -> userPrefs.setUsername(null));
+    }
 }
