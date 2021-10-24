@@ -6,14 +6,8 @@
     -fx-text-fill: black !important; /* The error class should always override the default text-fill style */
 }
 
-
-.tag-selector {
-    -fx-border-width: 1;
-    -fx-border-color: white;
-    -fx-border-radius: 3;
-    -fx-background-radius: 3;
-}
-
-.tooltip-text {
-    -fx-text-fill: white;
+#saveLocationStatus {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Open Sans Semibold";
+    -fx-text-fill: #524d50;
 }
