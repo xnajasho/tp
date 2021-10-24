@@ -3,7 +3,6 @@ package seedu.friendbook.logic.parser;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 
-import java.sql.SQLOutput;
 import java.util.stream.Stream;
 
 import seedu.friendbook.logic.commands.ProfileCommand;

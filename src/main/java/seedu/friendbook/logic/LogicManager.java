@@ -93,5 +93,7 @@ public class LogicManager implements Logic {
         model.setUsername(username);
     }
     @Override
-    public Name getUsername() { return model.getUsername(); }
+    public Name getUsername() {
+        return model.getUsername();
+    }
 }

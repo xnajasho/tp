@@ -43,7 +43,8 @@ public class ProfileCommandTest {
         Name validName = new Name("old");
         ProfileCommand profileCommand = new ProfileCommand(validName);
 
-        assertThrows(CommandException.class, ProfileCommand.MESSAGE_DUPLICATE_USERNAME, () -> profileCommand.execute(modelStub));
+        assertThrows(CommandException.class, ProfileCommand.MESSAGE_DUPLICATE_USERNAME, (
+                ) -> profileCommand.execute(modelStub));
     }
 
     @Test
