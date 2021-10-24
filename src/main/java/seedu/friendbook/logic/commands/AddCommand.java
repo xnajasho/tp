@@ -8,6 +8,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
@@ -30,9 +31,10 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
-            + PREFIX_PICTURE + "<OPTIONAL> PICTURE"
+            + PREFIX_PICTURE + "<OPTIONAL> PICTURE "
             + PREFIX_TELEHANDLE + "<OPTIONAL> TELE HANDLE "
-            + PREFIX_DESCRIPTION + "<OPTIONAL> DESCRIPTION"
+            + PREFIX_DESCRIPTION + "<OPTIONAL> DESCRIPTION "
+            + PREFIX_REMINDER + "<OPTIONAL> REMINDER "
             + "<OPTIONAL> [" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -43,6 +45,7 @@ public class AddCommand extends Command {
             + PREFIX_PICTURE + "john_doe "
             + PREFIX_TELEHANDLE + "JohnDoe123 "
             + PREFIX_DESCRIPTION + "nice guy "
+            + PREFIX_REMINDER + "on "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
@@ -55,6 +58,7 @@ public class AddCommand extends Command {
             + PREFIX_PICTURE + "PICTURE"
             + PREFIX_TELEHANDLE + "TELEHANDLE "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
+            + PREFIX_REMINDER + "on "
             + "[" + PREFIX_TAG + "TAG]...\n";
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the friend book";

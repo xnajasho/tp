@@ -8,6 +8,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
@@ -25,6 +26,7 @@ import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 
@@ -41,7 +43,8 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY, PREFIX_PICTURE, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION, PREFIX_TAG);
+                        PREFIX_BIRTHDAY, PREFIX_PICTURE, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION, PREFIX_REMINDER,
+                        PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BIRTHDAY)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -59,8 +62,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         Picture picture = ParserUtil.parsePicture(argMultimap.getValue(PREFIX_PICTURE).orElse(""));
         TeleHandle teleHandle = ParserUtil.parseTeleHandle(argMultimap.getValue(PREFIX_TELEHANDLE).orElse(""));
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).orElse(""));
+        Reminder reminder = ParserUtil.parseReminder(argMultimap.getValue(PREFIX_REMINDER).orElse("off"));
 
-        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle, description, picture);
+        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle, description, picture,
+                reminder);
 
         return new AddCommand(person);
     }

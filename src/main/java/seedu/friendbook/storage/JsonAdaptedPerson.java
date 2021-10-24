@@ -19,6 +19,7 @@ import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 /**
@@ -36,6 +37,7 @@ class JsonAdaptedPerson {
     private final String teleHandle;
     private final String description;
     private final String picture;
+    private final String reminder;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -47,7 +49,8 @@ class JsonAdaptedPerson {
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
             @JsonProperty("birthday") String birthday,
             @JsonProperty("picture") String picture,
-            @JsonProperty("teleHandle") String teleHandle, @JsonProperty("description") String description) {
+            @JsonProperty("teleHandle") String teleHandle, @JsonProperty("description") String description,
+                             @JsonProperty("reminder") String reminder) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -56,6 +59,7 @@ class JsonAdaptedPerson {
         this.picture = picture;
         this.teleHandle = teleHandle;
         this.description = description;
+        this.reminder = reminder;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -73,6 +77,7 @@ class JsonAdaptedPerson {
         teleHandle = source.getTeleHandle().value;
         description = source.getDescription().value;
         picture = source.getPicture().value;
+        reminder = source.getReminder().getStringValue();
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -150,14 +155,27 @@ class JsonAdaptedPerson {
         }
         final Description modelDescription = new Description(description);
 
+        if (picture == null) {
+            throw new IllegalValueException(
+                        String.format(MISSING_FIELD_MESSAGE_FORMAT, Picture.class.getSimpleName()));
+        }
         if (!Picture.isValidPicture(picture)) {
             throw new IllegalValueException(Picture.MESSAGE_CONSTRAINTS);
         }
         final Picture modelPicture = new Picture(picture);
 
+        if (reminder == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Reminder.class.getSimpleName()));
+        }
+        if (!Reminder.isValidReminder(reminder)) {
+            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        }
+        final Reminder modelReminder = new Reminder(reminder);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday,
-                modelTeleHandle, modelDescription, modelPicture);
+                modelTeleHandle, modelDescription, modelPicture, modelReminder);
     }
 
 }

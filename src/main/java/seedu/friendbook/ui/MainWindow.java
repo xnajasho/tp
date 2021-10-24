@@ -18,6 +18,7 @@ import seedu.friendbook.logic.commands.AddCommand;
 import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
+import seedu.friendbook.model.person.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -147,7 +148,8 @@ public class MainWindow extends UiPart<Stage> {
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
 
         // for Birthday view
-        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonListSortedByBirthday());
+        birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonListSortedByBirthday(),
+                this::executeReminderCheckBox);
         birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
     }
@@ -241,6 +243,16 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    private void executeReminderCheckBox(Person person, Person newPerson) throws CommandException {
+        try {
+            this.logic.executeUpdateReminder(person, newPerson);
+        } catch (CommandException e) {
+            logger.info("fail to update person reminder through checkbox: " + newPerson);
+            resultDisplay.setFeedbackToUser(e.getMessage());
+            throw e;
+        }
+    }
+
     //TODO: create test case for method
     /**
      * Executes the add button and updates command text field.
@@ -249,4 +261,5 @@ public class MainWindow extends UiPart<Stage> {
     public void handleAddButton() {
         commandBox.setAddPlaceholderText(AddCommand.MESSAGE_PLACEHOLDER);
     }
+
 }
