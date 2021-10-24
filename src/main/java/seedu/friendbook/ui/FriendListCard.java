@@ -5,14 +5,13 @@ import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
-import seedu.friendbook.MainApp;
 import seedu.friendbook.commons.core.LogsCenter;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -45,12 +44,9 @@ public class FriendListCard extends UiPart<Region> {
     @FXML
     private Label email;
     @FXML
-    private ImageView picture;
+    private ImageView avatar;
     @FXML
     private FlowPane tags;
-
-    //TODO: improve implementation, currently safely assumes fail.png is in the file
-    private Image defaultPic = new Image(MainApp.class.getResourceAsStream("/images/fail.png"));
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -76,15 +72,9 @@ public class FriendListCard extends UiPart<Region> {
 
     private void detectPicturePresent() {
         try {
-            picture.setImage(person.getPicture().getImage());
+            avatar.setImage(person.getAvatar().getImage());
         } catch (NullPointerException e) {
-            // pop alert
-            //Alert alert = new Alert(Alert.AlertType.ERROR);
-            //alert.setContentText("Picture not found. Setting to default pic");
-            //alert.setHeight(600);
-            //alert.show();
-            // TODO: IF PICTURE NOT FOUND -> PLACE A FAIL IMAGE
-            picture.setImage(defaultPic);
+            avatar.setImage(Avatar.DEFAULT_AVATAR_IMAGE);
         }
     }
 

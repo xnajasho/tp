@@ -1,6 +1,5 @@
 package seedu.friendbook.model.person;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.testutil.Assert.assertThrows;
 
@@ -13,9 +12,9 @@ public class DescriptionTest {
     }
 
     @Test
-    public void constructor_invalidDescription_throwsIllegalArgumentException() {
-        String invalidDescription = " ";
-        assertThrows(IllegalArgumentException.class, () -> new Description(invalidDescription));
+    public void constructor_invalidDescription_throwsNullPointerException() {
+        String invalidDescription = null;
+        assertThrows(NullPointerException.class, () -> new Description(invalidDescription));
     }
 
     @Test
@@ -23,8 +22,6 @@ public class DescriptionTest {
         // null description
         assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
-        // invalid description
-        assertFalse(Description.isValidDescription(" "));
         // valid description
         assertTrue(Description.isValidDescription("owes a lottta money"));
         assertTrue(Description.isValidDescription("good friend"));

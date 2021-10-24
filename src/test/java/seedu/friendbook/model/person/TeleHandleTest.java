@@ -24,12 +24,11 @@ public class TeleHandleTest {
         assertThrows(NullPointerException.class, () -> TeleHandle.isValidTeleHandle(null));
 
         // invalid tele handle
-        assertFalse(TeleHandle.isValidTeleHandle(""));
         assertFalse(TeleHandle.isValidTeleHandle("abc"));
         assertFalse(TeleHandle.isValidTeleHandle("abc@12345"));
         assertFalse(TeleHandle.isValidTeleHandle("@abc12#"));
         // valid tele handles
-        assertTrue(TeleHandle.isValidTeleHandle("#DEFAULT#"));
+        assertTrue(TeleHandle.isValidTeleHandle(""));
         assertTrue(TeleHandle.isValidTeleHandle("mari12"));
         assertTrue(TeleHandle.isValidTeleHandle("baked_cookie_dough"));
     }

@@ -19,7 +19,7 @@
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
       <HBox alignment="CENTER_LEFT">
-            <ImageView fx:id="picture" fitHeight="80.0" fitWidth="80.0" preserveRatio="true">
+            <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" preserveRatio="true">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

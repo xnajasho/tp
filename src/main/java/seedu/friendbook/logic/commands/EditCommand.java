@@ -2,12 +2,12 @@ package seedu.friendbook.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_AVATAR;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
@@ -25,13 +25,13 @@ import seedu.friendbook.commons.util.CollectionUtil;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
-import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
@@ -53,7 +53,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_BIRTHDAY + "BIRTHDAY] "
-            + "[" + PREFIX_PICTURE + "PICTURE] "
+            + "[" + PREFIX_AVATAR + "AVATAR] "
             + "[" + PREFIX_TELEHANDLE + "TELE_HANDLE] "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_REMINDER + "REMINDER] "
@@ -119,11 +119,10 @@ public class EditCommand extends Command {
                 .orElse(personToEdit.getTeleHandle());
         Description updatedDescription = editPersonDescriptor.getDescription()
                 .orElse(personToEdit.getDescription());
-        Picture updatedPicture = editPersonDescriptor.getPicture().orElse(personToEdit.getPicture());
+        Avatar updatedAvatar = editPersonDescriptor.getAvatar().orElse(personToEdit.getAvatar());
         Reminder updatedReminder = editPersonDescriptor.getReminder().orElse(personToEdit.getReminder());
-
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags,
-                updatedBirthday, updatedTeleHandle, updatedDescription, updatedPicture, updatedReminder);
+                updatedBirthday, updatedTeleHandle, updatedDescription, updatedAvatar, updatedReminder);
     }
 
     @Override
@@ -155,7 +154,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Birthday birthday;
-        private Picture picture;
+        private Avatar avatar;
         private TeleHandle teleHandle;
         private Description description;
         private Reminder reminder;
@@ -172,7 +171,7 @@ public class EditCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setBirthday(toCopy.birthday);
-            setPicture(toCopy.picture);
+            setAvatar(toCopy.avatar);
             setTeleHandle(toCopy.teleHandle);
             setDescription(toCopy.description);
             setTags(toCopy.tags);
@@ -184,7 +183,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, birthday, teleHandle,
-                    description, picture, reminder);
+                    description, avatar, reminder);
         }
 
         public void setName(Name name) {
@@ -243,12 +242,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(description);
         }
 
-        public void setPicture(Picture picture) {
-            this.picture = picture;
+        public void setAvatar(Avatar avatar) {
+            this.avatar = avatar;
         }
 
-        public Optional<Picture> getPicture() {
-            return Optional.ofNullable(picture);
+        public Optional<Avatar> getAvatar() {
+            return Optional.ofNullable(avatar);
         }
 
         public void setReminder(Reminder reminder) {
@@ -296,7 +295,7 @@ public class EditCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getBirthday().equals(e.getBirthday())
-                    && getPicture().equals(e.getPicture())
+                    && getAvatar().equals(e.getAvatar())
                     && getTeleHandle().equals(e.getTeleHandle())
                     && getDescription().equals(e.getDescription())
                     && getReminder().equals(e.getReminder())
