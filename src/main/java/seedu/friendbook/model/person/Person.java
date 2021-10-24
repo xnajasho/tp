@@ -26,14 +26,14 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Birthday birthday;
-    private final Picture picture;
+    private final Avatar avatar;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Birthday bday,
-                  TeleHandle teleHandle, Description description, Picture picture) {
-        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description);
+                  TeleHandle teleHandle, Description description, Avatar avatar) {
+        requireAllNonNull(name, phone, email, address, tags, bday, teleHandle, description, avatar);
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -42,7 +42,7 @@ public class Person {
         this.birthday = bday;
         this.teleHandle = teleHandle;
         this.description = description;
-        this.picture = picture;
+        this.avatar = avatar;
     }
 
     public Name getName() {
@@ -73,8 +73,8 @@ public class Person {
         return description;
     }
 
-    public Picture getPicture() {
-        return picture;
+    public Avatar getAvatar() {
+        return avatar;
     }
 
     /**
@@ -121,7 +121,7 @@ public class Person {
                 && otherPerson.getTeleHandle().equals(getTeleHandle())
                 && otherPerson.getDescription().equals(getDescription())
                 && otherPerson.getTags().equals(getTags())
-                && otherPerson.getPicture().equals(getPicture());
+                && otherPerson.getAvatar().equals(getAvatar());
     }
 
     @Override
@@ -142,8 +142,8 @@ public class Person {
                 .append(getAddress())
                 .append("; Birthday: ")
                 .append(getBirthday());
-        if (!getPicture().isEmpty()) {
-            builder.append("; Picture: ").append(getPicture());
+        if (!getAvatar().isEmpty()) {
+            builder.append("; Avatar: ").append(getAvatar());
         }
         if (!getTeleHandle().isEmpty()) {
             builder.append("; Tele Handle: ").append(getTeleHandle());

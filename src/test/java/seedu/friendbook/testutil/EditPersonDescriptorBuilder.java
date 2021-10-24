@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import seedu.friendbook.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
@@ -108,6 +109,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withBirthday(String birthday) {
         descriptor.setBirthday(new Birthday(birthday));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Avatar} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withAvatar(String avatar) {
+        descriptor.setAvatar(new Avatar(avatar));
         return this;
     }
 

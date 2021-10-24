@@ -23,7 +23,7 @@
             </stylesheets>
          <VBox styleClass="friend-card" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0">
             <children>
-               <ImageView fx:id="picture" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../images/avatar.png" />
                   </image>

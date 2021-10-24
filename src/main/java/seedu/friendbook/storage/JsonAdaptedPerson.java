@@ -11,13 +11,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.friendbook.commons.exceptions.IllegalValueException;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
-import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
@@ -35,7 +35,7 @@ class JsonAdaptedPerson {
     private final String birthday;
     private final String teleHandle;
     private final String description;
-    private final String picture;
+    private final String avatar;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -46,14 +46,14 @@ class JsonAdaptedPerson {
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
             @JsonProperty("birthday") String birthday,
-            @JsonProperty("picture") String picture,
+            @JsonProperty("avatar") String avatar,
             @JsonProperty("teleHandle") String teleHandle, @JsonProperty("description") String description) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.birthday = birthday;
-        this.picture = picture;
+        this.avatar = avatar;
         this.teleHandle = teleHandle;
         this.description = description;
         if (tagged != null) {
@@ -72,7 +72,7 @@ class JsonAdaptedPerson {
         birthday = source.getBirthday().value;
         teleHandle = source.getTeleHandle().value;
         description = source.getDescription().value;
-        picture = source.getPicture().value;
+        avatar = source.getAvatar().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -150,14 +150,18 @@ class JsonAdaptedPerson {
         }
         final Description modelDescription = new Description(description);
 
-        if (!Picture.isValidPicture(picture)) {
-            throw new IllegalValueException(Picture.MESSAGE_CONSTRAINTS);
+        if (avatar == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, Avatar.class.getSimpleName()));
         }
-        final Picture modelPicture = new Picture(picture);
+        if (!Avatar.isValidAvatar(avatar)) {
+            throw new IllegalValueException(Avatar.MESSAGE_CONSTRAINTS);
+        }
+        final Avatar modelAvatar = new Avatar(avatar);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelBirthday,
-                modelTeleHandle, modelDescription, modelPicture);
+                modelTeleHandle, modelDescription, modelAvatar);
     }
 
 }

@@ -10,12 +10,12 @@ import seedu.friendbook.commons.core.index.Index;
 import seedu.friendbook.commons.util.StringUtil;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
-import seedu.friendbook.model.person.Picture;
 import seedu.friendbook.model.person.TeleHandle;
 import seedu.friendbook.model.tag.Tag;
 
@@ -171,17 +171,17 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String picture} into a {@code Picture}.
+     * Parses a {@code String avatar} into a {@code Picture}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code picture} is invalid.
+     * @throws ParseException if the given {@code avatar} is invalid.
      */
-    public static Picture parsePicture(String picture) throws ParseException {
-        requireNonNull(picture);
-        String trimmedPicture = picture.trim();
-        if (!Picture.isValidPicture(trimmedPicture)) {
-            throw new ParseException(Picture.MESSAGE_CONSTRAINTS);
+    public static Avatar parseAvatar(String avatar) throws ParseException {
+        requireNonNull(avatar);
+        String trimmedPicture = avatar.trim();
+        if (!Avatar.isValidAvatar(trimmedPicture)) {
+            throw new ParseException(Avatar.MESSAGE_CONSTRAINTS);
         }
-        return new Picture(trimmedPicture);
+        return new Avatar(trimmedPicture);
     }
 }

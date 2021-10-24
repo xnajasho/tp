@@ -41,9 +41,12 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
+        System.out.println(expectedMessage);
 
         Model expectedModel = new ModelManager(new FriendBook(model.getFriendBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
+
+        System.out.println(model.getFilteredPersonList().get(0));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
