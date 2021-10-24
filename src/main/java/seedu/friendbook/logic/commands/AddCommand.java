@@ -55,7 +55,7 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
-            + PREFIX_AVATAR + "AVATAR"
+            + PREFIX_AVATAR + "AVATAR "
             + PREFIX_TELEHANDLE + "TELEHANDLE "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
             + PREFIX_REMINDER + "on "

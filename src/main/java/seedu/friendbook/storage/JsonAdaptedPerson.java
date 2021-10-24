@@ -138,6 +138,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Birthday.MESSAGE_CONSTRAINTS);
         }
         final Birthday modelBirthday = new Birthday(birthday);
+
         if (teleHandle == null) {
             throw new IllegalValueException(
                     String.format(MISSING_FIELD_MESSAGE_FORMAT, TeleHandle.class.getSimpleName()));
@@ -146,6 +147,7 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(TeleHandle.MESSAGE_CONSTRAINTS);
         }
         final TeleHandle modelTeleHandle = new TeleHandle(teleHandle);
+
         if (description == null) {
             throw new IllegalValueException(
                     String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));

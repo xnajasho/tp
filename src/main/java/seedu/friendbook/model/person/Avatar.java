@@ -17,6 +17,8 @@ public class Avatar {
     /*
      * Only alphanumeric and underscores allowed.
      */
+    //TODO confirm this validation regex
+    //public static final String VALIDATION_REGEX = "^([0-9]|1[0-9]|20)$";
     public static final String VALIDATION_REGEX = "/^[0-9]$|^[0-9]$|^1[0-9]$|^20$|^0$/";
 
     public static final String DEFAULT_AVATAR = "0";
@@ -55,7 +57,7 @@ public class Avatar {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Name // instanceof handles nulls
+                || (other instanceof Avatar // instanceof handles nulls
                 && value.equals(((Avatar) other).value)); // state check
     }
 
