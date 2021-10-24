@@ -6,11 +6,16 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Logger;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
@@ -23,6 +28,16 @@ public class FriendWindow extends UiPart<Stage> {
     private static final String FXML = "FriendWindow.fxml";
 
     @FXML
+    private HBox viewContainer;
+    @FXML
+    private VBox teleImageViewContainer;
+
+    @FXML
+    private ImageView avatar;
+    @FXML
+    private ImageView teleImageView;
+
+    @FXML
     private Label name;
     @FXML
     private Label phone;
@@ -33,11 +48,11 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private Label birthday;
     @FXML
-    private Hyperlink teleLink;
-    @FXML
     private Label teleHandle;
     @FXML
     private Label description;
+    @FXML
+    private Label daysToBirthday;
 
 
     /**
@@ -47,7 +62,6 @@ public class FriendWindow extends UiPart<Stage> {
      */
     public FriendWindow(Stage root) {
         super(FXML, root);
-        //helpMessage.setText(HELP_MESSAGE);
     }
 
     /**
@@ -55,22 +69,31 @@ public class FriendWindow extends UiPart<Stage> {
      */
     public FriendWindow(Person person) {
         this(new Stage());
-
-        //TODO: add the remaining, make sure to set id in the UI and link to code
-        //ignore pictures first
-        //how layout looks can ignore also.
+        avatar.setImage(person.getAvatar().getImage());
         name.setText(String.format("Name: %s", person.getName().fullName));
         birthday.setText(String.format("DOB: %s", person.getBirthday().getActualDate()));
         phone.setText(String.format("Phone: %s", person.getPhone().value));
         address.setText(String.format("Address: %s", person.getAddress().value));
         email.setText(String.format("Email: %s", person.getEmail().value));
-        teleLink.setText(String.format("https://t.me/%s", person.getTeleHandle().value));
-        teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
-        description.setText(String.format("Description: %s", person.getDescription().value));
+        daysToBirthday.setText("" + person.getDaysToRemainingBirthday());
 
-        teleLink.setOnAction(event -> {
+        if (!person.getDescription().isEmpty()) {
+            description.setText(String.format("Description: %s", person.getDescription().value));
+        }
+        if (person.getTeleHandle().isEmpty()) {
+            viewContainer.getChildren().remove(teleImageViewContainer);
+        } else {
+            teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
+            setTeleImageView(person.getTeleHandle().value);
+        }
+
+    }
+
+    private void setTeleImageView(String teleHandle) {
+        teleImageView.setOnMouseClicked(event -> {
             try {
-                Desktop.getDesktop().browse(new URL(teleLink.getText()).toURI());
+                Desktop.getDesktop().browse(new URL(String.format("https://t.me/%s", teleHandle))
+                        .toURI());
             } catch (URISyntaxException | IOException e) {
                 e.printStackTrace();
             }
@@ -96,7 +119,7 @@ public class FriendWindow extends UiPart<Stage> {
      * </ul>
      */
     public void show() {
-        logger.fine("Showing selected friend page.");
+        logger.fine("Showing selected friend window.");
         getRoot().show();
         getRoot().centerOnScreen();
     }
@@ -121,16 +144,4 @@ public class FriendWindow extends UiPart<Stage> {
     public void focus() {
         getRoot().requestFocus();
     }
-
-    /**
-     * Copies the URL to the user guide to the clipboard.
-     */
-    @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        //url.putString(USERGUIDE_URL);
-        clipboard.setContent(url);
-    }
-
 }
