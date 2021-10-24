@@ -44,6 +44,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setTags(person.getTags());
         descriptor.setTeleHandle(person.getTeleHandle());
         descriptor.setDescription(person.getDescription());
+        descriptor.setPicture(person.getPicture());
     }
 
     /**
