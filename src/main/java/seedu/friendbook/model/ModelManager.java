@@ -7,6 +7,8 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.friendbook.commons.core.GuiSettings;
@@ -24,6 +26,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Person> filteredPersonsCopy;
+    private final StringProperty userNameProperty;
 
     /**
      * Initializes a ModelManager with the given friendBook and userPrefs.
@@ -38,6 +41,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.friendBook.getPersonList());
         filteredPersonsCopy = new FilteredList<>(this.friendBook.getSortedPersonListByBirthday());
+        userNameProperty = new SimpleStringProperty(userPrefs.getUsername().fullName);
     }
 
     public ModelManager() {
@@ -85,9 +89,16 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public StringProperty getUsernameProperty() {
+        return this.userNameProperty;
+    }
+
+    @Override
     public void setUsername(Name username) {
         requireNonNull(username);
         userPrefs.setUsername(username);
+
+        userNameProperty.setValue(username.fullName);
     }
 
     //=========== FriendBook ================================================================================

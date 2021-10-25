@@ -3,6 +3,7 @@ package seedu.friendbook.model;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.model.person.Name;
@@ -49,6 +50,11 @@ public interface Model {
      * Returns the user pref's username
      */
     Name getUsername();
+
+    /**
+     * Returns the user pref's username property
+     */
+    StringProperty getUsernameProperty();
 
     /**
      * Sets the user prefs' username.
