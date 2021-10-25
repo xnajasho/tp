@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import seedu.friendbook.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.friendbook.model.person.Address;
+import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Description;
 import seedu.friendbook.model.person.Email;
@@ -13,6 +14,7 @@ import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 /**
@@ -43,6 +45,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setTags(person.getTags());
         descriptor.setTeleHandle(person.getTeleHandle());
         descriptor.setDescription(person.getDescription());
+        descriptor.setAvatar(person.getAvatar());
+        descriptor.setReminder(person.getReminder());
     }
 
     /**
@@ -108,6 +112,22 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withBirthday(String birthday) {
         descriptor.setBirthday(new Birthday(birthday));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Avatar} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withAvatar(String avatar) {
+        descriptor.setAvatar(new Avatar(avatar));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Reminder} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withReminder(String reminder) {
+        descriptor.setReminder(new Reminder(reminder));
         return this;
     }
 

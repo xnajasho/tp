@@ -6,62 +6,76 @@
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
     "birthday": "1995-04-14",
+    "avatar" : "1",
     "teleHandle" : "wonderalice",
     "description" : "good friend",
-    "tagged" : [ "friends" ]
+    "tagged" : [ "friends" ],
+    "reminder" : "off"
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "address" : "311, Clementi Ave 2, #02-25",
     "birthday": "1992-04-13",
+    "avatar" : "2",
     "teleHandle" : "sonofben",
     "description" : "good friend",
-    "tagged" : [ "owesMoney", "friends" ]
+    "tagged" : [ "owesMoney", "friends" ],
+    "reminder" : "off"
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "address" : "wall street",
     "birthday": "1991-08-12",
+    "avatar" : "4",
     "teleHandle" : "pilkington",
     "description" : "good friend",
-    "tagged" : [ ]
+    "tagged" : [ ],
+    "reminder" : "off"
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "address" : "10th street",
     "birthday": "1999-02-05",
+    "avatar" : "5",
     "teleHandle" : "daniella",
     "description" : "good friend",
-    "tagged" : [ "friends" ]
+    "tagged" : [ "friends" ],
+    "reminder" : "off"
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "birthday": "1993-07-13",
+    "avatar" : "6",
     "teleHandle" : "salmonella",
     "description" : "good friend",
-    "tagged" : [ ]
+    "tagged" : [ ],
+    "reminder" : "off"
   }, {
     "name" : "Fiona Kunz",
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
     "birthday": "1999-09-23",
+    "avatar" : "17",
     "teleHandle" : "loverofshrek",
     "description" : "good friend",
-    "tagged" : [ ]
+    "tagged" : [ ],
+    "reminder" : "off"
   }, {
     "name" : "George Best",
     "phone" : "9482442",
     "email" : "anna@example.com",
     "address" : "4th street",
     "birthday": "1997-05-14",
+    "avatar" : "15",
     "teleHandle" : "thedinosaur",
     "description" : "good friend",
-    "tagged" : [ ]
+    "tagged" : [ ],
+    "reminder" : "off"
   } ]
 }

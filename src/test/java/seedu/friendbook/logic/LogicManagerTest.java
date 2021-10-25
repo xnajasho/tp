@@ -4,13 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.friendbook.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.AVATAR_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.BIRTHDAY_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.REMINDER_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.TELEHANDLE_DESC_AMY;
 import static seedu.friendbook.testutil.Assert.assertThrows;
-import static seedu.friendbook.testutil.PersonBuilder.DEFAULT_DESCRIPTION;
-import static seedu.friendbook.testutil.PersonBuilder.DEFAULT_TELEHANDLE;
 import static seedu.friendbook.testutil.TypicalPersons.AMY;
 
 import java.io.IOException;
@@ -83,9 +85,9 @@ public class LogicManagerTest {
 
         // Execute add command
         String addCommand = AddCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
-                + ADDRESS_DESC_AMY + BIRTHDAY_DESC_AMY;
-        Person expectedPerson = new PersonBuilder(AMY).withTags().withDescription(DEFAULT_DESCRIPTION)
-                .withTeleHandle(DEFAULT_TELEHANDLE).build();
+                + ADDRESS_DESC_AMY + BIRTHDAY_DESC_AMY + AVATAR_DESC_AMY + TELEHANDLE_DESC_AMY + DESCRIPTION_DESC_AMY
+                + REMINDER_DESC_AMY;
+        Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addPerson(expectedPerson);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;

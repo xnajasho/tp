@@ -1,12 +1,13 @@
 package seedu.friendbook.testutil;
 
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_AVATAR;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_BIRTHDAY;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PICTURE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 
@@ -39,8 +40,8 @@ public class PersonUtil {
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_BIRTHDAY + person.getBirthday().value + " ");
-        if (!person.getPicture().isEmpty()) {
-            sb.append(PREFIX_PICTURE + person.getPicture().value + " ");
+        if (!person.getAvatar().isEmpty()) {
+            sb.append(PREFIX_AVATAR + person.getAvatar().value + " ");
         }
         if (!person.getTeleHandle().isEmpty()) {
             sb.append(PREFIX_TELEHANDLE + person.getTeleHandle().value + " ");
@@ -48,6 +49,7 @@ public class PersonUtil {
         if (!person.getDescription().isEmpty()) {
             sb.append(PREFIX_DESCRIPTION + person.getDescription().value + " ");
         }
+        sb.append(PREFIX_REMINDER + person.getReminder().getStringValue() + " ");
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -66,11 +68,13 @@ public class PersonUtil {
                 .append(" "));
         descriptor.getBirthday().ifPresent(birthday -> sb.append(PREFIX_BIRTHDAY)
                 .append(birthday.value).append(" "));
-        descriptor.getPicture().ifPresent(picture -> sb.append(PREFIX_PICTURE));
+        descriptor.getAvatar().ifPresent(avatar -> sb.append(PREFIX_AVATAR).append(avatar.value).append("  "));
         descriptor.getTeleHandle().ifPresent(teleHandle -> sb.append(PREFIX_TELEHANDLE)
                 .append(teleHandle.value).append(" "));
         descriptor.getDescription().ifPresent(description -> sb.append(PREFIX_DESCRIPTION)
                 .append(description.value).append(" "));
+        descriptor.getReminder().ifPresent(reminder -> sb.append(PREFIX_REMINDER)
+                .append(reminder.getStringValue()).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {

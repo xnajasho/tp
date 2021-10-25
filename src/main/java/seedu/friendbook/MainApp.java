@@ -15,6 +15,7 @@ import seedu.friendbook.commons.util.ConfigUtil;
 import seedu.friendbook.commons.util.StringUtil;
 import seedu.friendbook.logic.Logic;
 import seedu.friendbook.logic.LogicManager;
+import seedu.friendbook.logic.service.ReminderService;
 import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ModelManager;
@@ -46,6 +47,8 @@ public class MainApp extends Application {
     protected Model model;
     protected Config config;
 
+    private ReminderService reminderService;
+
     @Override
     public void init() throws Exception {
         logger.info("=============================[ Initializing FriendBook ]===========================");
@@ -67,6 +70,8 @@ public class MainApp extends Application {
         logic = new LogicManager(model, storage);
 
         ui = new UiManager(logic);
+
+        reminderService = new ReminderService(model.getFilteredPersonList());
     }
 
     /**
@@ -170,7 +175,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         logger.info("Starting FriendBook " + MainApp.VERSION);
         ui.start(primaryStage);
-
+        //begin running reminder service in the background as well
+        reminderService.beginReminderService();
     }
 
     @Override

@@ -128,6 +128,11 @@
     -fx-background-color: white;
 }
 
+.list-cell:empty {
+    /* Empty cells will not have alternating colours */
+    -fx-background: white;
+}
+
 #tags {
     -fx-hgap: 7;
     -fx-vgap: 3;
@@ -142,6 +147,7 @@
     /*-fx-alignment: centre;*/
     -fx-font-size: 11;
 }
+
 
 
 /* Scrollbar Style*/
@@ -212,18 +218,6 @@
     -fx-text-fill: white;
     -fx-font-family: "Open Sans Regular";
 }
-
-.help-title {
-    -fx-background-color: #95baec;
-    -fx-font-size: 20pt;
-    -fx-font-family: "Open Sans Extra Bold";
-    -fx-text-fill: whitesmoke;
-    -fx-opacity: 1;
-}
-
-.help-commands{}
-
-.help-instructions{}
 
 /* End of Stylesheet */
 
