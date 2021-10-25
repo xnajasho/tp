@@ -48,7 +48,7 @@ public class CommandTestUtil {
     public static final String VALID_DESCRIPTION_AMY = "amy daddy";
     public static final String VALID_DESCRIPTION_BOB = "the builder";
     public static final String VALID_REMINDER_AMY = "off";
-    public static final String VALID_REMINDER_BOB = "off";
+    public static final String VALID_REMINDER_BOB = "on";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
@@ -77,11 +77,13 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
+    public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY + "Jun 12 1991"; // not YYYY-MM-DD format
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
-    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "chut";
-    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + " ";
-    public static final String INVALID_REMINDER_DESC = " " + PREFIX_REMINDER + "onoff";
-    // at least 5 letters
+    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "chut"; // at least 5 letters
+    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "         ";
+    public static final String INVALID_REMINDER_DESC = " " + PREFIX_REMINDER + "onoff"; // reminder only on or off
+    public static final String INVALID_AVATAR_DESC = " " + PREFIX_AVATAR + "21"; // only 0 - 20 avatars
+
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";

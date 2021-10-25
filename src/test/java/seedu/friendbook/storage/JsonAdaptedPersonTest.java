@@ -20,6 +20,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 
 public class JsonAdaptedPersonTest {
     private static final String INVALID_NAME = "R@chel";
@@ -203,8 +204,6 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 
-
-
     @Test
     public void toModelType_invalidTags_throwsIllegalValueException() {
         List<JsonAdaptedTag> invalidTags = new ArrayList<>(VALID_TAGS);
@@ -215,5 +214,13 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
-    //TODO JsonAdaptedPersonTest for Reminder
+    @Test
+    public void toModelType_invalidReminder_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                        VALID_TAGS, VALID_BIRTHDAY, VALID_AVATAR, VALID_TELEHANDLE,
+                        VALID_DESCRIPTION, INVALID_REMINDER);
+        String expectedMessage = Reminder.MESSAGE_CONSTRAINTS;
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
 }

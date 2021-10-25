@@ -34,8 +34,12 @@ public class Description {
      * Returns true if a given string is a valid description or is empty.
      */
     public static boolean isValidDescription(String test) {
-        boolean isValid = test.matches(VALIDATION_REGEX) || test.trim().equals("");;
+        boolean isValid = test.matches(VALIDATION_REGEX) || test.trim().equals("");
         return isValid;
+    }
+
+    public static boolean containsOnlySpaces(String test) {
+        return test.trim().equals("");
     }
 
     @Override

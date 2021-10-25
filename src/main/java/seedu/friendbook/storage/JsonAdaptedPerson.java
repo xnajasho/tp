@@ -171,7 +171,7 @@ class JsonAdaptedPerson {
                     Reminder.class.getSimpleName()));
         }
         if (!Reminder.isValidReminder(reminder)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Reminder.MESSAGE_CONSTRAINTS);
         }
         final Reminder modelReminder = new Reminder(reminder);
 
