@@ -1,5 +1,7 @@
 package seedu.friendbook.logic;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.logging.Logger;
@@ -14,6 +16,7 @@ import seedu.friendbook.logic.parser.FriendBookParser;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ReadOnlyFriendBook;
+import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.storage.Storage;
 
@@ -93,5 +96,15 @@ public class LogicManager implements Logic {
     @Override
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
+    }
+
+    @Override
+    public void setUsername(Name username) {
+        requireNonNull(username);
+        model.setUsername(username);
+    }
+    @Override
+    public Name getUsername() {
+        return model.getUsername();
     }
 }

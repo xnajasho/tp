@@ -22,6 +22,7 @@ import seedu.friendbook.logic.commands.ExitCommand;
 import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.HelpCommand;
 import seedu.friendbook.logic.commands.ListCommand;
+import seedu.friendbook.logic.commands.ProfileCommand;
 import seedu.friendbook.logic.commands.ViewCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.NameContainsKeywordsPredicate;
@@ -94,6 +95,11 @@ public class FriendBookParserTest {
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
+    }
+
+    @Test
+    public void parseCommand_profile() throws Exception {
+        assertTrue(parser.parseCommand(ProfileCommand.COMMAND_WORD + " n/me") instanceof ProfileCommand);
     }
 
     @Test

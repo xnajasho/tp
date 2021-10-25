@@ -30,6 +30,12 @@ public class Name {
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
         fullName = name;
     }
+    /*
+    This is to allow readabililty from JSON format
+     */
+    public Name() {
+        this.fullName = "read-from-json";
+    }
 
     /**
      * Returns true if a given string is a valid name.

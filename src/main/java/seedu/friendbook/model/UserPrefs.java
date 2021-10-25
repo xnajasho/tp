@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 
 import seedu.friendbook.commons.core.GuiSettings;
+import seedu.friendbook.model.person.Name;
 
 /**
  * Represents User's preferences.
@@ -15,6 +16,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
     private Path friendBookFilePath = Paths.get("data" , "friendbook.json");
+    private Name username = new Name("generic username");
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -36,6 +38,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
         setFriendBookFilePath(newUserPrefs.getFriendBookFilePath());
+        setUsername(newUserPrefs.getUsername());
     }
 
     public GuiSettings getGuiSettings() {
@@ -55,6 +58,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         requireNonNull(friendBookFilePath);
         this.friendBookFilePath = friendBookFilePath;
     }
+    public void setUsername(Name username) {
+        requireNonNull(username);
+        this.username = username;
+    }
+    public Name getUsername() {
+        return this.username;
+    }
 
     @Override
     public boolean equals(Object other) {
@@ -67,13 +77,14 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
         UserPrefs o = (UserPrefs) other;
 
-        return guiSettings.equals(o.guiSettings)
-                && friendBookFilePath.equals(o.friendBookFilePath);
+        return guiSettings.equals(o.getGuiSettings())
+                && friendBookFilePath.equals(o.getFriendBookFilePath())
+                && username.equals(o.getUsername());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, friendBookFilePath);
+        return Objects.hash(guiSettings, friendBookFilePath, username);
     }
 
     @Override
@@ -81,6 +92,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings);
         sb.append("\nLocal data file location : " + friendBookFilePath);
+        sb.append("\nUsername : " + username.fullName);
         return sb.toString();
     }
 

@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.commons.core.LogsCenter;
+import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -76,6 +77,17 @@ public class ModelManager implements Model {
     public void setFriendBookFilePath(Path friendBookFilePath) {
         requireNonNull(friendBookFilePath);
         userPrefs.setFriendBookFilePath(friendBookFilePath);
+    }
+
+    @Override
+    public Name getUsername() {
+        return userPrefs.getUsername();
+    }
+
+    @Override
+    public void setUsername(Name username) {
+        requireNonNull(username);
+        userPrefs.setUsername(username);
     }
 
     //=========== FriendBook ================================================================================
