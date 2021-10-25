@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
+import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -44,6 +45,15 @@ public interface Model {
      */
     void setFriendBookFilePath(Path friendBookFilePath);
 
+    /**
+     * Returns the user pref's username
+     */
+    Name getUsername();
+
+    /**
+     * Sets the user prefs' username.
+     */
+    void setUsername(Name username);
     /**
      * Replaces friend book data with the data in {@code friendBook}.
      */

@@ -9,6 +9,7 @@ import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_REMINDER;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TELEHANDLE;
 import static seedu.friendbook.testutil.Assert.assertThrows;
@@ -46,6 +47,8 @@ public class CommandTestUtil {
     public static final String VALID_AVATAR_BOB = "2";
     public static final String VALID_DESCRIPTION_AMY = "amy daddy";
     public static final String VALID_DESCRIPTION_BOB = "the builder";
+    public static final String VALID_REMINDER_AMY = "off";
+    public static final String VALID_REMINDER_BOB = "on";
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
 
@@ -65,6 +68,8 @@ public class CommandTestUtil {
     public static final String DESCRIPTION_DESC_BOB = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BOB;
     public static final String AVATAR_DESC_AMY = " " + PREFIX_AVATAR + VALID_AVATAR_AMY;
     public static final String AVATAR_DESC_BOB = " " + PREFIX_AVATAR + VALID_AVATAR_BOB;
+    public static final String REMINDER_DESC_AMY = " " + PREFIX_REMINDER + VALID_REMINDER_AMY;
+    public static final String REMINDER_DESC_BOB = " " + PREFIX_REMINDER + VALID_REMINDER_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
@@ -72,10 +77,13 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
+    public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY + "Jun 12 1991"; // not YYYY-MM-DD format
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
-    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "chut";
-    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + " ";
-    // at least 5 letters
+    public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "chut"; // at least 5 letters
+    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "         ";
+    public static final String INVALID_REMINDER_DESC = " " + PREFIX_REMINDER + "onoff"; // reminder only on or off
+    public static final String INVALID_AVATAR_DESC = " " + PREFIX_AVATAR + "21"; // only 0 - 20 avatars
+
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -88,12 +96,14 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withAvatar(VALID_AVATAR_AMY)
                 .withTags(VALID_TAG_FRIEND).withBirthday(VALID_BIRTHDAY_AMY)
-                .withTeleHandle(VALID_TELEHANDLE_AMY).withDescription(VALID_DESCRIPTION_AMY).build();
+                .withTeleHandle(VALID_TELEHANDLE_AMY).withDescription(VALID_DESCRIPTION_AMY)
+                .withReminder(VALID_REMINDER_AMY).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withAvatar(VALID_AVATAR_BOB)
                 .withBirthday(VALID_BIRTHDAY_BOB).withTeleHandle(VALID_TELEHANDLE_BOB)
-                .withDescription(VALID_DESCRIPTION_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withDescription(VALID_DESCRIPTION_BOB)
+                .withReminder(VALID_REMINDER_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }
 
     /**

@@ -176,12 +176,12 @@ public class Person {
         if (!getDescription().isEmpty()) {
             builder.append("; Description: ").append(getDescription());
         }
+        builder.append("; Reminder: ").append(getReminder());
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
             tags.forEach(builder::append);
         }
-        builder.append("; Reminder: ");
         return builder.toString();
     }
 

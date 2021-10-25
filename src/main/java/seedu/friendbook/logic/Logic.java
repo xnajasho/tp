@@ -8,6 +8,7 @@ import seedu.friendbook.logic.commands.CommandResult;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.ReadOnlyFriendBook;
+import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -53,6 +54,16 @@ public interface Logic {
      * Returns the user prefs' GUI settings.
      */
     GuiSettings getGuiSettings();
+
+    /**
+     * Returns the user pref's username
+     */
+    Name getUsername();
+
+    /**
+     * Sets the user prefs' username.
+     */
+    void setUsername(Name username);
 
     /**
      * Set the user prefs' GUI settings.

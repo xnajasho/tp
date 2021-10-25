@@ -38,16 +38,17 @@ public class AddCommandParser implements Parser<AddCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_BIRTHDAY, PREFIX_AVATAR, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION, PREFIX_REMINDER,
-                        PREFIX_TAG);
+                        PREFIX_BIRTHDAY, PREFIX_AVATAR, PREFIX_TELEHANDLE, PREFIX_DESCRIPTION,
+                        PREFIX_REMINDER, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BIRTHDAY)
-                || !argMultimap.getPreamble().isEmpty()) {
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL,
+                PREFIX_BIRTHDAY) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
@@ -64,12 +65,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).orElse(""));
         Reminder reminder = ParserUtil.parseReminder(argMultimap.getValue(PREFIX_REMINDER).orElse("off"));
 
-        Person person = new Person(name, phone, email, address, tagList, birthday, teleHandle, description, avatar,
-                reminder);
+        Person person = new Person(name, phone, email, address, tagList, birthday,
+                teleHandle, description, avatar, reminder);
 
         return new AddCommand(person);
     }
-
     /**
      * Returns true if none of the prefixes contains empty {@code Optional} values in the given
      * {@code ArgumentMultimap}.

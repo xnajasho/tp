@@ -43,6 +43,7 @@ import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.tag.Tag;
 import seedu.friendbook.testutil.EditPersonDescriptorBuilder;
 
+//TODO update EditCommandParserTest for Reminders/avatar/description
 
 public class EditCommandParserTest {
 
