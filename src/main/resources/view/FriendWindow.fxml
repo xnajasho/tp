@@ -3,48 +3,74 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Scene?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.stage.Stage?>
 
-<fx:root alwaysOnTop="true" minHeight="300.0" minWidth="300.0" resizable="true" title="View Friend" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root resizable="false" alwaysOnTop="true" minHeight="300.0" minWidth="300.0" title="View Friend" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/help_icon.png" />
     </icons>
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@Fonts.css" />
-                <URL value="@FriendBookTheme.css" />
+                <URL value="@../stylesheets/Fonts.css" />
+                <URL value="@../stylesheets/FriendBookTheme.css" />
             </stylesheets>
-         <VBox styleClass="friend-card" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0">
-            <children>
+         <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="friend-window">
+
                <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../images/avatar.png" />
-                  </image>
                </ImageView>
+            <HBox fx:id="viewContainer" alignment="CENTER" spacing="15.0">
+
+                  <VBox fx:id="teleImageViewContainer" alignment="CENTER" fillWidth="false">
+
+                         <ImageView fx:id="teleImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@../images/telegram_icon.png" />
+                         </ImageView>
+
+                  </VBox>
+
+                   <VBox alignment="CENTER" fillWidth="false">
+                       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                           <Circle fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Label fx:id="daysToBirthday" text="5" textAlignment="CENTER" textOverrun="CLIP" />
+                           <VBox.margin>
+                               <Insets />
+                           </VBox.margin>
+                       </StackPane>
+                       <Label styleClass="cell_small_label" text="Days left to Birthday" textAlignment="CENTER" wrapText="true">
+                           <VBox.margin>
+                               <Insets />
+                           </VBox.margin>
+                           <padding>
+                               <Insets bottom="10.0" />
+                           </padding>
+                       </Label>
+                   </VBox>
+
+            </HBox>
+
                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308">
-                  <children>
+
                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
-                        <children>
                            <Label fx:id="name" text="name" />
                            <Label fx:id="birthday" text="birthday" />
                            <Label fx:id="phone" text="phone" />
                            <Label fx:id="address" text="address" />
                            <Label fx:id="email" text="email" />
-                           <Hyperlink fx:id="teleLink" text="Hyperlink" />
-                            <Label fx:id="teleHandle" text="teleHandle" />
-                            <Label fx:id="description" text="description" />
-                        </children>
+                           <Label fx:id="teleHandle" text="teleHandle" />
+                           <Label fx:id="description" text="description" />
+
                      </VBox>
-                  </children>
+
                </HBox>
-            </children>
+
             <padding>
                <Insets top="10.0" />
             </padding>

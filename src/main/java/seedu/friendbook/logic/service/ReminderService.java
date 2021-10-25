@@ -8,11 +8,10 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.util.Duration;
 import seedu.friendbook.commons.core.LogsCenter;
+import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.person.Person;
 
 /**
@@ -20,31 +19,23 @@ import seedu.friendbook.model.person.Person;
  */
 public class ReminderService extends ScheduledService<String> {
 
-    private static final Duration periodDuration = Duration.hours(1);
+    // reminder service polls every 12 hour
+    private static final Duration periodDuration = Duration.hours(12);
     private static final Duration delayDuration = Duration.seconds(10);
 
     private final Logger logger = LogsCenter.getLogger(ReminderService.class);
-
-
-    // Pass in a list of person
-    // check through reminder
-    // return names of people birthday I have set reminder for
-    private ObservableList<Person> personList;
-
+    private final ObservableList<Person> personList;
     /**
      * Constructs a {@code ReminderService} with the given {@code personList}.
      */
     public ReminderService(ObservableList<Person> personList) {
         this.personList = personList;
 
-        personList.addListener(new ListChangeListener<Person>() {
-            @Override
-            public void onChanged(Change<? extends Person> c) {
-                // restart reminder service for any new addition to list
-                if (c.next() && c.wasAdded()) {
-                    logger.info("reminder service restarting");
-                    ReminderService.this.restart();
-                }
+        personList.addListener((ListChangeListener<Person>) c -> {
+            // restart reminder service for any new addition to list
+            if (c.next() && c.wasAdded()) {
+                logger.info("reminder service restarting");
+                ReminderService.this.restart();
             }
         });
     }
@@ -55,25 +46,21 @@ public class ReminderService extends ScheduledService<String> {
      * The reminder service also checks and displays an alert.
      */
     public void beginReminderService() {
-        this.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
-                String value = event.getSource().getValue().toString();
+        this.setOnSucceeded(event -> {
+            String value;
+            try {
+                value = event.getSource().getValue().toString();
                 logger.info("reminder service success with value: " + value);
-                if (value == null) {
-                    return;
-                }
-
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setContentText("Friends Birthday coming in a day's time: " + value);
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        a.show();
-                        ReminderService.this.cancel();
-                    }
-                });
+            } catch (NullPointerException nullPointerException) {
+                return;
             }
+
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Friends Birthday coming in a day's time: " + value);
+            Platform.runLater(() -> {
+                a.show();
+                ReminderService.this.cancel();
+            });
         });
 
         this.setPeriod(periodDuration);
@@ -91,7 +78,7 @@ public class ReminderService extends ScheduledService<String> {
         return new Task<>() {
             @Override
             protected String call() {
-                String value = personList.filtered(x -> x.getReminder().getBooleanValue() == true)
+                String value = personList.filtered(x -> x.getReminder().getBooleanValue())
                         .filtered(x -> x.getBirthday().calculateRemainingDaysToBirthday() == 1)
                         .stream().map(x -> x.getName().fullName).collect(Collectors.joining("\n"));
                 return !value.equals("") ? value : null;
@@ -99,4 +86,11 @@ public class ReminderService extends ScheduledService<String> {
         };
     }
 
+    /**
+     * Represents a function that can execute Reminder service.
+     */
+    @FunctionalInterface
+    public interface SetRemindExecutor {
+        void execute(Person oldPerson, Person updatedPerson) throws CommandException;
+    }
 }

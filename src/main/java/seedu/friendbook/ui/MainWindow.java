@@ -34,38 +34,37 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private FriendListPanel friendListPanel;
-    private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
-    private CommandBox commandBox;
-
-    @FXML
-    private StackPane commandBoxPlaceholder;
-
-    @FXML
-    private MenuItem helpMenuItem;
-
-    @FXML
-    private StackPane friendListPanelPlaceholder;
-
-    @FXML
-    private StackPane resultDisplayPlaceholder;
-
-    @FXML
-    private StackPane statusbarPlaceholder;
 
     @FXML
     private MenuBar menuBar;
 
-    // ================= Newly added for friend book ================
+    @FXML
+    private MenuItem helpMenuItem;
+
+    private HelpWindow helpWindow;
 
     @FXML
     private StackPane profilePlaceHolder;
     private ProfileDisplay profileDisplay;
 
     @FXML
+    private StackPane friendListPanelPlaceholder;
+    private FriendListPanel friendListPanel;
+
+    @FXML
     private StackPane birthdayListPanelPlaceholder;
     private BirthdayListPanel birthdayListPanel;
+
+    @FXML
+    private StackPane commandBoxPlaceholder;
+    private CommandBox commandBox;
+
+    @FXML
+    private StackPane resultDisplayPlaceholder;
+    private ResultDisplay resultDisplay;
+
+    @FXML
+    private StackPane statusbarPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -129,29 +128,31 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        friendListPanel = new FriendListPanel(logic.getFilteredPersonList());
-        friendListPanelPlaceholder.getChildren().add(friendListPanel.getRoot());
-
-        //TODO: SHIFT RESULT DISPLAY TO FOOTER OF UI
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
-
-        //StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getFriendBookFilePath());
-        //statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
-
-        commandBox = new CommandBox(this::executeCommand);
-        commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-
-        // Newly added
+        //Profile display
         profileDisplay = new ProfileDisplay();
         profileDisplay.getAddButton().setOnAction(event -> handleAddButton());
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
 
-        // for Birthday view
+        // Friend list view
+        friendListPanel = new FriendListPanel(logic.getFilteredPersonList());
+        friendListPanelPlaceholder.getChildren().add(friendListPanel.getRoot());
+
+        // Birthday list view
         birthdayListPanel = new BirthdayListPanel(logic.getFilteredPersonListSortedByBirthday(),
                 this::executeReminderCheckBox);
         birthdayListPanelPlaceholder.getChildren().add(birthdayListPanel.getRoot());
 
+        // Result view
+        resultDisplay = new ResultDisplay();
+        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+
+        // Command box view
+        commandBox = new CommandBox(this::executeCommand);
+        commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        // Status bar view
+        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getFriendBookFilePath());
+        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
     }
 
     /**
@@ -207,10 +208,6 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    public FriendListPanel getPersonListPanel() {
-        return friendListPanel;
-    }
-
     /**
      * Executes the command and returns the result.
      *
@@ -243,6 +240,12 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Update friend's reminder on checkbox update.
+     *
+     * @see seedu.friendbook.logic.Logic#executeUpdateReminder(Person, Person)
+     *
+     */
     private void executeReminderCheckBox(Person person, Person newPerson) throws CommandException {
         try {
             this.logic.executeUpdateReminder(person, newPerson);
@@ -253,7 +256,6 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
-    //TODO: create test case for method
     /**
      * Executes the add button and updates command text field.
      *

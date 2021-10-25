@@ -1,0 +1,227 @@
+/* PRIMARY STYLES */
+
+.background {
+    -fx-background-color: derive(whitesmoke, 20%);
+    background-color: whitesmoke; /* Used in the default.html file */
+}
+
+.main-container {
+    -fx-background-color: whitesmoke;
+}
+
+.label {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Open Sans Semibold";
+    -fx-text-fill: #524d50;
+    -fx-opacity: 1;
+}
+
+.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Open Sans Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Open Sans Extra Bold";
+    -fx-text-fill: whitesmoke;
+    -fx-opacity: 1;
+}
+
+/* Menu bar */
+
+/*#menuBar {*/
+/*    -fx-background-color: derive(whitesmoke, 20%);*/
+/*}*/
+
+.menu-bar {
+    -fx-background-color: #95baec;
+}
+
+.menu-bar .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Open Sans Light";
+    -fx-text-fill: #64113F;
+    /*-fx-opacity: 0.9;*/
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+
+/* PROFILE DISPLAY STYLEs */
+
+#profilePlaceHolder {
+    -fx-background-color: #95baec;
+    background-color: #95baec; /* Used in the default.html file */
+}
+
+.button {
+    -fx-padding: 5 22 5 22;
+    -fx-background-color: #f9edcd;
+    -fx-text-fill: black;
+    -fx-font-family: "Open Sans Regular";
+    -fx-font-size: 14pt;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-text-fill: #524d50;
+    -fx-font-family: "Open Sans Regular";
+    -fx-cursor: hand;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-text-fill: whitesmoke;
+}
+
+/* LIST VIEW STYLEs */
+
+.cell_big_label {
+    -fx-font-family: "Open Sans Semibold";
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+}
+
+.cell_small_label {
+    -fx-font-family: "Open Sans Regular";
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+}
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Open Sans Semibold";
+}
+
+.list-view {
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);*/
+    -fx-background-radius: 10;
+    -fx-padding: 0;
+    -fx-background-color: derive(whitesmoke, 20%);
+}
+
+.list-cell {
+    -fx-label-padding: 0 0 0 0;
+    -fx-background-radius: 10;
+    -fx-graphic-text-gap : 0;
+    -fx-padding: 0 0 0 0;
+}
+
+.list-cell:filled:even {
+    -fx-background-color: white;
+}
+
+.list-cell:filled:odd {
+    -fx-background-color: white;
+}
+
+/* Selected cell */
+.list-cell:filled:hover {
+    -fx-background-color: #d9dce8;
+}
+
+.list-cell:filled:default {
+    -fx-background-color: white;
+}
+
+.list-cell:empty {
+    /* Empty cells will not have alternating colours */
+    -fx-background: white;
+}
+
+#tags {
+    -fx-hgap: 7;
+    -fx-vgap: 3;
+}
+
+#tags .label {
+    -fx-text-fill: black;
+    -fx-background-color: #f1cfde;
+    -fx-padding: 1 3 1 3;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    /*-fx-alignment: centre;*/
+    -fx-font-size: 11;
+}
+
+
+
+/* Scrollbar Style*/
+.scroll-bar {
+    -fx-background-color: #f9edcd;
+
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #d9dce8;
+    -fx-background-insets: 3;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-shape: "";
+}
+
+.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow {
+    -fx-padding: 1 8 1 8;
+}
+
+.scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow {
+    -fx-padding: 8 1 8 1;
+}
+
+/* CommandBox Style */
+.pane-with-border {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 3, 0, 0, 0);
+}
+
+#commandTextField {
+    -fx-background-color: #f9edcd;
+    /*-fx-background-insets: 0;*/
+    /*-fx-border-insets: 0;*/
+    /*-fx-border-width: 1;*/
+    -fx-font-family: "Open Sans Regular";
+    -fx-font-size: 13pt;
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: black ;
+}
+
+
+
+/* ResultDisplay Style */
+
+#resultDisplay .content{
+    /*-fx-background-color: #F7CACD;*/
+    -fx-background-radius: 0;
+    -fx-text-fill: #f1cfde;
+}
+.result-display {
+    -fx-font-family: "Open Sans SemiBold Italic";
+    -fx-font-size: 12pt;
+    -fx-text-fill: #95baec;
+}
+
+.friend-window {
+    -fx-background-color: #95baec;
+}
+
+.friend-window .label {
+    -fx-font-size: 12pt;
+    -fx-text-fill: black;
+    -fx-font-family: "Open Sans Regular";
+}
+
+#teleImageView {
+    -fx-cursor: hand;
+}
+
+/* End of Stylesheet */
+
