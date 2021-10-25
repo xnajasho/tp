@@ -14,6 +14,7 @@ import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
 /**
@@ -44,7 +45,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setTags(person.getTags());
         descriptor.setTeleHandle(person.getTeleHandle());
         descriptor.setDescription(person.getDescription());
-        descriptor.setPicture(person.getPicture());
+        descriptor.setAvatar(person.getAvatar());
+        descriptor.setReminder(person.getReminder());
     }
 
     /**
@@ -118,6 +120,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withAvatar(String avatar) {
         descriptor.setAvatar(new Avatar(avatar));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Reminder} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withReminder(String reminder) {
+        descriptor.setReminder(new Reminder(reminder));
         return this;
     }
 

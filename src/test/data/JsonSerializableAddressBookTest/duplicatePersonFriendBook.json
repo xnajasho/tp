@@ -8,7 +8,8 @@
     "teleHandle" : "wonderalice",
     "description" : "good friend",
     "avatar" : "1",
-    "tagged": [ "friends" ]
+    "tagged": [ "friends" ],
+    "reminder" : "off"
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
@@ -17,6 +18,7 @@
     "birthday": "1995-05-15",
     "teleHandle" : "wonderalice",
     "avatar" : "1",
-    "description" : "good friend"
+    "description" : "good friend",
+    "reminder" : "off"
   } ]
 }

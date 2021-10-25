@@ -4,11 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_AVATAR_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_BIRTHDAY_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_REMINDER_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_TELEHANDLE_BOB;
 import static seedu.friendbook.testutil.Assert.assertThrows;
 import static seedu.friendbook.testutil.TypicalPersons.ALICE;
 import static seedu.friendbook.testutil.TypicalPersons.BOB;
@@ -42,7 +46,9 @@ public class PersonTest {
 
         // same name, all other attributes different -> returns true
         Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
+                .withDescription(VALID_DESCRIPTION_BOB).withAvatar(VALID_AVATAR_BOB)
+                .withReminder(VALID_REMINDER_BOB).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
 
         // different name, all other attributes same -> returns false
@@ -99,6 +105,22 @@ public class PersonTest {
 
         // different birthday -> return false
         editedAlice = new PersonBuilder(ALICE).withBirthday(VALID_BIRTHDAY_BOB).build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different avatar -> return false
+        editedAlice = new PersonBuilder(ALICE).withAvatar("10").build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different description -> return false
+        editedAlice = new PersonBuilder(ALICE).withDescription("changed description").build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different teleHandle -> return false
+        editedAlice = new PersonBuilder(ALICE).withTeleHandle("aliceinwonderland").build();
+        assertFalse(ALICE.equals(editedAlice));
+
+        // different reminder -> return false
+        editedAlice = new PersonBuilder(ALICE).withReminder("on").build();
         assertFalse(ALICE.equals(editedAlice));
     }
 }

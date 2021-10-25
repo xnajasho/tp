@@ -12,6 +12,7 @@ import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 import seedu.friendbook.model.util.SampleDataUtil;
 
@@ -28,6 +29,7 @@ public class PersonBuilder {
     public static final String DEFAULT_TELEHANDLE = "";
     public static final String DEFAULT_DESCRIPTION = "";
     public static final String DEFAULT_AVATAR = "0";
+    public static final String DEFAULT_REMINDER = "off";
 
     private Name name;
     private Phone phone;
@@ -38,6 +40,7 @@ public class PersonBuilder {
     private TeleHandle teleHandle;
     private Description description;
     private Avatar avatar;
+    private Reminder reminder;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -51,6 +54,7 @@ public class PersonBuilder {
         teleHandle = new TeleHandle(DEFAULT_TELEHANDLE);
         description = new Description(DEFAULT_DESCRIPTION);
         avatar = new Avatar(DEFAULT_AVATAR);
+        reminder = new Reminder(DEFAULT_REMINDER);
         tags = new HashSet<>();
     }
 
@@ -66,6 +70,7 @@ public class PersonBuilder {
         avatar = personToCopy.getAvatar();
         teleHandle = personToCopy.getTeleHandle();
         description = personToCopy.getDescription();
+        reminder = personToCopy.getReminder();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -141,8 +146,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Reminder} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withReminder(String reminder) {
+        this.reminder = new Reminder(reminder);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags, birthday, teleHandle, description, avatar);
+        return new Person(name, phone, email, address, tags, birthday, teleHandle, description, avatar, reminder);
     }
 
 }
