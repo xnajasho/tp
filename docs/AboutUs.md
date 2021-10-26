@@ -31,7 +31,7 @@ Sean's project [portfolio](team/xnajasho.md)
 
 ### Ronald Tan Sing Wei
 
-<img src="images/ronaldtansingwei.png" width="200px">
+<img src="images/RonaldTanSingWei.png" width="200px">
 
 Ronald's [github](http://github.com/ronaldtansingwei)
 
