@@ -137,6 +137,19 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
+### Viewing a contact: `view`
+
+View the full contact details (address, email, description etc) of the person stored in FriendBook
+
+Format: `view INDEX`
+
+* Views the person at the specified `INDEX`.
+* The index refers to the index number shown in the currently displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list` followed by `view 1` views the full details of the 1st person in the FriendBook.
+
 ### Deleting a person : `delete`
 
 Deletes the specified person from the FriendBook.
