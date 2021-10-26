@@ -75,7 +75,7 @@
     "avatar" : "15",
     "teleHandle" : "thedinosaur",
     "description" : "good friend",
-    "tagged" : [ ],
+    "tagged" : [ "lunchmates" ],
     "reminder" : "off"
   } ]
 }
