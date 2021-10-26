@@ -103,7 +103,7 @@ MSS
 
 Extensions
 1a. User requests to list friends.
-Use case resumes at step 2 
+Use case resumes at step 2
 2a. The list is empty
  Use case ends
 
