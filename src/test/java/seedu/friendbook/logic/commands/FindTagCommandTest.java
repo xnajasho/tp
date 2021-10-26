@@ -5,7 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.friendbook.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.friendbook.testutil.TypicalPersons.*;
+import static seedu.friendbook.testutil.TypicalPersons.ALICE;
+import static seedu.friendbook.testutil.TypicalPersons.BENSON;
+import static seedu.friendbook.testutil.TypicalPersons.DANIEL;
+import static seedu.friendbook.testutil.TypicalPersons.GEORGE;
+import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
 
 import java.util.Arrays;
 import java.util.Collections;
