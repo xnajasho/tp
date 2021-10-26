@@ -148,7 +148,8 @@ Format: `view INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `view 1` views the full details of the 1st person in the FriendBook.
+* `list` followed by `view 1` views the full details of the 1st person in the FriendBook. <br>
+  ![result for 'view 1'](images/view1.png)
 
 ### Deleting a person : `delete`
 
