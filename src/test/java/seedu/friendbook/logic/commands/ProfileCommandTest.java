@@ -11,6 +11,7 @@ import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
@@ -80,6 +81,11 @@ public class ProfileCommandTest {
 
         @Override
         public Name getUsername() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public StringProperty getUsernameProperty() {
             throw new AssertionError("This method should not be called.");
         }
 

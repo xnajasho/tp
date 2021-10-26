@@ -129,7 +129,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         //Profile display
-        profileDisplay = new ProfileDisplay();
+        profileDisplay = new ProfileDisplay(logic.getUsernameProperty());
         profileDisplay.getAddButton().setOnAction(event -> handleAddButton());
         profilePlaceHolder.getChildren().add(profileDisplay.getRoot());
 

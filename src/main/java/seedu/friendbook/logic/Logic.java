@@ -2,6 +2,7 @@ package seedu.friendbook.logic;
 
 import java.nio.file.Path;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.logic.commands.CommandResult;
@@ -59,6 +60,11 @@ public interface Logic {
      * Returns the user pref's username
      */
     Name getUsername();
+
+    /**
+     * Returns the user pref's username property
+     */
+    StringProperty getUsernameProperty();
 
     /**
      * Sets the user prefs' username.
