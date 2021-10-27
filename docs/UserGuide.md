@@ -23,9 +23,9 @@ Command Summary|
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `friendbook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.2.1).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -35,7 +35,7 @@ Command Summary|
 
   * **`list`** : Lists all contacts.
 
-  * **`TO UPDATE: add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a contact named `John Doe` to the Address Book.
+  * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a contact named `John Doe` to the Friend Book.
 
   * **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
 
@@ -184,7 +184,7 @@ Format: `delete INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
+* `list` followed by `delete 2` deletes the 2nd person in the friend book.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
 ### Clearing all entries : `clear`
@@ -205,7 +205,7 @@ FriendBook data are saved in the hard disk automatically after any command that 
 
 ### Editing the data file
 
-AddressBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file.
+FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, FriendBook will discard all data and start with an empty data file at the next run.
