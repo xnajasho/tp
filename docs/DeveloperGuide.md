@@ -1,9 +1,16 @@
----
-layout: page
-title: Developer Guide
----
-* Table of Contents
-  {:toc}
+# Developer Guide
+
+Table of Contents              |
+-------------------------------|
+**Acknowledgements**           |
+**Setting up, getting started**|
+**Design**                     |
+**Implementation**             |
+**Documentation, logging, testing, configuration, dev-ops**|
+**Appendix: Requirements**     |
+**Appendix: Instructions for manual testing**|
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
