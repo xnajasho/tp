@@ -1,4 +1,4 @@
-##User Guide
+## User Guide
 
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, FriendBook can get your friend management tasks done faster then traditional GUI apps.
