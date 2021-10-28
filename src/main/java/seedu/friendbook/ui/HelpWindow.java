@@ -76,7 +76,11 @@ public class HelpWindow extends UiPart<Stage> {
         for (int i = 0; i < commandList.length; i++) {
             Label commandInstruction = new Label(commandList[i].getCommandMessageUsage());
             commandInstruction.setWrapText(true);
-            commandPanes[i] = new TitledPane(commandList[i].toString(), commandInstruction);
+            commandInstruction.setMaxWidth(550);
+            TilePane tilePane = new TilePane(commandInstruction);
+            tilePane.setPrefColumns(4);
+
+            commandPanes[i] = new TitledPane(commandList[i].toString(), tilePane);
         }
         commandListAccordion.getPanes().addAll(commandPanes);
 
