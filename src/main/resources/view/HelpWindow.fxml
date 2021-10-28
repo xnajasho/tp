@@ -27,7 +27,7 @@
       </stylesheets>
          <ScrollPane>
 
-               <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="576.0" styleClass="main-container">
+               <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0" styleClass="main-container">
 
                      <Label maxHeight="1.7976931348623157E308" styleClass="help-title" text="FriendBook Help">
                         <font>
@@ -37,14 +37,16 @@
                            <Insets bottom="15.0" />
                         </VBox.margin>
                      </Label>
-                     <Accordion fx:id="commandListAccordion">
+                     <Accordion fx:id="commandListAccordion" VBox.vgrow="ALWAYS">
                         <padding>
                            <Insets left="5.0" right="5.0" />
                         </padding>
                         <panes>
-                           <TitledPane text="Avatars" prefHeight="200.0" prefWidth="200.0">
-                                 <TilePane fx:id="avatarPane" prefColumns="4" prefHeight="200.0" prefWidth="200.0"/>
+
+                           <TitledPane prefHeight="200.0" prefWidth="200.0" text="Avatars">
+                                 <TilePane fx:id="avatarPane" prefColumns="4" prefHeight="200.0" prefWidth="200.0" />
                            </TitledPane>
+
                         </panes>
                      </Accordion>
                   <HBox alignment="CENTER" fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
