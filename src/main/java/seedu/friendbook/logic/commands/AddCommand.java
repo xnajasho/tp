@@ -48,11 +48,10 @@ public class AddCommand extends Command {
             + PREFIX_REMINDER + "on "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney \n"
-            + "\n==== (OPTIONAL PARAMETERS) ==== \n "
-            + PREFIX_AVATAR + "AVATAR "
-            + PREFIX_TELEHANDLE + "TELE HANDLE "
-            + PREFIX_DESCRIPTION + "DESCRIPTION "
-            + PREFIX_REMINDER + "REMINDER "
+            + "[" + PREFIX_AVATAR + "AVATAR] "
+            + "[" + PREFIX_TELEHANDLE + "TELE HANDLE] "
+            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+            + "[" + PREFIX_REMINDER + "REMINDER] "
             + "[" + PREFIX_TAG + "TAG]\n";
 
     public static final String MESSAGE_PLACEHOLDER = COMMAND_WORD + " "
