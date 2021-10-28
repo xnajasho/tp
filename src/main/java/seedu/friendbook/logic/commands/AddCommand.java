@@ -61,11 +61,10 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
-            + "BELOW ARE OPTIONAL FIELDS TO HAVE: "
-            + PREFIX_AVATAR + "AVATAR"
-            + PREFIX_TELEHANDLE + "TELEHANDLE "
-            + PREFIX_DESCRIPTION + "DESCRIPTION "
-            + PREFIX_REMINDER + "on "
+            + "[" + PREFIX_AVATAR + "AVATAR] "
+            + "[" + PREFIX_TELEHANDLE + "TELEHANDLE] "
+            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+            + "[" + PREFIX_REMINDER + "REMINDER] "
             + "[" + PREFIX_TAG + "TAG]...\n";
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the friend book";
