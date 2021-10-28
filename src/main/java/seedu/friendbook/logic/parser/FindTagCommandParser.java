@@ -4,7 +4,6 @@ import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FOR
 
 import java.util.Arrays;
 
-import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.FindTagCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.TagContainsKeywordsPredicate;
