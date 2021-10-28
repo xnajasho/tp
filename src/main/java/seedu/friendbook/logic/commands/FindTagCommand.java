@@ -7,7 +7,7 @@ import seedu.friendbook.model.Model;
 import seedu.friendbook.model.person.TagContainsKeywordsPredicate;
 
 /**
- * Finds and lists all persons in friend book whose name contains any of the argument keywords.
+ * Finds and lists all persons in friend book whose tag contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FindTagCommand extends Command {
