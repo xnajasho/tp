@@ -4,7 +4,6 @@ import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FOR
 
 import java.util.Arrays;
 
-import seedu.friendbook.logic.commands.FindCommand;
 import seedu.friendbook.logic.commands.FindTagCommand;
 import seedu.friendbook.logic.parser.exceptions.ParseException;
 import seedu.friendbook.model.person.TagContainsKeywordsPredicate;
@@ -19,7 +18,7 @@ public class FindTagCommandParser implements Parser<FindTagCommand> {
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindTagCommand.MESSAGE_USAGE));
         }
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
