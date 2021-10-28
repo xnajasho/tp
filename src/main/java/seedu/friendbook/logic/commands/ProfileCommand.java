@@ -15,10 +15,10 @@ public class ProfileCommand extends Command {
 
     public static final String COMMAND_WORD = "profile";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the username for the current user. "
-            + "Parameters: "
-            + PREFIX_NAME + "NAME ";
-
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the username for the current user.\n"
+            + "\nParameters: "
+            + PREFIX_NAME + "NAME \n"
+            + "\nExample: " + COMMAND_WORD + " n/john_doe";
     public static final String MESSAGE_SUCCESS = "Username set: %1$s";
     public static final String MESSAGE_DUPLICATE_USERNAME = "This username is the same as the current one";
 

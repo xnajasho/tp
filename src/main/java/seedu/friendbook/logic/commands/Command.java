@@ -12,7 +12,7 @@ public abstract class Command {
      * Represents enum of all Commands FriendBook presents
      */
     public enum CommandList {
-        ADD, EDIT, CLEAR, DELETE, EXIT, FIND, FIND_TAG, HELP, LIST, VIEW;
+        ADD, EDIT, CLEAR, DELETE, EXIT, FIND, FIND_TAG, HELP, LIST, PROFILE, VIEW;
 
         public String getCommandMessageUsage() {
             String usage;
@@ -43,6 +43,9 @@ public abstract class Command {
                 break;
             case LIST:
                 usage = ListCommand.MESSAGE_USAGE;
+                break;
+            case PROFILE:
+                usage = ProfileCommand.MESSAGE_USAGE;
                 break;
             case VIEW:
                 usage = ViewCommand.MESSAGE_USAGE;
