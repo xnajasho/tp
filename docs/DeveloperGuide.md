@@ -230,15 +230,15 @@ Extensions
 
 * 3a. The given information is invalid as it does not follow the correct syntax
 
-* 3a1. Friendbook shows an error message 
-  
-  Use case resumes at step 2
+	* 3a1. Friendbook shows an error message 
+	
+	  Use case resumes at step 2
 
 * 3b. The user input is already in the list
 
-* 3b1. FriendBook informs user that their input is already stored in the list
-
-  Use case resumes at step 2
+	* 3b1. FriendBook informs user that their input is already stored in the list
+	
+	  Use case resumes at step 2
 
 **Use case 2 (UC2): Delete a person**
 
@@ -254,14 +254,14 @@ Extensions
 **Extensions**
 
 * 2a. The list is empty.
-
+  
   Use case ends.
 
 * 3a. The given index is invalid.
 
- * 3a1. FriendBook shows an error message.
-
-   Use case resumes at step 2.
+	* 3a1. FriendBook shows an error message.
+	 
+	  Use case resumes at step 2.
 
 **Use case 3 (UC3): Update a friend description**
 1. User requests to list friends
@@ -274,15 +274,18 @@ Extensions
 * 2a. The list is empty
   
   Use case ends
+  
 * 3a. The given index is invalid
-* 3a1. FriendBook shows an error message
 
-  Use case resumes at step 2
+	* 3a1. FriendBook shows an error message
+	
+	  Use case resumes at step 2
 
 * 3b. The information to be updated is invalid
-* 3b1. FriendBook shows an error message
-
-  Use case resumes at step 2
+	
+	* 3b1. FriendBook shows an error message
+	
+	  Use case resumes at step 2
 
 **Use case 4 (UC4): View a friend**
 
@@ -300,10 +303,12 @@ Extensions
 * 2a: List is empty.
 
   Use case ends.
+  
 * 3a. The given index is invalid.
-* 3a1. Friendbook shows an error message
 
-  Use case resumes at step 2
+	* 3a1. Friendbook shows an error message
+	 
+	  Use case resumes at step 2
 
 **Use case 5 (UC5): View all friends**
 
@@ -361,9 +366,9 @@ Extensions
 
 * 1a. The given index is invalid.
 
-* 1a1. Friendbook shows an error message
-
-  Use case ends
+	* 1a1. Friendbook shows an error message
+	
+	  Use case ends
 
 *{More to be added}*
 
