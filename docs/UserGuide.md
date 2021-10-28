@@ -196,6 +196,7 @@ Format: `profile n/NAME`
 
 Examples:
 * `profile n/John sets the user profile name to John`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the FriendBook.
@@ -234,6 +235,8 @@ _Details coming soon ..._
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
+
+Items in square brackets are optional.<br>
 
 Action | Format, Examples
 --------|------------------
