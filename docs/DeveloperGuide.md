@@ -1,15 +1,22 @@
----
-layout: page
-title: Developer Guide
----
-* Table of Contents
-  {:toc}
+# Developer Guide
+
+Table of Contents              |
+-------------------------------|
+**Acknowledgements**           |
+**Setting up, getting started**|
+**Design**                     |
+**Implementation**             |
+**Documentation, logging, testing, configuration, dev-ops**|
+**Appendix: Requirements**     |
+**Appendix: Instructions for manual testing**|
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative] (https://se-education.org).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -36,7 +43,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/Main.java) and [`MainApp`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -86,47 +93,47 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<img src="images/LogicClassDiagram.png" width="550"/>
+<img src="images/FriendBookLogicClassDiagram.png" width="550"/>
 
 How the `Logic` component works:
-1. When `Logic` is called upon to execute a command, it uses the `AddressBookParser` class to parse the user command.
+1. When `Logic` is called upon to execute a command, it uses the `FriendBookParser` class to parse the user command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `AddCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to add a person).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `delete 1` Command](images/FriendBookDeleteSequenceDiagram.png)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
-<img src="images/ParserClasses.png" width="600"/>
+<img src="images/FriendBookParserClasses.png" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
+* When called upon to parse a user command, the `FriendBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `FriendBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
 
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
+* stores the friend book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `FriendBook`, which `Person` references. This allows `FriendBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
 
@@ -135,108 +142,24 @@ The `Model` component,
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
 * can save both address book data and user preference data in json format, and read them back into corresponding objects.
-* inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+* inherits from both `FriendBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.friendbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
-
-#### Design considerations:
-
-**Aspect: How undo & redo executes:**
-
-* **Alternative 1 (current choice):** Saves the entire address book.
- * Pros: Easy to implement.
- * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
- * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
- * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -276,23 +199,55 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add a new person               |                                                                        |
 | `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
+| `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
+| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |      
+| `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
+| `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
+| `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |
+| `* *`    | user                                       | find persons by tags           | locate details of persons with specific tags only                      |
 | `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| `*`      | user with many persons in the friend book  | sort persons by name           | locate a person easily                                                 |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `FriendBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+#### Contacts Feature
+
+**Use Case 1 (UC1): Add a friend**
+
+**MSS**
+1. User requests to list friends
+2. FriendBook shows the list of friends
+3. User requests to add a friend with given information
+4. FriendBook adds the friend and updates the list 
+
+Use case ends
+
+Extensions
+
+* 3a. The given information is invalid as it does not follow the correct syntax
+
+* 3a1. Friendbook shows an error message 
+  
+  Use case resumes at step 2
+
+* 3b. The user input is already in the list
+
+* 3b1. FriendBook informs user that their input is already stored in the list
+
+  Use case resumes at step 2
+
+**Use case 2 (UC2): Delete a person**
 
 **MSS**
 
 1.  User requests to list persons
-2.  AddressBook shows a list of persons
+2.  FriendBook shows a list of persons
 3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+4.  FriendBook deletes the person
 
     Use case ends.
 
@@ -304,9 +259,111 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
- * 3a1. AddressBook shows an error message.
+ * 3a1. FriendBook shows an error message.
 
    Use case resumes at step 2.
+
+**Use case 3 (UC3): Update a friend description**
+1. User requests to list friends
+2. FriendBook shows the list of friends
+3. User requests to update information of a specific friend in the list
+4. FriendBook deletes the friend and updates the list
+
+**Extensions**
+
+* 2a. The list is empty
+  
+  Use case ends
+* 3a. The given index is invalid
+* 3a1. FriendBook shows an error message
+
+  Use case resumes at step 2
+
+* 3b. The information to be updated is invalid
+* 3b1. FriendBook shows an error message
+
+  Use case resumes at step 2
+
+**Use case 4 (UC4): View a friend**
+
+**MSS**
+
+1. User requests to list friends (UC5 or UC6 or UC7)
+2. FriendBook shows the list of friends based on results of step 1
+3. User requests to view the complete details of a specified friend in the list
+4. Friendbook displays the full contact details of the specified person 
+   
+   Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+* 3a. The given index is invalid.
+* 3a1. Friendbook shows an error message
+
+  Use case resumes at step 2
+
+**Use case 5 (UC5): View all friends**
+
+**MSS:**
+
+1. User requests to list all friends
+2. Friendbook shows the list of friends stored within
+
+   Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+**Use case 6 (UC6): Find friends**
+
+**MSS:**
+
+1. User specifies a set of keywords
+2. Friendbook displays a list of person(s) with names matching the keyword(s)
+  Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+**Use case 7 (UC7): Filter friends by tag**
+
+**MSS:**
+
+1. User specifies a set of keywords
+2. Friendbook displays a list of person(s) with tags matching the keyword(s)
+   
+   Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty 
+  
+  Use case ends
+
+**Use case 8 (UC8): Get friend’s age**
+
+**MSS:**
+
+1. User requests to view friend’s info (UC4)
+
+	Use case ends.
+
+**Extensions:**
+
+* 1a. The given index is invalid.
+
+* 1a1. Friendbook shows an error message
+
+  Use case ends
 
 *{More to be added}*
 
@@ -378,137 +435,3 @@ testers are expected to do more *exploratory* testing.
 
 
 ---
-
-# OLD VERSION BELOW
-
-
-## Developer Guide
-##### Acknowledgements
-`This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).`
-##### Setting Up - Coming soon
-
-##### Design - Coming soon
-
-##### Implementation - Coming soon
-
-##### Documentation, logging, testing, configuration, dev-ops - Coming soon
-
-##### Appendix: Requirements
-
-###### Project Scope
-Target user profile:
-- has a significant number of friends to keep track of
-- wishes to categorise friends accordingly
-- needs to keep track of friends’ birthdays
-- prefers desktop applications
-- can type fast
-- prefers typing to mouse interactions
-- is reasonably comfortable using CLI apps
-
-Value proposition: manage contacts faster than a typical mouse/GUI driven app
-
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
-#### User stories
-Priority | As a.. | I want to.. | So that I can..
-----------|--------|-------------|-----------
-**|User|View all my friends|Glance the friends I have
-***|User|Add my friends|Know I stay in contact
-**|User|Categorise my friends’ contacts|Easily find contact for groups I am interested in
-|**|User|Add different platforms to contact friends|Know where and how to contact them
-|**|User|Filter my friends by different categories|Find my teammates/module mates/workplace buddies/ etc
-|***|User|Add descriptions about my friends|Personalise my friend contact book
-|***|User|Update descriptions for my friends|Personalise my experience
-|***|User|Retrieve descriptions for my friends|Personalise my experience
-|**|User|Add friends to my favorite list|Have a quick view of my favorite friends
-|**|User|Sort my friends by birthday|See which friends have their birthdays coming
-|***|User|Retrieve my friends’ birthdays|Keep track of my friends’ birthdays
-|***|User|Edit my friends’ birthdays|Keep track of my friends’ birthdays
-|**|User|Get my friends’ age|Keep track of my friends’ ages
-|***|User|Add my friends’ birthdays|Know when my friend’s birthday is and their age
-|***|Forgetful User|Be reminded of my friends’ birthdays|Keep track of my friends’ birthdays
-
-#### Use cases
-(For all use cases below, the System is the FriendBook and the Actor is the user, unless specified otherwise)
-##### Contacts Feature
-###### Use case: Add a friend
-MSS:
-1. User requests to list friends
-2. FriendBook shows the list of friends
-3. User requests to add a friend with given information
-4. FriendBook adds the friend and updates the list
-Use case ends
-
-Extensions
-3a. The given information is invalid as it does not follow the correct syntax
-- 3a1. Friendbook shows an error message
- Use case resumes at step 2
-
- 3b. The user input is already in the list
--   3b1. FriendBook informs user that their input is already stored in the list
-Use case resumes at step 2
-
-###### Use case: Delete a friend
-MSS
-1. User requests to list friends
-2. FriendBook shows the list of friends
-3. User requests to delete a specific friend in the list
-4. FriendBook deletes the friend and updates the list
-Use case ends
-
-Extensions
-2a. The list is empty
-- Use case ends
-3a. The given index is invalid
-- 3a1. FriendBook shows an error message
-Use case resumes at step 2
-
-###### Use case: Update a friend description
-1. User requests to list friends
-2. FriendBook shows the list of friends
-3. User requests to update information of a specific friend in the list
-4. FriendBook deletes the friend and updates the list
-
-Extensions
-2a. The list is empty
- Use case ends
-
-3a. The given index is invalid
--  3a1. FriendBook shows an error message
- Use case resumes at step 2
-
- 3b. The information to be updated is invalid
--  3b1. FriendBook shows an error message
-Use case resumes at step 2
-
-###### Use case: View all friends
-MSS
-1. User opens friendbook.
-2. FriendBook displays list of user friends.
-
-Extensions
-1a. User requests to list friends.
-Use case resumes at step 2
-2a. The list is empty
- Use case ends
-
-###### Use case: Add different social media platforms to friend
-###### Use case: Filter friends by tag
-##### Birthday Feature
-###### Use case: Sorting friends by birthday
-1. User requests to sort friends by birthday
-2. FriendBook shows the list of friends sorted by birthday
-
-##### Tagging Feature
-###### Use case: Tag friend
-
-Non-Functional Requirements
-1. Should work on any mainstream OS as long as it has Java 11 or above installed.
-2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. Should be able to work on its own without connection to the Internet
-
-##### Glossary
-· Mainstream OS: Windows, Linux, Unix, OS-X
-· Private contact detail: A contact detail that is not meant to be shared with others
-
-##### Appendix: Instruction for manual testing - Coming soon
