@@ -4,20 +4,21 @@ title: User Guide
 ---
 
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, FriendBook can get your friend management tasks done faster then traditional GUI apps.
+If you can type fast, FriendBook can get your friend management tasks done faster than traditional GUI apps.
 
-Targeted user profile: University students
+Friend Book is mainly targeted for **university students.**
 
-Problem addressed: How might we provide university students to manage their friends’ contacts?
+Friend Book addresses the question: **How might we provide university students to manage their friends’ contacts?**
 
-Value proposition: FriendBook is not just a contact management platform for university students to track their friends’ contact. It also helps to keep track of social interactions with their friends.
+_FriendBook is not just a contact management platform for university students to track their friends’ contact. 
+It also helps to keep track of social interactions with their friends._
 
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
-##Quick Start
+## Quick Start
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
@@ -31,13 +32,13 @@ Value proposition: FriendBook is not just a contact management platform for univ
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-* **`list`** : Lists all contacts.
-
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a contact named `John Doe` to the Friend Book.
+* **`list`** : Lists all friends.
+  
+* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
 
 * **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
 
-* **`clear`** : Deletes all contacts.
+* **`clear`** : Deletes all friends.
 
 * **`exit`** : Exits the app.
 
@@ -80,16 +81,16 @@ Shows a message explaining the basics of each command, and a link to the full us
 
 Format: `help`
 
-### Adding a person: `add`
+### Adding a Friend: `add`
 
-Adds a person to the FriendBook.
+Adds a friend to the FriendBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">
-:bulb: **Tip:** A person can have any number of tags (including 0)
+:bulb: **Tip:** A friend can have any number of tags (including 0)
    
-:bulb: **Tip:** The avatar value must only be from 1 to 20
+:bulb: **Tip:** The avatar value must only be from 0 to 20
    
 :bulb: **Tip:** The only valid reminder inputs are 'on' and 'off'
 </div>
@@ -99,19 +100,19 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 b/1999-10-22 t/criminal`
 * `add n/James Low p/91593836 e/jameslow@example.com a/Hougang Avnue 5 b/1980-04-01 avatar/5 tele/jameslow222 desc/doctor r/on t/friends`
 
-### Listing all persons : `list`
+### List all friends : `list`
 
-Shows a list of all persons in the FriendBook.
+Shows a list of all friends in the FriendBook.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a friend : `edit`
 
-Edits an existing person in the FriendBook.
+Edits an existing friend in the FriendBook.
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELE HANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​[t/TAG]…`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the CURRENTLY displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the friend at the specified `INDEX`. The index refers to the index number shown in the CURRENTLY displayed friend list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
@@ -120,13 +121,13 @@ Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY]
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person in the current list to be `Betsy Crower` and clears all existing tags.
-*  `edit 2 avatar/6 tele/ desc/` Edits the avatar of the 2nd person to be the 6th default avatar, and clears their telegram handle and description
-*  `edit 4 b/1992-01-10 avatar/10 tele/newTelehandle desc/xyz` Edits the 4th person in the list and updates his/her birthday to `1992-01-10`, avatar to `10`, telegram handle to `newTelehandle` and description to `xyz`
+*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd friend in the current list to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 avatar/6 tele/ desc/` Edits the avatar of the 2nd friend to be the 6th default avatar, and clears their telegram handle and description
+*  `edit 4 b/1992-01-10 avatar/10 tele/newTelehandle desc/xyz` Edits the 4th friend in the list and updates his/her birthday to `1992-01-10`, avatar to `10`, telegram handle to `newTelehandle` and description to `xyz`
 
-### Locating persons by name: `find`
+### Locating friend by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Find friends whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -142,9 +143,9 @@ Examples:
 * `find tim john` returns `Tim`, `John Doe`<br>
   ![findTag FriendBook example](images/findTagFriendBookExample.png)
 
-### Locating persons by tag: `findTag`
+### Locating friends by tag: `findTag`
 
-Finds persons whose tags contain any of the given keywords.
+Find friends whose tags contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -152,7 +153,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `friends owesMoney` will match `owesMoney friends`
 * Only the tags are searched.
 * Only full words will be matched e.g. `friend` will not match `friends`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* friends matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `friends owesMoney` will return all friends with `friends` and `owesMoney` in their tags
 
 Examples:
@@ -162,31 +163,31 @@ Examples:
 
 ### Viewing a contact: `view`
 
-View the full contact details (address, email, description etc) of the person stored in FriendBook
+View the full contact details (address, email, description etc) of the friend stored in FriendBook
 
 Format: `view INDEX`
 
-* Views the person at the specified `INDEX`.
-* The index refers to the index number shown in the currently displayed person list.
+* Views the friend at the specified `INDEX`.
+* The index refers to the index number shown in the currently displayed friend list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `view 1` views the full details of the 1st person in the FriendBook. <br>
+* `list` followed by `view 1` views the full details of the 1st friend in the FriendBook. <br>
   ![result for 'view 1'](images/view1.png)
 
 ### Deleting a person : `delete`
 
-Deletes the specified person from the FriendBook.
+Deletes the specified friend from the FriendBook.
 
 Format: `delete INDEX`
 
-* Deletes the person at the specified `INDEX`.
+* Deletes the friend at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the FriendBook.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list` followed by `delete 2` deletes the 2nd friend in the FriendBook.
+* `find Betsy` followed by `delete 1` deletes the 1st friend in the results of the `find` command.
 
 ### Adding your profile: `profile`
 
@@ -228,24 +229,28 @@ If your changes to the data file makes its format invalid, FriendBook will disca
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FriendBook home folder.
 
+**Q**: How can I refer for help without the user guide?<br>
+**A**: Inside FriendBook, we have a help window to display all commands FriendBook offers. It can be accessed by typing: `help`.
+
+**Q**: Where is the data stored?<br>
+**A**: In the footer of the FriendBook, it displays where the data is stored.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
 Items in square brackets are optional.<br>
 
-Action | Format, Examples
---------|------------------
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/1994-02-15 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com desc/changed description`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**FindTag** | `findTag KEYWORD [MORE_KEYWORDS]` <br> e.g., `findTag friends owesMoney`
-**List** | `list`
-**Profile** | `profile n/NAME`
-**View** | `view INDEX` <br> e.g., `view 2`
-**Help** | `help`
+Action | Format | Examples
+--------|------------|------
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/1994-02-15 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
+**Clear** | `clear` | `clear`
+**Delete** | `delete INDEX` | `delete 3`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com desc/changed description`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`| `find James Jake`
+**FindTag** | `findTag KEYWORD [MORE_KEYWORDS]` | `findTag friends owesMoney`
+**List** | `list` | `list`
+**Profile** | `profile n/NAME` | `profile n/James Ho`
+**View** | `view INDEX` | `view 2`
+**Help** | `help` | `help`
 
