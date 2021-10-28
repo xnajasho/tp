@@ -4,13 +4,16 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
@@ -31,7 +34,6 @@ public class FriendWindow extends UiPart<Stage> {
     private ImageView avatar;
     @FXML
     private ImageView teleImageView;
-
     @FXML
     private Label name;
     @FXML
@@ -48,6 +50,8 @@ public class FriendWindow extends UiPart<Stage> {
     private Label description;
     @FXML
     private Label daysToBirthday;
+    @FXML
+    private FlowPane tags;
 
 
     /**
@@ -71,6 +75,15 @@ public class FriendWindow extends UiPart<Stage> {
         address.setText(String.format("Address: %s", person.getAddress().value));
         email.setText(String.format("Email: %s", person.getEmail().value));
         daysToBirthday.setText("" + person.getDaysToRemainingBirthday());
+
+        person.getTags().stream()
+                .sorted(Comparator.comparing(tag -> tag.tagName))
+                .forEach(tag -> {
+                    Label label = new Label(tag.tagName + "\t");
+                    label.getStyleClass().add("cell_tag_label");
+                    label.setTextAlignment(TextAlignment.CENTER);
+                    tags.getChildren().add(label);
+                });
 
         if (!person.getDescription().isEmpty()) {
             description.setText(String.format("Description: %s", person.getDescription().value));
