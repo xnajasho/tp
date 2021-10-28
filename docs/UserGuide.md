@@ -88,12 +88,11 @@ Adds a person to the FriendBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELE HANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">:bulb: *Tip:*
-A person can have any number of tags (including 0)
-</div>
+:bulb: *Tip:* A person can have any number of tags (including 0)
+
 :bulb: *Tip:* The avatar value can be from 1 to 20
-<div markdown="span" class="alert alert-primary">:bulb: *Tip:*
-Valid reminder inputs are 'on' and 'off'
+
+:bulb: *Tip:* Valid reminder inputs are 'on' and 'off'
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1985-05-13`
