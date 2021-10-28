@@ -91,9 +91,9 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] 
 <div markdown="span" class="alert alert-primary">
 :bulb: **Tip:** A person can have any number of tags (including 0)
    
-:bulb: **Tip:** The avatar value can be from 1 to 20
+:bulb: **Tip:** The avatar value must only be from 1 to 20
    
-:bulb: **Tip:** Valid reminder inputs are 'on' and 'off'
+:bulb: **Tip:** The only valid reminder inputs are 'on' and 'off'
 </div>
 
 Examples:
