@@ -9,12 +9,12 @@ Problem addressed: How might we provide university students to manage their frie
 
 Value proposition: FriendBook is not just a contact management platform for university students to track their friends’ contact. It also helps to keep track of social interactions with their friends.
 
-Table of Contents |
-------------------|
-Quick Start |
-Features |
-FAQ |
-Command Summary|
+*Table of Contents
+{:toc}
+Quick Start 
+Features 
+FAQ 
+Command Summary
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -188,6 +188,14 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd person in the FriendBook.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
 
+### Adding your profile: `profile`
+
+Adds the user profile to the FriendBook
+
+Format: `profile n/NAME`
+
+Examples:
+* `profile n/John sets the user profile name to John`
 ### Clearing all entries : `clear`
 
 Clears all entries from the FriendBook.
@@ -238,6 +246,7 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **FindTag** | `findTag KEYWORD [MORE_KEYWORDS]` <br> e.g., `findTag friends owesMoney`
 **List** | `list`
+**Profile** | `profile n/NAME`
 **View** | `view INDEX` <br> e.g., `view 2`
 **Help** | `help`
 
