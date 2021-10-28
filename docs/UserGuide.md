@@ -9,8 +9,7 @@ Problem addressed: How might we provide university students to manage their frie
 
 Value proposition: FriendBook is not just a contact management platform for university students to track their friends’ contact. It also helps to keep track of social interactions with their friends.
 
-*Table of Contents
-{:toc}
+*Table of Contents {:toc}
 Quick Start 
 Features 
 FAQ 
