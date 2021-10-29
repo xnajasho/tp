@@ -22,7 +22,7 @@ It also helps to keep track of social interactions with their friends._
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `friendbook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.2.1).
+1. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
