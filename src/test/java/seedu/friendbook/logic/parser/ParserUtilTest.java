@@ -27,7 +27,9 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
-    private static final String INVALID_BIRTHDAY = "1993/02/19";
+    private static final String INVALID_BIRTHDAY_FORMAT = "1993/02/19";
+    private static final String INVALID_BIRTHDAY_VALUES = "2021-09-31";
+    private static final String INVALID_BIRTHDAY_NOT_LEAP_YEAR = "2021-02-29";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -158,8 +160,8 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseBirthday_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseBirthday(INVALID_BIRTHDAY));
+    public void parseBirthday_invalidFormat_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseBirthday(INVALID_BIRTHDAY_FORMAT));
     }
 
     @Test
@@ -169,10 +171,20 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parseBirthday_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseBirthday(INVALID_BIRTHDAY_VALUES));
+    }
+
+    @Test
+    public void parseBirthday_invalidValueNotLeapYear_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseBirthday(INVALID_BIRTHDAY_NOT_LEAP_YEAR));
+    }
+
+    @Test
     public void parseBirthday_validValueWithWhitespace_returnsTrimmedBirthday() throws Exception {
-        String birthdayWithWhitespaec = WHITESPACE + VALID_BIRTHDAY + WHITESPACE;
+        String birthdayWithWhitespace = WHITESPACE + VALID_BIRTHDAY + WHITESPACE;
         Birthday expectedBirthday = new Birthday(VALID_BIRTHDAY);
-        assertEquals(expectedBirthday, ParserUtil.parseBirthday(birthdayWithWhitespaec));
+        assertEquals(expectedBirthday, ParserUtil.parseBirthday(birthdayWithWhitespace));
     }
 
 

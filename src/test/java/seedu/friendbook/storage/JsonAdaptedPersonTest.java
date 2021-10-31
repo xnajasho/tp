@@ -28,7 +28,9 @@ public class JsonAdaptedPersonTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
-    private static final String INVALID_BIRTHDAY = "1995/09/12";
+    private static final String INVALID_BIRTHDAY_FORMAT = "1995/09/12";
+    private static final String INVALID_BIRTHDAY_VALUES = "2021-09-31";
+    private static final String INVALID_BIRTHDAY_YET_TO_OCCUR = "2050-09-15";
     private static final String INVALID_TELEHANDLE = "@johndoe@1";
     private static final String INVALID_DESCRIPTION = null;
     private static final String INVALID_AVATAR = "25";
@@ -125,13 +127,31 @@ public class JsonAdaptedPersonTest {
     }
 
     @Test
-    public void toModelType_invalidBirthday_throwsIllegalValueException() {
+    public void toModelType_invalidBirthdayFormat_throwsIllegalValueException() {
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
-                        VALID_TAGS, VALID_AVATAR, INVALID_BIRTHDAY, VALID_TELEHANDLE,
+                        VALID_TAGS, VALID_AVATAR, INVALID_BIRTHDAY_FORMAT, VALID_TELEHANDLE,
                         VALID_DESCRIPTION, VALID_REMINDER);
         String expectedMessage = Birthday.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidBirthdayValues_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                        VALID_TAGS, VALID_AVATAR, INVALID_BIRTHDAY_VALUES, VALID_TELEHANDLE,
+                        VALID_DESCRIPTION, VALID_REMINDER);
+        assertThrows(IllegalValueException.class, person::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidBirthdayYetToOccur_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+                new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                        VALID_TAGS, VALID_AVATAR, INVALID_BIRTHDAY_YET_TO_OCCUR, VALID_TELEHANDLE,
+                        VALID_DESCRIPTION, VALID_REMINDER);
+        assertThrows(IllegalValueException.class, person::toModelType);
     }
 
     @Test
