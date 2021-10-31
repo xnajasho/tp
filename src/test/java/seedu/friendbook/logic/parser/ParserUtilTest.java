@@ -182,9 +182,9 @@ public class ParserUtilTest {
 
     @Test
     public void parseBirthday_validValueWithWhitespace_returnsTrimmedBirthday() throws Exception {
-        String birthdayWithWhitespaec = WHITESPACE + VALID_BIRTHDAY + WHITESPACE;
+        String birthdayWithWhitespace = WHITESPACE + VALID_BIRTHDAY + WHITESPACE;
         Birthday expectedBirthday = new Birthday(VALID_BIRTHDAY);
-        assertEquals(expectedBirthday, ParserUtil.parseBirthday(birthdayWithWhitespaec));
+        assertEquals(expectedBirthday, ParserUtil.parseBirthday(birthdayWithWhitespace));
     }
 
 
