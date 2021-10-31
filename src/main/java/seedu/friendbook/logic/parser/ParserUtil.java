@@ -2,6 +2,7 @@ package seedu.friendbook.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.DateTimeException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,7 @@ import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.person.exceptions.BirthdayHasNotOccurredException;
 import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
@@ -110,8 +112,13 @@ public class ParserUtil {
     public static Birthday parseBirthday(String bday) throws ParseException {
         requireNonNull(bday);
         String trimmedBday = bday.trim();
-        if (!Birthday.isValidBirthday(trimmedBday)) {
+        if (!Birthday.isValidFormat(trimmedBday)) {
             throw new ParseException(Birthday.MESSAGE_CONSTRAINTS);
+        }
+        try {
+            Birthday.invalidValuesCheck(trimmedBday);
+        } catch (DateTimeException | BirthdayHasNotOccurredException e) {
+            throw new ParseException(e.getMessage());
         }
         return new Birthday(trimmedBday);
     }

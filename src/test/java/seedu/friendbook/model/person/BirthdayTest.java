@@ -5,7 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.testutil.Assert.assertThrows;
 
+import java.time.DateTimeException;
+
 import org.junit.jupiter.api.Test;
+
+import seedu.friendbook.model.person.exceptions.BirthdayHasNotOccurredException;
 
 public class BirthdayTest {
 
@@ -23,24 +27,47 @@ public class BirthdayTest {
     @Test
     public void isValidBirthday() {
         // null birthday
-        assertThrows(NullPointerException.class, () -> Birthday.isValidBirthday(null));
+        assertThrows(NullPointerException.class, () -> Birthday.isValidFormat(null));
 
-        // invalid birthdays
-        assertFalse(Birthday.isValidBirthday(""));
-        assertFalse(Birthday.isValidBirthday("1993/04/20"));
-        assertFalse(Birthday.isValidBirthday("1994/20/04"));
-        assertFalse(Birthday.isValidBirthday("20/04/98"));
-        assertFalse(Birthday.isValidBirthday("20/04/1998"));
-        assertFalse(Birthday.isValidBirthday("26 Oct 1998"));
-        assertFalse(Birthday.isValidBirthday("2022-04-15"));
-        assertFalse(Birthday.isValidBirthday("2012-20-15"));
-        assertFalse(Birthday.isValidBirthday("2022-02-33"));
-        assertFalse(Birthday.isValidBirthday("2023-13-35"));
+        // invalid birthday formats
+        assertFalse(Birthday.isValidFormat(""));
+        assertFalse(Birthday.isValidFormat("1993/04/20"));
+        assertFalse(Birthday.isValidFormat("1994/20/04"));
+        assertFalse(Birthday.isValidFormat("20/04/98"));
+        assertFalse(Birthday.isValidFormat("20/04/1998"));
+        assertFalse(Birthday.isValidFormat("26 Oct 1998"));
 
-        // valid birthdays
-        assertTrue(Birthday.isValidBirthday("1994-04-15"));
-        assertTrue(Birthday.isValidBirthday("2021-03-25"));
-        assertTrue(Birthday.isValidBirthday("2021-10-05"));
+        // valid birthdays formats
+        assertTrue(Birthday.isValidFormat("1994-04-15"));
+        assertTrue(Birthday.isValidFormat("2021-03-25"));
+        assertTrue(Birthday.isValidFormat("2021-10-05"));
+        assertTrue(Birthday.isValidFormat("2016-04-29")); // leap year
+    }
+
+    @Test
+    public void invalidValuesCheck() {
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2010-04-34"));
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2015-02-29")); // not leap year
+
+        // invalid DoM for September, only up to 30
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2021-09-31"));
+
+        // Invalid DoM field
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2021-09-00"));
+
+        // invalid Month fields
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2021-13-12"));
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2021-00-12"));
+
+        // Birthday has yet to occur but Invalid values are thrown first
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2022-00-12"));
+        assertThrows(DateTimeException.class, () -> Birthday.invalidValuesCheck("2022-01-32"));
+
+        // invalid Birthdays as they have yet to occur
+        assertThrows(BirthdayHasNotOccurredException.class, () -> Birthday.invalidValuesCheck("2022-04-15"));
+        assertThrows(BirthdayHasNotOccurredException.class, () -> Birthday.invalidValuesCheck("2022-02-12"));
+        assertThrows(BirthdayHasNotOccurredException.class, () -> Birthday.invalidValuesCheck("2023-12-30"));
+
     }
 
     //TODO: update group that check will fail once the birthday passes (should we test this)
