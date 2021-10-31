@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
@@ -41,7 +40,7 @@ public class HelpWindow extends UiPart<Stage> {
     private Label helpMessage;
 
     @FXML
-    private Accordion commandListAccordion;
+    private VBox commandListAccordion;
 
     private final Command.CommandList[] commandList = Command.CommandList.values();
     private final TitledPane[] commandPanes = new TitledPane[commandList.length];
@@ -59,7 +58,7 @@ public class HelpWindow extends UiPart<Stage> {
         helpMessage.setText(HELP_MESSAGE);
 
         // images view
-        for (int i = 1; i < 21; i++) {
+        for (int i = 0; i < 21; i++) {
             VBox avatarContainer = new VBox();
             avatarContainer.setAlignment(Pos.TOP_CENTER);
             Image avatar = new Image(Objects.requireNonNull(
@@ -81,8 +80,9 @@ public class HelpWindow extends UiPart<Stage> {
             tilePane.setPrefColumns(4);
 
             commandPanes[i] = new TitledPane(commandList[i].toString(), tilePane);
+            commandPanes[i].setExpanded(false);
         }
-        commandListAccordion.getPanes().addAll(commandPanes);
+        commandListAccordion.getChildren().addAll(commandPanes);
 
     }
 

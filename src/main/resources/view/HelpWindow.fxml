@@ -37,18 +37,16 @@
                            <Insets bottom="15.0" />
                         </VBox.margin>
                      </Label>
-                     <Accordion fx:id="commandListAccordion" VBox.vgrow="ALWAYS">
+                     <VBox fx:id="commandListAccordion" VBox.vgrow="ALWAYS">
                         <padding>
                            <Insets left="5.0" right="5.0" />
                         </padding>
-                        <panes>
-
-                           <TitledPane prefHeight="200.0" prefWidth="200.0" text="Avatars">
-                                 <TilePane fx:id="avatarPane" prefColumns="4" prefHeight="200.0" prefWidth="200.0" />
+<!--                        <panes>-->
+                           <TitledPane text="Avatars" expanded="false">
+                                 <TilePane fx:id="avatarPane"/>
                            </TitledPane>
-
-                        </panes>
-                     </Accordion>
+<!--                        </panes>-->
+                     </VBox>
                   <HBox alignment="CENTER" fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
 
                       <Label fx:id="helpMessage" prefWidth="350.0" text="https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/docs/UserGuide.mdhttps://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/docs/UserGuide.mdhttps://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/docs/UserGuide.md" wrapText="true">
