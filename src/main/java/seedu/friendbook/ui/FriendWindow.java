@@ -7,14 +7,18 @@ import java.net.URL;
 import java.util.Comparator;
 import java.util.logging.Logger;
 
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 
@@ -24,12 +28,12 @@ public class FriendWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(FriendWindow.class);
     private static final String FXML = "FriendWindow.fxml";
-
     @FXML
     private HBox viewContainer;
     @FXML
     private VBox teleImageViewContainer;
-
+    @FXML
+    private Tooltip upcomingAgeToolTip;
     @FXML
     private VBox fieldContainer;
     @FXML
@@ -47,7 +51,7 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private Label birthday;
     @FXML
-    private Label teleHandle;
+    private Hyperlink teleHandle;
     @FXML
     private Label description;
     @FXML
@@ -71,13 +75,14 @@ public class FriendWindow extends UiPart<Stage> {
     public FriendWindow(Person person) {
         this(new Stage());
         avatar.setImage(person.getAvatar().getImage());
-        name.setText(String.format("Name: %s", person.getName().fullName));
-        birthday.setText(String.format("Date of Birth: %s", person.getBirthday().getActualDate()));
-        phone.setText(String.format("Phone: %s", person.getPhone().value));
-        address.setText(String.format("Address: %s", person.getAddress().value));
-        email.setText(String.format("Email: %s", person.getEmail().value));
-        daysToBirthday.setText("" + person.getDaysToRemainingBirthday());
-
+        name.setText(String.format("%s", person.getName().fullName));
+        birthday.setText(String.format("%s", person.getBirthday().getActualDate()));
+        phone.setText(String.format("%s", person.getPhone().value));
+        address.setText(String.format("%s", person.getAddress().value));
+        email.setText(String.format("%s", person.getEmail().value));
+        daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
+        upcomingAgeToolTip.setText(String.format("Going to be %s Years Old", person.getAge()));
+        upcomingAgeToolTip.setShowDelay(Duration.ONE);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> {
@@ -88,7 +93,7 @@ public class FriendWindow extends UiPart<Stage> {
                 });
 
         if (!person.getDescription().isEmpty()) {
-            description.setText(String.format("Description: %s", person.getDescription().value));
+            description.setText(String.format("%s", person.getDescription().value));
         } else {
             fieldContainer.getChildren().remove(description);
         }
@@ -96,21 +101,19 @@ public class FriendWindow extends UiPart<Stage> {
             viewContainer.getChildren().remove(teleImageViewContainer);
             fieldContainer.getChildren().remove(teleHandle);
         } else {
-            teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
-            setTeleImageView(person.getTeleHandle().value);
+            //TODO: CLEAN UP code BEFORE COMMIT
+            teleHandle.setText(String.format("@%s", person.getTeleHandle().value));
+            teleHandle.setOnAction(event -> {
+                try {
+                    Desktop.getDesktop().browse(new URL(String.format("https://t.me/%s",
+                            person.getTeleHandle().value))
+                            .toURI());
+                } catch (URISyntaxException | IOException e) {
+                    e.printStackTrace();
+                }
+            });
         }
 
-    }
-
-    private void setTeleImageView(String teleHandle) {
-        teleImageView.setOnMouseClicked(event -> {
-            try {
-                Desktop.getDesktop().browse(new URL(String.format("https://t.me/%s", teleHandle))
-                        .toURI());
-            } catch (URISyntaxException | IOException e) {
-                e.printStackTrace();
-            }
-        });
     }
 
     /**
