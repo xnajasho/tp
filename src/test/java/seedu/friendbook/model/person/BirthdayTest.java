@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.friendbook.testutil.Assert.assertThrows;
 
 import java.time.DateTimeException;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -68,6 +69,24 @@ public class BirthdayTest {
         assertThrows(BirthdayHasNotOccurredException.class, () -> Birthday.invalidValuesCheck("2022-02-12"));
         assertThrows(BirthdayHasNotOccurredException.class, () -> Birthday.invalidValuesCheck("2023-12-30"));
 
+    }
+
+    @Test
+    public void hasBirthdayPassed() {
+        //TODO will fail once year passes
+        assertTrue(Birthday.hasBirthdayPassed(LocalDate.of(2021, 9, 22)));
+        assertTrue(Birthday.hasBirthdayPassed(LocalDate.of(2021, 10, 31)));
+
+        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2021, 12, 31)));
+        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2099, 2, 13)));
+        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2050, 10, 25)));
+        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2045, 5, 2)));
+    }
+
+    @Test
+    public void getActualDate() {
+        Birthday testBirthday = new Birthday("2021-04-15");
+        assertEquals("Apr 15 2021", testBirthday.getActualDate());
     }
 
     //TODO: update group that check will fail once the birthday passes (should we test this)
