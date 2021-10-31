@@ -11,13 +11,6 @@
       <HBox.margin>
          <Insets left="10.0" />
       </HBox.margin>
-
-      <!--                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">-->
-      <!--                        <Image url="@../images/friend_book_32.png" />-->
-      <!--               <HBox.margin>-->
-      <!--                  <Insets left="10.0" />-->
-      <!--               </HBox.margin>-->
-      <!--                  </ImageView>-->
                         <Label fx:id="welcomeLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="label-header" text="Welcome" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
