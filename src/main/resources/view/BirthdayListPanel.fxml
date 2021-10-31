@@ -4,9 +4,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<VBox xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <ListView fx:id="birthdayListView" VBox.vgrow="ALWAYS">
       <VBox.margin>
          <Insets />
-      </VBox.margin></ListView>
+      </VBox.margin>
+   </ListView>
 </VBox>
