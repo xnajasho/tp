@@ -15,7 +15,7 @@
 
 <fx:root alwaysOnTop="true" minHeight="300.0" minWidth="400.0" resizable="false" title="View Friend" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
-        <Image url="@/images/avatars/Avatar0.png"/>
+        <Image url="@/images/avatars/Avatar0.png" />
     </icons>
     <scene>
         <Scene>
@@ -63,7 +63,7 @@
 
                <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
 
-                     <VBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <VBox fx:id="fieldContainer" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                            <Label fx:id="name" maxHeight="1.7976931348623157E308" text="Name" wrapText="true" VBox.vgrow="ALWAYS" />
                            <Label fx:id="birthday" maxHeight="1.7976931348623157E308" text="Birthday" wrapText="true" VBox.vgrow="ALWAYS" />
                            <Label fx:id="phone" maxHeight="1.7976931348623157E308" text="Phone" wrapText="true" VBox.vgrow="ALWAYS" />

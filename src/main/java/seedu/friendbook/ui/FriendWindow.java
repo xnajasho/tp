@@ -31,6 +31,8 @@ public class FriendWindow extends UiPart<Stage> {
     private VBox teleImageViewContainer;
 
     @FXML
+    private VBox fieldContainer;
+    @FXML
     private ImageView avatar;
     @FXML
     private ImageView teleImageView;
@@ -70,7 +72,7 @@ public class FriendWindow extends UiPart<Stage> {
         this(new Stage());
         avatar.setImage(person.getAvatar().getImage());
         name.setText(String.format("Name: %s", person.getName().fullName));
-        birthday.setText(String.format("DOB: %s", person.getBirthday().getActualDate()));
+        birthday.setText(String.format("Date of Birth: %s", person.getBirthday().getActualDate()));
         phone.setText(String.format("Phone: %s", person.getPhone().value));
         address.setText(String.format("Address: %s", person.getAddress().value));
         email.setText(String.format("Email: %s", person.getEmail().value));
@@ -87,9 +89,12 @@ public class FriendWindow extends UiPart<Stage> {
 
         if (!person.getDescription().isEmpty()) {
             description.setText(String.format("Description: %s", person.getDescription().value));
+        } else {
+            fieldContainer.getChildren().remove(description);
         }
         if (person.getTeleHandle().isEmpty()) {
             viewContainer.getChildren().remove(teleImageViewContainer);
+            fieldContainer.getChildren().remove(teleHandle);
         } else {
             teleHandle.setText(String.format("Tele name: %s", person.getTeleHandle().value));
             setTeleImageView(person.getTeleHandle().value);
