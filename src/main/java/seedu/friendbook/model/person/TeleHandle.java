@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class TeleHandle {
 
-    public static final String MESSAGE_CONSTRAINTS = "TeleHandle can use a-z, 0-9 and underscores, and it "
+    public static final String MESSAGE_CONSTRAINTS = "TeleHandle can use a-z and A-Z, 0-9 and underscores, and it "
             + "should have at least 5 characters";
 
     /*

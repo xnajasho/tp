@@ -1,5 +1,6 @@
 package seedu.friendbook.storage;
 
+import java.time.DateTimeException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -19,6 +20,7 @@ import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.person.exceptions.BirthdayHasNotOccurredException;
 import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 
@@ -134,8 +136,13 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(
                     String.format(MISSING_FIELD_MESSAGE_FORMAT, Birthday.class.getSimpleName()));
         }
-        if (!Birthday.isValidBirthday(birthday)) {
+        if (!Birthday.isValidFormat(birthday)) {
             throw new IllegalValueException(Birthday.MESSAGE_CONSTRAINTS);
+        }
+        try {
+            Birthday.invalidValuesCheck(birthday);
+        } catch (DateTimeException | BirthdayHasNotOccurredException e) {
+            throw new IllegalValueException(e.getMessage());
         }
         final Birthday modelBirthday = new Birthday(birthday);
 
