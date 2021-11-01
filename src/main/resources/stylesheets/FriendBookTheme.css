@@ -227,15 +227,15 @@
 }
 
 .circle-default {
-    -fx-fill: white;
+    -fx-fill: #f9edcd;
 }
 
 .circle-week-away {
-    -fx-fill: yellow;
+    -fx-fill: #95baec;
 }
 
 .circle-today {
-    -fx-fill: pink;
+    -fx-fill: #e27881;
 }
 
 
