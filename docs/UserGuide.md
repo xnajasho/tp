@@ -71,6 +71,7 @@ Additionally, it also helps university students to keep track of social interact
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+
 ###Avatars
 FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
 
