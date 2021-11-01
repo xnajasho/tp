@@ -34,15 +34,15 @@
             </HBox.margin>
                </VBox>
 
-               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <VBox fx:id="birthdayCircleContainer" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-                           <Circle fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                           <Circle fx:id="birthdayCircle" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                            <Label fx:id="daysToBirthday" styleClass="cell_small_label" text="5" textAlignment="CENTER" textOverrun="CLIP" />
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                      </StackPane>
-                     <Label styleClass="cell_small_label" text="Days left" textAlignment="CENTER">
+                     <Label fx:id="birthdayDaysLeftLabel" styleClass="cell_small_label" text="Days left" textAlignment="CENTER">
                         <VBox.margin>
                            <Insets />
                         </VBox.margin>

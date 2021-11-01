@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.stage.Stage?>
 
 <fx:root minHeight="300.0" minWidth="400.0" resizable="false" title="View Friend" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
@@ -28,7 +29,6 @@
          <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="friend-window">
             <VBox alignment="CENTER" spacing="10.0">
                <children>
-      
                      <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                </ImageView>
                   <Hyperlink fx:id="teleHandle" text="\@pss_coder" />
@@ -46,7 +46,7 @@
                      <VBox fx:id="fieldContainer" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
                   <VBox alignment="CENTER_LEFT" spacing="5.0">
                      <children>
-                        <Label fx:id="phoneLabel" maxHeight="1.7976931348623157E308" text="Phone" />
+                        <Label fx:id="phoneLabel" maxHeight="1.7976931348623157E308" styleClass="fw-label" text="Phone" />
                                  <Label fx:id="phone" maxHeight="1.7976931348623157E308" text="xxxx" wrapText="true" />
                      </children>
                      <VBox.margin>
@@ -55,7 +55,7 @@
                   </VBox>
                   <VBox spacing="5.0">
                      <children>
-                        <Label fx:id="emalLabel" maxHeight="1.7976931348623157E308" text="Email" wrapText="true" />
+                        <Label fx:id="emalLabel" maxHeight="1.7976931348623157E308" styleClass="fw-label" text="Email" wrapText="true" />
                                  <Label fx:id="email" maxHeight="1.7976931348623157E308" text="xxxx" wrapText="true" />
                      </children>
                      <VBox.margin>
@@ -68,23 +68,26 @@
                            <children>
                               <VBox spacing="5.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="birthdayLabel" maxHeight="1.7976931348623157E308" text="Birthday" wrapText="true" />
+                                    <Label fx:id="birthdayLabel" maxHeight="1.7976931348623157E308" styleClass="fw-label" text="Birthday" wrapText="true" />
                                              <Label fx:id="birthday" maxHeight="1.7976931348623157E308" text="xxxxx" wrapText="true" />
                                  </children>
                               </VBox>
                
-                                        <VBox alignment="CENTER" fillWidth="false">
+                                        <VBox  alignment="CENTER" fillWidth="false">
                                       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
-                                          <Circle fill="#f9edcd" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Label fx:id="daysToBirthday" text="5" textAlignment="CENTER" textOverrun="CLIP">
+                                          <Circle fx:id="birthdayCircle" fill="#f9edcd" radius="25.0" stroke="BLACK" strokeType="INSIDE" styleClass="circle" />
+                                          <Label fx:id="daysToBirthday" text="Today" textAlignment="CENTER" textOverrun="CLIP">
                                        <tooltip>
                                           <Tooltip fx:id="upcomingAgeToolTip" autoHide="true" text="upcoming age" />
-                                       </tooltip></Label>
+                                       </tooltip>
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font></Label>
                                           <VBox.margin>
                                               <Insets />
                                           </VBox.margin>
                                       </StackPane>
-                                      <Label styleClass="cell_small_label" text="Days to Birthday" textAlignment="CENTER" wrapText="true">
+                                      <Label fx:id="daysToBirthdayLabel" styleClass="fw-label" text="Days to Birthday" textAlignment="CENTER" wrapText="true">
                                           <VBox.margin>
                                               <Insets top="5.0" />
                                           </VBox.margin>
@@ -102,16 +105,16 @@
                   </VBox>
                   <VBox spacing="5.0">
                      <children>
-                        <Label fx:id="addressLabel" maxHeight="1.7976931348623157E308" text="Address" wrapText="true" />
-                                 <Label fx:id="address" maxHeight="1.7976931348623157E308" text="xxxxxx" wrapText="true" />
+                        <Label fx:id="addressLabel" maxHeight="1.7976931348623157E308" styleClass="fw-label" text="Address" wrapText="true" />
+                        <Label fx:id="address" maxHeight="1.7976931348623157E308" text="xxxxxx" wrapText="true" />
                      </children>
                      <VBox.margin>
-                        <Insets left="20.0" top="-20.0" />
+                        <Insets left="20.0" top="-30.0" />
                      </VBox.margin>
                   </VBox>
                   <VBox spacing="5.0">
                      <children>
-                        <Label fx:id="description1" maxHeight="1.7976931348623157E308" minHeight="-Infinity" text="Description" wrapText="true" />
+                        <Label fx:id="description1" maxHeight="1.7976931348623157E308" minHeight="-Infinity" styleClass="fw-label" text="Description" wrapText="true" />
                                  <Label fx:id="description" maxHeight="1.7976931348623157E308" minHeight="-Infinity" text="xxxxx" wrapText="true" />
                      </children>
                      <VBox.margin>

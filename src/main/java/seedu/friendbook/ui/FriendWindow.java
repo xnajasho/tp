@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.Comparator;
 import java.util.logging.Logger;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -16,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -30,8 +30,6 @@ public class FriendWindow extends UiPart<Stage> {
     private static final String FXML = "FriendWindow.fxml";
     @FXML
     private HBox viewContainer;
-    @FXML
-    private VBox teleImageViewContainer;
     @FXML
     private Tooltip upcomingAgeToolTip;
     @FXML
@@ -57,6 +55,11 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private Label daysToBirthday;
     @FXML
+    private Circle birthdayCircle;
+    @FXML
+    private Label daysToBirthdayLabel;
+
+    @FXML
     private FlowPane tags;
 
 
@@ -81,7 +84,7 @@ public class FriendWindow extends UiPart<Stage> {
         address.setText(String.format("%s", person.getAddress().value));
         email.setText(String.format("%s", person.getEmail().value));
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
-        upcomingAgeToolTip.setText(String.format("Going to be %s Years Old", person.getAge()));
+        upcomingAgeToolTip.setText(String.format("Going to be %s Years Old", person.getAge() + 1));
         upcomingAgeToolTip.setShowDelay(Duration.ONE);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
@@ -98,7 +101,6 @@ public class FriendWindow extends UiPart<Stage> {
             fieldContainer.getChildren().remove(description);
         }
         if (person.getTeleHandle().isEmpty()) {
-            viewContainer.getChildren().remove(teleImageViewContainer);
             fieldContainer.getChildren().remove(teleHandle);
         } else {
             //TODO: CLEAN UP code BEFORE COMMIT
@@ -114,6 +116,23 @@ public class FriendWindow extends UiPart<Stage> {
             });
         }
 
+        setBirthdayCircle(person.getDaysToRemainingBirthday());
+
+    }
+
+    public void setBirthdayCircle(int daysLeftToBirthday) {
+        //TODO: remove 365
+        if (daysLeftToBirthday == 0 || daysLeftToBirthday == 365) {
+            birthdayCircle.getStyleClass().add("circle-today");
+            daysToBirthday.setText("Today");
+            daysToBirthdayLabel.setVisible(false);
+            upcomingAgeToolTip.setText("Today is your friend birthday");
+            //birthdayCircleContainer.getChildren().remove(daysToBirthdayLabel);
+        } else if (daysLeftToBirthday <= 7) {
+            birthdayCircle.getStyleClass().add("circle-week-away");
+        } else {
+            birthdayCircle.getStyleClass().add("circle-default");
+        }
     }
 
     /**

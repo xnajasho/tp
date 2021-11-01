@@ -210,7 +210,8 @@
 }
 
 .friend-window {
-    -fx-background-color: #95baec;
+    -fx-background-color: derive(white, 20%);
+    background-color: white; /* Used in the default.html file */
 }
 
 .friend-window .label {
@@ -218,6 +219,25 @@
     -fx-text-fill: black;
     -fx-font-family: "Open Sans Regular";
 }
+
+.friend-window .fw-label {
+    -fx-font-size: 10pt;
+    -fx-text-fill: #64113F;
+    -fx-font-family: "Open Sans Extra Bold";
+}
+
+.circle-default {
+    -fx-fill: white;
+}
+
+.circle-week-away {
+    -fx-fill: yellow;
+}
+
+.circle-today {
+    -fx-fill: pink;
+}
+
 
 #teleImageView {
     -fx-cursor: hand;
