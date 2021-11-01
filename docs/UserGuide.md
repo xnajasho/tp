@@ -6,12 +6,12 @@ title: User Guide
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, FriendBook can get your friend management tasks done faster than traditional GUI apps.
 
-Friend Book is mainly targeted for **university students.**
+Friend Book is mainly targeted for **users with many friends.**
 
-Friend Book addresses the question: **How might we provide university students to manage their friends’ contacts?**
+Friend Book addresses the question: **How might we provide users with many friends ways to manage their friends’ contacts?**
 
-_FriendBook is not just a contact management platform for university students to track their friends’ contact. 
-It also helps to keep track of social interactions with their friends._
+_FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. 
+Additionally, it also helps university students to keep track of social interactions with their friends._
 
 * Table of Contents
 {:toc}
@@ -23,7 +23,7 @@ It also helps to keep track of social interactions with their friends._
 1. Ensure you have Java `11` or above installed in your Computer.
 
 1. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
-
+  
 1. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
@@ -42,7 +42,7 @@ It also helps to keep track of social interactions with their friends._
 
 * **`exit`** : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#features) below for details of each command.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -71,6 +71,14 @@ It also helps to keep track of social interactions with their friends._
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+###Reminder Feature
+The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
+
+![Reminder Example](images/ReminderExample.png)
+
+The checkbox under each individual friend allows users to select the birthdays of the friends that they wish to be reminded of.
+
+Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date.
 </div>
 
 ### Viewing help : `help`
