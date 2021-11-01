@@ -8,10 +8,10 @@ If you can type fast, FriendBook can get your friend management tasks done faste
 
 Friend Book is mainly targeted for **users with many friends.**
 
-Friend Book addresses the question: **How might we provide users with many friends ways to manage their friends’ contacts?**
+Friend Book addresses the question: **How might we provide users with many friends ways to manage their friends’ contacts and remember their friends' birthdays?**
 
 _FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. 
-Additionally, it also helps university students to keep track of social interactions with their friends._
+Additionally, it also helps university students to keep track of social interactions with their friends and  their friends' birthdays._
 
 * Table of Contents
 {:toc}
@@ -70,6 +70,18 @@ Additionally, it also helps university students to keep track of social interact
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+
+###Avatars
+FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
+
+To select an avatar, assign the user the avatar based on its number from 1 to 20 e.g `edit 1 avatar/15`
+
+![Avatar Example](images/AvatarExample.png)
+
+An avatar with the number 0 `edit 1 avatar/0` clears the avatar
+
+###Custom Profile
+FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
 ###Reminder Feature
 The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
@@ -135,13 +147,14 @@ Examples:
 
 ### Locating friend by name: `find`
 
-Find friends whose names contain any of the given keywords.
+Finds friends whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
+* The keywords are names of friends stored in FriendBook
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
+* Only the name is searched
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
@@ -153,7 +166,7 @@ Examples:
 
 ### Locating friends by tag: `findTag`
 
-Find friends whose tags contain any of the given keywords.
+Finds friends whose tags contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -171,7 +184,7 @@ Examples:
 
 ### Viewing a contact: `view`
 
-View the full contact details (address, email, description etc) of the friend stored in FriendBook
+View the full contact details (address, email, description etc) of the friend stored in FriendBook.
 
 Format: `view INDEX`
 
@@ -180,7 +193,7 @@ Format: `view INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `view 1` views the full details of the 1st friend in the FriendBook. <br>
+* Inputting the `list` command followed by the `view 1` command views the full details of the 1st friend in the FriendBook. <br>
   ![result for 'view 1'](images/view1.png)
 
 ### Deleting a person : `delete`
