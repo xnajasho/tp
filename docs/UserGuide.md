@@ -1,6 +1,6 @@
 ---
 layout: page
-title: User Guide
+title: FriendBook User Guide
 ---
 
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
@@ -72,7 +72,7 @@ Additionally, it also helps university students to keep track of social interact
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 
-Avatars
+**Avatars**
 
 FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
 
@@ -82,11 +82,11 @@ To select an avatar, assign the user the avatar based on its number from 1 to 20
 
 An avatar with the number 0 `edit 1 avatar/0` clears the avatar
 
-Custom Profile
+**Custom Profile**
 
 FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
-Reminder Feature
+**Reminder Feature**
 
 The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
 
