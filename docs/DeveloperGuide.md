@@ -193,7 +193,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
-| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |      
+| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |     
 | `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
 | `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
 | `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |
@@ -215,7 +215,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to list friends
 2. FriendBook shows the list of friends
 3. User requests to add a friend with given information
-4. FriendBook adds the friend and updates the list 
+4. FriendBook adds the friend and updates the list
 
 Use case ends
 
@@ -223,14 +223,14 @@ Extensions
 
 * 3a. The given information is invalid as it does not follow the correct syntax
 
-	* 3a1. Friendbook shows an error message 
-	
-	  Use case resumes at step 2
+    * 3a1. Friendbook shows an error message
+
+      Use case resumes at step 2
 
 * 3b. The user input is already in the list
 
 	* 3b1. FriendBook informs user that their input is already stored in the list
-	
+
 	  Use case resumes at step 2
 
 **Use case 2 (UC2): Delete a person**
@@ -247,13 +247,13 @@ Extensions
 **Extensions**
 
 * 2a. The list is empty.
-  
+
   Use case ends.
 
 * 3a. The given index is invalid.
 
 	* 3a1. FriendBook shows an error message.
-	 
+ 
 	  Use case resumes at step 2.
 
 **Use case 3 (UC3): Update a friend description**
@@ -265,19 +265,19 @@ Extensions
 **Extensions**
 
 * 2a. The list is empty
-  
+
   Use case ends
-  
+
 * 3a. The given index is invalid
 
 	* 3a1. FriendBook shows an error message
-	
+
 	  Use case resumes at step 2
 
 * 3b. The information to be updated is invalid
-	
+
 	* 3b1. FriendBook shows an error message
-	
+
 	  Use case resumes at step 2
 
 **Use case 4 (UC4): View a friend**
@@ -287,8 +287,8 @@ Extensions
 1. User requests to list friends (UC5 or UC6 or UC7)
 2. FriendBook shows the list of friends based on results of step 1
 3. User requests to view the complete details of a specified friend in the list
-4. Friendbook displays the full contact details of the specified person 
-   
+4. Friendbook displays the full contact details of the specified person
+
    Use case ends.
 
 **Extensions:**
@@ -296,11 +296,11 @@ Extensions
 * 2a: List is empty.
 
   Use case ends.
-  
+
 * 3a. The given index is invalid.
 
 	* 3a1. Friendbook shows an error message
-	 
+ 
 	  Use case resumes at step 2
 
 **Use case 5 (UC5): View all friends**
@@ -338,13 +338,13 @@ Extensions
 
 1. User specifies a set of keywords
 2. Friendbook displays a list of person(s) with tags matching the keyword(s)
-   
+
    Use case ends.
 
 **Extensions:**
 
-* 2a: List is empty 
-  
+* 2a: List is empty
+
   Use case ends
 
 **Use case 8 (UC8): Get friend’s age**
@@ -360,7 +360,7 @@ Extensions
 * 1a. The given index is invalid.
 
 	* 1a1. Friendbook shows an error message
-	
+
 	  Use case ends
 
 *{More to be added}*

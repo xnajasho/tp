@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.logic.service.ReminderService;
@@ -34,6 +36,12 @@ public class BirthdayCard extends UiPart<Region> {
     private Label daysToBirthday;
     @FXML
     private CheckBox reminderCheckBox;
+    @FXML
+    private VBox birthdayCircleContainer;
+    @FXML
+    private Circle birthdayCircle;
+    @FXML
+    private Label birthdayDaysLeftLabel;
 
 
     /**
@@ -45,7 +53,10 @@ public class BirthdayCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         age.setText("Currently " + person.getAge() + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
+
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
+        setBirthdayCircle(person.getDaysToRemainingBirthday());
+
         reminderCheckBox.setSelected(person.getReminder().getBooleanValue());
 
         reminderCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
@@ -58,6 +69,19 @@ public class BirthdayCard extends UiPart<Region> {
                 e.printStackTrace();
             }
         });
+    }
+
+    public void setBirthdayCircle(int daysLeftToBirthday) {
+        //TODO: remove 365
+        if (daysLeftToBirthday == 0 || daysLeftToBirthday == 365) {
+            birthdayCircle.getStyleClass().add("circle-today");
+            daysToBirthday.setText("Today");
+            birthdayCircleContainer.getChildren().remove(birthdayDaysLeftLabel);
+        } else if (daysLeftToBirthday <= 7) {
+            birthdayCircle.getStyleClass().add("circle-week-away");
+        } else {
+            birthdayCircle.getStyleClass().add("circle-default");
+        }
     }
 
     @Override

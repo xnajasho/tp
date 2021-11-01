@@ -50,22 +50,31 @@ public class ReminderService extends ScheduledService<String> {
             String value;
             try {
                 value = event.getSource().getValue().toString();
-                logger.info("reminder service success with value: " + value);
+                logger.info("reminder service success with value:" + value);
             } catch (NullPointerException nullPointerException) {
                 return;
             }
-
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setContentText("Friends Birthday coming in a day's time: " + value);
             Platform.runLater(() -> {
-                a.show();
                 ReminderService.this.cancel();
+                showReminderAlert(value);
             });
         });
 
         this.setPeriod(periodDuration);
         this.setDelay(delayDuration);
         this.start();
+    }
+
+    /**
+     * Shows the Birthday reminder alert with the given {@code friendNames}.
+     */
+    public static void showReminderAlert(String friendNames) {
+        final Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.getDialogPane().getStylesheets().add("stylesheets/FriendBookTheme.css");
+        alert.setTitle("Birthday Reminder Alert");
+        alert.setHeaderText("Friend(s) Birthday coming in a week: ");
+        alert.setContentText("\n" + friendNames);
+        alert.showAndWait();
     }
 
     @Override
@@ -78,10 +87,11 @@ public class ReminderService extends ScheduledService<String> {
         return new Task<>() {
             @Override
             protected String call() {
+                // get names of person with names of friends whose birthday are coming in a week
                 String value = personList.filtered(x -> x.getReminder().getBooleanValue())
-                        .filtered(x -> x.getBirthday().calculateRemainingDaysToBirthday() == 1)
-                        .stream().map(x -> x.getName().fullName).collect(Collectors.joining("\n"));
-                return !value.equals("") ? value : null;
+                        .filtered(x -> x.getBirthday().calculateRemainingDaysToBirthday() == 7)
+                        .stream().map(x -> x.getName().fullName).collect(Collectors.joining("\n "));
+                return value.equals("") ? null : value;
             }
         };
     }

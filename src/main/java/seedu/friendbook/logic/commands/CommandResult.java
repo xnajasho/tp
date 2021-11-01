@@ -19,7 +19,6 @@ public class CommandResult {
 
     /** The application should exit. */
     private final boolean exit;
-
     /** Command result to view a specific person. */
     private final Optional<Person> personToView;
 
@@ -42,7 +41,6 @@ public class CommandResult {
         this.exit = exit;
         this.personToView = Optional.of(personToView);
     }
-
     /**
      * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
      * and other fields set to their default value.
@@ -50,7 +48,6 @@ public class CommandResult {
     public CommandResult(String feedbackToUser) {
         this(feedbackToUser, false, false);
     }
-
     public String getFeedbackToUser() {
         return feedbackToUser;
     }
@@ -70,7 +67,6 @@ public class CommandResult {
     public boolean isExit() {
         return exit;
     }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {

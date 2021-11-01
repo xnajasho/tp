@@ -54,7 +54,7 @@ public class FriendListCard extends UiPart<Region> {
     public FriendListCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
-        id.setText(displayedIndex + ". ");
+        id.setText(displayedIndex + ".");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
         detectPicturePresent();

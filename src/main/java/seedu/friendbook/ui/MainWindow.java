@@ -4,6 +4,8 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
@@ -192,6 +194,7 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+
     void show() {
         primaryStage.show();
     }
@@ -215,7 +218,21 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            CommandResult commandResult = logic.execute(commandText);
+            CommandResult commandResult;
+
+            // clear prompt
+            if (commandText.equals("clear")) {
+                Alert clearConfirmationPrompt = new Alert(Alert.AlertType.CONFIRMATION,
+                        "are sure you want to lose your friends?", ButtonType.NO, ButtonType.YES);
+                clearConfirmationPrompt.setTitle("confirm clearing FriendBook?");
+                clearConfirmationPrompt.showAndWait();
+                if (clearConfirmationPrompt.getResult() == ButtonType.NO) {
+                    // ignore
+                    return null;
+                }
+            }
+
+            commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
 
@@ -226,7 +243,6 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isExit()) {
                 handleExit();
             }
-
             //TODO update this portion
             if (commandResult.isViewPerson()) {
                 handleViewPerson(commandResult);
