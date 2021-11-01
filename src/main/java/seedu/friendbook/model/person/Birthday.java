@@ -3,11 +3,15 @@ package seedu.friendbook.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.friendbook.commons.util.AppUtil.checkArgument;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.time.temporal.ChronoUnit;
+
+import seedu.friendbook.model.person.exceptions.BirthdayHasNotOccurredException;
 
 public class Birthday {
 
@@ -23,7 +27,7 @@ public class Birthday {
      */
     public Birthday(String birthday) {
         requireNonNull(birthday);
-        checkArgument(isValidBirthday(birthday), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidFormat(birthday), MESSAGE_CONSTRAINTS);
         value = birthday;
     }
 
@@ -43,16 +47,17 @@ public class Birthday {
     }
 
     /**
-     * Returns true if the input birthday follows the 'yyyy-MM-dd' format and if it has occurred
+     * Returns true if the input birthday follows the 'yyyy-MM-dd' format
      */
-    public static boolean isValidBirthday(String test) {
+    public static boolean isValidFormat(String test) {
         boolean isValid;
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("yyyy-MM-dd").withResolverStyle(ResolverStyle.LENIENT);
 
         try {
             LocalDate date = formatter.parse(test, LocalDate::from);
-            isValid = hasBirthdayPassed(date);
+            isValid = true;
         } catch (DateTimeParseException e) {
             isValid = false;
         }
@@ -60,8 +65,23 @@ public class Birthday {
     }
 
     /**
-     * Converts stored value of 'yyyy-MM-dd' format to 'MMM d yyyy' for ease of viewing
+     * Checks if the birthday contains any invalid values i.e DayOfMonth > 31,leap month values etc
+     * @throws DateTimeException first if values are invalid
+     * @throws BirthdayHasNotOccurredException next if birthday has yet to occur
      */
+    public static void invalidValuesCheck(String birthday) throws BirthdayHasNotOccurredException {
+        boolean hasPassed;
+        try {
+            LocalDate date = LocalDate.parse(birthday);
+            hasPassed = hasBirthdayPassed(date);
+        } catch (DateTimeException e) {
+            throw new DateTimeException(e.getMessage());
+        }
+        if (!hasPassed) {
+            throw new BirthdayHasNotOccurredException();
+        }
+    }
+
     public String getActualDate() {
         LocalDate date = LocalDate.parse(value);
         return date.format(DateTimeFormatter.ofPattern("MMM d yyyy"));
