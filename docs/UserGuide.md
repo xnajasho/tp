@@ -71,7 +71,9 @@ Additionally, it also helps university students to keep track of social interact
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
-###Avatars
+
+Avatars
+
 FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
 
 To select an avatar, assign the user the avatar based on its number from 1 to 20 e.g `edit 1 avatar/15`
@@ -80,10 +82,12 @@ To select an avatar, assign the user the avatar based on its number from 1 to 20
 
 An avatar with the number 0 `edit 1 avatar/0` clears the avatar
 
-###Custom Profile
+Custom Profile
+
 FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
-###Reminder Feature
+Reminder Feature
+
 The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
 
 ![Reminder Example](images/ReminderExample.png)
