@@ -72,7 +72,6 @@
                                              <Label fx:id="birthday" maxHeight="1.7976931348623157E308" text="xxxxx" wrapText="true" />
                                  </children>
                               </VBox>
-               
                                         <VBox  alignment="CENTER" fillWidth="false">
                                       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                                           <Circle fx:id="birthdayCircle" fill="#f9edcd" radius="25.0" stroke="BLACK" strokeType="INSIDE" styleClass="circle" />

@@ -10,7 +10,6 @@
 
 * Friend Book is not just any contact management platform. It also helps
  to keep track of social interactions with their friends.
- 
  * If you would like to see a demo video of our recent release (**v1.3**) as well, click [**here**](https://drive.google.com/file/d/1pv8B4VA2RqWFHw22s6fveB5bnP9Afjti/view?usp=sharing) to see.
 
 ![Ui](docs/images/Ui.png)

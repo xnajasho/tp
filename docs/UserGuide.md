@@ -10,7 +10,7 @@ Friend Book is mainly targeted for **university students.**
 
 Friend Book addresses the question: **How might we provide university students to manage their friends’ contacts?**
 
-_FriendBook is not just a contact management platform for university students to track their friends’ contact. 
+_FriendBook is not just a contact management platform for university students to track their friends’ contact.
 It also helps to keep track of social interactions with their friends._
 
 * Table of Contents
@@ -22,18 +22,18 @@ It also helps to keep track of social interactions with their friends._
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
+2. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
+3. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
 * **`list`** : Lists all friends.
-  
+
 * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
 
 * **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
