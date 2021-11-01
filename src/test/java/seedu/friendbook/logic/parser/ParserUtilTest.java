@@ -134,7 +134,7 @@ public class ParserUtilTest {
     // ------------------------------ FIELD: PHONE ---------------------------------------------
     @Test
     public void parsePhone_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parsePhone(null));
     }
 
     @Test
@@ -144,7 +144,7 @@ public class ParserUtilTest {
 
     @Test
     public void parsePhone_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_PHONE_WITH_FIELDS_IN_SQUARE_BRACKETS));
+        assertThrows(ParseException.class, () -> ParserUtil.parsePhone(INVALID_PHONE_WITH_FIELDS_IN_SQUARE_BRACKETS));
     }
 
     @Test
@@ -163,7 +163,7 @@ public class ParserUtilTest {
     // ------------------------------ FIELD: ADDRESS ---------------------------------------------
     @Test
     public void parseAddress_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress(null));
     }
 
     @Test
@@ -173,7 +173,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseAddress_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_ADDRESS_WITH_FIELDS_IN_SQUARE_BRACKETS));
+        assertThrows(ParseException.class, () ->
+                ParserUtil.parseAddress(INVALID_ADDRESS_WITH_FIELDS_IN_SQUARE_BRACKETS));
     }
 
     @Test
@@ -192,7 +193,7 @@ public class ParserUtilTest {
     // ------------------------------ FIELD: EMAIL ---------------------------------------------
     @Test
     public void parseEmail_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail(null));
     }
 
     @Test
@@ -202,7 +203,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseEmail_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_EMAIL_WITH_FIELDS_IN_SQUARE_BRACKETS));
+        assertThrows(ParseException.class, () -> ParserUtil.parseEmail(INVALID_EMAIL_WITH_FIELDS_IN_SQUARE_BRACKETS));
     }
 
     @Test
@@ -221,7 +222,7 @@ public class ParserUtilTest {
     // ------------------------------ FIELD: BIRTHDAY ---------------------------------------------
     @Test
     public void parseBirthday_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseBirthday((String) null));
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseBirthday(null));
     }
 
     @Test
@@ -241,7 +242,8 @@ public class ParserUtilTest {
 
     @Test
     public void parseBirthday_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_BIRTHDAY_WITH_FIELDS_IN_SQUARE_BRACKETS));
+        assertThrows(ParseException.class, () ->
+                ParserUtil.parseBirthday(INVALID_BIRTHDAY_WITH_FIELDS_IN_SQUARE_BRACKETS));
     }
 
     @Test
