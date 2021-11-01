@@ -387,7 +387,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseTag_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseName(INVALID_TAG_WITH_FIELDS_IN_SQUARE_BRACKETS));
+        assertThrows(ParseException.class, () -> ParserUtil.parseTag(INVALID_TAG_WITH_FIELDS_IN_SQUARE_BRACKETS));
     }
 
     @Test
