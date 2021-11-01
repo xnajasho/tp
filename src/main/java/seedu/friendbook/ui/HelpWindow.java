@@ -2,10 +2,15 @@ package seedu.friendbook.ui;
 
 import static seedu.friendbook.model.person.Avatar.AVATAR_PATH;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Objects;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,7 +33,7 @@ public class HelpWindow extends UiPart<Stage> {
 
     public static final String USER_GUIDE_URL =
             "https://ay2122s1-cs2103-f10-3.github.io/tp/UserGuide.html";
-    public static final String HELP_MESSAGE = "For more details, please refer to the user guide : " + USER_GUIDE_URL;
+    public static final String HELP_MESSAGE = "For more details, Click to go to User Guide";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
@@ -67,6 +72,7 @@ public class HelpWindow extends UiPart<Stage> {
             imageView.setFitHeight(50);
             imageView.setFitWidth(50);
             Label avatarLabel = new Label("Avatar " + i);
+            avatarLabel.paddingProperty().set(new Insets(5, 5, 5, 5));
             avatarContainer.getChildren().addAll(imageView, avatarLabel);
             avatarPane.getChildren().add(avatarContainer);
         }
@@ -75,7 +81,7 @@ public class HelpWindow extends UiPart<Stage> {
         for (int i = 0; i < commandList.length; i++) {
             Label commandInstruction = new Label(commandList[i].getCommandMessageUsage());
             commandInstruction.setWrapText(true);
-            commandInstruction.setMaxWidth(550);
+            commandInstruction.setMaxWidth(500);
             TilePane tilePane = new TilePane(commandInstruction);
             tilePane.setPrefColumns(4);
 
@@ -142,10 +148,11 @@ public class HelpWindow extends UiPart<Stage> {
      * Copies the URL to the user guide to the clipboard.
      */
     @FXML
-    private void copyUrl() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent url = new ClipboardContent();
-        url.putString(USER_GUIDE_URL);
-        clipboard.setContent(url);
+    private void openUrl() {
+        try {
+            Desktop.getDesktop().browse(new URL(USER_GUIDE_URL).toURI());
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }
