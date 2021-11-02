@@ -13,9 +13,9 @@ public class TeleHandleTest {
     }
 
     @Test
-    public void constructor_invalidBirthday_throwsIllegalArgumentException() {
-        String invalidBirthday = "1993/04/20";
-        assertThrows(IllegalArgumentException.class, () -> new Birthday(invalidBirthday));
+    public void constructor_invalidTelehandle_throwsIllegalArgumentException() {
+        String invalidTeleHandle = "xyz";
+        assertThrows(IllegalArgumentException.class, () -> new TeleHandle(invalidTeleHandle));
     }
 
     @Test

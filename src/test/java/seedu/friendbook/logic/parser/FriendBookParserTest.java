@@ -1,7 +1,9 @@
 package seedu.friendbook.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.friendbook.commons.core.Messages.MESSAGE_COMMAND_CONTAINS_UPPERCASE;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.friendbook.testutil.Assert.assertThrows;
@@ -32,6 +34,23 @@ import seedu.friendbook.testutil.PersonBuilder;
 import seedu.friendbook.testutil.PersonUtil;
 
 public class FriendBookParserTest {
+
+    private static final String ADD_COMMAND_WITH_UPPERCASE = "Add";
+    private static final String EDIT_COMMAND_WITH_UPPERCASE = "eDit";
+    private static final String DELETE_COMMAND_WITH_UPPERCASE = "deLete";
+    private static final String CLEAR_COMMAND_WITH_UPPERCASE = "CLEAR";
+    private static final String FIND_COMMAND_WITH_UPPERCASE = "FiND";
+    private static final String FINDTAG_COMMAND_WITH_UPPERCASE = "findTag";
+    private static final String LIST_COMMAND_WITH_UPPERCASE = "List";
+    private static final String EXIT_COMMAND_WITH_UPPERCASE = "EXIT";
+    private static final String HELP_COMMAND_WITH_UPPERCASE = "HelP";
+    private static final String VIEW_COMMAND_WITH_UPPERCASE = "VIew";
+    private static final String PROFILE_COMMAND_WITH_UPPERCASE = "PROFILe";
+
+    private static final String INVALID_ADD_COMMAND_WITH_UPPERCASE = "Adding";
+    private static final String INVALID_EDIT_COMMAND_WITH_UPPERCASE = "Editing";
+    private static final String INVALID_UNKNOWN_COMMAND_WITH_UPPERCASE = "asxvFSD";
+
 
     private final FriendBookParser parser = new FriendBookParser();
 
@@ -111,5 +130,109 @@ public class FriendBookParserTest {
     @Test
     public void parseCommand_unknownCommand_throwsParseException() {
         assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
+    }
+
+    @Test
+    public void parseCommand_addCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "add"), () ->
+                parser.parseCommand(ADD_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_editCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "edit"), () ->
+                parser.parseCommand(EDIT_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_deleteCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "delete"), () ->
+                parser.parseCommand(DELETE_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_clearCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "clear"), () ->
+                parser.parseCommand(CLEAR_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_findCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "find"), () ->
+                parser.parseCommand(FIND_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_findtagCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "findtag"), () ->
+                parser.parseCommand(FINDTAG_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_listCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "list"), () ->
+                parser.parseCommand(LIST_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_exitCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "exit"), () ->
+                parser.parseCommand(EXIT_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_helpCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "help"), () ->
+                parser.parseCommand(HELP_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_viewCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "view"), () ->
+                parser.parseCommand(VIEW_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_profileCommandHasUpperCase_throwsParseException() {
+        assertThrows(ParseException.class, String.format(MESSAGE_COMMAND_CONTAINS_UPPERCASE, "profile"), () ->
+                parser.parseCommand(PROFILE_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_isAValidCommand() {
+        assertTrue(FriendBookParser.isAValidCommand(ADD_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(EDIT_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(DELETE_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(CLEAR_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(FIND_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(FINDTAG_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(LIST_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(EXIT_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(HELP_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(VIEW_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.isAValidCommand(PROFILE_COMMAND_WITH_UPPERCASE));
+
+        assertFalse(FriendBookParser.isAValidCommand(INVALID_ADD_COMMAND_WITH_UPPERCASE));
+        assertFalse(FriendBookParser.isAValidCommand(INVALID_EDIT_COMMAND_WITH_UPPERCASE));
+        assertFalse(FriendBookParser.isAValidCommand(INVALID_UNKNOWN_COMMAND_WITH_UPPERCASE));
+    }
+
+    @Test
+    public void parseCommand_hasUpperCase() {
+        assertTrue(FriendBookParser.hasUpperCase(ADD_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(EDIT_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(DELETE_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(CLEAR_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(FIND_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(FINDTAG_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(LIST_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(EXIT_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(HELP_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(VIEW_COMMAND_WITH_UPPERCASE));
+        assertTrue(FriendBookParser.hasUpperCase(PROFILE_COMMAND_WITH_UPPERCASE));
+
+        assertFalse(FriendBookParser.hasUpperCase(INVALID_ADD_COMMAND_WITH_UPPERCASE));
+        assertFalse(FriendBookParser.hasUpperCase(INVALID_EDIT_COMMAND_WITH_UPPERCASE));
+        assertFalse(FriendBookParser.hasUpperCase(INVALID_UNKNOWN_COMMAND_WITH_UPPERCASE));
     }
 }
