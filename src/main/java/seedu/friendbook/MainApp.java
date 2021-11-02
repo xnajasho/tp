@@ -71,7 +71,7 @@ public class MainApp extends Application {
 
         ui = new UiManager(logic);
 
-        reminderService = new ReminderService(model.getFilteredPersonList());
+        reminderService = new ReminderService(model.getFilteredPersonListSortedByBirthday());
     }
 
     /**

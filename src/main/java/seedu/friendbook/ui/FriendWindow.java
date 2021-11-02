@@ -121,8 +121,7 @@ public class FriendWindow extends UiPart<Stage> {
     }
 
     public void setBirthdayCircle(int daysLeftToBirthday) {
-        //TODO: remove 365
-        if (daysLeftToBirthday == 0 || daysLeftToBirthday == 365) {
+        if (daysLeftToBirthday == 0) {
             birthdayCircle.getStyleClass().add("circle-today");
             daysToBirthday.setText("Today");
             daysToBirthdayLabel.setVisible(false);

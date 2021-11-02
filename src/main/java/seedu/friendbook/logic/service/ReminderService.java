@@ -25,6 +25,8 @@ public class ReminderService extends ScheduledService<String> {
 
     private final Logger logger = LogsCenter.getLogger(ReminderService.class);
     private final ObservableList<Person> personList;
+
+    private boolean isReminderServiceCancelled = false;
     /**
      * Constructs a {@code ReminderService} with the given {@code personList}.
      */
@@ -33,9 +35,10 @@ public class ReminderService extends ScheduledService<String> {
 
         personList.addListener((ListChangeListener<Person>) c -> {
             // restart reminder service for any new addition to list
-            if (c.next() && c.wasAdded()) {
+            if (c.next() && c.wasAdded() && isReminderServiceCancelled) {
                 logger.info("reminder service restarting");
-                ReminderService.this.restart();
+                restart();
+                this.isReminderServiceCancelled = !isReminderServiceCancelled;
             }
         });
     }
@@ -54,10 +57,9 @@ public class ReminderService extends ScheduledService<String> {
             } catch (NullPointerException nullPointerException) {
                 return;
             }
-            Platform.runLater(() -> {
-                ReminderService.this.cancel();
-                showReminderAlert(value);
-            });
+            ReminderService.this.cancel();
+            this.isReminderServiceCancelled = !isReminderServiceCancelled;
+            Platform.runLater(() -> showReminderAlert(value));
         });
 
         this.setPeriod(periodDuration);
@@ -72,7 +74,7 @@ public class ReminderService extends ScheduledService<String> {
         final Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.getDialogPane().getStylesheets().add("stylesheets/FriendBookTheme.css");
         alert.setTitle("Birthday Reminder Alert");
-        alert.setHeaderText("Friend(s) Birthday coming in a week: ");
+        alert.setHeaderText("Friend(s) Birthday coming in less than a week: ");
         alert.setContentText("\n" + friendNames);
         alert.showAndWait();
     }
@@ -89,8 +91,8 @@ public class ReminderService extends ScheduledService<String> {
             protected String call() {
                 // get names of person with names of friends whose birthday are coming in a week
                 String value = personList.filtered(x -> x.getReminder().getBooleanValue())
-                        .filtered(x -> x.getBirthday().calculateRemainingDaysToBirthday() == 7)
-                        .stream().map(x -> x.getName().fullName).collect(Collectors.joining("\n "));
+                        .filtered(x -> x.getBirthday().calculateRemainingDaysToBirthday() <= 7)
+                        .stream().map(x -> x.getName().fullName).collect(Collectors.joining("\n\n"));
                 return value.equals("") ? null : value;
             }
         };
