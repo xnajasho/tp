@@ -24,12 +24,13 @@ public class AvatarTest {
         assertThrows(NullPointerException.class, () -> Avatar.isValidAvatar(null));
 
         // invalid name
-        assertFalse(Avatar.isValidAvatar("01")); // empty string
-        assertFalse(Avatar.isValidAvatar("24")); // spaces only
-        assertFalse(Avatar.isValidAvatar("-1")); // only non-alphanumeric characters
-        assertFalse(Avatar.isValidAvatar("00")); // contains non-alphanumeric characters
+        assertFalse(Avatar.isValidAvatar("01"));
+        assertFalse(Avatar.isValidAvatar("24"));
+        assertFalse(Avatar.isValidAvatar("-1"));
+        assertFalse(Avatar.isValidAvatar("00"));
 
         // valid name
+        assertTrue(Avatar.isValidAvatar(""));
         assertTrue(Avatar.isValidAvatar("1"));
         assertTrue(Avatar.isValidAvatar("12"));
         assertTrue(Avatar.isValidAvatar("20"));
