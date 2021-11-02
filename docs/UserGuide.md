@@ -93,9 +93,9 @@ The reminder feature is a feature designed for users to reminded of their friend
 
 ![Reminder Example](images/ReminderExample.png)
 
-The checkbox under each individual friend allows users to select the birthdays of the friends that they wish to be reminded of.
+The checkbox under each individual friend labelled 'Enable Notification' allows users to select the birthdays of the friends that they wish to be reminded of.
 
-Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date.
+Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date, and once every twelve hours between a week to the actual birthday of that friend.
 </div>
 
 ### Viewing help : `help`
@@ -167,7 +167,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `John Doe`
 * `find tim john` returns `Tim`, `John Doe`<br>
-  ![findTag FriendBook example](images/findTagFriendBookExample.png)
+  ![findTag FriendBook example](images/findFriendBookExample.png)
 
 ### Locating friends by tag: `findTag`
 
