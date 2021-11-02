@@ -234,5 +234,7 @@ public class FriendBookParserTest {
         assertFalse(FriendBookParser.hasUpperCase(INVALID_ADD_COMMAND_WITH_UPPERCASE));
         assertFalse(FriendBookParser.hasUpperCase(INVALID_EDIT_COMMAND_WITH_UPPERCASE));
         assertFalse(FriendBookParser.hasUpperCase(INVALID_UNKNOWN_COMMAND_WITH_UPPERCASE));
+
+        assertFalse(FriendBookParser.hasUpperCase("add"));
     }
 }
