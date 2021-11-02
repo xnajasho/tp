@@ -1,0 +1,14 @@
+{
+  "persons" : [ {
+    "name" : "John Doe",
+    "phone" : "98765432",
+    "email" : "johnd@example.com",
+    "address" : "311, Clementi Ave 2, #02-25",
+    "tagged" : [ "owesMoney", "friends" ],
+    "birthday" : "1994-05-15",
+    "avatar" : "1",
+    "teleHandle" : "#invalid#",
+    "description" : "herenow",
+    "reminder" : "wrong"
+  } ]
+}
