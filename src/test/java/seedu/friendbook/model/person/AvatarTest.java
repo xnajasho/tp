@@ -14,7 +14,7 @@ public class AvatarTest {
 
     @Test
     public void constructor_invalidName_throwsIllegalArgumentException() {
-        String invalidAvatar = "";
+        String invalidAvatar = "25";
         assertThrows(IllegalArgumentException.class, () -> new Avatar(invalidAvatar));
     }
 
