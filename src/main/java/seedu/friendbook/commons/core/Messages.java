@@ -12,5 +12,7 @@ public class Messages {
     public static final String MESSAGE_CONTAINS_FIELD_IN_BRACKETS = "Unable to parse command as %s field contains"
             + " fields enclosed in square brackets, e.g [t/TAG]\n"
             + "Please remove all enclosing square brackets.";
+    public static final String MESSAGE_COMMAND_CONTAINS_UPPERCASE = "%s command contains UPPERCASE characters."
+            + " Please enter LOWERCASE characters only";
 
 }
