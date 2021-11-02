@@ -89,19 +89,32 @@ public class Birthday {
 
     /**
      * Calculates the remaining days until specified birthday
-     * If birthday falls on today's date, it considers the remaining days til next year's
      */
     public long calculateRemainingDaysToBirthday() {
+        if (isTodayBirthday()) {
+            return 0;
+        } else {
+            LocalDate today = LocalDate.now();
+            LocalDate birthday = LocalDate.parse(value);
+            LocalDate nextBday = birthday.withYear(today.getYear());
+
+            //If your birthday has occurred this year already, add 1 to the year.
+            if (nextBday.isBefore(today)) {
+                nextBday = nextBday.plusYears(1);
+            }
+
+            return ChronoUnit.DAYS.between(today, nextBday);
+        }
+    }
+
+    /**
+     * Helper method to check if specified birthday is today
+     */
+    public boolean isTodayBirthday() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.parse(value);
-        LocalDate nextBday = birthday.withYear(today.getYear());
-
-        //If your birthday has occurred this year already, add 1 to the year.
-        if (nextBday.isBefore(today) || nextBday.equals(today)) {
-            nextBday = nextBday.plusYears(1);
-        }
-
-        return ChronoUnit.DAYS.between(today, nextBday);
+        return birthday.getMonth().equals(today.getMonth())
+                && birthday.getDayOfMonth() == today.getDayOfMonth();
     }
 
     /**
