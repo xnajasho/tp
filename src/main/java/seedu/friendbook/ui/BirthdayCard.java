@@ -56,7 +56,6 @@ public class BirthdayCard extends UiPart<Region> {
 
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
         setBirthdayCircle(person.getDaysToRemainingBirthday());
-
         reminderCheckBox.setSelected(person.getReminder().getBooleanValue());
 
         reminderCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
@@ -73,7 +72,7 @@ public class BirthdayCard extends UiPart<Region> {
 
     public void setBirthdayCircle(int daysLeftToBirthday) {
         //TODO: remove 365
-        if (daysLeftToBirthday == 0 || daysLeftToBirthday == 365) {
+        if (daysLeftToBirthday == 0) {
             birthdayCircle.getStyleClass().add("circle-today");
             daysToBirthday.setText("Today");
             birthdayCircleContainer.getChildren().remove(birthdayDaysLeftLabel);
