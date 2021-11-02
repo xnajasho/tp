@@ -46,7 +46,7 @@ public class JsonFriendBookStorageTest {
 
     @Test
     public void readFriendBook_invalidPersonFriendBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readFriendBook("invalidPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidNameInPersonFriendBook.json"));
     }
 
     @Test
