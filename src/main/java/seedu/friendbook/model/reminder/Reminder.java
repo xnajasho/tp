@@ -16,7 +16,7 @@ public class Reminder {
      */
     public Reminder(String stringValue) {
         requireNonNull(stringValue);
-        this.stringValue = stringValue;
+        this.stringValue = stringValue.toLowerCase();
     }
 
     public String getStringValue() {
@@ -32,10 +32,10 @@ public class Reminder {
     }
 
     /**
-     * Returns true if a given reminder is valid.
+     * Returns true if a given reminder is valid. Values are case-insensitive
      */
     public static boolean isValidReminder(String test) {
-        return test.equals("on") || test.equals("off");
+        return test.equalsIgnoreCase("on") || test.equalsIgnoreCase("off") || test.trim().equals("");
     }
 
     @Override

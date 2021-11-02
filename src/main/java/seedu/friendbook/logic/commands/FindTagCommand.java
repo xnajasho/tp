@@ -12,7 +12,7 @@ import seedu.friendbook.model.person.TagContainsKeywordsPredicate;
  */
 public class FindTagCommand extends Command {
 
-    public static final String COMMAND_WORD = "findTag";
+    public static final String COMMAND_WORD = "findtag";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all friends whose tags contain any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
