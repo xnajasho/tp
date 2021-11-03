@@ -13,6 +13,7 @@ import static seedu.friendbook.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.friendbook.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.friendbook.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
+import static seedu.friendbook.testutil.TypicalPersons.HOON;
 
 import org.junit.jupiter.api.Test;
 
@@ -120,6 +121,60 @@ public class EditCommandTest {
                 new EditPersonDescriptorBuilder(personInList).build());
 
         assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_PERSON);
+    }
+
+    @Test
+    public void execute_duplicatePhoneUnfilteredList_failure() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(firstPerson)
+                .withName(HOON.getName().fullName)
+                .withAddress(HOON.getAddress().value)
+                .withBirthday(HOON.getBirthday().value)
+                .withEmail(HOON.getEmail().value).build();
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
+
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_PHONE_NUMBER_EXISTS);
+    }
+
+    @Test
+    public void execute_duplicatePhoneFilteredList_failure() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+
+        // edit person in filtered list to have a duplicate phone number as someone else in friend book
+        Person personInList = model.getFriendBook().getPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
+                new EditPersonDescriptorBuilder(firstPerson)
+                        .withPhone(personInList.getPhone().value).build());
+
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_PHONE_NUMBER_EXISTS);
+    }
+
+    @Test
+    public void execute_duplicateEmailUnfilteredList_failure() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(firstPerson)
+                .withName(HOON.getName().fullName)
+                .withAddress(HOON.getAddress().value)
+                .withBirthday(HOON.getBirthday().value)
+                .withPhone(HOON.getPhone().value).build();
+        EditCommand editCommand = new EditCommand(INDEX_SECOND_PERSON, descriptor);
+
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_EMAIL_EXISTS);
+    }
+
+    @Test
+    public void execute_duplicateEmailFilteredList_failure() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+
+        // edit person in filtered list to have a duplicate email as someone else in friend book
+        Person personInList = model.getFriendBook().getPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON,
+                new EditPersonDescriptorBuilder(firstPerson)
+                        .withEmail(personInList.getEmail().value).build());
+
+        assertCommandFailure(editCommand, model, EditCommand.MESSAGE_EMAIL_EXISTS);
     }
 
     @Test

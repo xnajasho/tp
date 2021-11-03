@@ -76,12 +76,12 @@ public interface Model {
     boolean hasPerson(Person person);
 
     /**
-     * Returns true if a person with the same phone number as {@code person} exists in the friend book.
+     * Returns true if the phone exists in the friend book.
      */
     boolean hasPhone(Phone phone);
 
     /**
-     * Returns true if a person with the same email as {@code person} exists in the friend book.
+     * Returns true if the email exists in the friend book.
      */
     boolean hasEmail(Email email);
 
