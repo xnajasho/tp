@@ -35,6 +35,8 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private VBox fieldContainer;
     @FXML
+    private VBox descriptionContainer;
+    @FXML
     private ImageView avatar;
     @FXML
     private ImageView teleImageView;
@@ -50,6 +52,8 @@ public class FriendWindow extends UiPart<Stage> {
     private Label birthday;
     @FXML
     private Hyperlink teleHandle;
+    @FXML
+    private Label descriptionLabel;
     @FXML
     private Label description;
     @FXML
@@ -98,7 +102,8 @@ public class FriendWindow extends UiPart<Stage> {
         if (!person.getDescription().isEmpty()) {
             description.setText(String.format("%s", person.getDescription().value));
         } else {
-            fieldContainer.getChildren().remove(description);
+            descriptionContainer.getChildren().remove(descriptionLabel);
+            descriptionContainer.getChildren().remove(description);
         }
         if (person.getTeleHandle().isEmpty()) {
             fieldContainer.getChildren().remove(teleHandle);
