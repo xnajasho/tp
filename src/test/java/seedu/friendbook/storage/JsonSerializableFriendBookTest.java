@@ -16,6 +16,8 @@ public class JsonSerializableFriendBookTest {
     private static final Path TYPICAL_PERSONS_FILE = TEST_DATA_FOLDER.resolve("typicalPersonsFriendBook.json");
     private static final Path INVALID_PERSON_FILE = TEST_DATA_FOLDER.resolve("invalidPersonFriendBook.json");
     private static final Path DUPLICATE_PERSON_FILE = TEST_DATA_FOLDER.resolve("duplicatePersonFriendBook.json");
+    private static final Path DUPLICATE_PHONE_FILE = TEST_DATA_FOLDER.resolve("duplicatePhone.json");
+    private static final Path DUPLICATE_EMAIL_FILE = TEST_DATA_FOLDER.resolve("duplicateEmail.json");
 
     /*@Test
     public void toModelType_typicalPersonsFile_success() throws Exception {
@@ -38,6 +40,22 @@ public class JsonSerializableFriendBookTest {
         JsonSerializableFriendBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PERSON_FILE,
                 JsonSerializableFriendBook.class).get();
         assertThrows(IllegalValueException.class, JsonSerializableFriendBook.MESSAGE_DUPLICATE_PERSON,
+                dataFromFile::toModelType);
+    }
+
+    @Test
+    public void toModelType_duplicatePhone_throwsIllegalValueException() throws Exception {
+        JsonSerializableFriendBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PHONE_FILE,
+                JsonSerializableFriendBook.class).get();
+        assertThrows(IllegalValueException.class, JsonSerializableFriendBook.MESSAGE_PHONE_NUMBER_EXISTS,
+                dataFromFile::toModelType);
+    }
+
+    @Test
+    public void toModelType_duplicateEmail_throwsIllegalValueException() throws Exception {
+        JsonSerializableFriendBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_EMAIL_FILE,
+                JsonSerializableFriendBook.class).get();
+        assertThrows(IllegalValueException.class, JsonSerializableFriendBook.MESSAGE_EMAIL_EXISTS,
                 dataFromFile::toModelType);
     }
 

@@ -1,0 +1,24 @@
+{
+  "persons": [ {
+    "name": "Jake Myers",
+    "phone": "94351253",
+    "email": "test@example.com",
+    "address": "123, Jurong West Ave 6, #08-111",
+    "birthday": "1995-05-15",
+    "teleHandle" : "jakemikemyers",
+    "description" : "good friend",
+    "avatar" : "1",
+    "tagged": [ "friends" ],
+    "reminder" : "off"
+  }, {
+    "name": "Alice Pauline",
+    "phone": "87561274",
+    "email": "test@example.com",
+    "address": "4th street",
+    "birthday": "1996-04-16",
+    "teleHandle" : "wonderalice",
+    "avatar" : "1",
+    "description" : "good friend",
+    "reminder" : "off"
+  } ]
+}
