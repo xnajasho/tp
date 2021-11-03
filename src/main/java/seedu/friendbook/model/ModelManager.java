@@ -120,6 +120,18 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasPhone(Person person) {
+        requireNonNull(person);
+        return friendBook.hasPhone(person);
+    }
+
+    @Override
+    public boolean hasEmail(Person person) {
+        requireNonNull(person);
+        return friendBook.hasEmail(person);
+    }
+
+    @Override
     public void deletePerson(Person target) {
         friendBook.removePerson(target);
     }

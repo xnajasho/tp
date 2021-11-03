@@ -67,6 +67,22 @@ public class FriendBook implements ReadOnlyFriendBook {
     }
 
     /**
+     * Returns true if a person with the same Phone Number as {@code person} exists in the friend book.
+     */
+    public boolean hasPhone(Person person) {
+        requireNonNull(person);
+        return persons.hasExistingPhoneNumber(person);
+    }
+
+    /**
+     * Returns true if a person with the same Email as {@code person} exists in the friend book.
+     */
+    public boolean hasEmail(Person person) {
+        requireNonNull(person);
+        return persons.hasExistingEmail(person);
+    }
+
+    /**
      * Adds a person to the friend book.
      * The person must not already exist in the friend book.
      */
