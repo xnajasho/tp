@@ -27,7 +27,7 @@
                 <URL value="@../stylesheets/FriendBookTheme.css" />
             </stylesheets>
          <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="friend-window">
-            <VBox alignment="CENTER" spacing="10.0">
+            <VBox fx:id="topContainer" alignment="CENTER" spacing="10.0">
                <children>
                      <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                </ImageView>
@@ -111,9 +111,9 @@
                         <Insets left="20.0" top="-30.0" />
                      </VBox.margin>
                   </VBox>
-                  <VBox spacing="5.0">
+                  <VBox spacing="5.0" fx:id="descriptionContainer">
                      <children>
-                        <Label fx:id="description1" maxHeight="1.7976931348623157E308" minHeight="-Infinity" styleClass="fw-label" text="Description" wrapText="true" />
+                        <Label fx:id="descriptionLabel" maxHeight="1.7976931348623157E308" minHeight="-Infinity" styleClass="fw-label" text="Description" wrapText="true" />
                                  <Label fx:id="description" maxHeight="1.7976931348623157E308" minHeight="-Infinity" text="xxxxx" wrapText="true" />
                      </children>
                      <VBox.margin>
