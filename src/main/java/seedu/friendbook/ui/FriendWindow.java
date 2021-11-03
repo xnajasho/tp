@@ -33,6 +33,8 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private Tooltip upcomingAgeToolTip;
     @FXML
+    private VBox topContainer;
+    @FXML
     private VBox fieldContainer;
     @FXML
     private VBox descriptionContainer;
@@ -106,7 +108,7 @@ public class FriendWindow extends UiPart<Stage> {
             descriptionContainer.getChildren().remove(description);
         }
         if (person.getTeleHandle().isEmpty()) {
-            fieldContainer.getChildren().remove(teleHandle);
+            topContainer.getChildren().remove(teleHandle);
         } else {
             //TODO: CLEAN UP code BEFORE COMMIT
             teleHandle.setText(String.format("@%s", person.getTeleHandle().value));

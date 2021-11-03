@@ -27,7 +27,7 @@
                 <URL value="@../stylesheets/FriendBookTheme.css" />
             </stylesheets>
          <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="friend-window">
-            <VBox alignment="CENTER" spacing="10.0">
+            <VBox fx:id="topContainer" alignment="CENTER" spacing="10.0">
                <children>
                      <ImageView fx:id="avatar" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                </ImageView>
