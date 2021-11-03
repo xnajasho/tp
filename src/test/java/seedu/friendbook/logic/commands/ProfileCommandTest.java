@@ -18,8 +18,10 @@ import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 
 public class ProfileCommandTest {
 
@@ -136,6 +138,16 @@ public class ProfileCommandTest {
 
         @Override
         public boolean hasPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasPhone(Phone phone) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasEmail(Email email) {
             throw new AssertionError("This method should not be called.");
         }
 

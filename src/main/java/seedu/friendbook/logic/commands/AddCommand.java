@@ -67,6 +67,8 @@ public class AddCommand extends Command {
             + "[" + PREFIX_TAG + "TAG]...\n";
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the friend book";
+    public static final String MESSAGE_PHONE_NUMBER_EXISTS = "Phone number is already used by someone else";
+    public static final String MESSAGE_EMAIL_EXISTS = "Email is already used by someone else";
 
     private final Person toAdd;
 
@@ -83,6 +85,12 @@ public class AddCommand extends Command {
         requireNonNull(model);
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        if (model.hasPhone(toAdd.getPhone())) {
+            throw new CommandException(MESSAGE_PHONE_NUMBER_EXISTS);
+        }
+        if (model.hasEmail(toAdd.getEmail())) {
+            throw new CommandException(MESSAGE_EMAIL_EXISTS);
         }
 
         model.addPerson(toAdd);

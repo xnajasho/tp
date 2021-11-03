@@ -1,11 +1,11 @@
 {
   "persons": [ {
-    "name": "Alice Pauline",
+    "name": "Jake Myers",
     "phone": "94351253",
-    "email": "pauline@example.com",
+    "email": "jake@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "1995-05-15",
-    "teleHandle" : "wonderalice",
+    "teleHandle" : "jakemikemyers",
     "description" : "good friend",
     "avatar" : "1",
     "tagged": [ "friends" ],
@@ -15,7 +15,7 @@
     "phone": "94351253",
     "email": "pauline@example.com",
     "address": "4th street",
-    "birthday": "1995-05-15",
+    "birthday": "1996-04-16",
     "teleHandle" : "wonderalice",
     "avatar" : "1",
     "description" : "good friend",

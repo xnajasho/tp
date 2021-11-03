@@ -14,5 +14,4 @@ public class Messages {
             + "Please remove all enclosing square brackets.";
     public static final String MESSAGE_COMMAND_CONTAINS_UPPERCASE = "%s command contains UPPERCASE characters."
             + " Please enter LOWERCASE characters only";
-
 }

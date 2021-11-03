@@ -21,6 +21,10 @@ class JsonSerializableFriendBook {
 
     public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
 
+    public static final String MESSAGE_PHONE_NUMBER_EXISTS = "Persons list contains duplicate phone numbers(s).";
+
+    public static final String MESSAGE_EMAIL_EXISTS = "Persons list contains duplicate phone email(s).";
+
     private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
     /**
@@ -51,6 +55,12 @@ class JsonSerializableFriendBook {
             Person person = jsonAdaptedPerson.toModelType();
             if (friendBook.hasPerson(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            }
+            if (friendBook.hasPhone(person.getPhone())) {
+                throw new IllegalValueException(MESSAGE_PHONE_NUMBER_EXISTS);
+            }
+            if (friendBook.hasEmail(person.getEmail())) {
+                throw new IllegalValueException(MESSAGE_EMAIL_EXISTS);
             }
             friendBook.addPerson(person);
         }

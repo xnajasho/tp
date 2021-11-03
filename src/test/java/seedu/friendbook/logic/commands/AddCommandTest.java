@@ -21,9 +21,12 @@ import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.testutil.PersonBuilder;
+import seedu.friendbook.testutil.TypicalPersons;
 
 public class AddCommandTest {
 
@@ -44,12 +47,54 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_personSameNameBirthdayAddress_addSuccessful() throws Exception {
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+
+        Person validPerson = new PersonBuilder(TypicalPersons.BENSON).build();
+        Person validPerson2SameNameBirthdayAddress = new PersonBuilder(TypicalPersons.BENSON)
+                .withPhone(TypicalPersons.ALICE.getPhone().value)
+                .withEmail(TypicalPersons.ALICE.getEmail().value)
+                .build();
+
+        CommandResult commandResult1 = new AddCommand(validPerson).execute(modelStub);
+        CommandResult commandResult2 = new AddCommand(validPerson2SameNameBirthdayAddress).execute(modelStub);
+
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validPerson), commandResult1.getFeedbackToUser());
+        assertEquals(String.format(
+                AddCommand.MESSAGE_SUCCESS, validPerson2SameNameBirthdayAddress), commandResult2.getFeedbackToUser());
+        assertEquals(Arrays.asList(validPerson, validPerson2SameNameBirthdayAddress), modelStub.personsAdded);
+    }
+
+    @Test
     public void execute_duplicatePerson_throwsCommandException() {
         Person validPerson = new PersonBuilder().build();
         AddCommand addCommand = new AddCommand(validPerson);
         ModelStub modelStub = new ModelStubWithPerson(validPerson);
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_personWithSamePhone_throwsCommandException() {
+        Person validPerson = new PersonBuilder().build();
+        Person validPerson2WithSameNumber = new PersonBuilder(TypicalPersons.ALICE)
+                .withPhone(validPerson.getPhone().value).build();
+        AddCommand addCommand = new AddCommand(validPerson2WithSameNumber);
+        ModelStub modelStub = new ModelStubWithPerson(validPerson);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_PHONE_NUMBER_EXISTS, () ->
+                addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_personWithSameEmail_throwsCommandException() {
+        Person validPerson = new PersonBuilder().build();
+        Person validPerson2WithSameEmail = new PersonBuilder(TypicalPersons.BENSON)
+                .withEmail(validPerson.getEmail().value).build();
+        AddCommand addCommand = new AddCommand(validPerson2WithSameEmail);
+        ModelStub modelStub = new ModelStubWithPerson(validPerson);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_EMAIL_EXISTS, () -> addCommand.execute(modelStub));
     }
 
     @Test
@@ -146,6 +191,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasPhone(Phone phone) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasEmail(Email email) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -187,6 +242,18 @@ public class AddCommandTest {
             requireNonNull(person);
             return this.person.isSamePerson(person);
         }
+
+        @Override
+        public boolean hasPhone(Phone phone) {
+            requireNonNull(phone);
+            return this.person.getPhone().equals(phone);
+        }
+
+        @Override
+        public boolean hasEmail(Email email) {
+            requireNonNull(email);
+            return this.person.getEmail().equals(email);
+        }
     }
 
     /**
@@ -199,6 +266,18 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
+        }
+
+        @Override
+        public boolean hasPhone(Phone phone) {
+            requireNonNull(phone);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getPhone().equals(phone));
+        }
+
+        @Override
+        public boolean hasEmail(Email email) {
+            requireNonNull(email);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getEmail().equals(email));
         }
 
         @Override
