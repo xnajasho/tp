@@ -2,7 +2,7 @@
   "persons": [ {
     "name": "Alice Pauline",
     "phone": "94351253",
-    "email": "alice@example.com",
+    "email": "pauline@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "birthday": "1995-05-15",
     "teleHandle" : "wonderalice",

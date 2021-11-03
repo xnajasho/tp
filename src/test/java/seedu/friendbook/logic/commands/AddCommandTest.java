@@ -24,6 +24,7 @@ import seedu.friendbook.model.ReadOnlyUserPrefs;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.testutil.PersonBuilder;
+import seedu.friendbook.testutil.TypicalPersons;
 
 public class AddCommandTest {
 
@@ -50,6 +51,29 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithPerson(validPerson);
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_personWithSamePhone_throwsCommandException() {
+        Person validPerson = new PersonBuilder().build();
+        Person validPerson2WithSameNumber = new PersonBuilder(TypicalPersons.ALICE)
+                .withPhone(validPerson.getPhone().value).build();
+        AddCommand addCommand = new AddCommand(validPerson2WithSameNumber);
+        ModelStub modelStub = new ModelStubWithPerson(validPerson);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_PHONE_NUMBER_EXISTS, () ->
+                addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_personWithSameEmail_throwsCommandException() {
+        Person validPerson = new PersonBuilder().build();
+        Person validPerson2WithSameEmail = new PersonBuilder(TypicalPersons.BENSON)
+                .withEmail(validPerson.getEmail().value).build();
+        AddCommand addCommand = new AddCommand(validPerson2WithSameEmail);
+        ModelStub modelStub = new ModelStubWithPerson(validPerson);
+
+        assertThrows(CommandException.class, AddCommand.MESSAGE_EMAIL_EXISTS, () -> addCommand.execute(modelStub));
     }
 
     @Test
@@ -146,6 +170,16 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasPhone(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasEmail(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person target) {
             throw new AssertionError("This method should not be called.");
         }
@@ -187,6 +221,18 @@ public class AddCommandTest {
             requireNonNull(person);
             return this.person.isSamePerson(person);
         }
+
+        @Override
+        public boolean hasPhone(Person other) {
+            requireNonNull(other);
+            return this.person.getPhone().equals(other.getPhone());
+        }
+
+        @Override
+        public boolean hasEmail(Person other) {
+            requireNonNull(other);
+            return this.person.getEmail().equals(other.getEmail());
+        }
     }
 
     /**
@@ -199,6 +245,18 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             requireNonNull(person);
             return personsAdded.stream().anyMatch(person::isSamePerson);
+        }
+
+        @Override
+        public boolean hasPhone(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getPhone().equals(person.getPhone()));
+        }
+
+        @Override
+        public boolean hasEmail(Person person) {
+            requireNonNull(person);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getEmail().equals(person.getEmail()));
         }
 
         @Override

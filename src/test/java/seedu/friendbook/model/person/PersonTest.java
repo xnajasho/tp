@@ -44,19 +44,58 @@ public class PersonTest {
         // null -> returns false
         assertFalse(ALICE.isSamePerson(null));
 
-        // same name, all other attributes different -> returns true
-        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
+        // same name, phone, email, birthday, all other attributes different -> true
+        Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
+                .withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
                 .withDescription(VALID_DESCRIPTION_BOB).withAvatar(VALID_AVATAR_BOB)
                 .withReminder(VALID_REMINDER_BOB).build();
         assertTrue(ALICE.isSamePerson(editedAlice));
+
+        // same name, all other attributes different -> returns false
+        editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
+                .withAddress(VALID_ADDRESS_BOB).withBirthday(VALID_BIRTHDAY_BOB)
+                .withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
+                .withDescription(VALID_DESCRIPTION_BOB).withAvatar(VALID_AVATAR_BOB)
+                .withReminder(VALID_REMINDER_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
+
+        // same name, phone, all other attributes different -> false
+        editedAlice = new PersonBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+                .withBirthday(VALID_BIRTHDAY_BOB)
+                .withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
+                .withDescription(VALID_DESCRIPTION_BOB).withAvatar(VALID_AVATAR_BOB)
+                .withReminder(VALID_REMINDER_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
+
+        // same name, phone, email, all other attributes different -> false
+        editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB)
+                .withBirthday(VALID_BIRTHDAY_BOB)
+                .withTags(VALID_TAG_HUSBAND).withTeleHandle(VALID_TELEHANDLE_BOB)
+                .withDescription(VALID_DESCRIPTION_BOB).withAvatar(VALID_AVATAR_BOB)
+                .withReminder(VALID_REMINDER_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
 
         // different name, all other attributes same -> returns false
         editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
         assertFalse(ALICE.isSamePerson(editedAlice));
 
-        // name differs in case, all other attributes same -> returns false
-        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase()).build();
+        // different name & phone, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
+
+        // different name & phone & email, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+                .withEmail(VALID_EMAIL_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
+
+        // different name & phone & email & birthday, all other attributes same -> returns false
+        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+                .withEmail(VALID_EMAIL_BOB).withBirthday(VALID_BIRTHDAY_BOB).build();
+        assertFalse(ALICE.isSamePerson(editedAlice));
+
+        // nam & email differs in case, all other attributes same -> returns false
+        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase())
+                .withEmail(VALID_EMAIL_BOB.toUpperCase()).build();
         assertFalse(BOB.isSamePerson(editedBob));
 
         // name has trailing spaces, all other attributes same -> returns false
