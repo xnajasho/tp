@@ -56,10 +56,10 @@ class JsonSerializableFriendBook {
             if (friendBook.hasPerson(person)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
             }
-            if (friendBook.hasPhone(person)) {
+            if (friendBook.hasPhone(person.getPhone())) {
                 throw new IllegalValueException(MESSAGE_PHONE_NUMBER_EXISTS);
             }
-            if (friendBook.hasEmail(person)) {
+            if (friendBook.hasEmail(person.getEmail())) {
                 throw new IllegalValueException(MESSAGE_EMAIL_EXISTS);
             }
             friendBook.addPerson(person);

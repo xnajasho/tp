@@ -13,8 +13,10 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.friendbook.commons.core.GuiSettings;
 import seedu.friendbook.commons.core.LogsCenter;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 
 /**
  * Represents the in-memory model of the friend book data.
@@ -120,15 +122,15 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public boolean hasPhone(Person person) {
-        requireNonNull(person);
-        return friendBook.hasPhone(person);
+    public boolean hasPhone(Phone phone) {
+        requireNonNull(phone);
+        return friendBook.hasPhone(phone);
     }
 
     @Override
-    public boolean hasEmail(Person person) {
-        requireNonNull(person);
-        return friendBook.hasEmail(person);
+    public boolean hasEmail(Email email) {
+        requireNonNull(email);
+        return friendBook.hasEmail(email);
     }
 
     @Override

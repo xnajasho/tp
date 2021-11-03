@@ -5,7 +5,9 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.model.person.UniquePersonList;
 
 /**
@@ -69,17 +71,17 @@ public class FriendBook implements ReadOnlyFriendBook {
     /**
      * Returns true if a person with the same Phone Number as {@code person} exists in the friend book.
      */
-    public boolean hasPhone(Person person) {
-        requireNonNull(person);
-        return persons.hasExistingPhoneNumber(person);
+    public boolean hasPhone(Phone phone) {
+        requireNonNull(phone);
+        return persons.hasExistingPhoneNumber(phone);
     }
 
     /**
      * Returns true if a person with the same Email as {@code person} exists in the friend book.
      */
-    public boolean hasEmail(Person person) {
-        requireNonNull(person);
-        return persons.hasExistingEmail(person);
+    public boolean hasEmail(Email email) {
+        requireNonNull(email);
+        return persons.hasExistingEmail(email);
     }
 
     /**

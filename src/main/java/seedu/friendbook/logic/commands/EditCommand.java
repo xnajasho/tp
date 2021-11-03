@@ -65,6 +65,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the friend book.";
+    public static final String MESSAGE_PHONE_NUMBER_EXISTS = "Phone number is already used by someone else";
+    public static final String MESSAGE_EMAIL_EXISTS = "Email is already used by someone else";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -97,9 +99,31 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
+        if (isPhoneEdited(personToEdit, editedPerson) && model.hasPhone(editedPerson.getPhone())) {
+            throw new CommandException(MESSAGE_PHONE_NUMBER_EXISTS);
+        }
+
+        if (isEmailEdited(personToEdit, editedPerson) && model.hasEmail(editedPerson.getEmail())) {
+            throw new CommandException(MESSAGE_EMAIL_EXISTS);
+        }
+
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, editedPerson));
+    }
+
+    /**
+     * Helper method to check if the newly edited person has his/her phone details edited
+     */
+    public static boolean isPhoneEdited(Person personToEdit, Person editedPerson) {
+        return !personToEdit.getPhone().equals(editedPerson.getPhone());
+    }
+
+    /**
+     * Helper method to check if the newly edited person has his/her email edited
+     */
+    public static boolean isEmailEdited(Person personToEdit, Person editedPerson) {
+        return !personToEdit.getEmail().equals(editedPerson.getEmail());
     }
 
     /**

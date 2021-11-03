@@ -21,8 +21,10 @@ import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 import seedu.friendbook.testutil.PersonBuilder;
 import seedu.friendbook.testutil.TypicalPersons;
 
@@ -189,12 +191,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPhone(Person person) {
+        public boolean hasPhone(Phone phone) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public boolean hasEmail(Person person) {
+        public boolean hasEmail(Email email) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -242,15 +244,15 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPhone(Person other) {
-            requireNonNull(other);
-            return this.person.getPhone().equals(other.getPhone());
+        public boolean hasPhone(Phone phone) {
+            requireNonNull(phone);
+            return this.person.getPhone().equals(phone);
         }
 
         @Override
-        public boolean hasEmail(Person other) {
-            requireNonNull(other);
-            return this.person.getEmail().equals(other.getEmail());
+        public boolean hasEmail(Email email) {
+            requireNonNull(email);
+            return this.person.getEmail().equals(email);
         }
     }
 
@@ -267,15 +269,15 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasPhone(Person person) {
-            requireNonNull(person);
-            return personsAdded.stream().anyMatch(personOther -> personOther.getPhone().equals(person.getPhone()));
+        public boolean hasPhone(Phone phone) {
+            requireNonNull(phone);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getPhone().equals(phone));
         }
 
         @Override
-        public boolean hasEmail(Person person) {
-            requireNonNull(person);
-            return personsAdded.stream().anyMatch(personOther -> personOther.getEmail().equals(person.getEmail()));
+        public boolean hasEmail(Email email) {
+            requireNonNull(email);
+            return personsAdded.stream().anyMatch(personOther -> personOther.getEmail().equals(email));
         }
 
         @Override

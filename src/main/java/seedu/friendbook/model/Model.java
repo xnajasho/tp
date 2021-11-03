@@ -6,8 +6,10 @@ import java.util.function.Predicate;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import seedu.friendbook.commons.core.GuiSettings;
+import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.model.person.Phone;
 
 /**
  * The API of the Model component.
@@ -76,12 +78,12 @@ public interface Model {
     /**
      * Returns true if a person with the same phone number as {@code person} exists in the friend book.
      */
-    boolean hasPhone(Person person);
+    boolean hasPhone(Phone phone);
 
     /**
      * Returns true if a person with the same email as {@code person} exists in the friend book.
      */
-    boolean hasEmail(Person person);
+    boolean hasEmail(Email email);
 
     /**
      * Deletes the given person.
