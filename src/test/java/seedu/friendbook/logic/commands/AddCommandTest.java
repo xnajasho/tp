@@ -45,6 +45,25 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_personSameNameBirthdayAddress_addSuccessful() throws Exception {
+        ModelStubAcceptingPersonAdded modelStub = new ModelStubAcceptingPersonAdded();
+
+        Person validPerson = new PersonBuilder(TypicalPersons.BENSON).build();
+        Person validPerson2SameNameBirthdayAddress = new PersonBuilder(TypicalPersons.BENSON)
+                .withPhone(TypicalPersons.ALICE.getPhone().value)
+                .withEmail(TypicalPersons.ALICE.getEmail().value)
+                .build();
+
+        CommandResult commandResult1 = new AddCommand(validPerson).execute(modelStub);
+        CommandResult commandResult2 = new AddCommand(validPerson2SameNameBirthdayAddress).execute(modelStub);
+
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validPerson), commandResult1.getFeedbackToUser());
+        assertEquals(String.format(
+                AddCommand.MESSAGE_SUCCESS, validPerson2SameNameBirthdayAddress), commandResult2.getFeedbackToUser());
+        assertEquals(Arrays.asList(validPerson, validPerson2SameNameBirthdayAddress), modelStub.personsAdded);
+    }
+
+    @Test
     public void execute_duplicatePerson_throwsCommandException() {
         Person validPerson = new PersonBuilder().build();
         AddCommand addCommand = new AddCommand(validPerson);
