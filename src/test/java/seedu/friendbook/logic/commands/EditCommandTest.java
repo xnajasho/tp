@@ -12,8 +12,8 @@ import static seedu.friendbook.logic.commands.CommandTestUtil.assertCommandSucce
 import static seedu.friendbook.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.friendbook.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.friendbook.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
 import static seedu.friendbook.testutil.TypicalPersons.HOON;
+import static seedu.friendbook.testutil.TypicalPersons.getTypicalFriendBook;
 
 import org.junit.jupiter.api.Test;
 
