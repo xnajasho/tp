@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Developer Guide
+title: FriendBook Developer Guide
 ---
 * Table of Contents
 {:toc}
@@ -195,7 +195,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
 | `* * *`  | user                                       | edit my friends' details       | update my friends' details when they change their personal information |
 | `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |  
-! `* *  `  | user                                       | create custom profiles for my friends containing their details| personalise my friend contact book      |
+| `* *  `  | user                                       | create custom profiles for my friends containing their details| personalise my friend contact book      |
 | `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
 | `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
 | `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |
