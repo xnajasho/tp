@@ -193,15 +193,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
-| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |     
+| `* * *`  | user                                       | edit my friends' details       | update my friends' details when they change their personal information |
+| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |  
+! `* *  `  | user                                       | create custom profiles for my friends containing their details| personalise my friend contact book      |
 | `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
 | `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
 | `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |
 | `* *`    | user                                       | find persons by tags           | locate details of persons with specific tags only                      |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the friend book  | sort persons by name           | locate a person easily                                                 |
+| `*`      | user                                       | personalise my application with my own name |                                                           |
 
-*{More to be added}*
 
 ### Use cases
 
