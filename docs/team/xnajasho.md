@@ -17,7 +17,7 @@ Given below are my contributions to this project.
 
 * **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
 
-* **Code contributed**: [RepoSense link]()
+* **Code contributed**: [https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false]()
 
 * **Project management**:
   * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
