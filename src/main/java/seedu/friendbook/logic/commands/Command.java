@@ -7,12 +7,26 @@ import seedu.friendbook.model.Model;
  * Represents a command with hidden internal logic and the ability to be executed.
  */
 public abstract class Command {
+    /**
+     * Executes the command and returns the result message.
+     *
+     * @param model {@code Model} which the command should operate on.
+     * @return feedback message of the operation result for display
+     * @throws CommandException If an error occurs during command execution.
+     */
+    public abstract CommandResult execute(Model model) throws CommandException;
+
 
     /**
      * Represents enum of all Commands FriendBook presents
      */
     public enum CommandList {
-        ADD, EDIT, CLEAR, DELETE, EXIT, FIND, FIND_TAG, HELP, LIST, PROFILE, VIEW;
+        ADD, EDIT, CLEAR, DELETE, EXIT, FIND, FINDTAG, HELP, LIST, PROFILE, VIEW;
+
+        @Override
+        public String toString() {
+            return super.toString().toLowerCase();
+        }
 
         public String getCommandMessageUsage() {
             String usage;
@@ -35,7 +49,7 @@ public abstract class Command {
             case FIND:
                 usage = FindCommand.MESSAGE_USAGE;
                 break;
-            case FIND_TAG:
+            case FINDTAG:
                 usage = FindTagCommand.MESSAGE_USAGE;
                 break;
             case HELP:
@@ -56,14 +70,5 @@ public abstract class Command {
             return usage;
         }
     }
-
-    /**
-     * Executes the command and returns the result message.
-     *
-     * @param model {@code Model} which the command should operate on.
-     * @return feedback message of the operation result for display
-     * @throws CommandException If an error occurs during command execution.
-     */
-    public abstract CommandResult execute(Model model) throws CommandException;
 
 }

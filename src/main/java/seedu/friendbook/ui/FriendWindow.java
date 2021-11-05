@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
@@ -23,21 +22,34 @@ import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 
 
-
+/**
+ * An UI Window for displaying selected {@code Person} Friend information.
+ */
 public class FriendWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(FriendWindow.class);
     private static final String FXML = "FriendWindow.fxml";
-    @FXML
-    private HBox viewContainer;
-    @FXML
-    private Tooltip upcomingAgeToolTip;
-    @FXML
-    private VBox fieldContainer;
+
+    private Person friend;
+
     @FXML
     private ImageView avatar;
     @FXML
     private ImageView teleImageView;
+
+    @FXML
+    private VBox topContainer;
+    @FXML
+    private VBox fieldContainer;
+    @FXML
+    private VBox descriptionContainer;
+
+    @FXML
+    private Hyperlink teleHandle;
+
+    @FXML
+    private Tooltip upcomingAgeToolTip;
+
     @FXML
     private Label name;
     @FXML
@@ -47,22 +59,19 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private Label email;
     @FXML
-    private Label birthday;
-    @FXML
-    private Hyperlink teleHandle;
+    private Label descriptionLabel;
     @FXML
     private Label description;
     @FXML
+    private Label daysToBirthdayLabel;
+    @FXML
     private Label daysToBirthday;
+    @FXML
+    private Label birthday;
     @FXML
     private Circle birthdayCircle;
     @FXML
-    private Label daysToBirthdayLabel;
-
-    @FXML
     private FlowPane tags;
-
-
     /**
      * Creates a new FriendWindow.
      *
@@ -73,20 +82,26 @@ public class FriendWindow extends UiPart<Stage> {
     }
 
     /**
-     * Creates a new FriendWindow.
+     * Creates a  {@code FriendWindow} with the given {@code Person} friend.
      */
-    public FriendWindow(Person person) {
+    public FriendWindow(Person friend) {
         this(new Stage());
-        avatar.setImage(person.getAvatar().getImage());
-        name.setText(String.format("%s", person.getName().fullName));
-        birthday.setText(String.format("%s", person.getBirthday().getActualDate()));
-        phone.setText(String.format("%s", person.getPhone().value));
-        address.setText(String.format("%s", person.getAddress().value));
-        email.setText(String.format("%s", person.getEmail().value));
-        daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
-        upcomingAgeToolTip.setText(String.format("Going to be %s Years Old", person.getAge() + 1));
+        this.friend = friend;
+
+        avatar.setImage(friend.getAvatar().getImage());
+        name.setText(friend.getName().fullName);
+        birthday.setText(friend.getBirthday().getActualDate());
+        phone.setText(friend.getPhone().value);
+        address.setText(friend.getAddress().value);
+        email.setText(friend.getEmail().value);
+        daysToBirthday.setText(String.valueOf(friend.getDaysToRemainingBirthday()));
+
+        upcomingAgeToolTip.setText(String.format("Going to be %s Years Old", friend.getAge() + 1));
         upcomingAgeToolTip.setShowDelay(Duration.ONE);
-        person.getTags().stream()
+
+        setBirthdayCircle(friend.getDaysToRemainingBirthday());
+
+        friend.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> {
                     Label label = new Label(tag.tagName + "\t");
@@ -95,41 +110,58 @@ public class FriendWindow extends UiPart<Stage> {
                     tags.getChildren().add(label);
                 });
 
-        if (!person.getDescription().isEmpty()) {
-            description.setText(String.format("%s", person.getDescription().value));
+        setOptionalDescription();
+        setOptionalTeleHandle();
+    }
+
+
+    /**
+     * Display description only if there is description about {@code Person} friend.
+     */
+    public void setOptionalDescription() {
+        if (!friend.getDescription().isEmpty()) {
+            description.setText(friend.getDescription().value);
         } else {
-            fieldContainer.getChildren().remove(description);
+            descriptionContainer.getChildren().remove(descriptionLabel);
+            descriptionContainer.getChildren().remove(description);
         }
-        if (person.getTeleHandle().isEmpty()) {
-            fieldContainer.getChildren().remove(teleHandle);
+    }
+
+    /**
+     * Display telegram info only if {@code Person} friend tele handle is given.
+     */
+    public void setOptionalTeleHandle() {
+        if (friend.getTeleHandle().isEmpty()) {
+            topContainer.getChildren().remove(teleHandle);
         } else {
-            //TODO: CLEAN UP code BEFORE COMMIT
-            teleHandle.setText(String.format("@%s", person.getTeleHandle().value));
+            teleHandle.setText(friend.getTeleHandle().value);
             teleHandle.setOnAction(event -> {
                 try {
+                    // open browser
                     Desktop.getDesktop().browse(new URL(String.format("https://t.me/%s",
-                            person.getTeleHandle().value))
-                            .toURI());
+                            friend.getTeleHandle().value)).toURI());
                 } catch (URISyntaxException | IOException e) {
-                    e.printStackTrace();
+                    logger.info("friend " + friend.getName().fullName + " tele handle failed to open browser.");
                 }
             });
         }
-
-        setBirthdayCircle(person.getDaysToRemainingBirthday());
-
     }
 
+    /**
+     * Sets display for Birthday Circle based on {@code daysLeftToBirthday}.
+     */
     public void setBirthdayCircle(int daysLeftToBirthday) {
         if (daysLeftToBirthday == 0) {
-            birthdayCircle.getStyleClass().add("circle-today");
-            daysToBirthday.setText("Today");
+            // friend birthday is today
             daysToBirthdayLabel.setVisible(false);
+            daysToBirthday.setText("Today");
+            birthdayCircle.getStyleClass().add("circle-today");
             upcomingAgeToolTip.setText("Today is your friend birthday");
-            //birthdayCircleContainer.getChildren().remove(daysToBirthdayLabel);
         } else if (daysLeftToBirthday <= 7) {
+            // friend birthday is in less than a week
             birthdayCircle.getStyleClass().add("circle-week-away");
         } else {
+            // default view
             birthdayCircle.getStyleClass().add("circle-default");
         }
     }

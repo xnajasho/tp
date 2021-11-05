@@ -41,6 +41,22 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Returns true if the list contains an existing phone number
+     */
+    public boolean hasExistingPhoneNumber(Phone phone) {
+        requireNonNull(phone);
+        return internalList.stream().anyMatch(x -> x.getPhone().equals(phone));
+    }
+
+    /**
+     * Returns true if the list contains an existing Email
+     */
+    public boolean hasExistingEmail(Email email) {
+        requireNonNull(email);
+        return internalList.stream().anyMatch(x -> x.getEmail().equals(email));
+    }
+
+    /**
      * Adds a person to the list.
      * The person must not already exist in the list.
      */
