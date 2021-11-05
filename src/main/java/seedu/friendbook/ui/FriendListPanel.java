@@ -19,26 +19,28 @@ public class FriendListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(FriendListPanel.class);
 
     @FXML
-    private ListView<Person> personListView;
+    private ListView<Person> friendListView;
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
     public FriendListPanel(ObservableList<Person> personList) {
         super(FXML);
-        personListView.setItems(personList);
-        personListView.setCellFactory(listView -> new PersonListViewCell());
+        friendListView.setItems(personList);
+        friendListView.setCellFactory(listView -> new PersonListViewCell());
+        setFriendListViewClickHandler();
+    }
 
-        //TODO: improve implementation
-        //ON DOUBLE CLICK
-        personListView.setOnMouseClicked(mouseEvent -> {
-
+    /**
+     * Sets double mouse click handler for selected list view for {@code FriendListPanel} selected friend.
+     * Creates a {@code FriendWindow} with the given {@code Person} friend.
+     */
+    private void setFriendListViewClickHandler() {
+        friendListView.setOnMouseClicked(mouseEvent -> {
             if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
                 if (mouseEvent.getClickCount() == 2) {
-                    Person friend = personListView.getSelectionModel()
-                            .getSelectedItem();
+                    Person friend = friendListView.getSelectionModel().getSelectedItem();
                     displayFriendWindow(friend);
-
                 }
             }
         });
@@ -48,7 +50,6 @@ public class FriendListPanel extends UiPart<Region> {
      * Creates a {@code FriendWindow} with the given {@code Person} friend.
      */
     private void displayFriendWindow(Person friend) {
-        // display friendWindow
         if (friend != null) {
             FriendWindow friendWindow = new FriendWindow(friend);
             if (!friendWindow.isShowing()) {

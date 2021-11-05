@@ -18,12 +18,12 @@ public class ProfileDisplay extends UiPart<Region> {
     private Button addFriendButton;
 
     /**
-     * Creates a {@code ProfileDisplay} with the given {@code userName}.
+     * Creates a {@code ProfileDisplay} with the given {@code usernameProperty}.
      */
-    public ProfileDisplay(StringProperty nameObservableValue) {
+    public ProfileDisplay(StringProperty usernameProperty) {
         super(FXML);
-        if (!nameObservableValue.getValue().equals("generic username")) {
-            usernameLabel.textProperty().bind(nameObservableValue);
+        if (!usernameProperty.getValue().equals("generic username")) {
+            usernameLabel.textProperty().bind(usernameProperty);
         } else {
             usernameLabel.setText("");
         }
