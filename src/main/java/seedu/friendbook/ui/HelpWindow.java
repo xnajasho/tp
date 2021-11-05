@@ -45,12 +45,11 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private VBox commandListAccordion;
 
-    private final Command.CommandList[] commandList = Command.CommandList.values();
-    private final TitledPane[] commandPanes = new TitledPane[commandList.length];
-
     @FXML
     private TilePane avatarPane;
 
+    private final Command.CommandList[] commandList = Command.CommandList.values();
+    private final TitledPane[] commandPanes = new TitledPane[commandList.length];
     /**
      * Creates a new HelpWindow.
      *
@@ -59,8 +58,22 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HELP_MESSAGE);
+        setAvatarPane();
+        setCommandListPanes();
+    }
 
-        // images view
+    /**
+     * Creates a new HelpWindow.
+     */
+    public HelpWindow() {
+        this(new Stage());
+    }
+
+
+    /**
+     * Creates a TitlePane in Accordion view to view all Avatar images.
+     */
+    private void setAvatarPane() {
         for (int i = 0; i < 21; i++) {
             VBox avatarContainer = new VBox();
             avatarContainer.setAlignment(Pos.TOP_CENTER);
@@ -74,7 +87,12 @@ public class HelpWindow extends UiPart<Stage> {
             avatarContainer.getChildren().addAll(imageView, avatarLabel);
             avatarPane.getChildren().add(avatarContainer);
         }
+    }
 
+    /**
+     * Creates a TitlePane in Accordion view to view all command instructions.
+     */
+    private void setCommandListPanes() {
         // Command list view
         for (int i = 0; i < commandList.length; i++) {
             Label commandInstruction = new Label(commandList[i].getCommandMessageUsage());
@@ -87,15 +105,8 @@ public class HelpWindow extends UiPart<Stage> {
             commandPanes[i].setExpanded(false);
         }
         commandListAccordion.getChildren().addAll(commandPanes);
-
     }
 
-    /**
-     * Creates a new HelpWindow.
-     */
-    public HelpWindow() {
-        this(new Stage());
-    }
 
     /**
      * Shows the help window.
