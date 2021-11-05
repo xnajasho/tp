@@ -26,6 +26,7 @@ public class FriendListPanel extends UiPart<Region> {
      */
     public FriendListPanel(ObservableList<Person> personList) {
         super(FXML);
+        System.out.println(personList.toString());
         friendListView.setItems(personList);
         friendListView.setCellFactory(listView -> new PersonListViewCell());
         setFriendListViewClickHandler();
