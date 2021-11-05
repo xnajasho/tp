@@ -15,7 +15,6 @@ import seedu.friendbook.commons.util.ConfigUtil;
 import seedu.friendbook.commons.util.StringUtil;
 import seedu.friendbook.logic.Logic;
 import seedu.friendbook.logic.LogicManager;
-import seedu.friendbook.logic.service.ReminderService;
 import seedu.friendbook.model.FriendBook;
 import seedu.friendbook.model.Model;
 import seedu.friendbook.model.ModelManager;
@@ -23,6 +22,8 @@ import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
 import seedu.friendbook.model.UserPrefs;
 import seedu.friendbook.model.util.SampleDataUtil;
+import seedu.friendbook.reminder.BirthdayReminder;
+import seedu.friendbook.reminder.BirthdayReminderManager;
 import seedu.friendbook.storage.FriendBookStorage;
 import seedu.friendbook.storage.JsonFriendBookStorage;
 import seedu.friendbook.storage.JsonUserPrefsStorage;
@@ -46,8 +47,7 @@ public class MainApp extends Application {
     protected Storage storage;
     protected Model model;
     protected Config config;
-
-    private ReminderService reminderService;
+    private BirthdayReminder birthdayReminder;
 
     @Override
     public void init() throws Exception {
@@ -71,7 +71,8 @@ public class MainApp extends Application {
 
         ui = new UiManager(logic);
 
-        reminderService = new ReminderService(model.getFilteredPersonListSortedByBirthday());
+        birthdayReminder = new BirthdayReminderManager(model.getFilteredPersonListSortedByBirthday());
+        birthdayReminder.startBirthdayReminder();
     }
 
     /**
@@ -175,8 +176,6 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         logger.info("Starting FriendBook " + MainApp.VERSION);
         ui.start(primaryStage);
-        //begin running reminder service in the background as well
-        reminderService.beginReminderService();
     }
 
     @Override
