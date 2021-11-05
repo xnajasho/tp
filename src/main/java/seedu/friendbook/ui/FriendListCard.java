@@ -15,7 +15,7 @@ import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Person;
 
 /**
- * An UI component that displays information of a {@code Person}.
+ * An UI component that displays brief information of a {@code Person} friend.
  */
 public class FriendListCard extends UiPart<Region> {
 
@@ -32,7 +32,6 @@ public class FriendListCard extends UiPart<Region> {
 
     @FXML
     private HBox cardPane;
-
     @FXML
     private Label name;
     @FXML
@@ -57,8 +56,6 @@ public class FriendListCard extends UiPart<Region> {
         id.setText(displayedIndex + ".");
         name.setText(person.getName().fullName);
         phone.setText(person.getPhone().value);
-        detectPicturePresent();
-        //address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
@@ -68,12 +65,16 @@ public class FriendListCard extends UiPart<Region> {
                     label.setTextAlignment(TextAlignment.CENTER);
                     tags.getChildren().add(label);
                 });
+        setFriendAvatar();
     }
 
-    private void detectPicturePresent() {
+    private void setFriendAvatar() {
         try {
             avatar.setImage(person.getAvatar().getImage());
         } catch (NullPointerException e) {
+            // set default avatar if friend has no avatar
+            logger.info("Failed to set avatar for " + person.getName().fullName
+                    + " setting default avatar instead.");
             avatar.setImage(Avatar.DEFAULT_AVATAR_IMAGE);
         }
     }

@@ -15,6 +15,9 @@ import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.reminder.BirthdayReminderManager;
 
+/**
+ * An UI component that displays information of a {@code Person} Birthday.
+ */
 public class BirthdayCard extends UiPart<Region> {
 
     private static final String FXML = "BirthdayListCard.fxml";
@@ -55,31 +58,37 @@ public class BirthdayCard extends UiPart<Region> {
         age.setText("Currently " + person.getAge() + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
 
-        daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
         setBirthdayCircle(person.getDaysToRemainingBirthday());
+        daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
         reminderCheckBox.setSelected(person.getReminder().getBooleanValue());
 
+        // update person model store in new value for every change in reminder checkbox
         reminderCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            // update person model store in new value
+            logger.info("Updating reminder to " + newValue + " for " + person.getName().fullName);
             Person updatedFriend = Person.newInstance(person);
             updatedFriend.getReminder().setReminder(newValue);
             try {
                 setRemindExecutor.execute(person, updatedFriend);
             } catch (CommandException e) {
-                e.printStackTrace();
+                logger.info("Failed to update reminder for: " + person.getName().fullName);
             }
         });
     }
 
+    /**
+     * Sets display for Birthday Circle based on {@code daysLeftToBirthday}.
+     */
     public void setBirthdayCircle(int daysLeftToBirthday) {
-        //TODO: remove 365
         if (daysLeftToBirthday == 0) {
+            // friend birthday is today
             birthdayCircle.getStyleClass().add("circle-today");
             daysToBirthday.setText("Today");
             birthdayCircleContainer.getChildren().remove(birthdayDaysLeftLabel);
         } else if (daysLeftToBirthday <= 7) {
+            // friend birthday is in less than a week
             birthdayCircle.getStyleClass().add("circle-week-away");
         } else {
+            // default view
             birthdayCircle.getStyleClass().add("circle-default");
         }
     }
@@ -90,12 +99,10 @@ public class BirthdayCard extends UiPart<Region> {
         if (other == this) {
             return true;
         }
-
         // instanceof handles nulls
         if (!(other instanceof FriendListCard)) {
             return false;
         }
-
         // state check
         FriendListCard card = (FriendListCard) other;
         return person.equals(card.person);

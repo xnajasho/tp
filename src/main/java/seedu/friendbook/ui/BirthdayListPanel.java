@@ -1,12 +1,10 @@
 package seedu.friendbook.ui;
 
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.model.person.Person;
 import seedu.friendbook.reminder.BirthdayReminderManager;
 
@@ -16,11 +14,10 @@ import seedu.friendbook.reminder.BirthdayReminderManager;
 public class BirthdayListPanel extends UiPart<Region> {
 
     private static final String FXML = "BirthdayListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(FriendListPanel.class);
 
     private final BirthdayReminderManager.SetRemindExecutor setRemindExecutor;
 
-    @javafx.fxml.FXML
+    @FXML
     private ListView<Person> birthdayListView;
 
     /**
