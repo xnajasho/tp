@@ -31,10 +31,10 @@ public class AddCommand extends Command {
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_BIRTHDAY + "BIRTHDAY "
-            + PREFIX_AVATAR + "AVATAR "
-            + PREFIX_TELEHANDLE + "TELE HANDLE "
-            + PREFIX_DESCRIPTION + "DESCRIPTION "
-            + PREFIX_REMINDER + "REMINDER "
+            + "[" + PREFIX_AVATAR + "AVATAR] "
+            + "[" + PREFIX_TELEHANDLE + "TELE HANDLE] "
+            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+            + "[" + PREFIX_REMINDER + "REMINDER] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "\nExample: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -47,12 +47,7 @@ public class AddCommand extends Command {
             + PREFIX_DESCRIPTION + "nice guy "
             + PREFIX_REMINDER + "on "
             + PREFIX_TAG + "friends "
-            + PREFIX_TAG + "owesMoney \n"
-            + "[" + PREFIX_AVATAR + "AVATAR] "
-            + "[" + PREFIX_TELEHANDLE + "TELE HANDLE] "
-            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
-            + "[" + PREFIX_REMINDER + "REMINDER] "
-            + "[" + PREFIX_TAG + "TAG]\n";
+            + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_PLACEHOLDER = COMMAND_WORD + " "
             + PREFIX_NAME + "NAME "
