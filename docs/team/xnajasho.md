@@ -9,38 +9,33 @@ AddressBook - Level 3 is a desktop address book application used for teaching So
 
 Given below are my contributions to this project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+* **New Feature**: Added the ability to track the birthdays for every contact added in FriendBook.
+  * What it does: Provides the user the ability to countdown and track the remaining days to every contact's birthday in the form of a list for visual representation(closest birthday is shown first). This feature supports automatic update and sorting when a new contact is added.
+  * Justification: As a contact management app, it is a useful feature to have for users who regularly keep in contact with their friends. It may be difficult to keep track of the different birthdays, especially for users who have large connections. This feature aims to alleviate this problem by pushing the responsibility to the app, providing users the ability to retrieve such information within a short period whenever necessary. As such, we decided to make the Birthday field compulsory as without it, it would just be a normal contact management app.
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Viewing full details of the contact.
+  * What it does: Provides the user the ability to view the full particulars of a contact with a single command
+  * Justification: It is not practical to show the full details of the person in the app's home page as it takes up too much space, given the various different fields present per contact. Hence, the home page only displays a subset of important details of the contact. This feature thus allows to user to access all other details of the contact whenever needed.
 
-* **Code contributed**: [RepoSense link]()
+* **Code contributed**: [Reposense Link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=xnajasho&tabRepo=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  * Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
+  * Assisted team lead with setting soft deadlines and idea generation
+  * Provided the main feedback on pros/cons of implemented features and how to better implement/improve them
+  * Fixed various Command related bugs
 
 * **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
+  * Fixed bugs which were present in original AB3 which allowed duplicate phone numbers and emails (Pull request [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    * Added documentation for the feature `view` (Pull request [\#85](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/85/files))
+    * Update command summary table to support newly implemented fields (Pull request [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
   * Developer Guide:
-    * Added implementation details of the `delete` feature.
+    * Added Use Case scenarios for various commands (UC4 - UC7)
+    * Added sequence diagram for `view` command
+    * Updated and maintained details relevant to the model
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
-
-* **Tools**:
-  * Integrated a third party library (Natty) to the project ([\#42]())
-  * Integrated a new Github plugin (CircleCI) to the team repo
-
-* _{you can add/remove categories in the list above}_
+  * Reported bugs and suggestions for other teams in the class ([PED Link](https://github.com/xnajasho/ped/issues))
