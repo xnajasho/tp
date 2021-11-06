@@ -9,7 +9,7 @@ import seedu.friendbook.model.person.Name;
 
 
 /**
- * Adds a person to the friend book.
+ * Sets the app to display the username of the user
  */
 public class ProfileCommand extends Command {
 
