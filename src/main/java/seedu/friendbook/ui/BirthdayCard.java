@@ -12,8 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
-import seedu.friendbook.logic.service.ReminderService;
 import seedu.friendbook.model.person.Person;
+import seedu.friendbook.reminder.BirthdayReminderManager;
 
 /**
  * An UI component that displays information of a {@code Person} Birthday.
@@ -50,7 +50,8 @@ public class BirthdayCard extends UiPart<Region> {
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public BirthdayCard(Person person, int displayedIndex, ReminderService.SetRemindExecutor setRemindExecutor) {
+    public BirthdayCard(Person person, int displayedIndex,
+                        BirthdayReminderManager.SetRemindExecutor setRemindExecutor) {
         super(FXML);
         this.person = person;
         name.setText(person.getName().fullName);

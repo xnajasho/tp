@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
-  <ListView fx:id="personListView" VBox.vgrow="ALWAYS">
+  <ListView fx:id="friendListView" VBox.vgrow="ALWAYS">
       <VBox.margin>
          <Insets />
       </VBox.margin></ListView>
