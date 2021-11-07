@@ -88,7 +88,7 @@ public class ReminderManager extends ScheduledService<List<Person>> implements R
         text.append("\n");
         for (Person friend: reminderList) {
             if (friend.getDaysToRemainingBirthday() == 0) {
-                text.append("\n" + friend.getName().fullName + " is " + friend.getAge() + " years old today");
+                text.append("\n" + friend.getName().fullName + " is " + friend.getAge() + " years old today.");
             } else {
                 text.append("\n"
                         + friend.getName().fullName + " is going to be " + friend.getAge() + " years old soon.");
