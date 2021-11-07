@@ -33,15 +33,15 @@ Additionally, it also helps university students to keep track of social interact
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-* **`list`** : Lists all friends.
+   * **`list`** : Lists all friends.
 
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
 
-* **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
+   * **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
 
-* **`clear`** : Deletes all friends.
+   * **`clear`** : Deletes all friends.
 
-* **`exit`** : Exits the app.
+   * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
