@@ -80,7 +80,7 @@ To select an avatar, assign the user the avatar based on its number from 1 to 20
 
 ![Avatar Example](images/AvatarExample.png)
 
-An avatar with the number 0 `edit 1 avatar/0` clears the avatar
+An avatar with the number 0 `edit 1 avatar/0` resets the avatar to its default image.
 
 **Custom Profile**
 
