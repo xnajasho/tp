@@ -184,8 +184,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** You can add friends with the same name, but their phone numbers, emails and addresses must be different
-
+:bulb: **Tip:** Friends can have the same name, but different phone numbers, emails and addresses
 
 :bulb: **Tip:** A friend can have any number of tags (including 0)
    
