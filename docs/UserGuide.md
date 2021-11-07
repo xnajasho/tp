@@ -160,7 +160,7 @@ The various fields in a contact have differing constraints from one another. Bel
    * `@` domain is not required in the input. 
       
 **Reminder**
-   * Only 2 valid inputs - 'on' and 'off'. Both are case-insensitive
+   * Only 2 valid inputs - `on` and `off`. Both are case-insensitive
 </div>
 
 
