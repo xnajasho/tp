@@ -244,8 +244,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
 | `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
 | `* * *`  | user                                       | edit my friends' details       | update my friends' details when they change their personal information |
+| `* * *`  | user                                       | view my friends' details       | retrieve my friend's details whenever I need them                      |
 | `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |  
 | `* *  `  | user                                       | create custom profiles for my friends containing their details| personalise my friend contact book      |
+| `* *  `  | user                                       | know my friend's age           | to keep track of my friends' ages                                      |
 | `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
 | `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
 | `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |

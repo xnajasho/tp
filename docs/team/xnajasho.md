@@ -22,6 +22,7 @@ Given below are my contributions to this project.
 * **Project management**:
   * Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
   * Assisted team lead with setting soft deadlines and idea generation
+  * Maintained GitHub issue tracker
   * Provided the main feedback on pros/cons of implemented features and how to better implement/improve them
   * Fixed various Command related bugs (PR [\#144](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/144), [\#145](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/145), [\#152](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/152) , [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
 
@@ -36,7 +37,7 @@ Given below are my contributions to this project.
     * Update command summary table to support newly implemented fields (PR [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
   * Developer Guide:
     * Added Use Case scenarios for various commands (UC4 - UC7)
-    * Added sequence diagram for `view` command
+    * Updated Use case summary table
     * Updated and maintained details relevant to the model
 
 * **Community**:
