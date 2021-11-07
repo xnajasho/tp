@@ -182,6 +182,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR
 
 :bulb: **Tip:** You can add friends with the same name, but their phone numbers, emails and addresses must be different
 
+
 :bulb: **Tip:** A friend can have any number of tags (including 0)
    
 :bulb: **Tip:** The avatar value must only be from 0 to 20
