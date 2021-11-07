@@ -87,6 +87,14 @@ An avatar with the number 0 `edit 1 avatar/0` clears the avatar
 
 FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
+An example of a profile with only the necessary information added:
+
+![Minimum Profile Example](images/MinimumProfileExample.png)
+
+An example of a profile with all the fields filled in:
+
+![Full Profile Example](images/FullProfileExample.png)
+
 **Reminder Feature**
 
 The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
@@ -113,6 +121,9 @@ Adds a friend to the FriendBook.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">
+
+:bulb: **Tip:** You can add friends with the same name, but their phone numbers, emails and addresses must be different
+
 :bulb: **Tip:** A friend can have any number of tags (including 0)
    
 :bulb: **Tip:** The avatar value must only be from 0 to 20
