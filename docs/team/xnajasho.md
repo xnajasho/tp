@@ -14,14 +14,15 @@ Given below are my contributions to this project.
   * Justification: As a contact management app, it is a useful feature to have for users who regularly keep in contact with their friends. It may be difficult to keep track of the different birthdays, especially for users who have large connections. This feature aims to alleviate this problem by pushing the responsibility to the app, providing users the ability to retrieve such information within a short period whenever necessary. As such, we decided to make the Birthday field compulsory as without it, it would just be a normal contact management app.
 
 * **New Feature**: Viewing full details of the contact.
-  * What it does: Provides the user the ability to view the full particulars of a contact with a single command
-  * Justification: It is not practical to show the full details of the person in the app's home page as it takes up too much space, given the various different fields present per contact. Hence, the home page only displays a subset of important details of the contact. This feature thus allows to user to access all other details of the contact whenever needed.
+  * What it does: Provides the user the ability to view the full particulars of a contact with a single command.
+  * Justification: It is not practical to show the full details of the person in the app's home page as it takes up too much space, given the various different fields present per contact. Hence, the home page only displays a subset of important details of the contact. This feature thus allows the user to access all other details of the contact whenever needed.
 
 * **Code contributed**: [Reposense Link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&since=2021-09-17&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=xnajasho&tabRepo=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
   * Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
   * Assisted team lead with setting soft deadlines and idea generation
+  * Maintained GitHub issue tracker
   * Provided the main feedback on pros/cons of implemented features and how to better implement/improve them
   * Fixed various Command related bugs (PR [\#144](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/144), [\#145](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/145), [\#152](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/152) , [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
 
@@ -36,7 +37,7 @@ Given below are my contributions to this project.
     * Update command summary table to support newly implemented fields (PR [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
   * Developer Guide:
     * Added Use Case scenarios for various commands (UC4 - UC7)
-    * Added sequence diagram for `view` command
+    * Updated user stories summary table (PR [\#177](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/177))
     * Updated and maintained details relevant to the model
 
 * **Community**:

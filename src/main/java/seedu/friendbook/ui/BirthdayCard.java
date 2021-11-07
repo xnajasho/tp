@@ -57,11 +57,11 @@ public class BirthdayCard extends UiPart<Region> {
         name.setText(person.getName().fullName);
         age.setText("Currently " + person.getAge() + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
-
-        setBirthdayCircle(person.getDaysToRemainingBirthday());
+        //Birthday
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
+        setBirthdayCircle(person.getDaysToRemainingBirthday());
+        //Reminder
         reminderCheckBox.setSelected(person.getReminder().getBooleanValue());
-
         // update person model store in new value for every change in reminder checkbox
         reminderCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             logger.info("Updating reminder to " + newValue + " for " + person.getName().fullName);
