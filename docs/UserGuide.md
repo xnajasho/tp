@@ -182,16 +182,14 @@ Adds a friend to the FriendBook.
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">
+* Friends can have the same name, but must have different phone numbers, emails and addresses
 
-:bulb: **Tip:** Friends can have same names, but different phone numbers, emails and addresses
+* A friend can have any number of tags (including 0)
+   
+* The avatar value must only be from 0 to 20
+   
+* The only valid reminder inputs are 'on' and 'off'
 
-:bulb: **Tip:** A friend can have any number of tags (including 0)
-   
-:bulb: **Tip:** The avatar value must only be from 0 to 20
-   
-:bulb: **Tip:** The only valid reminder inputs are 'on' and 'off'
-</div>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1985-05-13`
