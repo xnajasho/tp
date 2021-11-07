@@ -172,6 +172,10 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Implementation
 
+Below is a sequence diagram of how the Reminder feature is initialised.
+![initialisation of Reminder feature](images/ReminderInitialisationSequenceDiagram.png)
+
+
 The reminder mechanism is facilitated by the [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java).
 It extends to a internal JavaFX java library [`ScheduledService`](https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html),
 which executes tasks in the background without affecting UI thread.
@@ -194,8 +198,11 @@ for every update in the reminder checkbox in `BirthdayCard.java`.
 For every change in the reminder checkbox in `BirthdayCard.java`, method in [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62)
 updates the birthday list which then results in the listener in `ReminderManager` to restart the background task.
 
-If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a pop up alert will display
+If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a popup alert will display
 a message of all friends that have birthdays coming in a week or less.
+
+Below is another sequence diagram showing a scenario of when a reminder checkbox is updated by the user:
+![Friend Reminder Updated](images/UpdateFriendReminderSequenceDiagram.png)
 
 
 --------------------------------------------------------------------------------------------------------------------
