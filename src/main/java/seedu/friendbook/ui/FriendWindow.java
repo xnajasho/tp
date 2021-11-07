@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -42,6 +43,8 @@ public class FriendWindow extends UiPart<Stage> {
     @FXML
     private VBox fieldContainer;
     @FXML
+    private VBox addressContainer;
+    @FXML
     private VBox descriptionContainer;
 
     @FXML
@@ -54,6 +57,8 @@ public class FriendWindow extends UiPart<Stage> {
     private Label name;
     @FXML
     private Label phone;
+    @FXML
+    private Label addressLabel;
     @FXML
     private Label address;
     @FXML
@@ -92,7 +97,6 @@ public class FriendWindow extends UiPart<Stage> {
         name.setText(friend.getName().fullName);
         birthday.setText(friend.getBirthday().getActualDate());
         phone.setText(friend.getPhone().value);
-        address.setText(friend.getAddress().value);
         email.setText(friend.getEmail().value);
         daysToBirthday.setText(String.valueOf(friend.getDaysToRemainingBirthday()));
 
@@ -110,10 +114,24 @@ public class FriendWindow extends UiPart<Stage> {
                     tags.getChildren().add(label);
                 });
 
+        setOptionalAddress();
         setOptionalDescription();
         setOptionalTeleHandle();
     }
 
+    /**
+     * Display address only if there is address about {@code Person} friend.
+     */
+    public void setOptionalAddress() {
+        if (!friend.getAddress().isEmpty()) {
+            address.setText(friend.getAddress().value);
+        } else {
+            addressContainer.getChildren().remove(addressLabel);
+            addressContainer.getChildren().remove(address);
+            VBox.setMargin(description, new Insets(-10, 0, 0, 0));
+        }
+
+    }
 
     /**
      * Display description only if there is description about {@code Person} friend.
