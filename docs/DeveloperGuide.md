@@ -1,6 +1,6 @@
 ---
 layout: page
-title: FriendBook Developer Guide
+title: Developer Guide
 ---
 * Table of Contents
 {:toc}
@@ -9,7 +9,7 @@ title: FriendBook Developer Guide
 
 ## **Acknowledgements**
 
-This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative] (https://se-education.org).
+This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The diagrams shown below were made from [diagrams.net](https://www.diagrams.net/).
 </div>
 
 ### Architecture
@@ -48,6 +48,7 @@ The rest of the App consists of four components.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`Reminder`**](#reminder-component): Runs on a background thread in checking upcoming birthdays and displaying reminder alerts.
 
 
 **How the architecture components interact with each other**
@@ -81,8 +82,9 @@ The `UI` component,
 
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
-* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands as well as listen to the `ReminderService`.
+* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands as well as listen to the `Reminder` component.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+* depends on a functional interface in the `Reminder` component, because the `UI` updates the `Reminder` component on reminder changes. 
 
 ### Logic component
 
@@ -144,6 +146,18 @@ The `Storage` component,
 * inherits from both `FriendBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
+### Reminder component
+**API** : [`Reminder.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/Reminder.java)
+
+<img src="images/ReminderClassDiagram.png" width="550" />
+
+How the `Reminder` component works,
+* Runs every 12 hour starting with a 10second delay on application opening in the background.
+* Under `ReminderManager` class, it will check birthdays that upcoming in a week or less.
+* Displays an alert for the upcoming birthdays to notify user.
+* Relies on some methods in the `Logic` component (because the `UI` component's job is to allow user to enable/disable reminders.)
+* depends on the `Person` class in order to display relevant information in the alert.
+
 ### Common classes
 
 Classes used by multiple components are in the `seedu.friendbook.commons` package.
@@ -153,6 +167,35 @@ Classes used by multiple components are in the `seedu.friendbook.commons` packag
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### Reminder Feature
+
+#### Implementation
+
+The reminder mechanism is facilitated by the [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java).
+It extends to a internal JavaFX java library [`ScheduledService`](https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html),
+which executes tasks in the background without affecting UI thread.
+
+The `ReminderManager.java` executes a task which checks for upcoming birthdays that are coming in a week or less
+and user wishes to have these friends' birthday to be reminded.
+
+The implementation relies on the `Model` for its birthday list. For every change in the birthday list,
+results in the `ReminderManger` restarting the task to get the latest version of the birthday list. It does so by adding a
+listener to the birthday list.
+
+The way the list is updated relies on the `Logic` component and `UI` component.
+In the [`BirthdayCard.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/ui/BirthdayCard.java) and
+[`MainWindow.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/ui/MainWindow.java#L264) under `UI` component,
+which makes use of an functional
+interface [`SetRemindExecutor`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/reminder/ReminderManager.java#L122)
+in [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java) 
+for every update in the reminder checkbox in `BirthdayCard.java`.
+
+For every change in the reminder checkbox in `BirthdayCard.java`, method in [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62)
+updates the birthday list which then results in the listener in `ReminderManager` to restart the background task.
+
+If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a pop up alert will display
+a message of all friends that have birthdays coming in a week or less.
 
 
 --------------------------------------------------------------------------------------------------------------------
