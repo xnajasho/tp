@@ -168,6 +168,35 @@ Classes used by multiple components are in the `seedu.friendbook.commons` packag
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Reminder Feature
+
+#### Implementation
+
+The reminder mechanism is facilitated by the [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java).
+It extends to a internal JavaFX java library [`ScheduledService`](https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html),
+which executes tasks in the background without affecting UI thread.
+
+The `ReminderManager.java` executes a task which checks for upcoming birthdays that are coming in a week or less
+and user wishes to have these friends' birthday to be reminded.
+
+The implementation relies on the `Model` for its birthday list. For every change in the birthday list,
+results in the `ReminderManger` restarting the task to get the latest version of the birthday list. It does so by adding a
+listener to the birthday list.
+
+The way the list is updated relies on the `Logic` component and `UI` component.
+In the [`BirthdayCard.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/ui/BirthdayCard.java) and
+[`MainWindow.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/ui/MainWindow.java#L264) under `UI` component,
+which makes use of an functional
+interface [`SetRemindExecutor`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/reminder/ReminderManager.java#L122)
+in [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java) 
+for every update in the reminder checkbox in `BirthdayCard.java`.
+
+For every change in the reminder checkbox in `BirthdayCard.java`, method in [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62)
+updates the birthday list which then results in the listener in `ReminderManager` to restart the background task.
+
+If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a pop up alert will display
+a message of all friends that have birthdays coming in a week or less.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
