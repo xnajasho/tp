@@ -104,6 +104,10 @@ The reminder interval resets with any reminder updated for a friend.
 The checkbox under each individual friend labelled 'Enable Notification' allows users to select the birthdays of the friends that they wish to be reminded of.
 
 Checking the reminder box sends the user a notification reminding them of that specific friend's birthday within a week or less and notifies every twelve hours before birthday has already past to the following year.
+
+Below is a screenshot of the reminder alert based from the example above.
+![Reminder Example](images/ReminderAlertExample.png)
+
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
