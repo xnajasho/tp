@@ -73,7 +73,7 @@ Additionally, it also helps university students to keep track of social interact
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 
-**Avatars**
+--------------------------------------------------------------------------------------------------------------------
 
 FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
 
@@ -105,6 +105,72 @@ Shows a message explaining the basics of each command, and a link to the full us
 ![help message](images/newHelpMessage.png)
 
 Format: `help`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Field Constraints
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Summary of the various constraints for each field:**<br>
+
+The various fields in a contact have differing constraints from one another. Below are the contraints to ensure valid fields are entered correctly. Fields which are left out can have accept any kinds of input.
+
+**Name (Compulsory)**
+   * Names can only contain alphanumeric characters/spaces/hyphens/underscores.<br>
+   
+   * Names are not allowed to start with numbers e.g `123 John`.<br>
+   
+   * Names cannot consist solely of numbers.<br>
+   
+   * Hyphens/Underscores present MUST be preced by a character.<br>
+   
+   * Consecutive hyphens/underscores are not allowed.<br>
+   
+   * Names are not allowed to begin with spaces.<br>
+   
+**Phone (Compulsory)**
+   * Only consists of numbers, and at least 3 digits long.<br>
+   
+   * No two people can have the same phone numbers.<br>
+   
+   
+**Email (Compulsory)**
+   * Emails should be of the format `local-part@domain`.<br>
+  
+      * The local-part should only contain alphanumeric characters and any of these special characters: `+`, `_`, `.`, `-`
+      
+      * The local-part should not start or end with any of the above special characters
+      
+      * The domain name must:
+   
+         * end with a domain label at least 2 characters long e.g  `com`, `net`
+         
+         * have each domain label start and end with an alphanumeric character.
+         
+         * have each domain label separated by periods.
+   
+         * have each domain label consist of alphanumeric characters, separated by hyphens (if any).
+   
+   * No two people can have the same email.<br>
+   
+**Birthday (Compulsory)**
+   * Only `YYYY-MM-DD` format is allowed
+   
+**Avatar**
+   * Only avatar numbers from 0 to 20 are allowed
+      
+**TeleHandle**
+   * Handles are case-insensitive, can contain underscores and digits
+   
+   * Handles must be at least 5 characters long
+   
+   * `@` domain is not required in the input. 
+      
+**Reminder**
+   * Only 2 valid inputs - 'on' and 'off'. Both are case-insensitive
+</div>
+
 
 ### Adding a Friend: `add`
 
@@ -242,10 +308,10 @@ FriendBook data are saved in the hard disk automatically after any command that 
 
 ### Editing the data file
 
-FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file.
+FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file, subjected to the following [field constraints](#field constraints)
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, FriendBook will discard all data and start with an empty data file at the next run.
+If your changes to the data file makes its format invalid i.e having extra/missing parameters or the edited field violates any of the above constraints, FriendBook will discard all data and start with an empty data file at the next run.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
