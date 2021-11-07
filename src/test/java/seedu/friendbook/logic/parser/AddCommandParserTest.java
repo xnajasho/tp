@@ -11,7 +11,6 @@ import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_A
 import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_AVATAR_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_BIRTHDAY_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
@@ -47,7 +46,6 @@ import static seedu.friendbook.testutil.TypicalPersons.BOB;
 import org.junit.jupiter.api.Test;
 
 import seedu.friendbook.logic.commands.AddCommand;
-import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Email;
