@@ -98,14 +98,6 @@ The checkbox under each individual friend labelled 'Enable Notification' allows 
 Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date, and once every twelve hours between a week to the actual birthday of that friend.
 </div>
 
-### Viewing help : `help`
-
-Shows a message explaining the basics of each command, and a link to the full user guide.
-
-![help message](images/newHelpMessage.png)
-
-Format: `help`
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## Constraints
@@ -289,6 +281,14 @@ Format: `profile n/NAME`
 
 Examples:
 * `profile n/John sets the user profile name to John`
+
+### Viewing help : `help`
+
+Shows a message explaining the basics of each command, and a link to the full user guide.
+
+![help message](images/newHelpMessage.png)
+
+Format: `help`
 
 ### Clearing all entries : `clear`
 
