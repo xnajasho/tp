@@ -108,7 +108,7 @@ Format: `help`
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Field Constraints
+## Constraints
 
 <div markdown="block" class="alert alert-info">
 
@@ -308,7 +308,7 @@ FriendBook data are saved in the hard disk automatically after any command that 
 
 ### Editing the data file
 
-FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file, subjected to the following [field constraints](#field constraints)
+FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file, subjected to the following [field constraints](#constraints)
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid i.e having extra/missing parameters or the edited field violates any of the above constraints, FriendBook will discard all data and start with an empty data file at the next run.
