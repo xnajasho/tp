@@ -23,15 +23,17 @@ Given below are my contributions to this project.
   * Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
   * Assisted team lead with setting soft deadlines and idea generation
   * Provided the main feedback on pros/cons of implemented features and how to better implement/improve them
-  * Fixed various Command related bugs
+  * Fixed various Command related bugs (PR [\#144](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/144), [\#145](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/145), [\#152](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/152) , [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
 
 * **Enhancements to existing features**:
-  * Fixed bugs which were present in original AB3 which allowed duplicate phone numbers and emails (Pull request [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
+  * Fixed bugs which were present in original AB3 which allowed duplicate phone numbers and emails (PR [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
+  * Fixed bugs which were present in original AB3 which allowed names to contain only numbers (PR [\#167](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/167))
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the feature `view` (Pull request [\#85](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/85/files))
-    * Update command summary table to support newly implemented fields (Pull request [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
+    * Added documentation for the feature `view` (PR [\#85](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/85))
+    * Added field constraints summary (PR [\#174](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/174))
+    * Update command summary table to support newly implemented fields (PR [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
   * Developer Guide:
     * Added Use Case scenarios for various commands (UC4 - UC7)
     * Added sequence diagram for `view` command
