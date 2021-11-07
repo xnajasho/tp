@@ -1,17 +1,17 @@
 ---
 layout: page
-title: FriendBook User Guide
+title: User Guide
 ---
 
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, FriendBook can get your friend management tasks done faster than traditional GUI apps.
 
-Friend Book is mainly targeted for **users with many friends.**
+FriendBook is mainly targeted for **users with many friends.**
 
-Friend Book addresses the question: **How might we provide users with many friends ways to manage their friends’ contacts and remember their friends' birthdays?**
+FriendBook addresses the question: **How might we provide users with many ways to manage their friends’ contacts and remember their friends' birthdays?**
 
 _FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. 
-Additionally, it also helps university students to keep track of social interactions with their friends and  their friends' birthdays._
+Additionally, it also helps users to keep track of social interactions with their friends and  their friends' birthdays._
 
 * Table of Contents
 {:toc}
