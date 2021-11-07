@@ -10,13 +10,19 @@ import static seedu.friendbook.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Names can only contain alphanumeric characters, spaces, hyphens or underscores,"
+            + " subjected to the following constraints:\n"
+            + "1. Names are not allowed to start with numbers\n"
+            + "2. Names cannot consist solely of numbers\n"
+            + "3. Hyphens or underscores MUST be preceded by a character\n"
+            + "4. Consecutive hyphens or underscores are not allowed\n"
+            + "5. Names are not allowed to begin with spaces";
 
     /*
      * The first character of the name must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+    public static final String VALIDATION_REGEX = "^(?!.*--)(?!.*__)[a-zA-Z][a-zA-Z\\d\\s\\_\\-]*";
 
     public final String fullName;
 
