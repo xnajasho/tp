@@ -110,7 +110,7 @@ Format: `help`
 
 Adds a friend to the FriendBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">
 :bulb: **Tip:** A friend can have any number of tags (including 0)
@@ -269,7 +269,7 @@ Items in square brackets are optional.<br>
 
 Action | Format | Examples
 --------|------------|------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/1994-02-15 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/1994-02-15 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
 **Clear** | `clear` | `clear`
 **Delete** | `delete INDEX` | `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com desc/changed description`
