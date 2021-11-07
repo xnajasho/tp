@@ -406,6 +406,27 @@ Extensions
 
 	  Use case ends.
 
+**Use case 9 (UC9): Enable Reminder Notification**
+
+**MSS:**
+
+1. User checks the Enable Notification box
+
+   Use case ends.
+
+
+**MSS:**
+
+1. User specifies a set of keywords.
+2. Friendbook displays a list of person(s) with names matching the keyword(s)
+   Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
 *{More to be added}*
 
 ### Non-Functional Requirements
