@@ -80,7 +80,6 @@ public class CommandTestUtil {
     public static final String INVALID_BIRTHDAY_DESC = " " + PREFIX_BIRTHDAY + "Jun 12 1991"; // not YYYY-MM-DD format
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_TELEHANDLE_DESC = " " + PREFIX_TELEHANDLE + "chut"; // at least 5 letters
-    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "         ";
     public static final String INVALID_REMINDER_DESC = " " + PREFIX_REMINDER + "onoff"; // reminder only on or off
     public static final String INVALID_AVATAR_DESC = " " + PREFIX_AVATAR + "21"; // only 0 - 20 avatars
 
