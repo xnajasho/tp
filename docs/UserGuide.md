@@ -89,13 +89,14 @@ FriendBook allows users to customise their own profile by adding their own name 
 
 **Reminder Feature**
 
-The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
+The reminder feature is a feature designed for users to reminded of their friends' birthdays at an intervals of every 12 hours with a 10 second starting delay on application launch.
+The reminder interval resets with any reminder updated for a friend.
 
 ![Reminder Example](images/ReminderExample.png)
 
 The checkbox under each individual friend labelled 'Enable Notification' allows users to select the birthdays of the friends that they wish to be reminded of.
 
-Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date, and once every twelve hours between a week to the actual birthday of that friend.
+Checking the reminder box sends the user a notification reminding them of that specific friend's birthday within a week or less and notifies every twelve hours before birthday has already past to the following year.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
