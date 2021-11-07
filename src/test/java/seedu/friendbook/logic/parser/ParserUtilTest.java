@@ -167,11 +167,6 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseAddress_invalidValue_throwsParseException() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseAddress(INVALID_ADDRESS));
-    }
-
-    @Test
     public void parseAddress_invalidValueWithFieldsInSquareBrackets_throwsParseException() {
         assertThrows(ParseException.class, () ->
                 ParserUtil.parseAddress(INVALID_ADDRESS_WITH_FIELDS_IN_SQUARE_BRACKETS));

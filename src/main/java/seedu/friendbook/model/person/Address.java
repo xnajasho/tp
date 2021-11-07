@@ -34,7 +34,8 @@ public class Address {
      * Returns true if a given string is a valid email.
      */
     public static boolean isValidAddress(String test) {
-        return test.matches(VALIDATION_REGEX);
+        boolean isValid = test.matches(VALIDATION_REGEX) || test.trim().equals("");
+        return isValid;
     }
 
     @Override
@@ -52,6 +53,13 @@ public class Address {
     @Override
     public int hashCode() {
         return value.hashCode();
+    }
+
+    /**
+     * Returns true if description is empty.
+     */
+    public boolean isEmpty() {
+        return value.isEmpty();
     }
 
 }

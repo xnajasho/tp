@@ -46,9 +46,16 @@ public class JsonFriendBookStorageTest {
 
     @Test
     public void readFriendBook_invalidPersonFriendBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readFriendBook("invalidPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidNameInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidAddressInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidAvatarInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidBirthdayInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidEmailInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidPhoneInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidTagInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidReminderInPersonFriendBook.json"));
+        assertThrows(DataConversionException.class, () -> readFriendBook("invalidTeleHandleInPersonFriendBook.json"));
     }
-
     @Test
     public void readFriendBook_invalidAndValidPersonFriendBook_throwDataConversionException() {
         assertThrows(DataConversionException.class, () -> readFriendBook("invalidAndValidPersonFriendBook.json"));
