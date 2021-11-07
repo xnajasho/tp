@@ -106,7 +106,7 @@ Checking the reminder box sends the users a notification reminding them of that 
 
 **:information_source: Summary of the various constraints for each field:**<br>
 
-The various fields in a contact have differing constraints from one another. Below are the contraints to ensure valid fields are entered correctly. Fields which are left out can have no restrictions on input.
+The various fields in a contact have differing constraints from one another. Below are the contraints to ensure valid fields are entered correctly. Fields which are not mentioned have no restrictions on input.
 
 **Name (Compulsory)**
    * Names can only contain alphanumeric characters/spaces/hyphens/underscores.<br>
