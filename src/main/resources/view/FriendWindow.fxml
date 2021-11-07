@@ -102,7 +102,7 @@
                         <Insets left="20.0" />
                      </VBox.margin>
                   </VBox>
-                  <VBox spacing="5.0">
+                  <VBox spacing="5.0" fx:id="addressContainer">
                      <children>
                         <Label fx:id="addressLabel" maxHeight="1.7976931348623157E308" styleClass="fw-label" text="Address" wrapText="true" />
                         <Label fx:id="address" maxHeight="1.7976931348623157E308" text="xxxxxx" wrapText="true" />

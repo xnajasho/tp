@@ -18,12 +18,12 @@ import seedu.friendbook.storage.JsonUserPrefsStorage;
 import seedu.friendbook.storage.StorageManager;
 
 
-public class BirthdayReminderManagerTest {
+public class ReminderManagerTest {
     @TempDir
     public Path temporaryFolder;
 
     private Model model = new ModelManager();
-    private BirthdayReminder birthdayReminder;
+    private Reminder birthdayReminder;
 
     @BeforeEach
     public void setUp() {
@@ -32,18 +32,18 @@ public class BirthdayReminderManagerTest {
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
         StorageManager storage = new StorageManager(friendBookStorage, userPrefsStorage);
         Logic logic = new LogicManager(model, storage);
-        birthdayReminder = new BirthdayReminderManager(logic.getFilteredPersonListSortedByBirthday());
+        birthdayReminder = new ReminderManager(logic.getFilteredPersonListSortedByBirthday());
     }
 
     @Test
     public void execute_invalidBirthdayList_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new BirthdayReminderManager(null));
+        assertThrows(NullPointerException.class, () -> new ReminderManager(null));
     }
 
     @Test
     public void execute_invalidBirthdayReminderTask_expectNullValue() {
-        BirthdayReminderManager birthdayReminderManager =
-                new BirthdayReminderManager(model.getFilteredPersonListSortedByBirthday());
-        assertNull(birthdayReminderManager.createTask().getValue());
+        ReminderManager reminderManager =
+                new ReminderManager(model.getFilteredPersonListSortedByBirthday());
+        assertNull(reminderManager.createTask().getValue());
     }
 }

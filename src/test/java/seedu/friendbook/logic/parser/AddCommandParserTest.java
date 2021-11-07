@@ -11,7 +11,6 @@ import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_A
 import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_AVATAR_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_BIRTHDAY_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
@@ -47,7 +46,6 @@ import static seedu.friendbook.testutil.TypicalPersons.BOB;
 import org.junit.jupiter.api.Test;
 
 import seedu.friendbook.logic.commands.AddCommand;
-import seedu.friendbook.model.person.Address;
 import seedu.friendbook.model.person.Avatar;
 import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Email;
@@ -207,11 +205,6 @@ public class AddCommandParserTest {
         // missing email prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + VALID_EMAIL_BOB
                         + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB, expectedMessage);
-
-        // missing address prefix
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + VALID_ADDRESS_BOB + BIRTHDAY_DESC_BOB, expectedMessage);
-
         // missing birthday prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                         + VALID_BIRTHDAY_BOB, expectedMessage);
@@ -245,12 +238,6 @@ public class AddCommandParserTest {
                         + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 Email.MESSAGE_CONSTRAINTS);
 
-        // invalid address
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + INVALID_ADDRESS_DESC + BIRTHDAY_DESC_BOB
-                        + DESCRIPTION_DESC_BOB + AVATAR_DESC_BOB + TELEHANDLE_DESC_BOB + REMINDER_DESC_BOB
-                        + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                Address.MESSAGE_CONSTRAINTS);
 
         // invalid birthday
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
@@ -296,8 +283,8 @@ public class AddCommandParserTest {
                 Tag.MESSAGE_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_NAME_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + INVALID_ADDRESS_DESC
+        assertParseFailure(parser, INVALID_NAME_DESC + INVALID_PHONE_DESC + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB
                 + BIRTHDAY_DESC_BOB, Name.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
