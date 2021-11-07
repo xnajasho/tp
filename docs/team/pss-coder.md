@@ -26,7 +26,7 @@ Given below are my contributions to this project.
   * Setting up GitHub team project org/repo
   * Maintaining GitHub issue tracker
 
-* **WIP: Enhancements to existing features**:
+* **Enhancements to existing features**:
   * Updated the GUI color scheme (current follows a blue, yellow, pink theme) (Pull requests [\#69](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/69))
   * Created reminder field for add/edit commands [\#72](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/72)
   * Updated PersonListCard to FriendListCard with Avatar Image [\#64](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/64)
@@ -34,12 +34,15 @@ Given below are my contributions to this project.
   * Implemented new GUI Layout introducing BirthdayListPanel [#49](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/49)
   * Implemented Friend Window UI based on Selected Friend [\#157](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/157)
 
-* **WIP: Documentation**:
+* **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    * Updated FAQ section
+    * Updated Ui Image
   * Developer Guide:
+    * Updated the Architecture section. 
     * Updated UI Component section.
+    * Added in Reminder component section
+    * Added in Reminder Implementation.
 
 * **Community**:
   * All PRs involving UI updates and changes were reviewed by me
