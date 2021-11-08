@@ -121,8 +121,10 @@ How the parsing works:
 The `Model` component,
 
 * stores the friend book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
+	* 2 copies of the `UniquePersonList` containing the exact same `Person` objects are used. The only difference is the ordering of the `Person` objects in each of the lists, where one list functions as a contact list and the other functions as a birthday list which is sorted based on earliest birthday.
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `UserPref` object that represents the user’s preferences, which includes the border sizes of the app and the profile name. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `Reminder` object which is associated to a `Person` object. Note that this `Reminder` is functionally different from the `Reminder` component. The `Reminder` object in the `Model` component is simply a class to store the details of a `Reminder` and to ascertain if a `Person` has his/her `Reminder` enabled.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `FriendBook`, which `Person` references. This allows `FriendBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
