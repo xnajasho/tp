@@ -22,7 +22,7 @@ Additionally, it also helps users to keep track of social interactions, such as 
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
+2. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
@@ -88,11 +88,11 @@ FriendBook allows users to customise their own profile by adding their own name 
 
 An example of a profile with only the necessary information added:
 
-![Minimum Profile Example](images/MinimumProfileExample.png)
+<img src="images/MinimumProfileExample.png" width="200px">
 
 An example of a profile with all the fields filled in:
 
-![Full Profile Example](images/FullProfileExample.png)
+<img src="images/FullProfileExample.png" width="200px">
 
 **Reminder Feature**
 

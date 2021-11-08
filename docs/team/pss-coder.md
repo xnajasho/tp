@@ -14,6 +14,7 @@ Given below are my contributions to this project.
   * What it does: Behind the UI, there is a background thread that periodically checks if a friend birthday is coming in a week or less.
   * Justification: This feature enables the user to get reminded of friends birthday without needing to remember the friends' birthday. The application does it for the user.
   * Highlights: These enhancements requires more knowledge on backgrounds threads and how it packages together with the current codebase.
+  * More information about the reminder implementation can be viewed in the Developer Guide [here](https://ay2122s1-cs2103-f10-3.github.io/tp/DeveloperGuide.html#implementation).
   * Credits: *Implementation idea came from [here](https://edencoding.com/periodic-background-tasks/)*.
 
 * **New Feature**: View Friend Info
@@ -43,14 +44,16 @@ Given below are my contributions to this project.
     * Updated FAQ section
     * Updated Ui Image
   * Developer Guide:
-    * Updated the Architecture section. 
-    * Updated UI Component section.
+    * Updated the Architecture section
+    * Updated UI Component section
+    * Updated Documentation, logging, testing, configuration, dev-ops pages
     * Added in Reminder component section
-    * Added in Reminder Implementation.
+    * Added in Reminder Implementation
+    * Finalised User stories and use cases
 
 * **Community**:
-  * All PRs involving UI updates and changes were reviewed by me
-  * Contributed to forum discussions: 25 posts (examples: [1](https://github.com/nus-cs2103-AY2122S1/forum/issues/105), [2](https://github.com/nus-cs2103-AY2122S1/forum/issues/188), [3](https://github.com/nus-cs2103-AY2122S1/forum/issues/309), [4](https://github.com/nus-cs2103-AY2122S1/forum/issues/314))
+  * PRs involving changes to tP codebase were reviewed by me.
+  * Contributed to forum discussions: >25 posts (examples: [1](https://github.com/nus-cs2103-AY2122S1/forum/issues/105), [2](https://github.com/nus-cs2103-AY2122S1/forum/issues/188), [3](https://github.com/nus-cs2103-AY2122S1/forum/issues/309), [4](https://github.com/nus-cs2103-AY2122S1/forum/issues/314))
   * Reported bugs and suggestions for other teams in the class which can be viewed [here](https://github.com/pss-coder/ped/issues).
 
 * **Tools**:
