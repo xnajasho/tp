@@ -22,7 +22,7 @@ title: Documentation guide
 
 **Diagrams:**
 
-* See the [_[se-edu/guides] **Using PlantUML**_](https://se-education.org/guides/tutorials/plantUml.html)
+* See the [**diagrams.net**](https://www.diagrams.net/)
 
 **Converting a document to the PDF format:**
 
