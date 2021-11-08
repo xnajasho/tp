@@ -121,8 +121,10 @@ How the parsing works:
 The `Model` component,
 
 * stores the friend book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
+	* 2 copies of the `UniquePersonList` containing the exact same `Person` objects are used. The only difference is the ordering of the `Person` objects in each of the lists, where one list functions as a contact list and the other functions as a birthday list which is sorted based on earliest birthday.
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `UserPref` object that represents the user’s preferences, which includes the border sizes of the app and the profile name. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `Reminder` object which is associated to a `Person` object. Note that this `Reminder` is functionally different from the `Reminder` component. The `Reminder` object in the `Model` component is simply a class to store the details of a `Reminder` and to ascertain if a `Person` has his/her `Reminder` enabled.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `FriendBook`, which `Person` references. This allows `FriendBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
@@ -588,44 +590,83 @@ testers are expected to do more *exploratory* testing.
 ### Launch and shutdown
 
 1. Initial launch
+	
+	1. Download the jar file and copy into an empty folder 
+	
+	2. Double-click the jar file.<br> Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
- 1. Download the jar file and copy into an empty folder
+2. Saving window preferences
+	
+	1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+	
+	2. Re-launch the app by double-clicking the jar file.<br> Expected: The most recent window size and location is retained.
 
- 1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+3. Exiting the app
+	
+	1. User has previously entered commands which would have modified data to be different compared to the data at the start of the current session
+	
+	2. Exit the app either by force terminating it, or entering the command `exit`. <br> Expected: GUI window closes. All changes made are saved to the data file and will reflect the latest modified version upon the next session. User preferences are saved as well.
 
-1. Saving window preferences
 
- 1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
- 1. Re-launch the app by double-clicking the jar file.<br>
-    Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Adding a person
+
+1. Adding a person
+	
+	1. Test case: `add 1` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	2. Test case: `Add 1` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	3. Test case: `add n/James Lim` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	4. Test case: `add n/James lim p/1234567890 e/jameslime@example.com b/1995-05-23` <br> Expected: `James Lim` is added to the list and immediately reflected. Details of the newly added contact is shown in the status message.
+	5. Test case: Enter the command `add n/Markus lim p/99995555 e/marclim@example.com b/1996-06-24` twice. <br> Expected: The 1st command succeeds if the contact to add does not already exist in the list, adding him the the list. The 2nd command fails and error details are shown in the status message.
+
 
 ### Deleting a person
 
 1. Deleting a person while all persons are being shown
+	
+	1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+	
+	2. Test case: `delete 1`<br> Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+	3. Test case: `delete 0`<br> Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+	
+	4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br> Expected: Similar to previous.
 
- 1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+2. Deleting a person based on a previous subquery
+	
+	1. Prerequisites: Find all persons containing the tags `colleagues` using the `findtag colleagues` command. 2 contacts are shown
+	
+	2. Test case: `delete 2`<br> Expected: Second contact containing the `colleagues` tag is deleted from the list. Details of the deleted contact is shown in the status message. Timestamp in the status bar is updated.
 
- 1. Test case: `delete 1`<br>
-    Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
- 1. Test case: `delete 0`<br>
-    Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
- 1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-    Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Editing a person
+
+1. Editing a person while all persons are being shown
+	
+	1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+	
+	2. Test case: `edit 1`<br> Expected: No person is edited. Error details is shown in the status message. Status bar remains the same.
+
+	3. Test case: `edit 1 b/2005/02/12`<br> Expected: No person is edited. Error details is shown in the status message. Status bar remains the same.
+	
+	4. Test case: `edit 1 t/` <br> Expected: 1st person in the list is edited. All tags will of the first person will be removed and GUI will immediately reflect it. Details of the edited contact is shown in the status message.
+	
+	5. Test case: Enter `edit 2 p/88452324`, then `edit 3 p/88452324` <br> Expected: First command will be successful and the 2nd person will be edited. Upon execution of the 2nd command, the 3rd person will not be edited. Error details is shown in the status message pertaining to duplicate phone number. Status bar remains the same.
+	
+	6. Test case: Enter `edit 2 e/example123456@example.com`, then `edit 3 e/example123456@example.com` <br> Expected: First command will be successful and the 2nd person will be edited. Upon execution of the 2nd command, the 3rd person will not be edited. Error details is shown in the status message pertaining to duplicate phone emails. Status bar remains the same.
+
+
+
 
 ### Saving data
 
 1. Dealing with missing/corrupted data files
-
- 1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
+	
+	1. Simulating missing data files: <br> Navigate to the directory the jar file is in and delete the `friendbook.json` file located in the `data` directory. Double-click and relaunch the jar file. <br> Expected: Shows the GUI with a set of sample contacts. Any previously stored contacts will be replaced by the sample contacts.
+	
+	2. Simulating corrupted data files: <br> Navigate to the directory the jar file is in and edit the `friendbook.json` file located in the `data` directory. Change the name of the first contact to `Alex Yeoh--Bing Xuan` and save the file. Relaunch the jar file. <br> Expected: Shows the GUI with an empty list of contacts. Corrupted data file will not be replaced by an empty data file unless the user types `exit`.
 
 
 ---
