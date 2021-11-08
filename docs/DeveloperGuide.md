@@ -573,7 +573,6 @@ Extensions
 5.  When a user inputs a command, the result should be displayed within 1 second.
 6.  Data should be reusable and transferable between multiple devices
 
-*{More to be added}*
 
 ### Glossary
 
