@@ -22,7 +22,7 @@ title: Documentation guide
 
 **Diagrams:**
 
-* See the [**diagram.net**_](https://www.diagrams.net/)
+* See the [**diagrams.net**](https://www.diagrams.net/)
 
 **Converting a document to the PDF format:**
 
