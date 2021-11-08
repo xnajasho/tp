@@ -245,8 +245,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays and if they are nearing       |  
 | `* *`    | user                                       | add my friend's Telegram ID| contact my friend on telegram    |
 | `* `     | user                                       | add custom avatars to my friends       | to keep track of my friends' ages                                      |
-| `* *`    | user                                       | add descriptions about my friends| personalise my FriendBook experience   |
-| `*`      | user                                       | add my own username              | personalise my FriendBook experience|
+| `*`      | user                                       | add my own username to my profile             | personalise my FriendBook experience|
 | `*`      | forgetful user                             | refer to the usage instructions |familiarise myself with FriendBook usage |
 
 
