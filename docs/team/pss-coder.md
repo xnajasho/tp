@@ -3,7 +3,7 @@ layout: page
 title: Pawandeep Project Portfolio Page
 ---
 
-### Project: Friend Book
+### Project: FriendBook
 
 FriendBook is a desktop application for managing your contact details.
 While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
