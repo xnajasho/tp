@@ -23,7 +23,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The diagrams shown below were made from [diagrams.net](https://www.diagrams.net/).
+:bulb: **Tip:** The diagrams shown below were made from [diagrams.net](https://www.diagrams.net/) and PlantUML.
 </div>
 
 ### Architecture
@@ -100,12 +100,9 @@ How the `Logic` component works:
 1. The command can communicate with the `Model` when it is executed (e.g. to add a person).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
-The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
+The Sequence Diagram (simplified) below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/FriendBookDeleteSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
@@ -177,7 +174,7 @@ Below is a sequence diagram of how the Reminder feature is initialised.
 
 
 The reminder mechanism is facilitated by the [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java).
-It extends to a internal JavaFX java library [`ScheduledService`](https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html),
+It extends to an internal JavaFX java library [`ScheduledService`](https://docs.oracle.com/javase/8/javafx/api/javafx/concurrent/ScheduledService.html),
 which executes tasks in the background without affecting UI thread.
 
 The `ReminderManager.java` executes a task which checks for upcoming birthdays that are coming in a week or less
@@ -195,7 +192,7 @@ interface [`SetRemindExecutor`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob
 in [`ReminderManager.java`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/master/src/main/java/seedu/friendbook/reminder/ReminderManager.java) 
 for every update in the reminder checkbox in `BirthdayCard.java`.
 
-For every change in the reminder checkbox in `BirthdayCard.java`, method in [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62)
+For every change in the reminder checkbox in `BirthdayCard.java`, a method in [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62)
 updates the birthday list which then results in the listener in `ReminderManager` to restart the background task.
 
 If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a popup alert will display
@@ -449,7 +446,6 @@ Extensions
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
 
 --------------------------------------------------------------------------------------------------------------------
 
