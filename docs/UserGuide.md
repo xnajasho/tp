@@ -88,11 +88,11 @@ FriendBook allows users to customise their own profile by adding their own name 
 
 An example of a profile with only the necessary information added:
 
-![Minimum Profile Example](images/MinimumProfileExample.png)
+<img src="images/MinimumProfileExample.png" width="200px">
 
 An example of a profile with all the fields filled in:
 
-![Full Profile Example](images/FullProfileExample.png)
+<img src="images/FullProfileExample.png" width="200px">
 
 **Reminder Feature**
 
