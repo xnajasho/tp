@@ -366,8 +366,8 @@ Extensions
 * 2b: Keywords do not match any of the tags that any of the friends have.
   
     * 2b1: FriendBook displays an empty list.
-  
-    Use case ends.
+      
+      Use case ends.
 
 
 **Use case 6 (UC6): Find friends by name**
@@ -388,8 +388,8 @@ Extensions
 * 2b: Keywords do not match any of the names that any of the friends have.
 
     * 2b1: FriendBook displays an empty list.
-
-  Use case ends.
+      
+      Use case ends.
 
 **Use case 7 (UC7): View friend details**
 
@@ -411,8 +411,8 @@ Extensions
 * 3a. The given index is invalid.
 
     * 3a1. FriendBook shows an error message.
-
-    Use case resumes at step 2.
+      
+      Use case resumes at step 2.
 
 #### Birthday Use Cases
 
@@ -437,7 +437,7 @@ Extensions
   
   * 3a1. FriendBook shows an error message.
     
-  Use case resumes at step 2.
+    Use case resumes at step 2.
 
 **Use case 9 (UC9): View friend's age**
 
@@ -460,7 +460,7 @@ Extensions
 
     * 3a1: FriendBook shows an error message.
 
-    Use case ends.
+      Use case ends.
 
 #### Reminder Use Cases
 
@@ -485,13 +485,13 @@ Extensions
 
     * 3a1. FriendBook keeps the selected friend’s reminder turned on.
   
-  Use case ends.
+      Use case ends.
 
 * 3b: The selected index is invalid.
 
     * 3b1. FriendBook shows an error message.
     
-  Use case resumes at Step 2.
+      Use case resumes at Step 2.
 
 #### Social Interaction Use Cases
 
@@ -516,13 +516,13 @@ Extensions
   
     * 3a1. FriendBook replaces the current Telegram ID with the new Telegram ID input.
     
-  Use case resumes at step 4.
+      Use case resumes at step 4.
 
 * 3b: The selected index is invalid.
 
     * 3b1. FriendBook shows an error message.
 
-  Use case resumes at Step 2.
+      Use case resumes at Step 2.
 
 #### Enhancement Use Cases
 
@@ -547,13 +547,13 @@ Extensions
 
     * 3a1. FriendBook replaces the current avatar with the new avatar input.
 
-  Use case resumes at step 4.
+      Use case resumes at step 4.
 
 * 3b: The selected index is invalid.
 
     * 3b1. FriendBook shows an error message.
 
-  Use case resumes at Step 2.
+      Use case resumes at Step 2.
 
 **Use case 13 (UC13): View help guide**
 
