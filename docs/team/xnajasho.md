@@ -3,9 +3,9 @@ layout: page
 title: Sean's Project Portfolio Page
 ---
 
-### Project: AddressBook Level 3
+### Project: FriendBook
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+FriendBook is a desktop address book application adapted from AddressBook - Level 3. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 15 kLoC.
 
 Given below are my contributions to this project.
 
