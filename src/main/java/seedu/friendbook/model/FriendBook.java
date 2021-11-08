@@ -69,7 +69,7 @@ public class FriendBook implements ReadOnlyFriendBook {
     }
 
     /**
-     * Returns true if a person with the same Phone Number as {@code person} exists in the friend book.
+     * Returns true if a person with the same Phone Number exists in the friend book.
      */
     public boolean hasPhone(Phone phone) {
         requireNonNull(phone);
@@ -77,7 +77,7 @@ public class FriendBook implements ReadOnlyFriendBook {
     }
 
     /**
-     * Returns true if a person with the same Email as {@code person} exists in the friend book.
+     * Returns true if a person with the same Email exists in the friend book.
      */
     public boolean hasEmail(Email email) {
         requireNonNull(email);

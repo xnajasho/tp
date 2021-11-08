@@ -3,26 +3,40 @@ package seedu.friendbook.logic.parser;
 import static seedu.friendbook.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.friendbook.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.AVATAR_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.BIRTHDAY_DESC_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.DESCRIPTION_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_AVATAR_DESC;
+import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_BIRTHDAY_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
+import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_REMINDER_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static seedu.friendbook.logic.commands.CommandTestUtil.INVALID_TELEHANDLE_DESC;
 import static seedu.friendbook.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.PHONE_DESC_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.REMINDER_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
 import static seedu.friendbook.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
+import static seedu.friendbook.logic.commands.CommandTestUtil.TELEHANDLE_DESC_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_AVATAR_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_BIRTHDAY_AMY;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_DESCRIPTION_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_REMINDER_AMY;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.friendbook.logic.commands.CommandTestUtil.VALID_TELEHANDLE_AMY;
 import static seedu.friendbook.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.friendbook.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.friendbook.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -35,13 +49,15 @@ import org.junit.jupiter.api.Test;
 import seedu.friendbook.commons.core.index.Index;
 import seedu.friendbook.logic.commands.EditCommand;
 import seedu.friendbook.logic.commands.EditCommand.EditPersonDescriptor;
+import seedu.friendbook.model.person.Avatar;
+import seedu.friendbook.model.person.Birthday;
 import seedu.friendbook.model.person.Email;
 import seedu.friendbook.model.person.Name;
 import seedu.friendbook.model.person.Phone;
+import seedu.friendbook.model.person.TeleHandle;
+import seedu.friendbook.model.reminder.Reminder;
 import seedu.friendbook.model.tag.Tag;
 import seedu.friendbook.testutil.EditPersonDescriptorBuilder;
-
-//TODO update EditCommandParserTest for Reminders/avatar/description
 
 public class EditCommandParserTest {
 
@@ -85,6 +101,10 @@ public class EditCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
+        assertParseFailure(parser, "1" + INVALID_BIRTHDAY_DESC, Birthday.MESSAGE_CONSTRAINTS); // invalid birthday
+        assertParseFailure(parser, "1" + INVALID_AVATAR_DESC, Avatar.MESSAGE_CONSTRAINTS); // invalid avatar
+        assertParseFailure(parser, "1" + INVALID_TELEHANDLE_DESC, TeleHandle.MESSAGE_CONSTRAINTS); // invalid tele
+        assertParseFailure(parser, "1" + INVALID_REMINDER_DESC, Reminder.MESSAGE_CONSTRAINTS); // invalid reminder
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_AMY, Phone.MESSAGE_CONSTRAINTS);
@@ -108,11 +128,14 @@ public class EditCommandParserTest {
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_PERSON;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
-                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + TAG_DESC_FRIEND;
+                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + TAG_DESC_FRIEND
+                + AVATAR_DESC_AMY + BIRTHDAY_DESC_AMY + DESCRIPTION_DESC_AMY + TELEHANDLE_DESC_AMY + REMINDER_DESC_AMY;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
+                .withAvatar(VALID_AVATAR_AMY).withBirthday(VALID_BIRTHDAY_AMY).withDescription(VALID_DESCRIPTION_AMY)
+                .withTeleHandle(VALID_TELEHANDLE_AMY).withReminder(VALID_REMINDER_AMY).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -160,6 +183,36 @@ public class EditCommandParserTest {
         // tags
         userInput = targetIndex.getOneBased() + TAG_DESC_FRIEND;
         descriptor = new EditPersonDescriptorBuilder().withTags(VALID_TAG_FRIEND).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // birthday
+        userInput = targetIndex.getOneBased() + BIRTHDAY_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withBirthday(VALID_BIRTHDAY_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // avatar
+        userInput = targetIndex.getOneBased() + AVATAR_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withAvatar(VALID_AVATAR_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // description
+        userInput = targetIndex.getOneBased() + DESCRIPTION_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withDescription(VALID_DESCRIPTION_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // TeleHandle
+        userInput = targetIndex.getOneBased() + TELEHANDLE_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withTeleHandle(VALID_TELEHANDLE_AMY).build();
+        expectedCommand = new EditCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        // reminder
+        userInput = targetIndex.getOneBased() + REMINDER_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withReminder(VALID_REMINDER_AMY).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }

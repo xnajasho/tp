@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * Represents a Person's telegram handle in the friend book.
- * Guarantees: immutable; is valid as declared in {@link #isValidTeleHandle(String)} #TODO add method
+ * Guarantees: immutable; is valid as declared in {@link #isValidTeleHandle(String)}
  */
 
 public class TeleHandle {
