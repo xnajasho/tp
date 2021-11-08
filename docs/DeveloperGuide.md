@@ -615,9 +615,13 @@ testers are expected to do more *exploratory* testing.
 1. Adding a person
 	
 	1. Test case: `add 1` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	
 	2. Test case: `Add 1` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	
 	3. Test case: `add n/James Lim` <br> Expected: No person is added. Error details shown in the status message. Status bar remains the same.
+	
 	4. Test case: `add n/James lim p/1234567890 e/jameslime@example.com b/1995-05-23` <br> Expected: `James Lim` is added to the list and immediately reflected. Details of the newly added contact is shown in the status message.
+	
 	5. Test case: Enter the command `add n/Markus lim p/99995555 e/marclim@example.com b/1996-06-24` twice. <br> Expected: The 1st command succeeds if the contact to add does not already exist in the list, adding him the the list. The 2nd command fails and error details are shown in the status message.
 
 
