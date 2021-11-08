@@ -17,3 +17,4 @@ title: FriendBook
 **Acknowledgements**
 
 * Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* Avatar logos from Figma [here](https://www.figma.com/community/file/898457975261805002).
