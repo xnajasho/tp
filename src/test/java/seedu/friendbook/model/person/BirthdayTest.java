@@ -73,11 +73,11 @@ public class BirthdayTest {
 
     @Test
     public void hasBirthdayPassed() {
-        //TODO will fail once year passes
+
         assertTrue(Birthday.hasBirthdayPassed(LocalDate.of(2021, 9, 22)));
         assertTrue(Birthday.hasBirthdayPassed(LocalDate.of(2021, 10, 31)));
 
-        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2021, 12, 31)));
+        assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2050, 12, 31)));
         assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2099, 2, 13)));
         assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2050, 10, 25)));
         assertFalse(Birthday.hasBirthdayPassed(LocalDate.of(2045, 5, 2)));
@@ -89,7 +89,6 @@ public class BirthdayTest {
         assertEquals("Apr 15 2021", testBirthday.getActualDate());
     }
 
-    //TODO: update group that check will fail once the birthday passes (should we test this)
     @Test
     public void calculateAgeTest() {
         Birthday birthdayPassed = new Birthday("1994-05-20");
@@ -98,7 +97,4 @@ public class BirthdayTest {
         assertEquals(27, birthdayPassed.calculateAge());
         assertEquals(25, birthdayUpcoming.calculateAge());
     }
-
-    //TODO: test for remaining days till birthday
-
 }

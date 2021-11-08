@@ -18,7 +18,7 @@ import seedu.friendbook.model.person.Person;
 /**
  * The main BirthdayReminderManager to run birthday reminder in the background.
  */
-public class BirthdayReminderManager extends ScheduledService<List<Person>> implements BirthdayReminder {
+public class ReminderManager extends ScheduledService<List<Person>> implements Reminder {
 
 
     // reminder service polls every 12 hour starting with a 10second Delay
@@ -26,11 +26,11 @@ public class BirthdayReminderManager extends ScheduledService<List<Person>> impl
     private static final Duration delayDuration = Duration.seconds(10);
 
     private final ObservableList<Person> personList;
-    private final Logger logger = LogsCenter.getLogger(BirthdayReminderManager.class);
+    private final Logger logger = LogsCenter.getLogger(ReminderManager.class);
     /**
      * Constructs a {@code ReminderService} with the given {@code personList}.
      */
-    public BirthdayReminderManager(ObservableList<Person> personList) {
+    public ReminderManager(ObservableList<Person> personList) {
         this.personList = personList;
 
         // restart reminder service for any new addition to personList
@@ -88,7 +88,7 @@ public class BirthdayReminderManager extends ScheduledService<List<Person>> impl
         text.append("\n");
         for (Person friend: reminderList) {
             if (friend.getDaysToRemainingBirthday() == 0) {
-                text.append("\n" + friend.getName().fullName + " is " + friend.getAge() + " years old today");
+                text.append("\n" + friend.getName().fullName + " is " + friend.getAge() + " years old today.");
             } else {
                 text.append("\n"
                         + friend.getName().fullName + " is going to be " + friend.getAge() + " years old soon.");

@@ -4,7 +4,7 @@ package seedu.friendbook.reminder;
 /**
  * The Background Service of the Birthday Reminder.
  */
-public interface BirthdayReminder {
+public interface Reminder {
 
     /**
      * Starts the Birthday Reminder in the background.

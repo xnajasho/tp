@@ -1,17 +1,17 @@
 ---
 layout: page
-title: FriendBook User Guide
+title: User Guide
 ---
 
 FriendBook is a **desktop app for managing your friends and is optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, FriendBook can get your friend management tasks done faster than traditional GUI apps.
 
-Friend Book is mainly targeted for **users with many friends.**
+FriendBook is mainly targeted for **users with many friends.**
 
-Friend Book addresses the question: **How might we provide users with many friends ways to manage their friends’ contacts and remember their friends' birthdays?**
+FriendBook addresses the question: **How might we provide users with many ways to manage their friends’ contacts and remember their friends' birthdays?**
 
 _FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. 
-Additionally, it also helps university students to keep track of social interactions with their friends and  their friends' birthdays._
+Additionally, it also helps users to keep track of social interactions, such as contacting others on Telegram and keeping track of their friends' birthdays to celebrate with them._
 
 * Table of Contents
 {:toc}
@@ -22,8 +22,7 @@ Additionally, it also helps university students to keep track of social interact
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-
-2. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.3).
+2. Download the latest `FriendBook.jar` from [here](https://github.com/AY2122S1-CS2103-F10-3/tp/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your FriendBook.
 
@@ -33,15 +32,15 @@ Additionally, it also helps university students to keep track of social interact
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-* **`list`** : Lists all friends.
+   * **`list`** : Lists all friends.
 
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
+   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1994-03-03` : Adds a friend named `John Doe` to the Friend Book.
 
-* **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
+   * **`delete`**`3` : Deletes the 3rd friend shown in the friend list.
 
-* **`clear`** : Deletes all friends.
+   * **`clear`** : Deletes all friends.
 
-* **`exit`** : Exits the app.
+   * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -73,7 +72,7 @@ Additionally, it also helps university students to keep track of social interact
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 
-**Avatars**
+--------------------------------------------------------------------------------------------------------------------
 
 FriendBook allows for the friends stored to be assigned a custom avatar from 1 of 20 premade avatars for more personality.
 
@@ -81,44 +80,116 @@ To select an avatar, assign the user the avatar based on its number from 1 to 20
 
 ![Avatar Example](images/AvatarExample.png)
 
-An avatar with the number 0 `edit 1 avatar/0` clears the avatar
+An avatar with the number 0 `edit 1 avatar/0` resets the avatar to its default image.
 
 **Custom Profile**
 
 FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
+An example of a profile with only the necessary information added:
+
+<img src="images/MinimumProfileExample.png" width="200px">
+
+An example of a profile with all the fields filled in:
+
+<img src="images/FullProfileExample.png" width="200px">
+
 **Reminder Feature**
 
-The reminder feature is a feature designed for users to reminded of their friends' birthdays at certain intervals.
+The reminder feature is a feature designed for users to reminded of their friends' birthdays at an intervals of every 12 hours with a 10 second starting delay on application launch.
+The reminder interval resets with any reminder updated for a friend.
 
 ![Reminder Example](images/ReminderExample.png)
 
 The checkbox under each individual friend labelled 'Enable Notification' allows users to select the birthdays of the friends that they wish to be reminded of.
 
-Checking the reminder box sends the users a notification reminding them of that specific friend's birthday a week before it reaches their birthday date, and once every twelve hours between a week to the actual birthday of that friend.
+Checking the reminder box sends the user a notification reminding them of that specific friend's birthday within a week or less and notifies every twelve hours before birthday has already past to the following year.
+
+Below is a screenshot of the reminder alert based from the example above.
+![Reminder Example](images/ReminderAlertExample.png)
+
 </div>
 
-### Viewing help : `help`
+--------------------------------------------------------------------------------------------------------------------
 
-Shows a message explaining the basics of each command, and a link to the full user guide.
+## Constraints
 
-![help message](images/newHelpMessage.png)
+<div markdown="block" class="alert alert-info">
 
-Format: `help`
+**:information_source: Summary of the various constraints for each field:**<br>
+
+The various fields in a contact have differing constraints from one another. Below are the contraints to ensure valid fields are entered correctly. Fields which are not mentioned have no restrictions on input.
+
+**Name (Compulsory)**
+   * Names can only contain alphanumeric characters/spaces/hyphens/underscores.<br>
+   
+   * Names are not allowed to start with numbers e.g `123 John`.<br>
+   
+   * Names cannot consist solely of numbers.<br>
+   
+   * Hyphens/Underscores present MUST be preced by a character.<br>
+   
+   * Consecutive hyphens/underscores are not allowed.<br>
+   
+   * Names are not allowed to begin with spaces.<br>
+   
+**Phone (Compulsory)**
+   * Only consists of numbers, and at least 3 digits long.<br>
+   
+   * No two people can have the same phone numbers.<br>
+   
+   
+**Email (Compulsory)**
+   * Emails should be of the format `local-part@domain`.<br>
+  
+      * The local-part should only contain alphanumeric characters and any of these special characters: `+`, `_`, `.`, `-`
+      
+      * The local-part should not start or end with any of the above special characters
+      
+      * The domain name must:
+   
+         * end with a domain label at least 2 characters long e.g  `com`, `net`
+         
+         * have each domain label start and end with an alphanumeric character.
+         
+         * have each domain label separated by periods.
+   
+         * have each domain label consist of alphanumeric characters, separated by hyphens (if any).
+   
+   * No two people can have the same email.<br>
+   
+**Birthday (Compulsory)**
+   * Only `YYYY-MM-DD` format is allowed
+   
+**Avatar**
+   * Only avatar numbers from 0 to 20 are allowed
+      
+**TeleHandle**
+   * Handles are case-insensitive, can contain underscores and digits
+   
+   * Handles must be at least 5 characters long
+   
+   * `@` domain is not required in the input. 
+      
+**Reminder**
+   * Only 2 valid inputs - `on` and `off`. Both are case-insensitive
+</div>
+
 
 ### Adding a Friend: `add`
 
 Adds a friend to the FriendBook.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​`
 
-<div markdown="span" class="alert alert-primary">
-:bulb: **Tip:** A friend can have any number of tags (including 0)
+* Friends can have the same name, but must have different phone numbers, emails and addresses
+
+* A friend can have any number of tags (including 0)
    
-:bulb: **Tip:** The avatar value must only be from 0 to 20
+* The avatar value must only be from 0 to 20
    
-:bulb: **Tip:** The only valid reminder inputs are 'on' and 'off'
-</div>
+* The only valid reminder inputs are 'on' and 'off'
+
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 b/1985-05-13`
@@ -167,9 +238,9 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `John Doe`
 * `find tim john` returns `Tim`, `John Doe`<br>
-  ![findTag FriendBook example](images/findFriendBookExample.png)
+  ![findtag FriendBook example](images/findFriendBookExample.png)
 
-### Locating friends by tag: `findTag`
+### Locating friends by tag: `findtag`
 
 Finds friends whose tags contain any of the given keywords.
 
@@ -183,8 +254,10 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `friends owesMoney` will return all friends with `friends` and `owesMoney` in their tags
 
 Examples:
-* `findTag friends` returns `John Doe` and `Lucas`
-* `findTag owesMoney` returns `Tim` and `Lucas`<br>
+
+Using the given FriendBook below, when using the `findtag` command:
+* `findtag friends` returns `John Doe` and `Lucas`
+* `findtag owesMoney` returns `Tim` and `Lucas`<br>
   ![findTag FriendBook example](images/findTagFriendBookExample.png)
 
 ### Viewing a contact: `view`
@@ -224,6 +297,14 @@ Format: `profile n/NAME`
 Examples:
 * `profile n/John sets the user profile name to John`
 
+### Viewing help : `help`
+
+Shows a message explaining the basics of each command, and a link to the full user guide.
+
+![help message](images/newHelpMessage.png)
+
+Format: `help`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the FriendBook.
@@ -242,10 +323,10 @@ FriendBook data are saved in the hard disk automatically after any command that 
 
 ### Editing the data file
 
-FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file.
+FriendBook data are saved as a JSON file `[JAR file location]/data/friendbook.json`. Advanced users are welcome to update data directly by editing that data file, subjected to the following [field constraints](#constraints)
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, FriendBook will discard all data and start with an empty data file at the next run.
+If your changes to the data file makes its format invalid i.e having extra/missing parameters or the edited field violates any of the above constraints, FriendBook will discard all data and start with an empty data file at the next run.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -269,12 +350,12 @@ Items in square brackets are optional.<br>
 
 Action | Format | Examples
 --------|------------|------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS b/BIRTHDAY [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 b/1994-02-15 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
+**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY [a/ADDRESS] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `add n/James Ho p/22224444 e/jamesho@example.com b/1994-02-15 a/123, Clementi Rd, 1234665 avatar/5 tele/jamesho123 desc/cool friend r/off t/friend t/colleague`
 **Clear** | `clear` | `clear`
 **Delete** | `delete INDEX` | `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com desc/changed description`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`| `find James Jake`
-**FindTag** | `findTag KEYWORD [MORE_KEYWORDS]` | `findTag friends owesMoney`
+**Findtag** | `findtag KEYWORD [MORE_KEYWORDS]` | `findTag friends owesMoney`
 **List** | `list` | `list`
 **Profile** | `profile n/NAME` | `profile n/James Ho`
 **View** | `view INDEX` | `view 2`

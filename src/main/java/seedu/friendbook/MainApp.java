@@ -22,8 +22,8 @@ import seedu.friendbook.model.ReadOnlyFriendBook;
 import seedu.friendbook.model.ReadOnlyUserPrefs;
 import seedu.friendbook.model.UserPrefs;
 import seedu.friendbook.model.util.SampleDataUtil;
-import seedu.friendbook.reminder.BirthdayReminder;
-import seedu.friendbook.reminder.BirthdayReminderManager;
+import seedu.friendbook.reminder.Reminder;
+import seedu.friendbook.reminder.ReminderManager;
 import seedu.friendbook.storage.FriendBookStorage;
 import seedu.friendbook.storage.JsonFriendBookStorage;
 import seedu.friendbook.storage.JsonUserPrefsStorage;
@@ -47,7 +47,7 @@ public class MainApp extends Application {
     protected Storage storage;
     protected Model model;
     protected Config config;
-    private BirthdayReminder birthdayReminder;
+    private Reminder birthdayReminder;
 
     @Override
     public void init() throws Exception {
@@ -71,7 +71,7 @@ public class MainApp extends Application {
 
         ui = new UiManager(logic);
 
-        birthdayReminder = new BirthdayReminderManager(model.getFilteredPersonListSortedByBirthday());
+        birthdayReminder = new ReminderManager(model.getFilteredPersonListSortedByBirthday());
         birthdayReminder.startBirthdayReminder();
     }
 

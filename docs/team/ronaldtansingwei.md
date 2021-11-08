@@ -14,13 +14,13 @@ Given below are my contributions to this project.
   * Justification: This feature improves the product by allowing users to go through their FriendBook and find friends with related tags more easily, grouping them according to these tags.
   * Highlights: The implementation allows finding of multiple groups at once.
   * Credits: Original design was based off the Find Command previously present inside AddressBook - Level 3
-
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
-
+  
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-17&tabOpen=true&tabType=authorship&tabAuthor=RonaldTanSingWei&tabRepo=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
   * Managed releases `v1.2` - `v1.4` (3 releases) on GitHub
+  * Focused on managing documentation and recording the various features and usages of FriendBook
+  * Contributed to ideation of certain features of FriendBook
 
 * **Enhancements to existing features**:
   * Refactor code: Changed the codebase to reflect our software as FriendBook instead of AddressBook
@@ -33,4 +33,6 @@ Given below are my contributions to this project.
   * Developer Guide:
     * Updated the Logic and Parser component to reflect FriendBook's logic component
     * Updated User Stories to reflect the uses that users may want from FriendBook
+    * Updated Use Cases to reflect new use cases for FriendBook
+    * Updated the list of non-functional requirements for FriendBook
     

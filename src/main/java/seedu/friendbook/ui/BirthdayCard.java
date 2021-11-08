@@ -13,7 +13,7 @@ import javafx.scene.shape.Circle;
 import seedu.friendbook.commons.core.LogsCenter;
 import seedu.friendbook.logic.commands.exceptions.CommandException;
 import seedu.friendbook.model.person.Person;
-import seedu.friendbook.reminder.BirthdayReminderManager;
+import seedu.friendbook.reminder.ReminderManager;
 
 /**
  * An UI component that displays information of a {@code Person} Birthday.
@@ -51,17 +51,17 @@ public class BirthdayCard extends UiPart<Region> {
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
     public BirthdayCard(Person person, int displayedIndex,
-                        BirthdayReminderManager.SetRemindExecutor setRemindExecutor) {
+                        ReminderManager.SetRemindExecutor setRemindExecutor) {
         super(FXML);
         this.person = person;
         name.setText(person.getName().fullName);
         age.setText("Currently " + person.getAge() + " Years Old");
         dob.setText(person.getBirthday().getActualDate());
-
-        setBirthdayCircle(person.getDaysToRemainingBirthday());
+        //Birthday
         daysToBirthday.setText(String.valueOf(person.getDaysToRemainingBirthday()));
+        setBirthdayCircle(person.getDaysToRemainingBirthday());
+        //Reminder
         reminderCheckBox.setSelected(person.getReminder().getBooleanValue());
-
         // update person model store in new value for every change in reminder checkbox
         reminderCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             logger.info("Updating reminder to " + newValue + " for " + person.getName().fullName);
