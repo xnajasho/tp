@@ -412,7 +412,7 @@ Extensions
 
     Use case resumes at step 2.
 
-####Birthday Use Cases
+#### Birthday Use Cases
 
 **Use case 8 (UC8): View friends by birthday**
 
