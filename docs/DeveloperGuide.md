@@ -499,8 +499,8 @@ Extensions
 
 1. User requests to list friends.
 2. FriendBook shows the list of friends.
-3. User requests to add the Telegram ID of a specific friend in the list
-4. FriendBook updates the friend's information by adding the Telegram ID
+3. User requests to add the Telegram ID of a specific friend in the list.
+4. FriendBook updates the friend's information by adding the Telegram ID.
 
     Use case ends.
 
