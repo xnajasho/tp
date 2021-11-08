@@ -41,15 +41,15 @@ Given below are my contributions to this project.
 
 * **Documentation**:
   * User Guide:
-    * Updated FAQ section.
-    * Updated Ui Image.
+    * Updated FAQ section
+    * Updated Ui Image
   * Developer Guide:
-    * Updated the Architecture section. 
-    * Updated UI Component section.
-    * Updated Documentation, logging, testing, configuration, dev-ops pages.
-    * Added in Reminder component section.
-    * Added in Reminder Implementation.
-    * Finalised User stories and use cases.
+    * Updated the Architecture section
+    * Updated UI Component section
+    * Updated Documentation, logging, testing, configuration, dev-ops pages
+    * Added in Reminder component section
+    * Added in Reminder Implementation
+    * Finalised User stories and use cases
 
 * **Community**:
   * PRs involving changes to tP codebase were reviewed by me.
