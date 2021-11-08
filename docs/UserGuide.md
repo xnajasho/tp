@@ -11,7 +11,7 @@ FriendBook is mainly targeted for **users with many friends.**
 FriendBook addresses the question: **How might we provide users with many ways to manage their friends’ contacts and remember their friends' birthdays?**
 
 _FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. 
-Additionally, it also helps users to keep track of social interactions with their friends and  their friends' birthdays._
+Additionally, it also helps users to keep track of social interactions, such as contacting others on Telegram and keeping track of their friends' birthdays to celebrate with them._
 
 * Table of Contents
 {:toc}
