@@ -185,11 +185,11 @@ results in the `ReminderManger` class restarting the task to get the latest vers
 listener to the birthday list.
 
 The way the list is updated relies on the `Logic` component and `UI` component.
-In the `BirthdayCard.java`class and `MainWindow` class under `UI` component, which makes use of an functional
+In the `BirthdayCard`class and `MainWindow` class under `UI` component, which makes use of an functional
 interface [`SetRemindExecutor`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/reminder/ReminderManager.java#L122)
-in `ReminderManager.java` class for every update in the reminder checkbox in `BirthdayCard.java`.
+in `ReminderManager` class for every update in the reminder checkbox in `BirthdayCard.java`.
 
-For every change in the reminder checkbox in `BirthdayCard.java` class, [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62) method
+For every change in the reminder checkbox in `BirthdayCard` class, [`LogicManager#executeUpdateReminder(Person, Person)`](https://github.com/AY2122S1-CS2103-F10-3/tp/blob/20bd196ca06820b425556ab4dc57dfcd5924a563/src/main/java/seedu/friendbook/logic/LogicManager.java#L62) method
 updates the birthday list which then results in the listener in the `ReminderManager` class to restart the background task.
 
 If there exists a birthday that is less than a week or less, and user wishes for that birthday to be reminded, a popup alert will display
