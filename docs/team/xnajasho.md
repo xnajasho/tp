@@ -38,7 +38,8 @@ Given below are my contributions to this project.
   * Developer Guide:
     * Added Use Case scenarios for various commands (UC4 - UC7)
     * Updated user stories summary table (PR [\#177](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/177))
-    * Updated and maintained details relevant to the model
+    * Updated and maintained details relevant to the Model Component
+    * Updated Instructions for Manual Testing (PR [\#192](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/192))
 
 * **Community**:
   * Reported bugs and suggestions for other teams in the class ([PED Link](https://github.com/xnajasho/ped/issues))
