@@ -253,60 +253,57 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `FriendBook` and the **Actor** is the `user`, unless specified otherwise)
 
-#### Contacts Feature
+#### Friend Contacts Use Cases
 
-**Use Case 1 (UC1): Add a friend**
+**Use Case 1 (UC1): View all friends**
 
 **MSS**
-1. User requests to list friends.
-2. FriendBook shows the list of friends.
-3. User requests to add a friend with given information.
-4. FriendBook adds the friend and updates the list.
+1. User requests to list all friends.
+2. FriendBook shows the list of friends stored within.
 
     Use case ends.
 
 Extensions
 
-* 3a. The given information is invalid as it does not follow the correct syntax.
+* 2a. The list is empty.
 
-    * 3a1. Friendbook shows an error message.
+    Use case ends.
 
-      Use case resumes at step 2.
-
-* 3b. The user input is already in the list.
-
-	* 3b1. FriendBook informs user that their input is already stored in the list.
-
-	  Use case resumes at step 2.
-
-**Use case 2 (UC2): Delete a person**
+**Use case 2 (UC2): Add a friend**
 
 **MSS**
 
-1.  User requests to list persons.
-2.  FriendBook shows a list of persons.
-3.  User requests to delete a specific person in the list.
-4.  FriendBook deletes the person.
+1.  User requests to list friends.
+2.  FriendBook shows a list of friends.
+3.  User requests to add a friend with the given information.
+4.  FriendBook adds the friend and updates the list
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 3a. The given information is invalid as it does not follow the correct syntax.
 
-  Use case ends.
+    * 3a1. FriendBook shows an error message.
 
-* 3a. The given index is invalid.
+      Use case resumes at step 2.
 
-	* 3a1. FriendBook shows an error message.
- 
-	  Use case resumes at step 2.
+* 3b. The user input is already in the list.
 
-**Use case 3 (UC3): Update a friend description**
+    * 3b1. FriendBook informs user that their input is already stored in the list.
+
+      Use case resumes at step 2.
+
+**Use case 3 (UC3): Edit friend details**
+
+**MSS**
+
 1. User requests to list friends.
 2. FriendBook shows the list of friends.
-3. User requests to update information of a specific friend in the list.
-4. FriendBook deletes the friend and updates the list.
+3. User requests to edit the information of a specific friend in the list.
+4. FriendBook updates the information of the specific friend and displays the new information.
+
+    Use case ends.
 
 **Extensions**
 
@@ -326,14 +323,14 @@ Extensions
 
 	  Use case resumes at step 2.
 
-**Use case 4 (UC4): View a friend**
+**Use case 4 (UC4): Delete a friend**
 
 **MSS**
 
-1. User requests to list friends (UC5 or UC6 or UC7).
-2. FriendBook shows the list of friends based on results of step 1.
-3. User requests to view the complete details of a specified friend in the list.
-4. Friendbook displays the full contact details of the specified person.
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to delete a specific friend in the list.
+4. FriendBook deletes the friend and updates the list.
 
    Use case ends.
 
@@ -345,32 +342,18 @@ Extensions
 
 * 3a. The given index is invalid.
 
-	* 3a1. Friendbook shows an error message.
+	* 3a1. FriendBook shows an error message.
  
 	  Use case resumes at step 2.
 
-**Use case 5 (UC5): View all friends**
-
-**MSS:**
-
-1. User requests to list all friends.
-2. Friendbook shows the list of friends stored within.
-
-   Use case ends.
-
-**Extensions:**
-
-* 2a: List is empty.
-
-  Use case ends.
-
-**Use case 6 (UC6): Find friends**
+**Use case 5 (UC5): Find friends by tag**
 
 **MSS:**
 
 1. User specifies a set of keywords.
-2. Friendbook displays a list of person(s) with names matching the keyword(s)
-  Use case ends.
+2. FriendBook displays a list of person(s) with tags matching the keyword(s).
+
+   Use case ends.
 
 **Extensions:**
 
@@ -378,12 +361,42 @@ Extensions
 
   Use case ends.
 
-**Use case 7 (UC7): Filter friends by tag**
+* 2b: Keywords do not match any of the tags that any of the friends have.
+  
+    * 2b1: FriendBook displays an empty list.
+  
+    Use case ends.
+
+
+**Use case 6 (UC6): Find friends by name**
 
 **MSS:**
 
 1. User specifies a set of keywords.
-2. Friendbook displays a list of person(s) with tags matching the keyword(s).
+2. FriendBook displays a list of person(s) with names matching the keyword(s).
+  
+    Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+* 2b: Keywords do not match any of the names that any of the friends have.
+
+    * 2b1: FriendBook displays an empty list.
+
+  Use case ends.
+
+**Use case 7 (UC7): View friend details**
+
+**MSS:**
+
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to view the complete details of a specified friend in the list.
+4. FriendBook displays the full contact details of the specified person.
 
    Use case ends.
 
@@ -393,35 +406,71 @@ Extensions
 
   Use case ends.
 
-**Use case 8 (UC8): Get friend’s age**
+* 3a. The given index is invalid.
+
+    * 3a1. FriendBook shows an error message.
+
+    Use case resumes at step 2.
+
+####Birthday Use Cases
+
+**Use case 8 (UC8): View friends by birthday**
 
 **MSS:**
 
-1. User requests to view friend’s info (UC4).
-
-	Use case ends.
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to view the birthday of a specified person in the list.
+4. FriendBook displays the birthday of the specified person. 
+   
+    Use case ends.
 
 **Extensions:**
 
-* 1a. The given index is invalid.
+* 2a: List is empty.
+  
+  Use case ends.
+  
+* 3a. The given index is invalid.
+  
+  * 3a1. FriendBook shows an error message.
+    
+  Use case resumes at step 2.
 
-	* 1a1. Friendbook shows an error message.
-
-	  Use case ends.
-
-**Use case 9 (UC9): Enable Reminder Notification**
-
-**MSS:**
-
-1. User checks the Enable Notification box
-
-   Use case ends.
-
+**Use case 9 (UC9): View friend's age**
 
 **MSS:**
 
-1. User specifies a set of keywords.
-2. Friendbook displays a list of person(s) with names matching the keyword(s)
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to view the age of a specified person in the list.
+4. FriendBook displays the age of the specified person.
+
+    Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+* 3a: The given index is invalid.
+
+    * 3a1: FriendBook shows an error message.
+
+    Use case ends.
+
+#### Reminder Use Cases
+
+**Use case 10 (UC10): Set birthday reminder for a friend**
+
+**MSS:**
+
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User sets the birthday reminder of a selected friend to on.
+4. FriendBook updates the reminder for that selected person to on.
+   
    Use case ends.
 
 **Extensions:**
@@ -430,7 +479,88 @@ Extensions
 
   Use case ends.
 
-*{More to be added}*
+* 3a: The selected friend already has the birthday reminder turned on.
+
+    * 3a1. FriendBook keeps the selected friend’s reminder turned on.
+  
+  Use case ends.
+
+* 3b: The selected index is invalid.
+
+    * 3b1. FriendBook shows an error message.
+    
+  Use case resumes at Step 2.
+
+#### Social Interaction Use Cases
+
+**Use case 11 (UC11): Add friend's Telegram ID**
+
+**MSS**
+
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to add the Telegram ID of a specific friend in the list
+4. FriendBook updates the friend's information by adding the Telegram ID
+
+    Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+* 3a: The selected friend already has a Telegram ID.
+  
+    * 3a1. FriendBook replaces the current Telegram ID with the new Telegram ID input.
+    
+  Use case resumes at step 4.
+
+* 3b: The selected index is invalid.
+
+    * 3b1. FriendBook shows an error message.
+
+  Use case resumes at Step 2.
+
+#### Enhancement Use Cases
+
+**Use case 12 (UC12): Add Avatar image for friend**
+
+**MSS**
+
+1. User requests to list friends.
+2. FriendBook shows the list of friends.
+3. User requests to add the avatar for a specific friend in the list.
+4. FriendBook updates the friend's information by adding the avatar.
+
+    Use case ends.
+
+**Extensions:**
+
+* 2a: List is empty.
+
+  Use case ends.
+
+* 3a: The selected friend already has an avatar.
+
+    * 3a1. FriendBook replaces the current avatar with the new avatar input.
+
+  Use case resumes at step 4.
+
+* 3b: The selected index is invalid.
+
+    * 3b1. FriendBook shows an error message.
+
+  Use case resumes at Step 2.
+
+**Use case 13 (UC13): View help guide**
+
+**MSS**
+
+1. User requests to view the help guide.
+2. FriendBook displays the help guide.
+
+    Use case ends.
 
 ### Non-Functional Requirements
 
