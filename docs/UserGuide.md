@@ -238,9 +238,9 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `John Doe`
 * `find tim john` returns `Tim`, `John Doe`<br>
-  ![findTag FriendBook example](images/findFriendBookExample.png)
+  ![findtag FriendBook example](images/findFriendBookExample.png)
 
-### Locating friends by tag: `findTag`
+### Locating friends by tag: `findtag`
 
 Finds friends whose tags contain any of the given keywords.
 
@@ -254,8 +254,10 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `friends owesMoney` will return all friends with `friends` and `owesMoney` in their tags
 
 Examples:
-* `findTag friends` returns `John Doe` and `Lucas`
-* `findTag owesMoney` returns `Tim` and `Lucas`<br>
+
+Using the given FriendBook below, when using the `findtag` command:
+* `findtag friends` returns `John Doe` and `Lucas`
+* `findtag owesMoney` returns `Tim` and `Lucas`<br>
   ![findTag FriendBook example](images/findTagFriendBookExample.png)
 
 ### Viewing a contact: `view`
@@ -353,7 +355,7 @@ Action | Format | Examples
 **Delete** | `delete INDEX` | `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [b/BIRTHDAY] [avatar/AVATAR] [tele/TELEHANDLE] [desc/DESCRIPTION] [r/REMINDER] [t/TAG]…​` | `edit 2 n/James Lee e/jameslee@example.com desc/changed description`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`| `find James Jake`
-**FindTag** | `findTag KEYWORD [MORE_KEYWORDS]` | `findTag friends owesMoney`
+**Findtag** | `findtag KEYWORD [MORE_KEYWORDS]` | `findTag friends owesMoney`
 **List** | `list` | `list`
 **Profile** | `profile n/NAME` | `profile n/James Ho`
 **View** | `view INDEX` | `view 2`
