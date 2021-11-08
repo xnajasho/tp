@@ -12,7 +12,7 @@ title: FriendBook
 
 * If you are interested in using FriendBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
 * If you are interested about developing FriendBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
-* If you would like to see a demo video of our recent release (**v1.3**) as well, click [**here**](https://drive.google.com/file/d/1pv8B4VA2RqWFHw22s6fveB5bnP9Afjti/view?usp=sharing) to see.
+* If you would like to see a demo video of our recent release (**v1.4**) as well, click [**here**](https://drive.google.com/file/d/1Mi7vEL6htqStxipfGBbUHKzwggzFgfZ2/view?usp=sharing) to see.
 
 **Acknowledgements**
 
