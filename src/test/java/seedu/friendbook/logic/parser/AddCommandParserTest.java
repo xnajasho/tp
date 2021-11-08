@@ -238,22 +238,12 @@ public class AddCommandParserTest {
                         + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 Email.MESSAGE_CONSTRAINTS);
 
-
         // invalid birthday
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                         + ADDRESS_DESC_BOB + INVALID_BIRTHDAY_DESC
                         + DESCRIPTION_DESC_BOB + AVATAR_DESC_BOB + TELEHANDLE_DESC_BOB + REMINDER_DESC_BOB
                         + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 Birthday.MESSAGE_CONSTRAINTS);
-
-        // invalid description
-        /*assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB
-                        + INVALID_DESCRIPTION_DESC + AVATAR_DESC_BOB + TELEHANDLE_DESC_BOB + REMINDER_DESC_BOB
-                        + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                Description.MESSAGE_CONSTRAINTS);
-
-         */
 
         // invalid avatar
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
@@ -293,11 +283,5 @@ public class AddCommandParserTest {
                         + ADDRESS_DESC_BOB + BIRTHDAY_DESC_BOB + DESCRIPTION_DESC_BOB + TAG_DESC_HUSBAND
                         + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
-
-
-        // TODO birthday test
-        // TODO description test
-        // TODO tele handle test
-        // TODO reminder test
     }
 }
