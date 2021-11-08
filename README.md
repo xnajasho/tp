@@ -10,7 +10,7 @@
 
 * FriendBook provides a contact management platform for users with many friends to track their friends’ contacts. Additionally, it also helps users to keep track of social interactions with their friends and their friends’ birthdays.
 * For the detailed documentation of this project, see the [FriendBook Product Website](https://ay2122s1-cs2103-f10-3.github.io/tp/).
- * If you would like to see a demo video of our recent release (**v1.4**) as well, click [**here**](https://drive.google.com/file/d/1pv8B4VA2RqWFHw22s6fveB5bnP9Afjti/view?usp=sharing) to see.
+ * If you would like to see a demo video of our recent release (**v1.4**) as well, click [**here**](https://drive.google.com/file/d/1Mi7vEL6htqStxipfGBbUHKzwggzFgfZ2/view?usp=sharing) to see.
 
 ![Ui](docs/images/Ui.png)
 
