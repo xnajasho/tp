@@ -3,9 +3,9 @@ layout: page
 title: Sean's Project Portfolio Page
 ---
 
-### Project: AddressBook Level 3
+### Project: FriendBook
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+FriendBook is a desktop address book application adapted from AddressBook - Level 3. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 15 kLoC.
 
 Given below are my contributions to this project.
 
@@ -24,22 +24,23 @@ Given below are my contributions to this project.
   * Assisted team lead with setting soft deadlines and idea generation
   * Maintained GitHub issue tracker
   * Provided the main feedback on pros/cons of implemented features and how to better implement/improve them
-  * Fixed various Command related bugs (PR [\#144](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/144), [\#145](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/145), [\#152](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/152) , [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
+  * Created test data for various components
+  * Fixed various Command related bugs ([\#144](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/144), [\#145](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/145), [\#152](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/152) , [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
 
 * **Enhancements to existing features**:
-  * Fixed bugs which were present in original AB3 which allowed duplicate phone numbers and emails (PR [\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
-  * Fixed bugs which were present in original AB3 which allowed names to contain only numbers (PR [\#167](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/167))
+  * Fixed bugs which were present in original AB3 which allowed duplicate phone numbers and emails ([\#156](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/156))
+  * Fixed bugs which were present in original AB3 which allowed names to contain only numbers ([\#167](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/167))
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the feature `view` (PR [\#85](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/85))
-    * Added field constraints summary (PR [\#174](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/174))
-    * Update command summary table to support newly implemented fields (PR [\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
+    * Added documentation for the feature `view` ([\#85](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/85))
+    * Added field constraints summary ([\#174](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/174))
+    * Update command summary table to support newly implemented fields ([\#92](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/92/files))
   * Developer Guide:
     * Added Use Case scenarios for various commands (UC4 - UC7)
-    * Updated user stories summary table (PR [\#177](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/177))
+    * Updated user stories summary table ([\#177](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/177))
     * Updated and maintained details relevant to the Model Component
-    * Updated Instructions for Manual Testing (PR [\#192](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/192))
+    * Updated Instructions for Manual Testing ([\#192](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/192))
 
 * **Community**:
   * Reported bugs and suggestions for other teams in the class ([PED Link](https://github.com/xnajasho/ped/issues))
