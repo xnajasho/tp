@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/AY2122S1-CS2103-F10-3/tp/branch/master/graph/badge.svg?token=FYK9IG36EO)](https://codecov.io/gh/AY2122S1-CS2103-F10-3/tp)
 
 
-## Friend Book
+## FriendBook
 
 * Ideal for users with many friends.
 

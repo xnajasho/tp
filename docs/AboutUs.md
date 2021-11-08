@@ -3,7 +3,7 @@ layout: page
 title: About Us
 ---
 
-We are the team behind Friend Book.
+We are the team behind FriendBook.
 
 ## Project team
 
