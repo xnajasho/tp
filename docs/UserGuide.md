@@ -86,6 +86,14 @@ An avatar with the number 0 `edit 1 avatar/0` resets the avatar to its default i
 
 FriendBook allows users to customise their own profile by adding their own name to the FriendBook. Their name would then be recorded at the top, beside the welcome statement
 
+<img src="images/PersonalProfile.png" width="200px">
+
+A user who has set their profile to FriendBookUser.
+
+**Friend Windows**
+
+Users can view the windows of their friends using the `view` command
+
 An example of a profile with only the necessary information added:
 
 <img src="images/MinimumProfileExample.png" width="200px">
