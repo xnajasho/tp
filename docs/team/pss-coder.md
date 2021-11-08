@@ -20,7 +20,6 @@ Given below are my contributions to this project.
 * **New Feature**: View Friend Info
   * What it does: Under the friend list, user can choose to double click a selected friend to display more information regarding selected friend.
   * Justification: There is `view` command to view more info of a selected friend but tying together with the UI would provide the user a more cohesive experience.
-  * Credits: *Implementation idea came from [here](https://edencoding.com/periodic-background-tasks/)*.
   
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=pss-coder&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-17&tabOpen=true&tabType=zoom&zA=pss-coder&zR=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&zACS=229.35809328849248&zS=2021-09-17&zFS=&zU=2021-11-03&zMG=false&zFTF=commit&zFGS=groupByRepos&zFR=false&tabAuthor=pss-coder&tabRepo=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
 
