@@ -29,6 +29,7 @@ Given below are my contributions to this project.
   * In charge of weekly team project deadline and deliverables
   * Setting up GitHub team project org/repo
   * Maintaining GitHub issue tracker
+  * Created Product Demo Video
 
 * **Enhancements to existing features**:
   * Updated the GUI color scheme (current follows a blue, yellow, pink theme) (Pull requests [\#69](https://github.com/AY2122S1-CS2103-F10-3/tp/pull/69))
