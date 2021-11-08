@@ -17,8 +17,6 @@ public class Avatar {
     /*
      * Only alphanumeric and underscores allowed.
      */
-    //TODO confirm this validation regex
-    //public static final String VALIDATION_REGEX = "^([0-9]|1[0-9]|20)$";
     public static final String VALIDATION_REGEX = "/^[0-9]$|^[0-9]$|^1[0-9]$|^20$|^0$/";
 
     public static final String DEFAULT_AVATAR = "0";
@@ -32,9 +30,9 @@ public class Avatar {
     public final String value;
 
     /**
-     * Constructs a {@code Picture}.
+     * Constructs an {@code Avatar}.
      *
-     * @param avatar A valid avatar.
+     * @param avatar A valid avatar number.
      */
     public Avatar(String avatar) {
         requireNonNull(avatar);
@@ -43,7 +41,7 @@ public class Avatar {
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid avatar.
      */
     public static boolean isValidAvatar(String test) {
         return test.matches(VALIDATION_REGEX) || test.trim().equals("");

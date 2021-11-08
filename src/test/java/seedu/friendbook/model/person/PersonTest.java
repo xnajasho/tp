@@ -29,7 +29,6 @@ public class PersonTest {
         assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
     }
 
-    //TODO: update team again that check will fail once birthday passes (but coverage needs test)
     @Test
     public void checkAge() {
         assertEquals(26, ALICE.getAge());

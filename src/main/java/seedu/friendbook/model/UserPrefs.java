@@ -58,10 +58,12 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         requireNonNull(friendBookFilePath);
         this.friendBookFilePath = friendBookFilePath;
     }
+
     public void setUsername(Name username) {
         requireNonNull(username);
         this.username = username;
     }
+
     public Name getUsername() {
         return this.username;
     }
