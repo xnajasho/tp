@@ -3,44 +3,46 @@ layout: page
 title: Sajal's Project Portfolio Page
 ---
 
-### Project: AddressBook Level 3
+### Project: FriendBook
 
-AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
+FriendBook is a desktop application for managing your contact details.
+While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
 
 Given below are my contributions to this project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+* **New Feature**: Friend's Description
+  * What it does: The feature allows the user to add a description for a friend in FriendBook
+  * Justification: Enhances the usability of the app by imporving the user experience
+  * Highlights: The changes required thorough understanding of the codebase and OOP and SE principles to ensure a smooth implementation. Especially because this field was optional, I had to pick the most maintainable and extensible solution for an optional field.
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Friend's Telegram Handle
+  * What it does: The feature allows the user to add a friend's telegram handle to FriendBook
+  * Justification: Enhances the usability of the app as user can link to other common social apps
+  * Highlights: The changes required thorough understanding of the codebase and OOP and SE principles to ensure a smooth implementation.
 
-* **Code contributed**: [RepoSense link]()
+* **New Feature**: Username command
+  * What it does: The feature allows the user set a username for themselves 
+  * Justification: Personalizes the app to the user and improves user experience
+
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s1.github.io/tp-dashboard/?search=sajalvaishnav&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2021-09-17&tabOpen=true&tabType=zoom&zA=sajalvaishnav&zR=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&zACS=229.35809328849248&zS=2021-09-17&zFS=&zU=2021-11-03&zMG=false&zFTF=commit&zFGS=groupByRepos&zFR=false&tabAuthor=sajalvaishnav&tabRepo=AY2122S1-CS2103-F10-3%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+  * In charge of the Storage component
+  * Assisted with reviewing code and architecture decisions
 
 * **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
-
+  * Made the Address field optional when adding a friend 
+  
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
-    * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
-  * Developer Guide:
-    * Added implementation details of the `delete` feature.
+    * Worked on the User Guide's first release
+    * Helped with ideation and discussions for further improvements
+  * Developer Guide
+    * Participated in discussion and ideation for the guide
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
+  * Informally reviewed code written by fellow team members and discussed possible alternatives.
+  * Reported bugs and suggestions for other teams in the class 
 
-* **Tools**:
-  * Integrated a third party library (Natty) to the project ([\#42]())
-  * Integrated a new Github plugin (CircleCI) to the team repo
 
-* _{you can add/remove categories in the list above}_
+  
