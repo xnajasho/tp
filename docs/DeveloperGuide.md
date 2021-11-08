@@ -234,21 +234,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
 | -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* * *`  | user                                       | add my friends' birthdays      | know my friend's birthday and age                                      |
-| `* * *`  | user                                       | edit my friends' details       | update my friends' details when they change their personal information |
+| `* * *`  | user                                       |view all my friends             | look at the friends i have         |
+| `* * *`  | user                                       | add a new person               | keep in contact with the friend                                       |
+| `* * *`  | user                                       | edit my friend's details              | update my friend's details                                  |
+| `*`      | user                                       | delete a friend       | remove him from my contacts |
+| `* *`    | user                                       | find friends by tags     | find my friends belonging to certain groups                        |
+| `* *`    | user                                       | find friends by name     | filter friends and find friends |
 | `* * *`  | user                                       | view my friends' details       | retrieve my friend's details whenever I need them                      |
-| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays                               |  
-| `* *  `  | user                                       | create custom profiles for my friends containing their details| personalise my friend contact book      |
-| `* *  `  | user                                       | know my friend's age           | to keep track of my friends' ages                                      |
-| `* *`    | user                                       | add descriptions about my friends| personalise my friend contact book                                   |
-| `* *`    | user                                       | add tags to my friends         | personalise my friend contact book                                     |
-| `* *`    | user                                       | add different platforms to contact friends| know where and how to contact them                          |
-| `* *`    | user                                       | find persons by tags           | locate details of persons with specific tags only                      |
-| `*`      | user                                       | personalise my application with my own name |                                                           |
+| `* * *`  | user                                       | view friends by their birthdays| glance at which friends have their birthdays coming up|
+| `* *`    | user                                       | view my friend's age           | know how old my friend is|
+| `* * *`  | forgetful user                             | be reminded of my friends' birthdays| keep track of my friends' birthdays and if they are nearing       |  
+| `* *`    | user                                       | add my friend's Telegram ID| contact my friend on telegram    |
+| `* `     | user                                       | add custom avatars to my friends       | to keep track of my friends' ages                                      |
+| `* *`    | user                                       | add descriptions about my friends| personalise my FriendBook experience   |
+| `*`      | user                                       | add my own username              | personalise my FriendBook experience|
+| `*`      | forgetful user                             | refer to the usage instructions |familiarise myself with FriendBook usage |
 
 
 ### Use cases
